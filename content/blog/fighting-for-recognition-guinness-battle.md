@@ -5,7 +5,7 @@ date: '2024-03-15'
 author: 'Saloo Chowdhury'
 category: 'Achievements'
 featured: true
-image: '/images/blog/guinness-battle.jpg'
+image: '/images/journey/Saloo-Journey4.jpg'
 tags: ['guinness world records', 'legal battle', 'recognition', 'first circumnavigator', 'justice']
 ---
 

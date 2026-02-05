@@ -19,6 +19,7 @@ interface _GlobalComponents {
   'AmbassadorCarShowcase': typeof import("../../components/AmbassadorCarShowcase.vue").default
   'AppFooter': typeof import("../../components/AppFooter.vue").default
   'AppHeader': typeof import("../../components/AppHeader.vue").default
+  'ArchivalVideo': typeof import("../../components/ArchivalVideo.vue").default
   'BlogCard': typeof import("../../components/BlogCard.vue").default
   'GlobeAnimation': typeof import("../../components/GlobeAnimation.vue").default
   'GlobeParallax': typeof import("../../components/GlobeParallax.vue").default
@@ -100,6 +101,7 @@ interface _GlobalComponents {
   'LazyAmbassadorCarShowcase': LazyComponent<typeof import("../../components/AmbassadorCarShowcase.vue").default>
   'LazyAppFooter': LazyComponent<typeof import("../../components/AppFooter.vue").default>
   'LazyAppHeader': LazyComponent<typeof import("../../components/AppHeader.vue").default>
+  'LazyArchivalVideo': LazyComponent<typeof import("../../components/ArchivalVideo.vue").default>
   'LazyBlogCard': LazyComponent<typeof import("../../components/BlogCard.vue").default>
   'LazyGlobeAnimation': LazyComponent<typeof import("../../components/GlobeAnimation.vue").default>
   'LazyGlobeParallax': LazyComponent<typeof import("../../components/GlobeParallax.vue").default>

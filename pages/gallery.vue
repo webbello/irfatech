@@ -32,7 +32,7 @@
         </div>
 
         <!-- Gallery Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div v-if="activeCategory !== 'videos'" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <div 
             v-for="(image, index) in filteredImages" 
             :key="image.id"
@@ -56,6 +56,18 @@
           </div>
         </div>
 
+        <div v-else class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ArchivalVideo
+            v-for="video in archivalVideoList"
+            :key="video.id"
+            :title="video.title"
+            :year="video.year"
+            :note="video.note"
+            :youtube-id="video.youtubeId"
+            :transcript="video.transcript"
+          />
+        </div>
+
         <!-- Load More -->
         <div v-if="hasMore" class="text-center mt-12">
           <button 
@@ -74,7 +86,7 @@
 
         <!-- Lightbox -->
         <div 
-          v-if="lightboxOpen" 
+          v-if="lightboxOpen && activeCategory !== 'videos'" 
           @click="closeLightbox"
           class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
         >
@@ -126,6 +138,8 @@
 </template>
 
 <script setup>
+import ArchivalVideo from '@/components/ArchivalVideo.vue'
+import { archivalVideos } from '@/config/archivalVideos'
 import { siteConfig } from '~/config/site'
 useSeoMeta({
   title: 'Gallery - Saloo & Neena Chowdhury Photo Collection',
@@ -139,13 +153,16 @@ const currentImageIndex = ref(0)
 const displayCount = ref(20)
 const loading = ref(false)
 
+const archivalVideoList = archivalVideos.gallery
+
 const categories = [
   { id: 'all', name: 'All Photos', icon: 'lucide:image', count: 45 },
   { id: 'journey', name: 'Journey Moments', icon: 'lucide:car', count: 15 },
   { id: 'landscapes', name: 'Landscapes', icon: 'lucide:mountain', count: 12 },
   { id: 'people', name: 'People & Culture', icon: 'lucide:users', count: 8 },
   { id: 'achievements', name: 'Achievements', icon: 'lucide:trophy', count: 6 },
-  { id: 'behind-scenes', name: 'Behind the Scenes', icon: 'lucide:camera', count: 4 }
+  { id: 'behind-scenes', name: 'Behind the Scenes', icon: 'lucide:camera', count: 4 },
+  { id: 'videos', name: 'Videos', icon: 'lucide:video', count: 3 }
 ]
 
 const allImages = [
@@ -207,6 +224,9 @@ const allImages = [
 ]
 
 const filteredImages = computed(() => {
+  if (activeCategory.value === 'videos') {
+    return []
+  }
   let filtered = activeCategory.value === 'all' 
     ? allImages 
     : allImages.filter(img => img.category === activeCategory.value)
@@ -219,7 +239,7 @@ const hasMore = computed(() => {
     ? allImages.length 
     : allImages.filter(img => img.category === activeCategory.value).length
   
-  return displayCount.value < totalFiltered
+  return activeCategory.value !== 'videos' && displayCount.value < totalFiltered
 })
 
 const currentImage = computed(() => {

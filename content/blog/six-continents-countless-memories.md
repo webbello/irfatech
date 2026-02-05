@@ -5,7 +5,7 @@ date: '2024-02-20'
 author: 'Neena Chowdhury'
 category: 'Travel Stories'
 featured: false
-image: '/images/blog/six-continents.jpg'
+image: '/images/journey/Saloo-Journey7.jpg'
 tags: ['continents', 'geography', 'travel', 'world tour', 'adventure']
 ---
 
