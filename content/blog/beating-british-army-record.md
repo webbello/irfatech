@@ -5,7 +5,7 @@ date: '2024-03-05'
 author: 'Saloo Chowdhury'
 category: 'Journey Stories'
 featured: true
-image: '/images/gallery/Scan10.jpg'
+image: '/images/journey/Saloo-Journey2.jpg'
 tags: ['1991', 'british army', 'record breaking', 'military', 'competition']
 ---
 
@@ -18,6 +18,14 @@ In 1991, we faced our greatest challenge yet - not just circumnavigating the glo
 The British Army had set a formidable benchmark. Their team was well-funded, had military precision, extensive support networks, and years of tactical planning. They were professionals trained for exactly this kind of operation.
 
 We were two adventurers from Kolkata with a dream, a reliable car, and an unshakeable belief in ourselves.
+
+<ArchivalVideo
+  title="1991 British Army Record (Archival Highlights)"
+  year="1991"
+  note="Short highlight reel from the 1991 record run."
+  transcript="Transcript coming soon. Key moments from the British Army record challenge."
+  youtube-id="VIDEO_ID_HERE"
+/>
 
 ## The Pressure
 

@@ -5,7 +5,7 @@ date: '2024-01-28'
 author: 'Saloo & Neena Chowdhury'
 category: 'Personal Stories'
 featured: false
-image: '/images/blog/partnership.jpg'
+image: '/images/journey/Saloo-Journey6.jpg'
 tags: ['partnership', 'teamwork', 'marriage', 'adventure', 'support']
 ---
 

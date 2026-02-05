@@ -19,6 +19,7 @@ export const AmbassadorCarAnimation: typeof import("../components/AmbassadorCarA
 export const AmbassadorCarShowcase: typeof import("../components/AmbassadorCarShowcase.vue").default
 export const AppFooter: typeof import("../components/AppFooter.vue").default
 export const AppHeader: typeof import("../components/AppHeader.vue").default
+export const ArchivalVideo: typeof import("../components/ArchivalVideo.vue").default
 export const BlogCard: typeof import("../components/BlogCard.vue").default
 export const GlobeAnimation: typeof import("../components/GlobeAnimation.vue").default
 export const GlobeParallax: typeof import("../components/GlobeParallax.vue").default
@@ -100,6 +101,7 @@ export const LazyAmbassadorCarAnimation: LazyComponent<typeof import("../compone
 export const LazyAmbassadorCarShowcase: LazyComponent<typeof import("../components/AmbassadorCarShowcase.vue").default>
 export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter.vue").default>
 export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue").default>
+export const LazyArchivalVideo: LazyComponent<typeof import("../components/ArchivalVideo.vue").default>
 export const LazyBlogCard: LazyComponent<typeof import("../components/BlogCard.vue").default>
 export const LazyGlobeAnimation: LazyComponent<typeof import("../components/GlobeAnimation.vue").default>
 export const LazyGlobeParallax: LazyComponent<typeof import("../components/GlobeParallax.vue").default>
