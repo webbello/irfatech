@@ -41,12 +41,13 @@ export default defineNuxtConfig({
         { name: 'author', content: 'Saloo & Neena Chowdhury' },
         { name: 'robots', content: 'index, follow' },
         { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: 'https://salooneenachoudhury.com/images/gallery/og-image.jpg' },
         { property: 'og:site_name', content: 'Saloo & Neena Chowdhury' },
         { name: 'twitter:creator', content: '@SalooNeena' },
         { name: 'theme-color', content: '#3b82f6' }
       ],
       link: [
-        { rel: 'canonical', href: 'https://saloo-neena.com' },
+        { rel: 'canonical', href: 'https://salooneenachoudhury.com' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ],
       script: [
@@ -62,7 +63,7 @@ export default defineNuxtConfig({
             "name": "Saloo Chowdhury",
             "alternateName": "Neena Chowdhury",
             "description": "World Record Holders - First and fastest circumnavigators of the globe by car",
-            "url": "https://saloo-neena.com",
+            "url": "https://salooneenachoudhury.com",
             "sameAs": [
               "https://www.guinnessworldrecords.com"
             ],

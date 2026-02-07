@@ -5,7 +5,7 @@ date: '2024-01-05'
 author: 'Neena Chowdhury'
 category: 'Adventures'
 featured: false
-image: '/images/blog/australia-adventure.jpg'
+image: '/images/journey/Saloo-Journey8.jpg'
 tags: ['australia', 'wildlife', 'adventure', 'outback']
 ---
 

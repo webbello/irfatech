@@ -5,7 +5,7 @@ date: '2024-01-20'
 author: 'Saloo Chowdhury'
 category: 'Technical Stories'
 featured: false
-image: '/images/blog/our-car.jpg'
+image: '/images/journey/Saloo-Journey9.jpg'
 tags: ['car', 'vehicle', 'technical', 'reliability', 'engineering']
 ---
 

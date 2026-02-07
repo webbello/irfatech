@@ -78,6 +78,16 @@
               20 hours, 15 minutes — 3 hours and 45 minutes less than the time taken by the army.
             </p>
           </div>
+
+          <div class="mt-10">
+            <ArchivalVideo
+              :title="archivalVideos.aboutJourney.title"
+              :year="archivalVideos.aboutJourney.year"
+              :note="archivalVideos.aboutJourney.note"
+              :youtube-id="archivalVideos.aboutJourney.youtubeId"
+              :transcript="archivalVideos.aboutJourney.transcript"
+            />
+          </div>
         </div>
 
         <!-- Legal Battle -->
@@ -126,6 +136,9 @@
 </template>
 
 <script setup>
+import ArchivalVideo from '@/components/ArchivalVideo.vue'
+import { archivalVideos } from '@/config/archivalVideos'
+
 useSeoMeta({
   title: 'About Saloo & Neena Chowdhury - World Record Circumnavigators',
   description: 'Learn about the pioneering couple from Kolkata who became the first and fastest circumnavigators of the globe by car, covering six continents and breaking world records.',

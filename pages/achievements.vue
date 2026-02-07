@@ -35,6 +35,16 @@
               </div>
             </div>
           </div>
+
+          <div class="mt-10">
+            <ArchivalVideo
+              :title="archivalVideos.achievements.title"
+              :year="archivalVideos.achievements.year"
+              :note="archivalVideos.achievements.note"
+              :youtube-id="archivalVideos.achievements.youtubeId"
+              :transcript="archivalVideos.achievements.transcript"
+            />
+          </div>
         </div>
 
         <!-- Achievement Categories -->
@@ -101,6 +111,9 @@
 </template>
 
 <script setup>
+import ArchivalVideo from '@/components/ArchivalVideo.vue'
+import { archivalVideos } from '@/config/archivalVideos'
+
 useSeoMeta({
   title: 'Achievements - Saloo & Neena Chowdhury World Records',
   description: 'Discover the remarkable achievements and Guinness World Records set by Saloo & Neena Chowdhury in motor rallying and circumnavigation.',
@@ -110,7 +123,7 @@ useSeoMeta({
 const achievements = [
   {
     id: 1,
-    title: 'First Circumnavigators',
+    title: 'First & Fastest Circumnavigators',
     description: 'First man and woman to circumnavigate the globe by car covering six continents',
     icon: 'lucide:globe',
     color: 'blue',

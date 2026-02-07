@@ -28,7 +28,7 @@
               :alt="data.title"
               class="w-full h-96 object-cover"
             />
-            <div class="absolute inset-0 bg-black bg-opacity-10"></div>
+            <div class="absolute inset-0"></div>
           </div>
           
           <!-- Tags -->

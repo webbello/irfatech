@@ -3,7 +3,7 @@
     <!-- Road Animation -->
     <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
       <!-- Road -->
-      <path 
+      <!-- <path 
         d="M0 400 Q300 350 600 400 T1200 400" 
         stroke="#e5e7eb" 
         stroke-width="80" 
@@ -17,7 +17,7 @@
         fill="none" 
         stroke-dasharray="20,20"
         class="road-center-line"
-      />
+      /> -->
       
       <!-- Ambassador Car SVG -->
       <g class="ambassador-car" transform="translate(100, 350)">

@@ -10,7 +10,7 @@
         <g class="ambassador-showcase">
           <!-- Replace SVG car with actual image -->
           <foreignObject x="60" y="100" width="280" height="120">
-            <img src="/cars/Ambassador1.png" alt="Ambassador Car" style="width: 100%; height: 100%; object-fit: contain;" />
+            <img src="/cars/contessa.png" alt="Ambassador Car" style="width: 100%; height: 100%; object-fit: contain;" />
           </foreignObject>
         </g>
         

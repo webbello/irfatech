@@ -19,12 +19,21 @@ interface _GlobalComponents {
   'AmbassadorCarShowcase': typeof import("../../components/AmbassadorCarShowcase.vue").default
   'AppFooter': typeof import("../../components/AppFooter.vue").default
   'AppHeader': typeof import("../../components/AppHeader.vue").default
+  'ArchivalVideo': typeof import("../../components/ArchivalVideo.vue").default
   'BlogCard': typeof import("../../components/BlogCard.vue").default
   'GlobeAnimation': typeof import("../../components/GlobeAnimation.vue").default
   'GlobeParallax': typeof import("../../components/GlobeParallax.vue").default
   'JourneyCard': typeof import("../../components/JourneyCard.vue").default
   'SocialShare': typeof import("../../components/SocialShare.vue").default
   'TimelineEvent': typeof import("../../components/TimelineEvent.vue").default
+  'SectionsAboutSaloo': typeof import("../../components/sections/AboutSaloo.vue").default
+  'SectionsAmbassadorCar': typeof import("../../components/sections/AmbassadorCar.vue").default
+  'SectionsChoudhuryTrophy': typeof import("../../components/sections/ChoudhuryTrophy.vue").default
+  'SectionsContessaClassicCar': typeof import("../../components/sections/ContessaClassicCar.vue").default
+  'SectionsGalleryPreview': typeof import("../../components/sections/GalleryPreview.vue").default
+  'SectionsGuinnessWorldRecords': typeof import("../../components/sections/GuinnessWorldRecords.vue").default
+  'SectionsHeroSection': typeof import("../../components/sections/HeroSection.vue").default
+  'SectionsTimelineTeaser': typeof import("../../components/sections/TimelineTeaser.vue").default
   'ContentDoc': typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue").default
   'ContentList': typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue").default
   'ContentNavigation': typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentNavigation.vue").default
@@ -92,12 +101,21 @@ interface _GlobalComponents {
   'LazyAmbassadorCarShowcase': LazyComponent<typeof import("../../components/AmbassadorCarShowcase.vue").default>
   'LazyAppFooter': LazyComponent<typeof import("../../components/AppFooter.vue").default>
   'LazyAppHeader': LazyComponent<typeof import("../../components/AppHeader.vue").default>
+  'LazyArchivalVideo': LazyComponent<typeof import("../../components/ArchivalVideo.vue").default>
   'LazyBlogCard': LazyComponent<typeof import("../../components/BlogCard.vue").default>
   'LazyGlobeAnimation': LazyComponent<typeof import("../../components/GlobeAnimation.vue").default>
   'LazyGlobeParallax': LazyComponent<typeof import("../../components/GlobeParallax.vue").default>
   'LazyJourneyCard': LazyComponent<typeof import("../../components/JourneyCard.vue").default>
   'LazySocialShare': LazyComponent<typeof import("../../components/SocialShare.vue").default>
   'LazyTimelineEvent': LazyComponent<typeof import("../../components/TimelineEvent.vue").default>
+  'LazySectionsAboutSaloo': LazyComponent<typeof import("../../components/sections/AboutSaloo.vue").default>
+  'LazySectionsAmbassadorCar': LazyComponent<typeof import("../../components/sections/AmbassadorCar.vue").default>
+  'LazySectionsChoudhuryTrophy': LazyComponent<typeof import("../../components/sections/ChoudhuryTrophy.vue").default>
+  'LazySectionsContessaClassicCar': LazyComponent<typeof import("../../components/sections/ContessaClassicCar.vue").default>
+  'LazySectionsGalleryPreview': LazyComponent<typeof import("../../components/sections/GalleryPreview.vue").default>
+  'LazySectionsGuinnessWorldRecords': LazyComponent<typeof import("../../components/sections/GuinnessWorldRecords.vue").default>
+  'LazySectionsHeroSection': LazyComponent<typeof import("../../components/sections/HeroSection.vue").default>
+  'LazySectionsTimelineTeaser': LazyComponent<typeof import("../../components/sections/TimelineTeaser.vue").default>
   'LazyContentDoc': LazyComponent<typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentDoc.vue").default>
   'LazyContentList': LazyComponent<typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentList.vue").default>
   'LazyContentNavigation': LazyComponent<typeof import("../../node_modules/@nuxt/content/dist/runtime/components/ContentNavigation.vue").default>

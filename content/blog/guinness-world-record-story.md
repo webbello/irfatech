@@ -5,7 +5,7 @@ date: '2024-02-10'
 author: 'Neena Chowdhury'
 category: 'Achievements'
 featured: true
-image: '/images/blog/guinness-record.jpg'
+image: '/images/journey/Saloo-Journey5.jpg'
 tags: ['guinness world record', 'kolkata', 'circumnavigation', 'achievement']
 ---
 

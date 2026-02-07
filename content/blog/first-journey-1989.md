@@ -5,13 +5,21 @@ date: '2024-01-15'
 author: 'Saloo Chowdhury'
 category: 'Journey Stories'
 featured: true
-image: '/images/blog/first-journey.jpg'
+image: '/images/journey/Saloo-Journey1.jpg'
 tags: ['circumnavigation', 'world record', '1989', 'adventure']
 ---
 
 # The First Journey: Breaking New Ground
 
 In 1989, Neena and I embarked on what would become a historic journey - the first circumnavigation of the globe by car covering six continents. What started as an ambitious dream became a reality that would change our lives forever.
+
+<ArchivalVideo
+  title="1989 First Journey (Archival Highlights)"
+  year="1989"
+  note="Short VGA-era highlight reel from the original journey footage."
+  transcript="Transcript coming soon. Highlights from the first global car circumnavigation."
+  youtube-id="VIDEO_ID_HERE"
+/>
 
 ## The Beginning
 

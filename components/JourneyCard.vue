@@ -8,7 +8,7 @@
         class="w-full h-full object-cover"
         loading="lazy"
       />
-      <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30"></div>
       <div class="absolute top-4 right-4">
         <span class="bg-white bg-opacity-90 px-2 py-1 rounded text-sm font-medium">
           {{ journey.duration }}

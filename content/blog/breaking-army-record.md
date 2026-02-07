@@ -5,7 +5,7 @@ date: '2024-01-10'
 author: 'Neena Chowdhury'
 category: 'World Records'
 featured: true
-image: '/images/blog/record-breaking.jpg'
+image: '/images/journey/Saloo-Journey3.jpg'
 tags: ['world record', '1991', 'british army', 'determination']
 ---
 

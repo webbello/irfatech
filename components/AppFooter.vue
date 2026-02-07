@@ -50,7 +50,7 @@
       </div>
       
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-        <p>&copy; {{ new Date().getFullYear() }} Saloo & Neena Chowdhury. All rights reserved.</p>
+        <p>&copy; {{ new Date().getFullYear() }} Saloo & Neena Chowdhury. All rights reserved. Developed and designed by pyindia.com.</p>
       </div>
     </div>
   </footer>
