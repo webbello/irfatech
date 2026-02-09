@@ -11,7 +11,7 @@ export const archivalVideos = {
     title: '1991: Record-Breaking Run (Archival)',
     year: '1991',
     note: 'Highlights from the record-setting 1991 circumnavigation.',
-    youtubeId: 'VIDEO_ID_HERE',
+    youtubeId: 'hjNzxaLBHYo',
     transcript:
       'Transcript coming soon. This clip captures the pace, checkpoints, and key moments from the 1991 record run.'
   },
@@ -19,7 +19,7 @@ export const archivalVideos = {
     title: 'The Journey to Glory (Archival Highlights)',
     year: '1989',
     note: 'Captured on VGA-era equipment. Restored as a short highlight reel.',
-    youtubeId: 'VIDEO_ID_HERE',
+    youtubeId: '6hQAYTR95FI',
     transcript:
       'Transcript coming soon. This segment summarizes the first global circuit and the challenges along the way.'
   },
