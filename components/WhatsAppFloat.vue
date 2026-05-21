@@ -18,5 +18,6 @@
 </template>
 
 <script setup>
-const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20need%20help%20with%20my%20business%20digitalization.'
+import { whatsappLinks } from '~/composables/useWhatsApp'
+const whatsappUrl = whatsappLinks.general
 </script>

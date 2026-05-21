@@ -47,7 +47,7 @@
 </template>
 <script setup>
 useSeoMeta({ title: 'Custom Software Development | IRFAtech', description: 'IRFAtech builds custom dashboards, portals, APIs, and business applications using Laravel, Vue.js, and modern tech stacks.' })
-const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20need%20custom%20software%20development.'
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20custom%20software%20development.'
 const buildItems = [
   { icon: 'lucide:layout-dashboard', title: 'Business Dashboards', desc: 'Real-time dashboards that surface the metrics that matter most to your operations.' },
   { icon: 'lucide:door-open', title: 'Customer Portals', desc: 'Self-service portals where customers can track orders, submit requests, and view their account.' },

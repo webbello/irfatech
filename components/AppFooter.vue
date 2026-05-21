@@ -81,20 +81,20 @@
             </li>
             <li>
               <a
-                href="mailto:hello@irfatech.com"
+                href="mailto:irfatechgroup@gmail.com"
                 class="flex items-start gap-3 text-sm text-slate-400 hover:text-electric-400 transition-colors"
               >
                 <iconify-icon icon="lucide:mail" class="text-base text-electric-500 mt-0.5 flex-shrink-0"></iconify-icon>
-                <span>hello@irfatech.com</span>
+                <span>irfatechgroup@gmail.com</span>
               </a>
             </li>
             <li>
               <a
-                href="tel:+923001234567"
+                href="tel:+918864812200"
                 class="flex items-start gap-3 text-sm text-slate-400 hover:text-electric-400 transition-colors"
               >
                 <iconify-icon icon="lucide:phone" class="text-base text-electric-500 mt-0.5 flex-shrink-0"></iconify-icon>
-                <span>+92 300 123 4567</span>
+                <span>+91 88 6481 2200</span>
               </a>
             </li>
           </ul>
@@ -126,10 +126,10 @@
 
 <script setup>
 import { services } from '~/config/site'
+import { whatsappLinks } from '~/composables/useWhatsApp'
 
 const year = new Date().getFullYear()
-
-const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20need%20help%20with%20my%20business%20digitalization.'
+const whatsappUrl = whatsappLinks.general
 
 const socials = [
   { label: 'LinkedIn', icon: 'lucide:linkedin', href: 'https://linkedin.com/company/irfatech' },

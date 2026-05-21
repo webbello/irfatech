@@ -1,9 +1,9 @@
 ---
-title: "Odoo ERP for Pakistan SMEs — What You Need to Know Before You Start"
-description: "Odoo is one of the most powerful ERP platforms for small and medium businesses. Here's what Pakistani SMEs need to know before implementing it."
+title: "Odoo ERP for India SMEs — What You Need to Know Before You Start"
+description: "Odoo is one of the most powerful ERP platforms for small and medium businesses. Here's what Indiai SMEs need to know before implementing it."
 date: "2025-12-15"
 category: "ERP"
-tags: ["Odoo", "ERP", "Pakistan", "SME", "business software"]
+tags: ["Odoo", "ERP", "India", "SME", "business software"]
 author: "Muhammad Irfan"
 readTime: "7"
 featured: false
@@ -11,9 +11,9 @@ featured: false
 
 Odoo is the most installed ERP platform in the world with over 12 million users. It covers everything from inventory and billing to HR, project management, and e-commerce. And it's genuinely affordable for small businesses.
 
-But "powerful" and "easy to implement" are not the same thing. Here's an honest guide to Odoo for Pakistani SMEs — what works, what doesn't, and what to expect.
+But "powerful" and "easy to implement" are not the same thing. Here's an honest guide to Odoo for Indiai SMEs — what works, what doesn't, and what to expect.
 
-## Why Pakistani SMBs Are Choosing Odoo
+## Why Indiai SMBs Are Choosing Odoo
 
 ### 1. It's Modular
 
@@ -26,20 +26,20 @@ Then you add modules as your business grows. HR, accounting, CRM, project manage
 
 ### 2. Two Editions: Community (Free) and Enterprise (Paid)
 
-**Community edition** is open-source and free. You only pay for hosting and implementation. This is what most small Pakistani businesses start with.
+**Community edition** is open-source and free. You only pay for hosting and implementation. This is what most small Indiai businesses start with.
 
 **Enterprise edition** adds more advanced features and official support from Odoo SA. Pricing is per user per month in EUR — check current rates.
 
 For most businesses we work with, the Community edition is sufficient for the first 2–3 years.
 
-### 3. Active Pakistani Implementation Community
+### 3. Active Indiai Implementation Community
 
-Odoo has a growing implementation ecosystem in Pakistan. This matters because:
-- Local partners understand Pakistani business practices (multi-currency, local tax structures, regional bank integrations)
+Odoo has a growing implementation ecosystem in India. This matters because:
+- Local partners understand Indiai business practices (multi-currency, local tax structures, regional bank integrations)
 - Support is available in business hours (PKT)
 - Training can happen in person or in Urdu
 
-## Common Odoo Implementations for Pakistani Businesses
+## Common Odoo Implementations for Indiai Businesses
 
 ### Retail Shops
 Modules used: Inventory, Point of Sale, Sales, Accounting
@@ -96,8 +96,8 @@ The best ERP is useless if your staff don't use it correctly. Data entry errors 
 | Distributor (multi-branch) | + Multi-company | 6–10 weeks | High |
 | Manufacturing | Manufacturing + full suite | 12–20 weeks | Very High |
 
-Implementation cost in Pakistan ranges from PKR 150,000 for a basic setup to PKR 1,000,000+ for complex multi-company implementations with custom modules.
+Implementation cost in India ranges from PKR 150,000 for a basic setup to PKR 1,000,000+ for complex multi-company implementations with custom modules.
 
 ---
 
-**IRFAtech specializes in Odoo ERP implementation for Pakistani SMEs.** [Book a free consultation](/contact) — we'll assess your operations and give you an honest scope and cost estimate.
+**IRFAtech specializes in Odoo ERP implementation for Indiai SMEs.** [Book a free consultation](/contact) — we'll assess your operations and give you an honest scope and cost estimate.

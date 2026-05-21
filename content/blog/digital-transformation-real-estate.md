@@ -1,21 +1,21 @@
 ---
-title: "Digital Transformation for Real Estate Businesses in Pakistan"
-description: "Pakistani real estate is still largely manual — WhatsApp listings, paper files, and phone-based follow-ups. Here's how agencies and developers can change that."
+title: "Digital Transformation for Real Estate Businesses in India"
+description: "Indiai real estate is still largely manual — WhatsApp listings, paper files, and phone-based follow-ups. Here's how agencies and developers can change that."
 date: "2026-01-25"
 category: "Real Estate"
-tags: ["real estate", "digital transformation", "CRM", "property technology", "Pakistan"]
+tags: ["real estate", "digital transformation", "CRM", "property technology", "India"]
 author: "Muhammad Irfan"
 readTime: "7"
 featured: false
 ---
 
-Real estate in Pakistan is a high-value industry with a surprisingly manual workflow. Listings go out on WhatsApp. Leads are tracked in notebooks. Property files are physical folders. Agent performance is measured by memory.
+Real estate in India is a high-value industry with a surprisingly manual workflow. Listings go out on WhatsApp. Leads are tracked in notebooks. Property files are physical folders. Agent performance is measured by memory.
 
 This gap between the stakes involved and the tools being used creates an enormous opportunity — for agencies that digitize first.
 
-## The Current State of Most Pakistani Real Estate Businesses
+## The Current State of Most Indiai Real Estate Businesses
 
-Walk into most real estate agencies in Pakistan and you'll see:
+Walk into most real estate agencies in India and you'll see:
 
 - WhatsApp groups with hundreds of property photos and no search
 - Excel sheets tracking leads (if any tracking at all)
@@ -72,7 +72,7 @@ Automated follow-ups — "New listings in your area of interest" or "Did you hav
 
 ## Landflix — What We Built as Proof
 
-IRFAtech built Landflix as our own real estate technology platform — not for a client, but as proof of concept that all of the above is achievable for Pakistani real estate businesses.
+IRFAtech built Landflix as our own real estate technology platform — not for a client, but as proof of concept that all of the above is achievable for Indiai real estate businesses.
 
 Landflix includes:
 - Full property search and listing management
@@ -92,4 +92,4 @@ Once that's working, add the listing platform. Then the analytics. Then the auto
 
 ---
 
-**IRFAtech has built real estate technology for multiple agencies in Pakistan.** [Book a free consultation](/contact) to discuss what's right for your business.
+**IRFAtech has built real estate technology for multiple agencies in India.** [Book a free consultation](/contact) to discuss what's right for your business.

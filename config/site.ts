@@ -2,14 +2,14 @@ export const siteConfig = {
   name: 'IRFAtech',
   tagline: 'Integrated Resources For Automation',
   description: 'Helping businesses automate, organize, and grow digitally.',
-  url: 'https://irfatech.com',
+  url: 'https://irfatech.in',
   whatsapp: {
-    number: '923001234567', // replace with real number
+    number: '8864812200', // replace with real number
     defaultMessage: 'Hi IRFAtech, I need help with my business digitalization.',
   },
   contact: {
-    email: 'hello@irfatech.com',
-    phone: '+92 300 123 4567',
+    email: 'irfatechgroup@gmail.com',
+    phone: '+91 88 6481 2200',
   },
   social: {
     linkedin: 'https://linkedin.com/company/irfatech',

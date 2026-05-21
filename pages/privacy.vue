@@ -32,7 +32,7 @@
           <p>Our website may use basic analytics cookies to understand visitor behavior. You can disable cookies in your browser settings. We do not use advertising or tracking cookies.</p>
 
           <h2>Contact Us</h2>
-          <p>For any privacy-related questions, email us at <a href="mailto:hello@irfatech.com">hello@irfatech.com</a>.</p>
+          <p>For any privacy-related questions, email us at <a href="mailto:irfatechgroup@gmail.com">irfatechgroup@gmail.com</a>.</p>
         </div>
       </div>
     </section>

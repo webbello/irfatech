@@ -20,7 +20,7 @@
             </p>
             <div class="flex flex-wrap gap-4">
               <a
-                href="https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%27d%20like%20to%20know%20more%20about%20Landflix."
+                href="https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%27d%20like%20to%20know%20more%20about%20Landflix."
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary px-7 py-3"

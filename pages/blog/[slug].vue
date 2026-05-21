@@ -87,7 +87,7 @@
                   Book Free Consultation
                 </NuxtLink>
                 <a
-                  href="https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20just%20read%20your%20blog%20and%20want%20to%20learn%20more."
+                  href="https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20just%20read%20your%20blog%20and%20want%20to%20learn%20more."
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn-whatsapp text-xs px-4 py-2.5 w-full justify-center mt-2"
@@ -134,9 +134,9 @@ if (post.value) {
     description: post.value.description,
     ogTitle: post.value.title,
     ogDescription: post.value.description,
-    ogImage: post.value.image || 'https://irfatech.com/images/og-image.jpg',
+    ogImage: post.value.image || 'https://irfatech.in/images/og-image.jpg',
     ogType: 'article',
-    ogUrl: `https://irfatech.com/blog/${route.params.slug}`,
+    ogUrl: `https://irfatech.in/blog/${route.params.slug}`,
     twitterCard: 'summary_large_image',
   })
 

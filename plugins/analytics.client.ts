@@ -1,6 +1,6 @@
 /**
  * Plausible Analytics — privacy-first, no cookie banner required.
- * Replace 'irfatech.com' with your actual domain when going live.
+ * Domain is set to 'irfatech.in' — update if the domain changes.
  *
  * To switch to Google Analytics 4 instead, replace this plugin with:
  *   https://nuxt.com/modules/gtag  (npm install nuxt-gtag)
@@ -11,7 +11,7 @@ export default defineNuxtPlugin(() => {
   if (import.meta.env.PROD) {
     const script = document.createElement('script')
     script.defer = true
-    script.setAttribute('data-domain', 'irfatech.com')
+    script.setAttribute('data-domain', 'irfatech.in')
     script.src = 'https://plausible.io/js/script.js'
     document.head.appendChild(script)
   }

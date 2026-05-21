@@ -1,66 +1,50 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, getResponseStatus, createError, removeResponseHeader, getQuery as getQuery$1, readBody, getCookie, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, setHeader, getResponseStatusText } from 'file:///Users/apple/Sites/Saloo/node_modules/h3/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, createError, sendRedirect, proxyRequest, getRequestHeader, setResponseHeaders, setResponseStatus, send, getRequestHeaders, setResponseHeader, appendResponseHeader, getRequestURL, getResponseHeader, removeResponseHeader, getRouterParam, setHeader, getQuery as getQuery$1, readBody, getResponseStatus, lazyEventHandler, useBase, createApp, createRouter as createRouter$1, toNodeListener, getResponseStatusText } from 'file:///Users/apple/Sites/irfatech/node_modules/h3/dist/index.mjs';
 import { Server } from 'node:http';
 import { resolve, dirname, join } from 'node:path';
-import nodeCrypto from 'node:crypto';
+import crypto$1 from 'node:crypto';
 import { parentPort, threadId } from 'node:worker_threads';
-import { escapeHtml } from 'file:///Users/apple/Sites/Saloo/node_modules/@vue/shared/dist/shared.cjs.js';
-import _RemarkEmoji from 'file:///Users/apple/Sites/Saloo/node_modules/remark-emoji/index.js';
-import { visit } from 'file:///Users/apple/Sites/Saloo/node_modules/unist-util-visit/index.js';
-import { toString } from 'file:///Users/apple/Sites/Saloo/node_modules/hast-util-to-string/index.js';
-import { createStorage, prefixStorage } from 'file:///Users/apple/Sites/Saloo/node_modules/unstorage/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery, joinRelativeURL, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, isRelative } from 'file:///Users/apple/Sites/Saloo/node_modules/ufo/dist/index.mjs';
-import { hash as hash$1 } from 'file:///Users/apple/Sites/Saloo/node_modules/ohash/dist/index.mjs';
-import defu, { defuFn, defu as defu$1 } from 'file:///Users/apple/Sites/Saloo/node_modules/defu/dist/defu.mjs';
-import { dirname as dirname$1, resolve as resolve$1, extname } from 'file:///Users/apple/Sites/Saloo/node_modules/pathe/dist/index.mjs';
-import { snakeCase, kebabCase, pascalCase, camelCase } from 'file:///Users/apple/Sites/Saloo/node_modules/scule/dist/index.mjs';
-import { unified } from 'file:///Users/apple/Sites/Saloo/node_modules/unified/index.js';
-import { toString as toString$1 } from 'file:///Users/apple/Sites/Saloo/node_modules/mdast-util-to-string/index.js';
-import { postprocess, preprocess } from 'file:///Users/apple/Sites/Saloo/node_modules/micromark/dev/index.js';
-import { stringifyPosition } from 'file:///Users/apple/Sites/Saloo/node_modules/unist-util-stringify-position/index.js';
-import { markdownLineEnding, markdownSpace } from 'file:///Users/apple/Sites/Saloo/node_modules/micromark-util-character/dev/index.js';
-import { push, splice } from 'file:///Users/apple/Sites/Saloo/node_modules/micromark-util-chunked/dev/index.js';
-import { resolveAll } from 'file:///Users/apple/Sites/Saloo/node_modules/micromark-util-resolve-all/index.js';
-import { normalizeUri } from 'file:///Users/apple/Sites/Saloo/node_modules/micromark-util-sanitize-uri/dev/index.js';
-import remarkParse from 'file:///Users/apple/Sites/Saloo/node_modules/remark-parse/index.js';
-import remark2rehype from 'file:///Users/apple/Sites/Saloo/node_modules/remark-rehype/index.js';
-import remarkMDC, { parseFrontMatter } from 'file:///Users/apple/Sites/Saloo/node_modules/remark-mdc/dist/index.mjs';
-import remarkGFM from 'file:///Users/apple/Sites/Saloo/node_modules/remark-gfm/index.js';
-import rehypeExternalLinks from 'file:///Users/apple/Sites/Saloo/node_modules/rehype-external-links/index.js';
-import rehypeSortAttributeValues from 'file:///Users/apple/Sites/Saloo/node_modules/rehype-sort-attribute-values/index.js';
-import rehypeSortAttributes from 'file:///Users/apple/Sites/Saloo/node_modules/rehype-sort-attributes/index.js';
-import rehypeRaw from 'file:///Users/apple/Sites/Saloo/node_modules/rehype-raw/index.js';
-import { detab } from 'file:///Users/apple/Sites/Saloo/node_modules/detab/index.js';
-import Slugger from 'file:///Users/apple/Sites/Saloo/node_modules/github-slugger/index.js';
-import destr, { destr as destr$1 } from 'file:///Users/apple/Sites/Saloo/node_modules/destr/dist/index.mjs';
-import { createWasmOnigEngine } from 'file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/engine-oniguruma.mjs';
-import slugify from 'file:///Users/apple/Sites/Saloo/node_modules/slugify/slugify.js';
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/apple/Sites/Saloo/node_modules/vue-bundle-renderer/dist/runtime.mjs';
-import { createHooks } from 'file:///Users/apple/Sites/Saloo/node_modules/hookable/dist/index.mjs';
-import { createFetch, Headers as Headers$1 } from 'file:///Users/apple/Sites/Saloo/node_modules/ofetch/dist/node.mjs';
-import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/apple/Sites/Saloo/node_modules/node-mock-http/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file:///Users/apple/Sites/Saloo/node_modules/unstorage/drivers/fs.mjs';
-import { digest } from 'file:///Users/apple/Sites/Saloo/node_modules/nitropack/node_modules/ohash/dist/index.mjs';
-import { klona } from 'file:///Users/apple/Sites/Saloo/node_modules/klona/dist/index.mjs';
-import { getContext } from 'file:///Users/apple/Sites/Saloo/node_modules/unctx/dist/index.mjs';
-import { toRouteMatcher, createRouter } from 'file:///Users/apple/Sites/Saloo/node_modules/radix3/dist/index.mjs';
+import { escapeHtml } from 'file:///Users/apple/Sites/irfatech/node_modules/@vue/shared/dist/shared.cjs.js';
+import viteNodeEntry_mjs from 'file:///Users/apple/Sites/irfatech/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs';
+import { viteNodeFetch } from 'file:///Users/apple/Sites/irfatech/node_modules/@nuxt/vite-builder/dist/vite-node.mjs';
+import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'file:///Users/apple/Sites/irfatech/node_modules/vue-bundle-renderer/dist/runtime.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery, withTrailingSlash, decodePath, withLeadingSlash, withoutTrailingSlash, encodePath, joinRelativeURL } from 'file:///Users/apple/Sites/irfatech/node_modules/ufo/dist/index.mjs';
+import destr, { destr as destr$1 } from 'file:///Users/apple/Sites/irfatech/node_modules/destr/dist/index.mjs';
+import { createHooks } from 'file:///Users/apple/Sites/irfatech/node_modules/hookable/dist/index.mjs';
+import { createFetch, Headers as Headers$1 } from 'file:///Users/apple/Sites/irfatech/node_modules/ofetch/dist/node.mjs';
+import { fetchNodeRequestHandler, callNodeRequestHandler } from 'file:///Users/apple/Sites/irfatech/node_modules/node-mock-http/dist/index.mjs';
+import { createStorage, defineDriver, prefixStorage } from 'file:///Users/apple/Sites/irfatech/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file:///Users/apple/Sites/irfatech/node_modules/unstorage/drivers/fs.mjs';
+import fsDriver from 'file:///Users/apple/Sites/irfatech/node_modules/unstorage/drivers/fs-lite.mjs';
+import lruCache from 'file:///Users/apple/Sites/irfatech/node_modules/unstorage/drivers/lru-cache.mjs';
+import { digest, hash as hash$1 } from 'file:///Users/apple/Sites/irfatech/node_modules/ohash/dist/index.mjs';
+import { klona } from 'file:///Users/apple/Sites/irfatech/node_modules/klona/dist/index.mjs';
+import defu, { defuFn } from 'file:///Users/apple/Sites/irfatech/node_modules/defu/dist/defu.mjs';
+import { snakeCase } from 'file:///Users/apple/Sites/irfatech/node_modules/scule/dist/index.mjs';
+import { getContext } from 'file:///Users/apple/Sites/irfatech/node_modules/unctx/dist/index.mjs';
+import { toRouteMatcher, createRouter } from 'file:///Users/apple/Sites/irfatech/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import consola, { consola as consola$1 } from 'file:///Users/apple/Sites/Saloo/node_modules/consola/dist/index.mjs';
-import { ErrorParser } from 'file:///Users/apple/Sites/Saloo/node_modules/youch-core/build/index.js';
-import { Youch } from 'file:///Users/apple/Sites/Saloo/node_modules/youch/build/index.js';
-import { SourceMapConsumer } from 'file:///Users/apple/Sites/Saloo/node_modules/source-map/source-map.js';
+import consola, { consola as consola$1 } from 'file:///Users/apple/Sites/irfatech/node_modules/consola/dist/index.mjs';
+import { ErrorParser } from 'file:///Users/apple/Sites/irfatech/node_modules/youch-core/build/index.js';
+import { Youch } from 'file:///Users/apple/Sites/irfatech/node_modules/youch/build/index.js';
+import { SourceMapConsumer } from 'file:///Users/apple/Sites/irfatech/node_modules/source-map/source-map.js';
 import { AsyncLocalStorage } from 'node:async_hooks';
-import { stringify, uneval } from 'file:///Users/apple/Sites/Saloo/node_modules/devalue/index.js';
-import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/apple/Sites/Saloo/node_modules/errx/dist/index.js';
-import { isVNode, toValue, isRef } from 'file:///Users/apple/Sites/Saloo/node_modules/vue/index.mjs';
+import { stringify, uneval } from 'file:///Users/apple/Sites/irfatech/node_modules/devalue/index.js';
+import { captureRawStackTrace, parseRawStackTrace } from 'file:///Users/apple/Sites/irfatech/node_modules/errx/dist/index.js';
+import { isVNode, isRef, toValue } from 'file:///Users/apple/Sites/irfatech/node_modules/vue/index.mjs';
+import _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw from 'file:///Users/apple/Sites/irfatech/node_modules/@nuxt/vite-builder/dist/fix-stacktrace.mjs';
 import { promises } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/apple/Sites/Saloo/node_modules/@nuxt/nitro-server/node_modules/unhead/dist/server.mjs';
-import process$1 from 'node:process';
-import { renderToString } from 'file:///Users/apple/Sites/Saloo/node_modules/vue/server-renderer/index.mjs';
-import { walkResolver } from 'file:///Users/apple/Sites/Saloo/node_modules/@nuxt/nitro-server/node_modules/unhead/dist/utils.mjs';
+import { dirname as dirname$1, resolve as resolve$1 } from 'file:///Users/apple/Sites/irfatech/node_modules/pathe/dist/index.mjs';
+import { createHead as createHead$1, propsToString, renderSSRHead } from 'file:///Users/apple/Sites/irfatech/node_modules/@nuxt/nitro-server/node_modules/unhead/dist/server.mjs';
+import { renderToString } from 'file:///Users/apple/Sites/irfatech/node_modules/vue/server-renderer/index.mjs';
+import { walkResolver } from 'file:///Users/apple/Sites/irfatech/node_modules/@nuxt/nitro-server/node_modules/unhead/dist/utils.mjs';
+import { isAbsolute } from 'file:///Users/apple/Sites/irfatech/node_modules/@nuxt/content/node_modules/pathe/dist/index.mjs';
+import localAdapter from 'file:///Users/apple/Sites/irfatech/node_modules/db0/dist/connectors/better-sqlite3.mjs';
+import { ipxFSStorage, ipxHttpStorage, createIPX, createIPXH3Handler } from 'file:///Users/apple/Sites/irfatech/node_modules/ipx/dist/index.mjs';
+import { isAbsolute as isAbsolute$1 } from 'file:///Users/apple/Sites/irfatech/node_modules/@nuxt/image/node_modules/pathe/dist/index.mjs';
 
-const serverAssets = [{"baseName":"server","dir":"/Users/apple/Sites/Saloo/server/assets"}];
+const serverAssets = [{"baseName":"server","dir":"/Users/apple/Sites/irfatech/server/assets"}];
 
 const assets$1 = createStorage();
 
@@ -68,20 +52,58 @@ for (const asset of serverAssets) {
   assets$1.mount(asset.baseName, unstorage_47drivers_47fs({ base: asset.dir, ignore: (asset?.ignore || []) }));
 }
 
-const storage$1 = createStorage({});
+// @ts-check
 
-storage$1.mount('/assets', assets$1);
 
-storage$1.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/apple/Sites/Saloo","watchOptions":{"ignored":[null]}}));
-storage$1.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/apple/Sites/Saloo/server","watchOptions":{"ignored":[null]}}));
-storage$1.mount('content:source:content', unstorage_47drivers_47fs({"name":"content:source:content","driver":"fs","base":"/Users/apple/Sites/Saloo/content"}));
-storage$1.mount('cache:content', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/apple/Sites/Saloo/.nuxt/content-cache"}));
-storage$1.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/apple/Sites/Saloo/.nuxt"}));
-storage$1.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/apple/Sites/Saloo/.nuxt/cache"}));
-storage$1.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/apple/Sites/Saloo/.data/kv"}));
+/**
+ * @param {string} item
+ */
+function normalizeFsKey (item) {
+  const safe = item.replace(/[^\w.-]/g, '_');
+  const prefix = safe.slice(0, 20);
+  const hash = crypto$1.createHash('sha256').update(item).digest('hex');
+  return `${prefix}-${hash}`
+}
+
+const _47Users_47apple_47Sites_47irfatech_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js = defineDriver(
+  /**
+   * @param {{ base?: string }} opts
+   */
+  (opts) => {
+    const fs = fsDriver({ base: opts.base });
+    const lru = lruCache({ max: 1000 });
+
+    return {
+      ...fs, // fall back to file system - only the bottom three methods are used in renderer
+      async setItem (key, value, opts) {
+        await Promise.all([
+          fs.setItem?.(normalizeFsKey(key), value, opts),
+          lru.setItem?.(key, value, opts),
+        ]);
+      },
+      async hasItem (key, opts) {
+        return await lru.hasItem(key, opts) || await fs.hasItem(normalizeFsKey(key), opts)
+      },
+      async getItem (key, opts) {
+        return await lru.getItem(key, opts) || await fs.getItem(normalizeFsKey(key), opts)
+      },
+    }
+  },
+);
+
+const storage = createStorage({});
+
+storage.mount('/assets', assets$1);
+
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/apple/Sites/irfatech","watchOptions":{"ignored":[null]}}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"/Users/apple/Sites/irfatech/server","watchOptions":{"ignored":[null]}}));
+storage.mount('cache:nuxt:payload', _47Users_47apple_47Sites_47irfatech_47node_modules_47_64nuxt_47nitro_45server_47dist_47runtime_47utils_47cache_45driver_46js({"driver":"/Users/apple/Sites/irfatech/node_modules/@nuxt/nitro-server/dist/runtime/utils/cache-driver.js","base":"/Users/apple/Sites/irfatech/.nuxt/cache/nuxt/payload"}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/apple/Sites/irfatech/.nuxt"}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"/Users/apple/Sites/irfatech/.nuxt/cache"}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"/Users/apple/Sites/irfatech/.data/kv"}));
 
 function useStorage(base = "") {
-  return base ? prefixStorage(storage$1, base) : storage$1;
+  return base ? prefixStorage(storage, base) : storage;
 }
 
 const Hasher = /* @__PURE__ */ (() => {
@@ -661,6 +683,13 @@ const _inlineRuntimeConfig = {
       "/__nuxt_error": {
         "cache": false
       },
+      "/__nuxt_content/**": {
+        "robots": false,
+        "cache": false
+      },
+      "/__nuxt_content/blog/sql_dump.txt": {
+        "prerender": true
+      },
       "/assets/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
@@ -677,32 +706,8 @@ const _inlineRuntimeConfig = {
     "mdc": {
       "components": {
         "prose": true,
-        "map": {
-          "p": "prose-p",
-          "a": "prose-a",
-          "blockquote": "prose-blockquote",
-          "code-inline": "prose-code-inline",
-          "code": "ProseCodeInline",
-          "em": "prose-em",
-          "h1": "prose-h1",
-          "h2": "prose-h2",
-          "h3": "prose-h3",
-          "h4": "prose-h4",
-          "h5": "prose-h5",
-          "h6": "prose-h6",
-          "hr": "prose-hr",
-          "img": "prose-img",
-          "ul": "prose-ul",
-          "ol": "prose-ol",
-          "li": "prose-li",
-          "strong": "prose-strong",
-          "table": "prose-table",
-          "thead": "prose-thead",
-          "tbody": "prose-tbody",
-          "td": "prose-td",
-          "th": "prose-th",
-          "tr": "prose-tr"
-        }
+        "map": {},
+        "customElements": []
       },
       "headings": {
         "anchorLinks": {
@@ -713,53 +718,14 @@ const _inlineRuntimeConfig = {
           "h5": false,
           "h6": false
         }
-      }
-    },
-    "content": {
-      "locales": [],
-      "defaultLocale": "",
-      "integrity": "",
-      "experimental": {
-        "stripQueryParameters": false,
-        "advanceQuery": false,
-        "clientDB": true
-      },
-      "respectPathCase": false,
-      "api": {
-        "baseURL": "/api/_content"
-      },
-      "navigation": {
-        "fields": []
-      },
-      "tags": {
-        "p": "prose-p",
-        "a": "prose-a",
-        "blockquote": "prose-blockquote",
-        "code-inline": "prose-code-inline",
-        "code": "ProseCodeInline",
-        "em": "prose-em",
-        "h1": "prose-h1",
-        "h2": "prose-h2",
-        "h3": "prose-h3",
-        "h4": "prose-h4",
-        "h5": "prose-h5",
-        "h6": "prose-h6",
-        "hr": "prose-hr",
-        "img": "prose-img",
-        "ul": "prose-ul",
-        "ol": "prose-ol",
-        "li": "prose-li",
-        "strong": "prose-strong",
-        "table": "prose-table",
-        "thead": "prose-thead",
-        "tbody": "prose-tbody",
-        "td": "prose-td",
-        "th": "prose-th",
-        "tr": "prose-tr"
       },
       "highlight": {
-        "theme": "github-dark",
+        "noApiRoute": true,
         "highlighter": "shiki",
+        "theme": {
+          "default": "github-light",
+          "dark": "github-dark"
+        },
         "shikiEngine": "oniguruma",
         "langs": [
           "js",
@@ -775,118 +741,35 @@ const _inlineRuntimeConfig = {
           "mdc",
           "yaml"
         ]
-      },
-      "wsUrl": "ws://localhost:4000/",
-      "documentDriven": false,
-      "host": "",
-      "trailingSlash": false,
-      "search": "",
-      "contentHead": true,
-      "anchorLinks": {
-        "depth": 4,
-        "exclude": [
-          1
-        ]
       }
+    },
+    "content": {
+      "wsUrl": ""
     }
   },
   "content": {
-    "cacheVersion": 2,
-    "cacheIntegrity": "Sx8UEIWlXp",
-    "transformers": [],
-    "base": "",
-    "api": {
-      "baseURL": "/api/_content"
+    "databaseVersion": "v3.5.0",
+    "version": "3.14.0",
+    "database": {
+      "type": "sqlite",
+      "filename": "./contents.sqlite"
     },
-    "watch": {
-      "ws": {
-        "port": {
-          "port": 4000,
-          "portRange": [
-            4000,
-            4040
-          ]
-        },
-        "hostname": "localhost",
-        "showURL": false
-      }
+    "localDatabase": {
+      "type": "sqlite",
+      "filename": "/Users/apple/Sites/irfatech/.data/content/contents.sqlite"
     },
-    "sources": {},
-    "ignores": [],
-    "locales": [],
-    "defaultLocale": "",
-    "highlight": {
-      "theme": "github-dark",
-      "highlighter": "shiki",
-      "shikiEngine": "oniguruma",
-      "langs": [
-        "js",
-        "jsx",
-        "json",
-        "ts",
-        "tsx",
-        "vue",
-        "css",
-        "html",
-        "bash",
-        "md",
-        "mdc",
-        "yaml"
+    "integrityCheck": true
+  },
+  "ipx": {
+    "baseURL": "/_ipx",
+    "alias": {},
+    "fs": {
+      "dir": [
+        "/Users/apple/Sites/irfatech/public"
       ]
     },
-    "markdown": {
-      "tags": {
-        "p": "prose-p",
-        "a": "prose-a",
-        "blockquote": "prose-blockquote",
-        "code-inline": "prose-code-inline",
-        "code": "ProseCodeInline",
-        "em": "prose-em",
-        "h1": "prose-h1",
-        "h2": "prose-h2",
-        "h3": "prose-h3",
-        "h4": "prose-h4",
-        "h5": "prose-h5",
-        "h6": "prose-h6",
-        "hr": "prose-hr",
-        "img": "prose-img",
-        "ul": "prose-ul",
-        "ol": "prose-ol",
-        "li": "prose-li",
-        "strong": "prose-strong",
-        "table": "prose-table",
-        "thead": "prose-thead",
-        "tbody": "prose-tbody",
-        "td": "prose-td",
-        "th": "prose-th",
-        "tr": "prose-tr"
-      },
-      "anchorLinks": {
-        "depth": 4,
-        "exclude": [
-          1
-        ]
-      },
-      "remarkPlugins": {},
-      "rehypePlugins": {}
-    },
-    "yaml": {},
-    "csv": {
-      "delimeter": ",",
-      "json": true
-    },
-    "navigation": {
-      "fields": []
-    },
-    "contentHead": true,
-    "documentDriven": false,
-    "respectPathCase": false,
-    "experimental": {
-      "clientDB": true,
-      "cacheContents": true,
-      "stripQueryParameters": false,
-      "advanceQuery": false,
-      "search": ""
+    "http": {
+      "domains": []
     }
   }
 };
@@ -939,6 +822,17 @@ getContext("nitro-app", {
   AsyncLocalStorage: void 0
 });
 
+function isPathInScope(pathname, base) {
+  let canonical;
+  try {
+    const pre = pathname.replace(/%2f/gi, "/").replace(/%5c/gi, "\\");
+    canonical = new URL(pre, "http://_").pathname;
+  } catch {
+    return false;
+  }
+  return !base || canonical === base || canonical.startsWith(base + "/");
+}
+
 const config = useRuntimeConfig();
 const _routeRulesMatcher = toRouteMatcher(
   createRouter({ routes: config.nitro.routeRules })
@@ -955,7 +849,12 @@ function createRouteRulesHandler(ctx) {
         let targetPath = event.path;
         const strpBase = routeRules.redirect._redirectStripBase;
         if (strpBase) {
+          if (!isPathInScope(event.path.split("?")[0], strpBase)) {
+            throw createError({ statusCode: 400 });
+          }
           targetPath = withoutBase(targetPath, strpBase);
+        } else if (targetPath.startsWith("//")) {
+          targetPath = targetPath.replace(/^\/+/, "/");
         }
         target = joinURL(target.slice(0, -3), targetPath);
       } else if (event.path.includes("?")) {
@@ -970,7 +869,12 @@ function createRouteRulesHandler(ctx) {
         let targetPath = event.path;
         const strpBase = routeRules.proxy._proxyStripBase;
         if (strpBase) {
+          if (!isPathInScope(event.path.split("?")[0], strpBase)) {
+            throw createError({ statusCode: 400 });
+          }
           targetPath = withoutBase(targetPath, strpBase);
+        } else if (targetPath.startsWith("//")) {
+          targetPath = targetPath.replace(/^\/+/, "/");
         }
         target = joinURL(target.slice(0, -3), targetPath);
       } else if (event.path.includes("?")) {
@@ -1042,149 +946,178 @@ function normalizeCookieHeaders(headers) {
 }
 
 function isJsonRequest(event) {
-  if (hasReqHeader(event, "accept", "text/html")) {
-    return false;
-  }
-  return hasReqHeader(event, "accept", "application/json") || hasReqHeader(event, "user-agent", "curl/") || hasReqHeader(event, "user-agent", "httpie/") || hasReqHeader(event, "sec-fetch-mode", "cors") || event.path.startsWith("/api/") || event.path.endsWith(".json");
+	
+	if (hasReqHeader(event, "accept", "text/html")) {
+		return false;
+	}
+	return hasReqHeader(event, "accept", "application/json") || hasReqHeader(event, "user-agent", "curl/") || hasReqHeader(event, "user-agent", "httpie/") || hasReqHeader(event, "sec-fetch-mode", "cors") || event.path.startsWith("/api/") || event.path.endsWith(".json");
 }
 function hasReqHeader(event, name, includes) {
-  const value = getRequestHeader(event, name);
-  return value && typeof value === "string" && value.toLowerCase().includes(includes);
+	const value = getRequestHeader(event, name);
+	return !!(value && typeof value === "string" && value.toLowerCase().includes(includes));
 }
 
-const iframeStorageBridge = (nonce) => (
-  /* js */
-  `
-(function() {
-  const memoryStore = {};
+const iframeStorageBridge = (nonce) => `
+(function () {
+  const NONCE = ${JSON.stringify(nonce)};
+  const memoryStore = Object.create(null);
 
-  const NONCE = ${JSON.stringify(nonce)}
-  
+  const post = (type, payload) => {
+    window.parent.postMessage({ type, nonce: NONCE, ...payload }, '*');
+  };
+
+  const isValid = (data) => data && data.nonce === NONCE;
+
   const mockStorage = {
-    getItem: function(key) {
-      return memoryStore[key] !== undefined ? memoryStore[key] : null;
+    getItem(key) {
+      return Object.hasOwn(memoryStore, key)
+        ? memoryStore[key]
+        : null;
     },
-    setItem: function(key, value) {
-      memoryStore[key] = String(value);
-      window.parent.postMessage({
-        type: 'storage-set',
-        key: key,
-        value: String(value),
-        nonce: NONCE
-      }, '*');
+    setItem(key, value) {
+      const v = String(value);
+      memoryStore[key] = v;
+      post('storage-set', { key, value: v });
     },
-    removeItem: function(key) {
+    removeItem(key) {
       delete memoryStore[key];
-      window.parent.postMessage({
-        type: 'storage-remove',
-        key: key,
-        nonce: NONCE
-      }, '*');
+      post('storage-remove', { key });
     },
-    clear: function() {
-      for (const key in memoryStore) {
+    clear() {
+      for (const key of Object.keys(memoryStore))
         delete memoryStore[key];
-      }
-      window.parent.postMessage({
-        type: 'storage-clear',
-        nonce: NONCE
-      }, '*');
+      post('storage-clear', {});
     },
-    key: function(index) {
+    key(index) {
       const keys = Object.keys(memoryStore);
-      return keys[index] !== undefined ? keys[index] : null;
+      return keys[index] ?? null;
     },
     get length() {
       return Object.keys(memoryStore).length;
     }
   };
-  
-  try {
-    Object.defineProperty(window, 'localStorage', {
-      value: mockStorage,
-      writable: false,
-      configurable: true
-    });
-  } catch (e) {
-    window.localStorage = mockStorage;
-  }
-  
-  window.addEventListener('message', function(event) {
-    if (event.data.type === 'storage-sync-data' && event.data.nonce === NONCE) {
-      const data = event.data.data;
-      for (const key in data) {
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          memoryStore[key] = data[key];
-        }
-      }
-      if (typeof window.initTheme === 'function') {
-        window.initTheme();
-      }
-      window.dispatchEvent(new Event('storage-ready'));
+
+  const defineLocalStorage = () => {
+    try {
+      Object.defineProperty(window, 'localStorage', {
+        value: mockStorage,
+        writable: false,
+        configurable: true
+      });
+    } catch {
+      window.localStorage = mockStorage;
     }
+  };
+
+  defineLocalStorage();
+
+  window.addEventListener('message', (event) => {
+    const data = event.data;
+    if (!isValid(data) || data.type !== 'storage-sync-data') return;
+
+    const incoming = data.data || {};
+    for (const key of Object.keys(incoming))
+      memoryStore[key] = incoming[key];
+
+    if (typeof window.initTheme === 'function')
+      window.initTheme();
+    window.dispatchEvent(new Event('storage-ready'));
   });
-  
-  window.parent.postMessage({ 
-    type: 'storage-sync-request',
-    nonce: NONCE
-  }, '*');
+
+  // Clipboard API is unavailable in data: URL iframe, so we use postMessage
+  document.addEventListener('DOMContentLoaded', function() {
+    window.copyErrorMessage = function(button) {
+      post('clipboard-copy', { text: button.dataset.errorText });
+      button.classList.add('copied');
+      setTimeout(function() { button.classList.remove('copied'); }, 2000);
+    };
+  });
+
+  post('storage-sync-request', {});
 })();
-`
-);
-const parentStorageBridge = (nonce) => (
-  /* js */
-  `
-(function() {
+`;
+const parentStorageBridge = (nonce) => `
+(function () {
   const host = document.querySelector('nuxt-error-overlay');
   if (!host) return;
-  
-  // Wait for shadow root to be attached
-  const checkShadow = setInterval(function() {
-    if (host.shadowRoot) {
-      clearInterval(checkShadow);
-      const iframe = host.shadowRoot.getElementById('frame');
-      if (!iframe) return;
 
-      const NONCE = ${JSON.stringify(nonce)}
-      
-      window.addEventListener('message', function(event) {
-        if (!event.data || event.data.nonce !== NONCE) return;
-        
-        const data = event.data;
-        
-        if (data.type === 'storage-set') {
-          localStorage.setItem(data.key, data.value);
-        } else if (data.type === 'storage-remove') {
-          localStorage.removeItem(data.key);
-        } else if (data.type === 'storage-clear') {
-          localStorage.clear();
-        } else if (data.type === 'storage-sync-request') {
-          const allData = {};
-          for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            allData[key] = localStorage.getItem(key);
-          }
-          iframe.contentWindow.postMessage({
-            type: 'storage-sync-data',
-            data: allData,
-            nonce: NONCE
-          }, '*');
-        }
-      });
+  const NONCE = ${JSON.stringify(nonce)};
+  const isValid = (data) => data && data.nonce === NONCE;
+
+  // Handle clipboard copy from iframe
+  window.addEventListener('message', function(e) {
+    if (isValid(e) && e.data.type === 'clipboard-copy') {
+      navigator.clipboard.writeText(e.data.text).catch(function() {});
     }
-  }, 10);
+  });
+
+  const collectLocalStorage = () => {
+    const all = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k != null) all[k] = localStorage.getItem(k);
+    }
+    return all;
+  };
+
+  const attachWhenReady = () => {
+    const root = host.shadowRoot;
+    if (!root)
+      return false;
+    const iframe = root.getElementById('frame');
+    if (!iframe || !iframe.contentWindow)
+      return false;
+
+    const handlers = {
+      'storage-set': (d) => localStorage.setItem(d.key, d.value),
+      'storage-remove': (d) => localStorage.removeItem(d.key),
+      'storage-clear': () => localStorage.clear(),
+      'storage-sync-request': () => {
+        iframe.contentWindow.postMessage({
+          type: 'storage-sync-data',
+          data: collectLocalStorage(),
+          nonce: NONCE
+        }, '*');
+      }
+    };
+
+    window.addEventListener('message', (event) => {
+      const data = event.data;
+      if (!isValid(data)) return;
+      const fn = handlers[data.type];
+      if (fn) fn(data);
+    });
+
+    return true;
+  };
+
+  if (attachWhenReady())
+    return;
+
+  const obs = new MutationObserver(() => {
+    if (attachWhenReady())
+      obs.disconnect();
+  });
+
+  obs.observe(host, { childList: true, subtree: true });
 })();
-`
-);
-const errorCSS = (
-  /* css */
-  `
+`;
+const errorCSS = `
 :host {
   --preview-width: 240px;
   --preview-height: 180px;
   --base-width: 1200px;
   --base-height: 900px;
   --z-base: 999999998;
+  --error-pip-left: auto;
+  --error-pip-top: auto;
+  --error-pip-right: 5px;
+  --error-pip-bottom: 5px;
+  --error-pip-origin: bottom right;
+  --app-preview-left: auto;
+  --app-preview-top: auto;
+  --app-preview-right: 5px;
+  --app-preview-bottom: 5px;
   all: initial;
   display: contents;
 }
@@ -1209,37 +1142,44 @@ const errorCSS = (
   z-index: var(--z-base);
 }
 #frame[inert] {
-  right: 5px;
-  bottom: 5px;
-  left: auto;
-  top: auto;
+  left: var(--error-pip-left);
+  top: var(--error-pip-top);
+  right: var(--error-pip-right);
+  bottom: var(--error-pip-bottom);
   width: var(--base-width);
   height: var(--base-height);
   transform: scale(calc(240 / 1200));
-  transform-origin: bottom right;
+  transform-origin: var(--error-pip-origin);
   overflow: hidden;
   border-radius: calc(1200 * 8px / 240);
 }
 #preview {
   position: fixed;
-  right: 5px;
-  bottom: 5px;
+  left: var(--app-preview-left);
+  top: var(--app-preview-top);
+  right: var(--app-preview-right);
+  bottom: var(--app-preview-bottom);
   width: var(--preview-width);
   height: var(--preview-height);
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 6px;
   pointer-events: none;
   z-index: var(--z-base);
   background: white;
   display: none;
+}
+#preview iframe {
+  transform-origin: var(--error-pip-origin);
 }
 #frame:not([inert]) + #preview {
   display: block;
 }
 #toggle {
   position: fixed;
-  right: 5px;
-  bottom: 5px;
+  left: var(--app-preview-left);
+  top: var(--app-preview-top);
+  right: calc(var(--app-preview-right) - 3px);
+  bottom: calc(var(--app-preview-bottom) - 3px);
   width: var(--preview-width);
   height: var(--preview-height);
   background: none;
@@ -1249,6 +1189,9 @@ const errorCSS = (
   opacity: 0.8;
   transition: opacity 0.2s, box-shadow 0.2s;
   z-index: calc(var(--z-base) + 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #toggle:hover,
 #toggle:focus {
@@ -1257,130 +1200,743 @@ const errorCSS = (
 }
 #toggle:focus-visible {
   outline: 3px solid #00DC82;
-  outline-offset: 3px;
+  outline-offset: 0;
   box-shadow: 0 0 24px rgba(0, 220, 130, 0.8);
 }
+#frame[inert] ~ #toggle {
+  left: var(--error-pip-left);
+  top: var(--error-pip-top);
+  right: calc(var(--error-pip-right) - 3px);
+  bottom: calc(var(--error-pip-bottom) - 3px);
+  cursor: grab;
+}
+:host(.dragging) #frame[inert] ~ #toggle {
+  cursor: grabbing;
+}
+#frame:not([inert]) ~ #toggle,
+#frame:not([inert]) + #preview {
+  cursor: grab;
+}
+:host(.dragging-preview) #frame:not([inert]) ~ #toggle,
+:host(.dragging-preview) #frame:not([inert]) + #preview {
+  cursor: grabbing;
+}
+
+#pip-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+}
+#pip-close:focus-visible {
+  outline: 2px solid #00DC82;
+  outline-offset: 2px;
+}
+
+#pip-restore {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid #00DC82;
+  background: #111;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  z-index: calc(var(--z-base) + 2);
+  cursor: grab;
+}
+#pip-restore:focus-visible {
+  outline: 2px solid #00DC82;
+  outline-offset: 2px;
+}
+:host(.dragging-restore) #pip-restore {
+  cursor: grabbing;
+}
+
+#frame[hidden],
+#toggle[hidden],
+#preview[hidden],
+#pip-restore[hidden],
+#pip-close[hidden] {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   #toggle {
     transition: none;
   }
 }
-`
-);
+`;
 function webComponentScript(base64HTML, startMinimized) {
-  return (
-    /* js */
-    `
-  (function() {
-    try {
-      const host = document.querySelector('nuxt-error-overlay');
-      if (!host) return;
-      
-      const shadow = host.attachShadow({ mode: 'open' });
-      
-      // Create elements
-      const style = document.createElement('style');
-      style.textContent = ${JSON.stringify(errorCSS)};
-      
-      const iframe = document.createElement('iframe');
-      iframe.id = 'frame';
-      iframe.src = 'data:text/html;base64,${base64HTML}';
-      iframe.title = 'Detailed error stack trace';
-      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
-      
-      const preview = document.createElement('div');
-      preview.id = 'preview';
-      
-      const button = document.createElement('button');
-      button.id = 'toggle';
-      button.setAttribute('aria-expanded', 'true');
-      button.setAttribute('type', 'button');
-      button.innerHTML = '<span class="sr-only">Toggle detailed error view</span>';
-      
-      const liveRegion = document.createElement('div');
-      liveRegion.setAttribute('role', 'status');
-      liveRegion.setAttribute('aria-live', 'polite');
-      liveRegion.className = 'sr-only';
-      
-      // Update preview snapshot
-      function updatePreview() {
-        try {
-          let previewIframe = preview.querySelector('iframe');
-          if (!previewIframe) {
-            previewIframe = document.createElement('iframe');
-            previewIframe.style.cssText = 'width: 1200px; height: 900px; transform: scale(0.2); transform-origin: top left; border: none;';
-            previewIframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
-            preview.appendChild(previewIframe);
-          }
-          
-          const doctype = document.doctype ? '<!DOCTYPE ' + document.doctype.name + '>' : '';
-          const cleanedHTML = document.documentElement.outerHTML
-            .replace(/<nuxt-error-overlay[^>]*>.*?<\\/nuxt-error-overlay>/gs, '')
-            .replace(/<script[^>]*>.*?<\\/script>/gs, '');
-          
-          const iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
-          iframeDoc.open();
-          iframeDoc.write(doctype + cleanedHTML);
-          iframeDoc.close();
-        } catch (error) {
-          console.error('Failed to update preview:', error);
-        }
+	return `
+(function () {
+  try {
+    // =========================
+    // Host + Shadow
+    // =========================
+    const host = document.querySelector('nuxt-error-overlay');
+    if (!host)
+      return;
+    const shadow = host.attachShadow({ mode: 'open' });
+
+    // =========================
+    // DOM helpers
+    // =========================
+    const el = (tag) => document.createElement(tag);
+    const on = (node, type, fn, opts) => node.addEventListener(type, fn, opts);
+    const hide = (node, v) => node.toggleAttribute('hidden', !!v);
+    const setVar = (name, value) => host.style.setProperty(name, value);
+    const unsetVar = (name) => host.style.removeProperty(name);
+
+    // =========================
+    // Create DOM
+    // =========================
+    const style = el('style');
+    style.textContent = ${JSON.stringify(errorCSS)};
+
+    const iframe = el('iframe');
+    iframe.id = 'frame';
+    iframe.src = 'data:text/html;base64,${base64HTML}';
+    iframe.title = 'Detailed error stack trace';
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-top-navigation-by-user-activation');
+
+    const preview = el('div');
+    preview.id = 'preview';
+
+    const toggle = el('div');
+    toggle.id = 'toggle';
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('role', 'button');
+    toggle.setAttribute('tabindex', '0');
+    toggle.innerHTML = '<span class="sr-only">Toggle detailed error view</span>';
+
+    const liveRegion = el('div');
+    liveRegion.setAttribute('role', 'status');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.className = 'sr-only';
+
+    const pipCloseButton = el('button');
+    pipCloseButton.id = 'pip-close';
+    pipCloseButton.setAttribute('type', 'button');
+    pipCloseButton.setAttribute('aria-label', 'Hide error preview overlay');
+    pipCloseButton.innerHTML = '&times;';
+    pipCloseButton.hidden = true;
+    toggle.appendChild(pipCloseButton);
+
+    const pipRestoreButton = el('button');
+    pipRestoreButton.id = 'pip-restore';
+    pipRestoreButton.setAttribute('type', 'button');
+    pipRestoreButton.setAttribute('aria-label', 'Show error overlay');
+    pipRestoreButton.innerHTML = '<span aria-hidden="true">⟲</span><span>Show error overlay</span>';
+    pipRestoreButton.hidden = true;
+
+    // Order matters: #frame + #preview adjacency
+    shadow.appendChild(style);
+    shadow.appendChild(liveRegion);
+    shadow.appendChild(iframe);
+    shadow.appendChild(preview);
+    shadow.appendChild(toggle);
+    shadow.appendChild(pipRestoreButton);
+
+    // =========================
+    // Constants / keys
+    // =========================
+    const POS_KEYS = {
+      position: 'nuxt-error-overlay:position',
+      hiddenPretty: 'nuxt-error-overlay:error-pip:hidden',
+      hiddenPreview: 'nuxt-error-overlay:app-preview:hidden'
+    };
+
+    const CSS_VARS = {
+      pip: {
+        left: '--error-pip-left',
+        top: '--error-pip-top',
+        right: '--error-pip-right',
+        bottom: '--error-pip-bottom'
+      },
+      preview: {
+        left: '--app-preview-left',
+        top: '--app-preview-top',
+        right: '--app-preview-right',
+        bottom: '--app-preview-bottom'
       }
-      
-      function toggleView() {
-        const isMinimized = iframe.hasAttribute('inert');
-        
-        if (isMinimized) {
-          updatePreview();
-          iframe.removeAttribute('inert');
-          button.setAttribute('aria-expanded', 'true');
-          liveRegion.textContent = 'Showing detailed error view';
-          setTimeout(function() {
-            try { iframe.contentWindow.focus(); } catch {}
-          }, 100);
-        } else {
-          iframe.setAttribute('inert', '');
-          button.setAttribute('aria-expanded', 'false');
-          liveRegion.textContent = 'Showing error page';
-          button.focus();
-        }
+    };
+
+    const MIN_GAP = 5;
+    const DRAG_THRESHOLD = 2;
+
+    // =========================
+    // Local storage safe access + state
+    // =========================
+    let storageReady = true;
+    let isPrettyHidden = false;
+    let isPreviewHidden = false;
+
+    const safeGet = (k) => {
+      try {
+        return localStorage.getItem(k);
+      } catch {
+        return null;
       }
-      
-      button.onclick = toggleView;
-      
-      document.addEventListener('keydown', function(e) {
-        if ((e.key === 'Escape' || e.key === 'Esc') && !iframe.hasAttribute('inert')) {
-          toggleView();
-        }
-      });
-      
-      // Append to shadow DOM
-      shadow.appendChild(style);
-      shadow.appendChild(liveRegion);
-      shadow.appendChild(iframe);
-      shadow.appendChild(preview);
-      shadow.appendChild(button);
-      
-      if (${startMinimized}) {
+    };
+
+    const safeSet = (k, v) => {
+      if (!storageReady) 
+        return;
+      try {
+        localStorage.setItem(k, v);
+      } catch {}
+    };
+
+    // =========================
+    // Sizing helpers
+    // =========================
+    const vvSize = () => {
+      const v = window.visualViewport;
+      return v ? { w: v.width, h: v.height } : { w: window.innerWidth, h: window.innerHeight };
+    };
+
+    const previewSize = () => {
+      const styles = getComputedStyle(host);
+      const w = parseFloat(styles.getPropertyValue('--preview-width')) || 240;
+      const h = parseFloat(styles.getPropertyValue('--preview-height')) || 180;
+      return { w, h };
+    };
+
+    const sizeForTarget = (target) => {
+      if (!target)
+        return previewSize();
+      const rect = target.getBoundingClientRect();
+      if (rect.width && rect.height)
+        return { w: rect.width, h: rect.height };
+      return previewSize();
+    };
+
+    // =========================
+    // Dock model + offset/alignment calculations
+    // =========================
+    const dock = { edge: null, offset: null, align: null, gap: null };
+
+    const maxOffsetFor = (edge, size) => {
+      const vv = vvSize();
+      if (edge === 'left' || edge === 'right')
+        return Math.max(MIN_GAP, vv.h - size.h - MIN_GAP);
+      return Math.max(MIN_GAP, vv.w - size.w - MIN_GAP);
+    };
+
+    const clampOffset = (edge, value, size) => {
+      const max = maxOffsetFor(edge, size);
+      return Math.min(Math.max(value, MIN_GAP), max);
+    };
+
+    const updateDockAlignment = (size) => {
+      if (!dock.edge || dock.offset == null)
+        return;
+      const max = maxOffsetFor(dock.edge, size);
+      if (dock.offset <= max / 2) {
+        dock.align = 'start';
+        dock.gap = dock.offset;
+      } else {
+        dock.align = 'end';
+        dock.gap = Math.max(0, max - dock.offset);
+      }
+    };
+
+    const appliedOffsetFor = (size) => {
+      if (!dock.edge || dock.offset == null)
+        return null;
+      const max = maxOffsetFor(dock.edge, size);
+
+      if (dock.align === 'end' && typeof dock.gap === 'number') {
+        return clampOffset(dock.edge, max - dock.gap, size);
+      }
+      if (dock.align === 'start' && typeof dock.gap === 'number') {
+        return clampOffset(dock.edge, dock.gap, size);
+      }
+      return clampOffset(dock.edge, dock.offset, size);
+    };
+
+    const nearestEdgeAt = (x, y) => {
+      const { w, h } = vvSize();
+      const d = { left: x, right: w - x, top: y, bottom: h - y };
+      return Object.keys(d).reduce((a, b) => (d[a] < d[b] ? a : b));
+    };
+
+    const cornerDefaultDock = () => {
+      const vv = vvSize();
+      const size = previewSize();
+      const offset = Math.max(MIN_GAP, vv.w - size.w - MIN_GAP);
+      return { edge: 'bottom', offset };
+    };
+
+    const currentTransformOrigin = () => {
+      if (!dock.edge) return null;
+      if (dock.edge === 'left' || dock.edge === 'top')
+        return 'top left';
+      if (dock.edge === 'right')
+        return 'top right';
+      return 'bottom left';
+    };
+
+    // =========================
+    // Persist / load dock
+    // =========================
+    const loadDock = () => {
+      const raw = safeGet(POS_KEYS.position);
+      if (!raw)
+        return;
+      try {
+        const parsed = JSON.parse(raw);
+        const { edge, offset, align, gap } = parsed || {};
+        if (!['left', 'right', 'top', 'bottom'].includes(edge))
+          return;
+        if (typeof offset !== 'number')
+          return;
+
+        dock.edge = edge;
+        dock.offset = clampOffset(edge, offset, previewSize());
+        dock.align = align === 'start' || align === 'end' ? align : null;
+        dock.gap = typeof gap === 'number' ? gap : null;
+
+        if (!dock.align || dock.gap == null)
+          updateDockAlignment(previewSize());
+      } catch {}
+    };
+
+    const persistDock = () => {
+      if (!dock.edge || dock.offset == null)
+        return; 
+      safeSet(POS_KEYS.position, JSON.stringify({
+        edge: dock.edge,
+        offset: dock.offset,
+        align: dock.align,
+        gap: dock.gap
+      }));
+    };
+
+    // =========================
+    // Apply dock
+    // =========================
+    const dockToVars = (vars) => ({
+      set: (side, v) => host.style.setProperty(vars[side], v),
+      clear: (side) => host.style.removeProperty(vars[side])
+    });
+
+    const dockToEl = (node) => ({
+      set: (side, v) => { node.style[side] = v; },
+      clear: (side) => { node.style[side] = ''; }
+    });
+
+    const applyDock = (target, size, opts) => {
+      if (!dock.edge || dock.offset == null) {
+        target.clear('left');
+        target.clear('top');
+        target.clear('right');
+        target.clear('bottom');
+        return;
+      }
+
+      target.set('left', 'auto');
+      target.set('top', 'auto');
+      target.set('right', 'auto');
+      target.set('bottom', 'auto');
+
+      const applied = appliedOffsetFor(size);
+
+      if (dock.edge === 'left') {
+        target.set('left', MIN_GAP + 'px');
+        target.set('top', applied + 'px');
+      } else if (dock.edge === 'right') {
+        target.set('right', MIN_GAP + 'px');
+        target.set('top', applied + 'px');
+      } else if (dock.edge === 'top') {
+        target.set('top', MIN_GAP + 'px');
+        target.set('left', applied + 'px');
+      } else {
+        target.set('bottom', MIN_GAP + 'px');
+        target.set('left', applied + 'px');
+      }
+
+      if (!opts || opts.persist !== false)
+        persistDock();
+    };
+
+    const applyDockAll = (opts) => {
+      applyDock(dockToVars(CSS_VARS.pip), previewSize(), opts);
+      applyDock(dockToVars(CSS_VARS.preview), previewSize(), opts);
+      applyDock(dockToEl(pipRestoreButton), sizeForTarget(pipRestoreButton), opts);
+    };
+
+    const repaintToDock = () => {
+      if (!dock.edge || dock.offset == null)
+        return;
+      const origin = currentTransformOrigin();
+      if (origin)
+        setVar('--error-pip-origin', origin);
+      else 
+        unsetVar('--error-pip-origin');
+      applyDockAll({ persist: false });
+    };
+
+    // =========================
+    // Hidden state + UI
+    // =========================
+    const loadHidden = () => {
+      const rawPretty = safeGet(POS_KEYS.hiddenPretty);
+      if (rawPretty != null)
+        isPrettyHidden = rawPretty === '1' || rawPretty === 'true';
+      const rawPreview = safeGet(POS_KEYS.hiddenPreview);
+      if (rawPreview != null)
+        isPreviewHidden = rawPreview === '1' || rawPreview === 'true';
+    };
+
+    const setPrettyHidden = (v) => {
+      isPrettyHidden = !!v;
+      safeSet(POS_KEYS.hiddenPretty, isPrettyHidden ? '1' : '0');
+      updateUI();
+    };
+
+    const setPreviewHidden = (v) => {
+      isPreviewHidden = !!v;
+      safeSet(POS_KEYS.hiddenPreview, isPreviewHidden ? '1' : '0');
+      updateUI();
+    };
+
+    const isMinimized = () => iframe.hasAttribute('inert');
+
+    const setMinimized = (v) => {
+      if (v) {
         iframe.setAttribute('inert', '');
-        button.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        iframe.removeAttribute('inert');
+        toggle.setAttribute('aria-expanded', 'true');
       }
+    };
+
+    const setRestoreLabel = (kind) => {
+      if (kind === 'pretty') {
+        pipRestoreButton.innerHTML = '<span aria-hidden="true">⟲</span><span>Show error overlay</span>';
+        pipRestoreButton.setAttribute('aria-label', 'Show error overlay');
+      } else {
+        pipRestoreButton.innerHTML = '<span aria-hidden="true">⟲</span><span>Show error page</span>';
+        pipRestoreButton.setAttribute('aria-label', 'Show error page');
+      }
+    };
+
+    const updateUI = () => {
+      const minimized = isMinimized();
+      const showPiP = minimized && !isPrettyHidden;
+      const showPreview = !minimized && !isPreviewHidden;
+      const pipHiddenByUser = minimized && isPrettyHidden;
+      const previewHiddenByUser = !minimized && isPreviewHidden;
+      const showToggle = minimized ? showPiP : showPreview;
+      const showRestore = pipHiddenByUser || previewHiddenByUser;
+
+      hide(iframe, pipHiddenByUser);
+      hide(preview, !showPreview);
+      hide(toggle, !showToggle);
+      hide(pipCloseButton, !showToggle);
+      hide(pipRestoreButton, !showRestore);
+
+      pipCloseButton.setAttribute('aria-label', minimized ? 'Hide error overlay' : 'Hide error page preview');
+
+      if (pipHiddenByUser)
+        setRestoreLabel('pretty');
+      else if (previewHiddenByUser)
+        setRestoreLabel('preview');
+
+      host.classList.toggle('pip-hidden', isPrettyHidden);
+      host.classList.toggle('preview-hidden', isPreviewHidden);
+    };
+
+    // =========================
+    // Preview snapshot
+    // =========================
+    const updatePreview = () => {
+      try {
+        let previewIframe = preview.querySelector('iframe');
+        if (!previewIframe) {
+          previewIframe = el('iframe');
+          previewIframe.style.cssText = 'width: 1200px; height: 900px; transform: scale(0.2); transform-origin: top left; border: none;';
+          previewIframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+          preview.appendChild(previewIframe);
+        }
+
+        const doctype = document.doctype ? '<!DOCTYPE ' + document.doctype.name + '>' : '';
+        const cleanedHTML = document.documentElement.outerHTML
+          .replace(/<nuxt-error-overlay[^>]*>.*?<\\/nuxt-error-overlay>/gs, '')
+          .replace(/<script[^>]*>.*?<\\/script>/gs, '');
+
+        const iframeDoc = previewIframe.contentDocument || previewIframe.contentWindow.document;
+        iframeDoc.open();
+        iframeDoc.write(doctype + cleanedHTML);
+        iframeDoc.close();
+      } catch (err) {
+        console.error('Failed to update preview:', err);
+      }
+    };
+
+    // =========================
+    // View toggling
+    // =========================
+    const toggleView = () => {
+      if (isMinimized()) {
+        updatePreview();
+        setMinimized(false);
+        liveRegion.textContent = 'Showing detailed error view';
+        setTimeout(() => { 
+          try { 
+            iframe.contentWindow.focus();
+          } catch {}
+        }, 100);
+      } else {
+        setMinimized(true);
+        liveRegion.textContent = 'Showing error page';
+        repaintToDock();
+        void iframe.offsetWidth;
+      }
+      updateUI();
+    };
+
+    // =========================
+    // Dragging (unified, rAF throttled)
+    // =========================
+    let drag = null;
+    let rafId = null;
+    let suppressToggleClick = false;
+    let suppressRestoreClick = false;
+
+    const beginDrag = (e) => {
+      if (drag) 
+        return;
+
+      if (!dock.edge || dock.offset == null) {
+        const def = cornerDefaultDock();
+        dock.edge = def.edge;
+        dock.offset = def.offset;
+        updateDockAlignment(previewSize());
+      }
+
+      const isRestoreTarget = e.currentTarget === pipRestoreButton;
+
+      drag = {
+        kind: isRestoreTarget ? 'restore' : (isMinimized() ? 'pip' : 'preview'),
+        pointerId: e.pointerId,
+        startX: e.clientX,
+        startY: e.clientY,
+        lastX: e.clientX,
+        lastY: e.clientY,
+        moved: false,
+        target: e.currentTarget
+      };
+
+      drag.target.setPointerCapture(e.pointerId);
+
+      if (drag.kind === 'restore')
+        host.classList.add('dragging-restore');
+      else 
+        host.classList.add(drag.kind === 'pip' ? 'dragging' : 'dragging-preview');
+
+      e.preventDefault();
+    };
+
+    const moveDrag = (e) => {
+      if (!drag || drag.pointerId !== e.pointerId)
+        return;
+
+      drag.lastX = e.clientX;
+      drag.lastY = e.clientY;
       
-      // Initialize preview
-      setTimeout(updatePreview, 100);
-      
-    } catch (error) {
-      console.error('Failed to initialize Nuxt error overlay:', error);
+      const dx = drag.lastX - drag.startX;
+      const dy = drag.lastY - drag.startY;
+
+      if (!drag.moved && (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)) {
+        drag.moved = true;
+      }
+
+      if (!drag.moved)
+        return;
+      if (rafId)
+        return;
+
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+
+        const edge = nearestEdgeAt(drag.lastX, drag.lastY);
+        const size = sizeForTarget(drag.target);
+
+        let offset;
+        if (edge === 'left' || edge === 'right') {
+          const top = drag.lastY - (size.h / 2);
+          offset = clampOffset(edge, Math.round(top), size);
+        } else {
+          const left = drag.lastX - (size.w / 2);
+          offset = clampOffset(edge, Math.round(left), size);
+        }
+
+        dock.edge = edge;
+        dock.offset = offset;
+        updateDockAlignment(size);
+
+        const origin = currentTransformOrigin();
+        setVar('--error-pip-origin', origin || 'bottom right');
+
+        applyDockAll({ persist: false });
+      });
+    };
+
+    const endDrag = (e) => {
+      if (!drag || drag.pointerId !== e.pointerId)
+        return;
+
+      const endedKind = drag.kind;
+      drag.target.releasePointerCapture(e.pointerId);
+
+      if (endedKind === 'restore')
+        host.classList.remove('dragging-restore');
+      else 
+        host.classList.remove(endedKind === 'pip' ? 'dragging' : 'dragging-preview');
+
+      const didMove = drag.moved;
+      drag = null;
+
+      if (didMove) {
+        persistDock();
+        if (endedKind === 'restore')
+          suppressRestoreClick = true;
+        else 
+          suppressToggleClick = true;
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    const bindDragTarget = (node) => {
+      on(node, 'pointerdown', beginDrag);
+      on(node, 'pointermove', moveDrag);
+      on(node, 'pointerup', endDrag);
+      on(node, 'pointercancel', endDrag);
+    };
+
+    bindDragTarget(toggle);
+    bindDragTarget(pipRestoreButton);
+
+    // =========================
+    // Events (toggle / close / restore)
+    // =========================
+    on(toggle, 'click', (e) => {
+      if (suppressToggleClick) {
+        e.preventDefault();
+        suppressToggleClick = false;
+        return;
+      }
+      toggleView();
+    });
+
+    on(toggle, 'keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleView();
+      }
+    });
+
+    on(pipCloseButton, 'click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (isMinimized())
+        setPrettyHidden(true);
+      else
+        setPreviewHidden(true);
+    });
+
+    on(pipCloseButton, 'pointerdown', (e) => {
+      e.stopPropagation();
+    });
+
+    on(pipRestoreButton, 'click', (e) => {
+      if (suppressRestoreClick) {
+        e.preventDefault();
+        suppressRestoreClick = false;
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      if (isMinimized()) 
+        setPrettyHidden(false);
+      else 
+        setPreviewHidden(false);
+    });
+
+    // =========================
+    // Lifecycle: load / sync / repaint
+    // =========================
+    const loadState = () => {
+      loadDock();
+      loadHidden();
+
+      if (isPrettyHidden && !isMinimized())
+        setMinimized(true);
+
+      updateUI();
+      repaintToDock();
+    };
+
+    loadState();
+
+    on(window, 'storage-ready', () => {
+      storageReady = true;
+      loadState();
+    });
+
+    const onViewportChange = () => repaintToDock();
+
+    on(window, 'resize', onViewportChange);
+
+    if (window.visualViewport) {
+      on(window.visualViewport, 'resize', onViewportChange);
+      on(window.visualViewport, 'scroll', onViewportChange);
     }
-  })();
-  `
-  );
+
+    // initial preview
+    setTimeout(updatePreview, 100);
+
+    // initial minimized option
+    if (${startMinimized}) {
+      setMinimized(true);
+      repaintToDock();
+      void iframe.offsetWidth;
+      updateUI();
+    }
+  } catch (err) {
+    console.error('Failed to initialize Nuxt error overlay:', err);
+  }
+})();
+`;
 }
 function generateErrorOverlayHTML(html, options) {
-  const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, "0")).join("");
-  const errorPage = html.replace("<head>", `<head><script>${iframeStorageBridge(nonce)}<\/script>`);
-  const base64HTML = Buffer.from(errorPage, "utf8").toString("base64");
-  return `
+	const nonce = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, "0")).join("");
+	const errorPage = html.replace("<head>", `<head><script>${iframeStorageBridge(nonce)}<\/script>`);
+	const base64HTML = Buffer.from(errorPage, "utf8").toString("base64");
+	return `
     <script>${parentStorageBridge(nonce)}<\/script>
     <nuxt-error-overlay></nuxt-error-overlay>
     <script>${webComponentScript(base64HTML, options?.startMinimized ?? false)}<\/script>
@@ -1388,62 +1944,76 @@ function generateErrorOverlayHTML(html, options) {
 }
 
 const errorHandler$0 = (async function errorhandler(error, event, { defaultHandler }) {
-  if (event.handled || isJsonRequest(event)) {
-    return;
-  }
-  const defaultRes = await defaultHandler(error, event, { json: true });
-  const statusCode = error.statusCode || 500;
-  if (statusCode === 404 && defaultRes.status === 302) {
-    setResponseHeaders(event, defaultRes.headers);
-    setResponseStatus(event, defaultRes.status, defaultRes.statusText);
-    return send(event, JSON.stringify(defaultRes.body, null, 2));
-  }
-  if (typeof defaultRes.body !== "string" && Array.isArray(defaultRes.body.stack)) {
-    defaultRes.body.stack = defaultRes.body.stack.join("\n");
-  }
-  const errorObject = defaultRes.body;
-  const url = new URL(errorObject.url);
-  errorObject.url = withoutBase(url.pathname, useRuntimeConfig(event).app.baseURL) + url.search + url.hash;
-  errorObject.message ||= "Server Error";
-  errorObject.data ||= error.data;
-  errorObject.statusMessage ||= error.statusMessage;
-  delete defaultRes.headers["content-type"];
-  delete defaultRes.headers["content-security-policy"];
-  setResponseHeaders(event, defaultRes.headers);
-  const reqHeaders = getRequestHeaders(event);
-  const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"];
-  const res = isRenderingError ? null : await useNitroApp().localFetch(
-    withQuery(joinURL(useRuntimeConfig(event).app.baseURL, "/__nuxt_error"), errorObject),
-    {
-      headers: { ...reqHeaders, "x-nuxt-error": "true" },
-      redirect: "manual"
-    }
-  ).catch(() => null);
-  if (event.handled) {
-    return;
-  }
-  if (!res) {
-    const { template } = await Promise.resolve().then(function () { return error500; });
-    {
-      errorObject.description = errorObject.message;
-    }
-    setResponseHeader(event, "Content-Type", "text/html;charset=UTF-8");
-    return send(event, template(errorObject));
-  }
-  const html = await res.text();
-  for (const [header, value] of res.headers.entries()) {
-    if (header === "set-cookie") {
-      appendResponseHeader(event, header, value);
-      continue;
-    }
-    setResponseHeader(event, header, value);
-  }
-  setResponseStatus(event, res.status && res.status !== 200 ? res.status : defaultRes.status, res.statusText || defaultRes.statusText);
-  if (!globalThis._importMeta_.test && typeof html === "string") {
-    const prettyResponse = await defaultHandler(error, event, { json: false });
-    return send(event, html.replace("</body>", `${generateErrorOverlayHTML(prettyResponse.body, { startMinimized: 300 <= statusCode && statusCode < 500 })}</body>`));
-  }
-  return send(event, html);
+	if (event.handled || isJsonRequest(event)) {
+		
+		return;
+	}
+	
+	const defaultRes = await defaultHandler(error, event, { json: true });
+	
+	const status = error.status || error.statusCode || 500;
+	if (status === 404 && defaultRes.status === 302) {
+		setResponseHeaders(event, defaultRes.headers);
+		setResponseStatus(event, defaultRes.status, defaultRes.statusText);
+		return send(event, JSON.stringify(defaultRes.body, null, 2));
+	}
+	if (typeof defaultRes.body !== "string" && Array.isArray(defaultRes.body.stack)) {
+		
+		defaultRes.body.stack = defaultRes.body.stack.join("\n");
+	}
+	const errorObject = defaultRes.body;
+	
+	const url = new URL(errorObject.url);
+	errorObject.url = withoutBase(url.pathname, useRuntimeConfig(event).app.baseURL) + url.search + url.hash;
+	
+	errorObject.message = error.unhandled ? errorObject.message || "Server Error" : error.message || errorObject.message || "Server Error";
+	
+	errorObject.data ||= error.data;
+	errorObject.statusText ||= error.statusText || error.statusMessage;
+	delete defaultRes.headers["content-type"];
+	delete defaultRes.headers["content-security-policy"];
+	setResponseHeaders(event, defaultRes.headers);
+	
+	const reqHeaders = getRequestHeaders(event);
+	
+	const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"];
+	
+	const res = isRenderingError ? null : await useNitroApp().localFetch(withQuery(joinURL(useRuntimeConfig(event).app.baseURL, "/__nuxt_error"), errorObject), {
+		headers: {
+			...reqHeaders,
+			"x-nuxt-error": "true"
+		},
+		redirect: "manual"
+	}).catch(() => null);
+	if (event.handled) {
+		return;
+	}
+	
+	if (!res) {
+		const { template } = await Promise.resolve().then(function () { return error500; });
+		{
+			
+			errorObject.description = errorObject.message;
+		}
+		setResponseHeader(event, "Content-Type", "text/html;charset=UTF-8");
+		return send(event, template(errorObject));
+	}
+	const html = await res.text();
+	for (const [header, value] of res.headers.entries()) {
+		if (header === "set-cookie") {
+			appendResponseHeader(event, header, value);
+			continue;
+		}
+		setResponseHeader(event, header, value);
+	}
+	setResponseStatus(event, res.status && res.status !== 200 ? res.status : defaultRes.status, res.statusText || defaultRes.statusText);
+	if (!globalThis._importMeta_.test && typeof html === "string") {
+		const prettyResponse = await defaultHandler(error, event, { json: false });
+		if (typeof prettyResponse.body === "string") {
+			return send(event, html.replace("</body>", `${generateErrorOverlayHTML(prettyResponse.body, { startMinimized: 300 <= status && status < 500 })}</body>`));
+		}
+	}
+	return send(event, html);
 });
 
 function defineNitroErrorHandler(handler) {
@@ -1597,14 +2167,1030 @@ if (!window.__NUXT_DEVTOOLS_TIME_METRIC__) {
 window.__NUXT_DEVTOOLS_TIME_METRIC__.appInit = Date.now()
 `;
 
-const _6m1RKHdNVOpt_SUTCeXvmrC7R6CkiW3LRghfQG08FsQ = (function(nitro) {
+const _wnV_0xWog4S5qZQoXOP00kRlv1MpaCuj9xShFVEdI0 = (function(nitro) {
   nitro.hooks.hook("render:html", (htmlContext) => {
     htmlContext.head.push(`<script>${script}<\/script>`);
   });
 });
 
-function defineNitroPlugin(def) {
-  return def;
+const rootDir = "/Users/apple/Sites/irfatech";
+
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"IRFAtech helps businesses automate, organize, and grow digitally. Websites, ERP, CRM, AI automation, and custom software for SMBs."},{"name":"keywords","content":"ERP solutions, CRM software, business automation, WhatsApp automation, AI workflows, custom software development, business websites, IRFAtech"},{"name":"author","content":"IRFAtech"},{"name":"robots","content":"index, follow"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"IRFAtech"},{"property":"og:image","content":"https://irfatech.in/images/og-image.svg"},{"property":"og:image:width","content":"1200"},{"property":"og:image:height","content":"630"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:creator","content":"@irfatech"},{"name":"theme-color","content":"#0EA5E9"},{"name":"color-scheme","content":"dark"}],"link":[{"rel":"canonical","href":"https://irfatech.in"},{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"manifest","href":"/manifest.json"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"}],"style":[],"script":[{"src":"https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js","defer":true},{"type":"application/ld+json","innerHTML":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"IRFAtech\",\"alternateName\":\"Integrated Resources For Automation\",\"description\":\"IRFAtech helps businesses automate, organize, and grow digitally through websites, ERP, CRM, AI automation, and custom software.\",\"url\":\"https://irfatech.in\",\"logo\":\"https://irfatech.in/images/logo.png\",\"foundingDate\":\"2009\",\"founder\":{\"@type\":\"Person\",\"name\":\"Muhammad Irfan\"},\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"+91 88 6481 2200\",\"email\":\"irfatechgroup@gmail.com\",\"contactType\":\"customer service\",\"availableLanguage\":[\"English\",\"Hindi\",\"Urdu\"]},\"sameAs\":[],\"knowsAbout\":[\"ERP Solutions\",\"CRM Systems\",\"Business Automation\",\"WhatsApp Automation\",\"AI Workflows\",\"Custom Software Development\",\"Business Websites\",\"Mobile App Development\"]}"}],"noscript":[],"title":"IRFAtech — Digital Infrastructure for Growing Businesses","htmlAttrs":{"lang":"en"}};
+
+const appRootTag = "div";
+
+const appRootAttrs = {"id":"__nuxt"};
+
+const appTeleportTag = "div";
+
+const appTeleportAttrs = {"id":"teleports"};
+
+const appSpaLoaderTag = "div";
+
+const appSpaLoaderAttrs = {"id":"__nuxt-loader"};
+
+const appId = "nuxt-app";
+
+const devReducers = {
+	VNode: (data) => isVNode(data) ? {
+		type: data.type,
+		props: data.props
+	} : undefined,
+	URL: (data) => data instanceof URL ? data.toString() : undefined,
+	Symbol: (data) => typeof data === "symbol" ? data.description ?? "" : undefined
+};
+const asyncContext = getContext("nuxt-dev", {
+	asyncContext: true,
+	AsyncLocalStorage
+});
+const _peeXwJPnqSFGfGwgwuopCkUlENOO1SKY5Phjb4M9bbo = (nitroApp) => {
+	const handler = nitroApp.h3App.handler;
+	nitroApp.h3App.handler = (event) => {
+		return asyncContext.callAsync({
+			logs: [],
+			event
+		}, () => handler(event));
+	};
+	onConsoleLog((_log) => {
+		const ctx = asyncContext.tryUse();
+		if (!ctx) {
+			return;
+		}
+		const rawStack = captureRawStackTrace();
+		if (!rawStack || rawStack.includes("runtime/vite-node.mjs")) {
+			return;
+		}
+		const trace = [];
+		let filename = "";
+		for (const entry of parseRawStackTrace(rawStack)) {
+			if (entry.source === globalThis._importMeta_.url) {
+				continue;
+			}
+			if (EXCLUDE_TRACE_RE.test(entry.source)) {
+				continue;
+			}
+			filename ||= entry.source.replace(withTrailingSlash(rootDir), "");
+			trace.push({
+				...entry,
+				source: entry.source.startsWith("file://") ? entry.source.replace("file://", "") : entry.source
+			});
+		}
+		const log = {
+			..._log,
+			
+			filename,
+			
+			stack: trace
+		};
+		
+		ctx.logs.push(log);
+	});
+	nitroApp.hooks.hook("afterResponse", () => {
+		const ctx = asyncContext.tryUse();
+		if (!ctx) {
+			return;
+		}
+		return nitroApp.hooks.callHook("dev:ssr-logs", {
+			logs: ctx.logs,
+			path: ctx.event.path
+		});
+	});
+	
+	nitroApp.hooks.hook("render:html", (htmlContext) => {
+		const ctx = asyncContext.tryUse();
+		if (!ctx) {
+			return;
+		}
+		try {
+			const reducers = Object.assign(Object.create(null), devReducers, ctx.event.context["~payloadReducers"]);
+			htmlContext.bodyAppend.unshift(`<script type="application/json" data-nuxt-logs="${appId}">${stringify(ctx.logs, reducers)}<\/script>`);
+		} catch (e) {
+			const shortError = e instanceof Error && "toString" in e ? ` Received \`${e.toString()}\`.` : "";
+			console.warn(`[nuxt] Failed to stringify dev server logs.${shortError} You can define your own reducer/reviver for rich types following the instructions in https://nuxt.com/docs/4.x/api/composables/use-nuxt-app#payload.`);
+		}
+	});
+};
+const EXCLUDE_TRACE_RE = /\/node_modules\/(?:.*\/)?(?:nuxt|nuxt-nightly|nuxt-edge|nuxt3|consola|@vue)\/|core\/runtime\/nitro/;
+function onConsoleLog(callback) {
+	consola$1.addReporter({ log(logObj) {
+		callback(logObj);
+	} });
+	consola$1.wrapConsole();
+}
+
+const plugins = [
+  _wnV_0xWog4S5qZQoXOP00kRlv1MpaCuj9xShFVEdI0,
+_peeXwJPnqSFGfGwgwuopCkUlENOO1SKY5Phjb4M9bbo,
+_wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
+];
+
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1ff0d-zvNJ/rca3sWMR9wDxyFpmGdnqEo\"",
+    "mtime": "2026-05-21T21:31:07.427Z",
+    "size": 130829,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"7dd2f-wgO5WvAvbMucK/PDArLEw0nd9Os\"",
+    "mtime": "2026-05-21T21:31:07.427Z",
+    "size": 515375,
+    "path": "index.mjs.map"
+  }
+};
+
+function readAsset (id) {
+  const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
+  return promises.readFile(resolve$1(serverDir, assets[id].path))
+}
+
+const publicAssetBases = {"/assets/builds/meta/":{"maxAge":31536000},"/assets/builds/":{"maxAge":1}};
+
+function isPublicAssetURL(id = '') {
+  if (assets[id]) {
+    return true
+  }
+  for (const base in publicAssetBases) {
+    if (id.startsWith(base)) { return true }
+  }
+  return false
+}
+
+function getAsset (id) {
+  return assets[id]
+}
+
+const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
+const EncodingMap = { gzip: ".gz", br: ".br" };
+const _qgqb07 = eventHandler((event) => {
+  if (event.method && !METHODS.has(event.method)) {
+    return;
+  }
+  let id = decodePath(
+    withLeadingSlash(withoutTrailingSlash(parseURL(event.path).pathname))
+  );
+  let asset;
+  const encodingHeader = String(
+    getRequestHeader(event, "accept-encoding") || ""
+  );
+  const encodings = [
+    ...encodingHeader.split(",").map((e) => EncodingMap[e.trim()]).filter(Boolean).sort(),
+    ""
+  ];
+  for (const encoding of encodings) {
+    for (const _id of [id + encoding, joinURL(id, "index.html" + encoding)]) {
+      const _asset = getAsset(_id);
+      if (_asset) {
+        asset = _asset;
+        id = _id;
+        break;
+      }
+    }
+  }
+  if (!asset) {
+    if (isPublicAssetURL(id)) {
+      removeResponseHeader(event, "Cache-Control");
+      throw createError({ statusCode: 404 });
+    }
+    return;
+  }
+  if (asset.encoding !== void 0) {
+    appendResponseHeader(event, "Vary", "Accept-Encoding");
+  }
+  const ifNotMatch = getRequestHeader(event, "if-none-match") === asset.etag;
+  if (ifNotMatch) {
+    setResponseStatus(event, 304, "Not Modified");
+    return "";
+  }
+  const ifModifiedSinceH = getRequestHeader(event, "if-modified-since");
+  const mtimeDate = new Date(asset.mtime);
+  if (ifModifiedSinceH && asset.mtime && new Date(ifModifiedSinceH) >= mtimeDate) {
+    setResponseStatus(event, 304, "Not Modified");
+    return "";
+  }
+  if (asset.type && !getResponseHeader(event, "Content-Type")) {
+    setResponseHeader(event, "Content-Type", asset.type);
+  }
+  if (asset.etag && !getResponseHeader(event, "ETag")) {
+    setResponseHeader(event, "ETag", asset.etag);
+  }
+  if (asset.mtime && !getResponseHeader(event, "Last-Modified")) {
+    setResponseHeader(event, "Last-Modified", mtimeDate.toUTCString());
+  }
+  if (asset.encoding && !getResponseHeader(event, "Content-Encoding")) {
+    setResponseHeader(event, "Content-Encoding", asset.encoding);
+  }
+  if (asset.size > 0 && !getResponseHeader(event, "Content-Length")) {
+    setResponseHeader(event, "Content-Length", asset.size);
+  }
+  return readAsset(id);
+});
+
+const _J9RdUi = eventHandler(async (event) => {
+  const collection = getRouterParam(event, "collection") || event.path?.split("/")?.[2] || "";
+  setHeader(event, "Content-Type", "text/plain");
+  const data = await useStorage().getItem(`build:content:database.compressed.mjs`) || "";
+  if (data) {
+    const lineStart = `export const ${collection} = "`;
+    const content = String(data).split("\n").find((line) => line.startsWith(lineStart));
+    if (content) {
+      return content.substring(lineStart.length, content.length - 1);
+    }
+  }
+  return await import('file:///Users/apple/Sites/irfatech/.nuxt/content/database.compressed.mjs').then((m) => m[collection]);
+});
+
+const VueResolver = (_, value) => {
+  return isRef(value) ? toValue(value) : value;
+};
+
+const headSymbol = "usehead";
+// @__NO_SIDE_EFFECTS__
+function vueInstall(head) {
+  const plugin = {
+    install(app) {
+      app.config.globalProperties.$unhead = head;
+      app.config.globalProperties.$head = head;
+      app.provide(headSymbol, head);
+    }
+  };
+  return plugin.install;
+}
+
+// @__NO_SIDE_EFFECTS__
+function resolveUnrefHeadInput(input) {
+  return walkResolver(input, VueResolver);
+}
+
+function filterIslandProps(props) {
+  if (!props) {
+    return {};
+  }
+  const out = {};
+  for (const key in props) {
+    if (!key.startsWith("data-v-")) {
+      out[key] = props[key];
+    }
+  }
+  return out;
+}
+function computeIslandHash(name, filteredProps, context, source) {
+  return hash$1([name, filteredProps, context, source]).replace(/[-_]/g, "");
+}
+
+const NUXT_PAYLOAD_INLINE = true;
+const NUXT_RUNTIME_PAYLOAD_EXTRACTION = false;
+
+// @__NO_SIDE_EFFECTS__
+function createHead(options = {}) {
+  const head = createHead$1({
+    ...options,
+    propResolvers: [VueResolver]
+  });
+  head.install = vueInstall(head);
+  return head;
+}
+
+const unheadOptions = {
+  disableDefaults: true,
+};
+
+function encodeEventPath(path) {
+	const queryIndex = path.indexOf("?");
+	if (queryIndex === -1) {
+		return encodePath(path);
+	}
+	return encodePath(path.slice(0, queryIndex)) + path.slice(queryIndex);
+}
+function createSSRContext(event) {
+	const url = encodeEventPath(event.path);
+	const ssrContext = {
+		url,
+		event,
+		runtimeConfig: useRuntimeConfig(event),
+		noSSR: true,
+		head: createHead(unheadOptions),
+		error: false,
+		nuxt: undefined,
+		payload: {},
+		["~payloadReducers"]: Object.create(null),
+		modules: new Set()
+	};
+	return ssrContext;
+}
+function setSSRError(ssrContext, error) {
+	ssrContext.error = true;
+	ssrContext.payload = { error };
+	ssrContext.url = error.url;
+}
+
+function buildAssetsDir() {
+	
+	return useRuntimeConfig().app.buildAssetsDir;
+}
+function buildAssetsURL(...path) {
+	return joinRelativeURL(publicAssetsURL(), buildAssetsDir(), ...path);
+}
+function publicAssetsURL(...path) {
+	
+	const app = useRuntimeConfig().app;
+	const publicBase = app.cdnURL || app.baseURL;
+	return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
+}
+
+// @ts-expect-error private property consumed by vite-generated url helpers
+globalThis.__buildAssetsURL = buildAssetsURL;
+// @ts-expect-error private property consumed by vite-generated url helpers
+globalThis.__publicAssetsURL = publicAssetsURL;
+const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
+const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
+// @ts-expect-error file will be produced after app build
+const getServerEntry = () => Promise.resolve().then(function () { return server; }).then((r) => r.default || r);
+// @ts-expect-error file will be produced after app build
+const getClientManifest = () => Promise.resolve().then(function () { return client_manifest$1; }).then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
+
+const getSSRRenderer = lazyCachedFunction(async () => {
+	
+	const createSSRApp = await getServerEntry();
+	if (!createSSRApp) {
+		throw new Error("Server bundle is not available");
+	}
+	
+	const precomputed = undefined ;
+	
+	const renderer = createRenderer(createSSRApp, {
+		precomputed,
+		manifest: await getClientManifest() ,
+		renderToString: renderToString$1,
+		buildAssetsURL
+	});
+	async function renderToString$1(input, context) {
+		const html = await renderToString(input, context);
+		
+		
+		if (process.env.NUXT_VITE_NODE_OPTIONS) {
+			renderer.rendererContext.updateManifest(await getClientManifest());
+		}
+		return APP_ROOT_OPEN_TAG + html + APP_ROOT_CLOSE_TAG;
+	}
+	return renderer;
+});
+
+const getSPARenderer = lazyCachedFunction(async () => {
+	const precomputed = undefined ;
+	// @ts-expect-error virtual file
+	const spaTemplate = await Promise.resolve().then(function () { return _virtual__spaTemplate; }).then((r) => r.template).catch(() => "").then((r) => {
+		{
+			const APP_SPA_LOADER_OPEN_TAG = `<${appSpaLoaderTag}${propsToString(appSpaLoaderAttrs)}>`;
+			const APP_SPA_LOADER_CLOSE_TAG = `</${appSpaLoaderTag}>`;
+			const appTemplate = APP_ROOT_OPEN_TAG + APP_ROOT_CLOSE_TAG;
+			const loaderTemplate = r ? APP_SPA_LOADER_OPEN_TAG + r + APP_SPA_LOADER_CLOSE_TAG : "";
+			return appTemplate + loaderTemplate;
+		}
+	});
+	
+	const renderer = createRenderer(() => () => {}, {
+		precomputed,
+		manifest: await getClientManifest() ,
+		renderToString: () => spaTemplate,
+		buildAssetsURL
+	});
+	const result = await renderer.renderToString({});
+	const renderToString = (ssrContext) => {
+		const config = useRuntimeConfig(ssrContext.event);
+		ssrContext.modules ||= new Set();
+		ssrContext.payload.serverRendered = false;
+		ssrContext.config = {
+			public: config.public,
+			app: config.app
+		};
+		return Promise.resolve(result);
+	};
+	return {
+		rendererContext: renderer.rendererContext,
+		renderToString
+	};
+});
+function lazyCachedFunction(fn) {
+	let res = null;
+	return () => {
+		if (res === null) {
+			res = fn().catch((err) => {
+				res = null;
+				throw err;
+			});
+		}
+		return res;
+	};
+}
+function getRenderer(ssrContext) {
+	return getSPARenderer() ;
+}
+// @ts-expect-error file will be produced after app build
+const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
+
+async function renderInlineStyles(usedModules) {
+	const styleMap = await getSSRStyles();
+	const inlinedStyles = new Set();
+	for (const mod of usedModules) {
+		if (mod in styleMap && styleMap[mod]) {
+			for (const style of await styleMap[mod]()) {
+				inlinedStyles.add(style);
+			}
+		}
+	}
+	return Array.from(inlinedStyles).map((style) => ({ innerHTML: style }));
+}
+
+// @ts-expect-error virtual file
+const ROOT_NODE_REGEX = new RegExp(`^<${appRootTag}[^>]*>([\\s\\S]*)<\\/${appRootTag}>$`);
+
+function getServerComponentHTML(body) {
+	const match = body.match(ROOT_NODE_REGEX);
+	return match?.[1] || body;
+}
+const SSR_SLOT_TELEPORT_MARKER = /^uid=([^;]*);slot=(.*)$/;
+const SSR_CLIENT_TELEPORT_MARKER = /^uid=([^;]*);client=(.*)$/;
+const SSR_CLIENT_SLOT_MARKER = /^island-slot=([^;]*);(.*)$/;
+function getSlotIslandResponse(ssrContext) {
+	if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.slots).length) {
+		return undefined;
+	}
+	const response = {};
+	for (const [name, slot] of Object.entries(ssrContext.islandContext.slots)) {
+		response[name] = {
+			...slot,
+			fallback: ssrContext.teleports?.[`island-fallback=${name}`]
+		};
+	}
+	return response;
+}
+function getClientIslandResponse(ssrContext) {
+	if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.components).length) {
+		return undefined;
+	}
+	const response = {};
+	for (const [clientUid, component] of Object.entries(ssrContext.islandContext.components)) {
+		
+		const html = ssrContext.teleports?.[clientUid]?.replaceAll("<!--teleport start anchor-->", "") || "";
+		response[clientUid] = {
+			...component,
+			html,
+			slots: getComponentSlotTeleport(clientUid, ssrContext.teleports ?? {})
+		};
+	}
+	return response;
+}
+function getComponentSlotTeleport(clientUid, teleports) {
+	const entries = Object.entries(teleports);
+	const slots = {};
+	for (const [key, value] of entries) {
+		const match = key.match(SSR_CLIENT_SLOT_MARKER);
+		if (match) {
+			const [, id, slot] = match;
+			if (!slot || clientUid !== id) {
+				continue;
+			}
+			slots[slot] = value;
+		}
+	}
+	return slots;
+}
+function replaceIslandTeleports(ssrContext, html) {
+	const { teleports, islandContext } = ssrContext;
+	if (islandContext || !teleports) {
+		return html;
+	}
+	for (const key in teleports) {
+		const matchClientComp = key.match(SSR_CLIENT_TELEPORT_MARKER);
+		if (matchClientComp) {
+			const [, uid, clientId] = matchClientComp;
+			if (!uid || !clientId) {
+				continue;
+			}
+			html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-component="${clientId}"[^>]*>`), (full) => {
+				return full + teleports[key];
+			});
+			continue;
+		}
+		const matchSlot = key.match(SSR_SLOT_TELEPORT_MARKER);
+		if (matchSlot) {
+			const [, uid, slot] = matchSlot;
+			if (!uid || !slot) {
+				continue;
+			}
+			html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-slot="${slot}"[^>]*>`), (full) => {
+				return full + teleports[key];
+			});
+		}
+	}
+	return html;
+}
+
+const ISLAND_SUFFIX_RE = /\.json(?:\?.*)?$/;
+const handler$1 = defineEventHandler(async (event) => {
+	const nitroApp = useNitroApp();
+	setResponseHeaders(event, {
+		"content-type": "application/json;charset=utf-8",
+		"x-powered-by": "Nuxt"
+	});
+	const islandContext = await getIslandContext(event);
+	const ssrContext = {
+		...createSSRContext(event),
+		islandContext,
+		noSSR: false,
+		url: islandContext.url
+	};
+	
+	const renderer = await getSSRRenderer();
+	const renderResult = await renderer.renderToString(ssrContext).catch(async (err) => {
+		if (ssrContext["~renderResponse"] && err?.message === "skipping render") {
+			return {};
+		}
+		await ssrContext.nuxt?.hooks.callHook("app:error", err);
+		throw err;
+	});
+	
+	
+	await ssrContext.nuxt?.hooks.callHook("app:rendered", {
+		ssrContext,
+		renderResult
+	});
+	if (ssrContext["~renderResponse"]) {
+		const response = ssrContext["~renderResponse"];
+		if (response.statusCode && response.statusCode >= 400) {
+			throw createError({
+				statusCode: response.statusCode,
+				statusMessage: response.statusMessage
+			});
+		}
+		return returnIslandResponse(event, response);
+	}
+	
+	if (ssrContext.payload?.error) {
+		throw ssrContext.payload.error;
+	}
+	const inlinedStyles = await renderInlineStyles(ssrContext.modules ?? []);
+	if (inlinedStyles.length) {
+		ssrContext.head.push({ style: inlinedStyles });
+	}
+	{
+		const { styles } = getRequestDependencies(ssrContext, renderer.rendererContext);
+		const link = [];
+		for (const resource of Object.values(styles)) {
+			
+			if ("inline" in getQuery(resource.file)) {
+				continue;
+			}
+			
+			
+			if (resource.file.includes("scoped") && !resource.file.includes("pages/")) {
+				link.push({
+					rel: "stylesheet",
+					href: renderer.rendererContext.buildAssetsURL(resource.file),
+					crossorigin: ""
+				});
+			}
+		}
+		if (link.length) {
+			ssrContext.head.push({ link }, { mode: "server" });
+		}
+	}
+	const islandHead = {};
+	for (const entry of ssrContext.head.entries.values()) {
+		
+		for (const [key, value] of Object.entries(resolveUnrefHeadInput(entry.input))) {
+			const currentValue = islandHead[key];
+			if (Array.isArray(currentValue)) {
+				currentValue.push(...value);
+			} else {
+				islandHead[key] = value;
+			}
+		}
+	}
+	const islandResponse = {
+		id: islandContext.id,
+		head: islandHead,
+		html: getServerComponentHTML(renderResult.html),
+		components: getClientIslandResponse(ssrContext),
+		slots: getSlotIslandResponse(ssrContext)
+	};
+	await nitroApp.hooks.callHook("render:island", islandResponse, {
+		event,
+		islandContext
+	});
+	return islandResponse;
+});
+function returnIslandResponse(event, response) {
+	for (const header in response.headers || {}) {
+		setResponseHeader(event, header, response.headers[header]);
+	}
+	if (response.statusCode) {
+		setResponseStatus(event, response.statusCode, response.statusMessage);
+	}
+	return response.body;
+}
+const ISLAND_PATH_PREFIX = "/__nuxt_island/";
+const VALID_COMPONENT_NAME_RE = /^[a-z][\w.-]*$/i;
+async function getIslandContext(event) {
+	let url = event.path || "";
+	url.replace(/\?.*$/, "");
+	if (!url.startsWith(ISLAND_PATH_PREFIX)) {
+		throw createError({
+			statusCode: 400,
+			statusMessage: "Invalid island request path"
+		});
+	}
+	const componentParts = url.substring(ISLAND_PATH_PREFIX.length).replace(ISLAND_SUFFIX_RE, "").split("_");
+	const hashId = componentParts.length > 1 ? componentParts.pop() : undefined;
+	const componentName = componentParts.join("_");
+	if (!componentName || !VALID_COMPONENT_NAME_RE.test(componentName)) {
+		throw createError({
+			statusCode: 400,
+			statusMessage: "Invalid island component name"
+		});
+	}
+	const rawContext = event.method === "GET" ? getQuery$1(event) : await readBody(event);
+	const rawProps = destr$1(rawContext?.props) || {};
+	const filteredProps = filterIslandProps(rawProps);
+	
+	
+	const clientContext = {};
+	if (rawContext && typeof rawContext === "object") {
+		for (const key in rawContext) {
+			if (key !== "props") {
+				clientContext[key] = rawContext[key];
+			}
+		}
+	}
+	
+	
+	const expectedHash = computeIslandHash(componentName, filteredProps, clientContext, undefined);
+	if (!hashId || hashId !== expectedHash) {
+		throw createError({
+			statusCode: 400,
+			statusMessage: "Invalid island request hash"
+		});
+	}
+	return {
+		url: typeof rawContext?.url === "string" ? rawContext.url : "/",
+		id: hashId,
+		name: componentName,
+		props: rawProps,
+		slots: {},
+		components: {}
+	};
+}
+
+async function decompressSQLDump(base64Str, compressionType = "gzip") {
+  let binaryData;
+  if (typeof Buffer !== "undefined") {
+    const buffer = Buffer.from(base64Str, "base64");
+    binaryData = Uint8Array.from(buffer);
+  } else if (typeof atob !== "undefined") {
+    binaryData = Uint8Array.from(atob(base64Str), (c) => c.charCodeAt(0));
+  } else {
+    throw new TypeError("No base64 decoding method available");
+  }
+  const response = new Response(new Blob([binaryData]));
+  const decompressedStream = response.body?.pipeThrough(new DecompressionStream(compressionType));
+  const text = await new Response(decompressedStream).text();
+  return JSON.parse(text);
+}
+
+const checksums = {
+  "blog": "v3.5.0--hOPSgkFWHz0u_wmzvXCpyj28qoYPXBalSw-PiPU52y4"
+};
+const checksumsStructure = {
+  "blog": "XO5HLmz6Yf4nPSe1lNYClQW8TwbXjUH3wmIu2ssMCTg"
+};
+const tables = {
+  "blog": "_content_blog",
+  "info": "_content_info"
+};
+const contentManifest = {
+  "blog": {
+    "type": "page",
+    "fields": {
+      "id": "string",
+      "title": "string",
+      "author": "string",
+      "body": "json",
+      "category": "string",
+      "date": "string",
+      "description": "string",
+      "extension": "string",
+      "featured": "boolean",
+      "image": "string",
+      "meta": "json",
+      "navigation": "json",
+      "path": "string",
+      "readTime": "string",
+      "seo": "json",
+      "stem": "string",
+      "tags": "json"
+    }
+  },
+  "info": {
+    "type": "data",
+    "fields": {}
+  }
+};
+
+async function fetchContent(event, collection, path, options) {
+  const headers = event ? getRequestHeaders(event) : {};
+  headers["accept-encoding"] = void 0;
+  const url = `/__nuxt_content/${collection}/${path}`;
+  const fetchOptions = {
+    ...options,
+    headers: {
+      ...headers,
+      ...options.headers
+    },
+    query: { v: checksums[String(collection)], t: Date.now()  }
+  };
+  return event ? await event.$fetch(url, fetchOptions) : await $fetch(url, fetchOptions);
+}
+async function fetchDatabase(event, collection) {
+  return fetchContent(event, collection, "sql_dump.txt", {
+    responseType: "text",
+    headers: {
+      "content-type": "text/plain"
+    }
+  });
+}
+
+function refineContentFields(sql, doc) {
+  const fields = findCollectionFields(sql);
+  const item = { ...doc };
+  for (const key in item) {
+    if (fields[key] === "json" && item[key] && item[key] !== "undefined") {
+      item[key] = JSON.parse(item[key]);
+    }
+    if (fields[key] === "boolean" && item[key] !== "undefined") {
+      item[key] = Boolean(item[key]);
+    }
+  }
+  for (const key in item) {
+    if (item[key] === "NULL") {
+      item[key] = void 0;
+    }
+  }
+  return item;
+}
+function findCollectionFields(sql) {
+  const table = sql.match(/FROM\s+(\w+)/);
+  if (!table) {
+    return {};
+  }
+  const info = contentManifest[getCollectionName(table[1])];
+  return info?.fields || {};
+}
+function getCollectionName(table) {
+  return table.replace(/^_content_/, "");
+}
+
+let db;
+function loadDatabaseAdapter(config) {
+  const { database, localDatabase } = config;
+  if (!db) {
+    {
+      db = localAdapter(refineDatabaseConfig(localDatabase));
+    }
+  }
+  return {
+    all: async (sql, params = []) => {
+      return db.prepare(sql).all(...params).then((result) => (result || []).map((item) => refineContentFields(sql, item)));
+    },
+    first: async (sql, params = []) => {
+      return db.prepare(sql).get(...params).then((item) => item ? refineContentFields(sql, item) : item);
+    },
+    exec: async (sql, params = []) => {
+      return db.prepare(sql).run(...params);
+    }
+  };
+}
+const checkDatabaseIntegrity = /* @__PURE__ */ new Map();
+const integrityCheckPromise = /* @__PURE__ */ new Map();
+async function checkAndImportDatabaseIntegrity(event, collection, config) {
+  if (checkDatabaseIntegrity.get(collection) !== false) {
+    checkDatabaseIntegrity.set(collection, false);
+    if (!integrityCheckPromise.has(collection)) {
+      const _integrityCheck = _checkAndImportDatabaseIntegrity(event, collection, checksums[collection], checksumsStructure[collection], config).then((isValid) => {
+        checkDatabaseIntegrity.set(collection, !isValid);
+      }).catch((error) => {
+        console.error("Database integrity check failed", error);
+        checkDatabaseIntegrity.set(collection, true);
+        integrityCheckPromise.delete(collection);
+      });
+      integrityCheckPromise.set(collection, _integrityCheck);
+    }
+  }
+  if (integrityCheckPromise.has(collection)) {
+    await integrityCheckPromise.get(collection);
+  }
+}
+async function _checkAndImportDatabaseIntegrity(event, collection, integrityVersion, structureIntegrityVersion, config) {
+  const db2 = loadDatabaseAdapter(config);
+  const before = await db2.first(`SELECT * FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]).catch(() => null);
+  if (before?.version && !String(before.version)?.startsWith(`${config.databaseVersion}--`)) {
+    await db2.exec(`DROP TABLE IF EXISTS ${tables.info}`);
+    before.version = "";
+  }
+  const unchangedStructure = before?.structureVersion === structureIntegrityVersion;
+  if (before?.version) {
+    if (before.version === integrityVersion) {
+      if (before.ready) {
+        return true;
+      }
+      await waitUntilDatabaseIsReady(db2, collection);
+      return true;
+    }
+    await db2.exec(`DELETE FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]);
+    if (!unchangedStructure) {
+      await db2.exec(`DROP TABLE IF EXISTS ${tables[collection]}`);
+    }
+  }
+  const dump = await loadDatabaseDump(event, collection).then(decompressSQLDump);
+  const dumpLinesHash = dump.map((row) => row.split(" -- ").pop());
+  let hashesInDb = /* @__PURE__ */ new Set();
+  if (unchangedStructure) {
+    const hashListFromTheDump = new Set(dumpLinesHash);
+    const hashesInDbRecords = await db2.all(`SELECT __hash__ FROM ${tables[collection]}`).catch(() => []);
+    hashesInDb = new Set(hashesInDbRecords.map((r) => r.__hash__));
+    const hashesToDelete = hashesInDb.difference(hashListFromTheDump);
+    if (hashesToDelete.size) {
+      await db2.exec(`DELETE FROM ${tables[collection]} WHERE __hash__ IN (${Array(hashesToDelete.size).fill("?").join(",")})`, Array.from(hashesToDelete));
+    }
+  }
+  await dump.reduce(async (prev, sql, index) => {
+    await prev;
+    const hash = dumpLinesHash[index];
+    const statement = sql.substring(0, sql.length - hash.length - 4);
+    if (unchangedStructure) {
+      if (hash === "structure") {
+        return Promise.resolve();
+      }
+      if (hashesInDb.has(hash)) {
+        return Promise.resolve();
+      }
+    }
+    await db2.exec(statement).catch((err) => {
+      const message = err.message || "Unknown error";
+      console.error(`Failed to execute SQL ${sql}: ${message}`);
+    });
+  }, Promise.resolve());
+  const after = await db2.first(`SELECT version FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]).catch(() => ({ version: "" }));
+  return after?.version === integrityVersion;
+}
+const REQUEST_TIMEOUT = 90;
+async function waitUntilDatabaseIsReady(db2, collection) {
+  let iterationCount = 0;
+  let interval;
+  await new Promise((resolve, reject) => {
+    interval = setInterval(async () => {
+      const row = await db2.first(`SELECT ready FROM ${tables.info} WHERE id = ?`, [`checksum_${collection}`]).catch(() => ({ ready: true }));
+      if (row?.ready) {
+        clearInterval(interval);
+        resolve(0);
+      }
+      if (iterationCount++ > REQUEST_TIMEOUT) {
+        clearInterval(interval);
+        reject(new Error("Waiting for another database initialization timed out"));
+      }
+    }, 1e3);
+  }).catch((e) => {
+    throw e;
+  }).finally(() => {
+    if (interval) {
+      clearInterval(interval);
+    }
+  });
+}
+async function loadDatabaseDump(event, collection) {
+  return await fetchDatabase(event, collection).catch((e) => {
+    console.error("Failed to fetch compressed dump", e);
+    return "";
+  });
+}
+function refineDatabaseConfig(config) {
+  if (config.type === "d1") {
+    return { ...config, bindingName: config.bindingName || config.binding };
+  }
+  if (config.type === "sqlite") {
+    const _config = { ...config };
+    if (config.filename === ":memory:") {
+      return { name: ":memory:" };
+    }
+    if ("filename" in config) {
+      const filename = isAbsolute(config?.filename || "") || config?.filename === ":memory:" ? config?.filename : new URL(config.filename, globalThis._importMeta_.url).pathname;
+      _config.path = process.platform === "win32" && filename.startsWith("/") ? filename.slice(1) : filename;
+    }
+    return _config;
+  }
+  if (config.type === "pglite") {
+    return {
+      dataDir: config.dataDir,
+      // Pass through any other PGlite-specific options
+      ...config
+    };
+  }
+  return config;
+}
+
+const SQL_COMMANDS = /SELECT|INSERT|UPDATE|DELETE|DROP|ALTER|\$/i;
+const SQL_COUNT_REGEX = /^COUNT\((DISTINCT )?([a-z_]\w+|\*)\) as count$/i;
+const SQL_SELECT_REGEX = /^SELECT (.*) FROM (\w+)( WHERE .*)? ORDER BY (["\w,\s]+) (ASC|DESC)( LIMIT \d+)?( OFFSET \d+)?$/;
+function assertSafeQuery(sql, collection) {
+  if (!sql) {
+    throw new Error("Invalid query: Query cannot be empty");
+  }
+  const cleanedupQuery = cleanupQuery(sql);
+  if (cleanedupQuery !== sql) {
+    throw new Error("Invalid query: SQL comments are not allowed");
+  }
+  const match = sql.match(SQL_SELECT_REGEX);
+  if (!match) {
+    throw new Error("Invalid query: Query must be a valid SELECT statement with proper syntax");
+  }
+  const [_, select, from, where, orderBy, order, limit, offset] = match;
+  const columns = select?.trim().split(", ") || [];
+  if (columns.length === 1) {
+    if (columns[0] !== "*" && !columns[0]?.match(SQL_COUNT_REGEX) && !columns[0]?.match(/^"[a-z_]\w+"$/i)) {
+      throw new Error(`Invalid query: Column '${columns[0]}' has invalid format. Expected *, COUNT(), or a quoted column name`);
+    }
+  } else if (!columns.every((column) => column.match(/^"[a-z_]\w+"$/i))) {
+    throw new Error("Invalid query: Multiple columns must be properly quoted and alphanumeric");
+  }
+  if (from !== `_content_${collection}`) {
+    const collection2 = String(from || "").replace(/^_content_/, "");
+    throw new Error(`Invalid query: Collection '${collection2}' does not exist`);
+  }
+  if (where) {
+    if (!where.startsWith(" WHERE (") || !where.endsWith(")")) {
+      throw new Error("Invalid query: WHERE clause must be properly enclosed in parentheses");
+    }
+    const noString = cleanupQuery(where, { removeString: true });
+    if (noString.match(SQL_COMMANDS)) {
+      throw new Error("Invalid query: WHERE clause contains unsafe SQL commands");
+    }
+  }
+  const _order = (orderBy + " " + order).split(", ");
+  if (!_order.every((column) => column.match(/^("[a-zA-Z_]+"|[a-zA-Z_]+) (ASC|DESC)$/))) {
+    throw new Error("Invalid query: ORDER BY clause must contain valid column names followed by ASC or DESC");
+  }
+  if (limit !== void 0 && !limit.match(/^ LIMIT \d+$/)) {
+    throw new Error("Invalid query: LIMIT clause must be a positive number");
+  }
+  if (offset !== void 0 && !offset.match(/^ OFFSET \d+$/)) {
+    throw new Error("Invalid query: OFFSET clause must be a positive number");
+  }
+  return true;
+}
+function cleanupQuery(query, options = { removeString: false }) {
+  let inString = false;
+  let stringFence = "";
+  let result = "";
+  for (let i = 0; i < query.length; i++) {
+    const char = query[i];
+    const prevChar = query[i - 1];
+    const nextChar = query[i + 1];
+    if (char === "'" || char === '"') {
+      if (!options?.removeString) {
+        result += char;
+        continue;
+      }
+      if (inString) {
+        if (char !== stringFence || nextChar === stringFence || prevChar === stringFence) {
+          continue;
+        }
+        inString = false;
+        stringFence = "";
+        continue;
+      } else {
+        inString = true;
+        stringFence = char;
+        continue;
+      }
+    }
+    if (!inString) {
+      if (char === "-" && nextChar === "-") {
+        return result;
+      }
+      if (char === "/" && nextChar === "*") {
+        i += 2;
+        while (i < query.length && !(query[i] === "*" && query[i + 1] === "/")) {
+          i += 1;
+        }
+        i += 2;
+        continue;
+      }
+      result += char;
+    }
+  }
+  return result;
 }
 
 function defineRenderHandler(render) {
@@ -1683,1395 +3269,49 @@ async function runTask(name, {
   }
 }
 
-function buildAssetsDir() {
-  return useRuntimeConfig().app.buildAssetsDir;
-}
-function buildAssetsURL(...path) {
-  return joinRelativeURL(publicAssetsURL(), buildAssetsDir(), ...path);
-}
-function publicAssetsURL(...path) {
-  const app = useRuntimeConfig().app;
-  const publicBase = app.cdnURL || app.baseURL;
-  return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
-}
-
-function isTag(vnode, tag) {
-  if (vnode.type === tag) {
-    return true;
+const _4HvC0x = eventHandler(async (event) => {
+  const { sql } = await readBody(event);
+  const collection = getRouterParam(event, "collection") || event.path?.split("/")?.[2] || "";
+  assertSafeQuery(sql, collection);
+  const conf = useRuntimeConfig().content;
+  if (conf.integrityCheck) {
+    await checkAndImportDatabaseIntegrity(event, collection, conf);
   }
-  if (typeof vnode.type === "object" && vnode.type.tag === tag) {
-    return true;
-  }
-  if (vnode.tag === tag) {
-    return true;
-  }
-  return false;
-}
-function isText(vnode) {
-  return isTag(vnode, "text") || isTag(vnode, Symbol.for("v-txt"));
-}
-function nodeChildren(node) {
-  if (Array.isArray(node.children) || typeof node.children === "string") {
-    return node.children;
-  }
-  if (typeof node.children?.default === "function") {
-    return node.children.default();
-  }
-  return [];
-}
-function nodeTextContent(node) {
-  if (!node) {
-    return "";
-  }
-  if (Array.isArray(node)) {
-    return node.map(nodeTextContent).join("");
-  }
-  if (isText(node)) {
-    return node.children || node.value || "";
-  }
-  const children = nodeChildren(node);
-  if (Array.isArray(children)) {
-    return children.map(nodeTextContent).filter(Boolean).join("");
-  }
-  return "";
-}
-
-const useProcessorPlugins = async (processor, plugins = {}) => {
-  const toUse = Object.entries(plugins).filter((p) => p[1] !== false);
-  for (const plugin of toUse) {
-    const instance = plugin[1].instance || await import(
-      /* @vite-ignore */
-      plugin[0]
-    ).then((m) => m.default || m);
-    processor.use(instance, plugin[1].options);
-  }
-};
-
-function emphasis(state, node) {
-  const result = {
-    type: "element",
-    tagName: "em",
-    properties: node.attributes || {},
-    children: state.all(node)
-  };
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-
-function parseThematicBlock(lang) {
-  if (!lang?.trim()) {
-    return {
-      language: void 0,
-      highlights: void 0,
-      filename: void 0,
-      meta: void 0
-    };
-  }
-  const languageMatches = lang.replace(/[{|[](.+)/, "").match(/^[^ \t]+(?=[ \t]|$)/);
-  const highlightTokensMatches = lang.match(/\{([^}]*)\}/);
-  const filenameMatches = lang.match(/\[((\\\]|[^\]])*)\]/);
-  const meta = lang.replace(languageMatches?.[0] ?? "", "").replace(highlightTokensMatches?.[0] ?? "", "").replace(filenameMatches?.[0] ?? "", "").trim();
-  return {
-    language: languageMatches?.[0] || void 0,
-    highlights: parseHighlightedLines(highlightTokensMatches?.[1] || void 0),
-    // https://github.com/nuxt/content/pull/2169
-    filename: filenameMatches?.[1].replace(/\\\]/g, "]") || void 0,
-    meta
-  };
-}
-function parseHighlightedLines(lines) {
-  const lineArray = String(lines || "").split(",").filter(Boolean).flatMap((line) => {
-    const [start, end] = line.trim().split("-").map((a) => Number(a.trim()));
-    return Array.from({ length: (end || start) - start + 1 }).map((_, i) => start + i);
-  });
-  return lineArray.length ? lineArray : void 0;
-}
-const TAG_NAME_REGEXP = /^<\/?([\w-]+)(\s[^>]*?)?\/?>/;
-function getTagName(value) {
-  const result = String(value).match(TAG_NAME_REGEXP);
-  return result && result[1];
-}
-
-const code = (state, node) => {
-  const lang = (node.lang || "") + " " + (node.meta || "");
-  const { language, highlights, filename, meta } = parseThematicBlock(lang);
-  const value = node.value ? detab(node.value + "\n") : "";
-  let result = {
-    type: "element",
-    tagName: "code",
-    properties: { __ignoreMap: "" },
-    children: [{ type: "text", value }]
-  };
-  if (meta) {
-    result.data = {
-      meta
-    };
-  }
-  state.patch(node, result);
-  result = state.applyData(node, result);
-  const properties = {
-    language,
-    filename,
-    highlights,
-    meta,
-    code: value
-  };
-  if (language) {
-    properties.className = ["language-" + language];
-  }
-  result = { type: "element", tagName: "pre", properties, children: [result] };
-  state.patch(node, result);
-  return result;
-};
-
-function html(state, node) {
-  const tagName = getTagName(node.value);
-  if (tagName && /[A-Z]/.test(tagName)) {
-    node.value = node.value.replace(tagName, kebabCase(tagName));
-  }
-  if (state.dangerous || state.options?.allowDangerousHtml) {
-    const result = { type: "raw", value: node.value };
-    state.patch(node, result);
-    return state.applyData(node, result);
-  }
-  return void 0;
-}
-
-function link$1(state, node) {
-  const properties = {
-    ...node.attributes || {},
-    href: normalizeUri(node.url)
-  };
-  if (node.title !== null && node.title !== void 0) {
-    properties.title = node.title;
-  }
-  const result = {
-    type: "element",
-    tagName: "a",
-    properties,
-    children: state.all(node)
-  };
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-
-function list(state, node) {
-  const properties = {};
-  const results = state.all(node);
-  let index = -1;
-  if (typeof node.start === "number" && node.start !== 1) {
-    properties.start = node.start;
-  }
-  while (++index < results.length) {
-    const child = results[index];
-    if (child.type === "element" && child.tagName === "li" && child.properties && Array.isArray(child.properties.className) && child.properties.className.includes("task-list-item")) {
-      properties.className = ["contains-task-list"];
-      break;
-    }
-  }
-  if ((node.children || []).some((child) => typeof child.checked === "boolean")) {
-    properties.className = ["contains-task-list"];
-  }
-  const result = {
-    type: "element",
-    tagName: node.ordered ? "ol" : "ul",
-    properties,
-    children: state.wrap(results, true)
-  };
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-
-const htmlTags = [
-  "a",
-  "abbr",
-  "address",
-  "area",
-  "article",
-  "aside",
-  "audio",
-  "b",
-  "base",
-  "bdi",
-  "bdo",
-  "blockquote",
-  "body",
-  "br",
-  "button",
-  "canvas",
-  "caption",
-  "cite",
-  "code",
-  "col",
-  "colgroup",
-  "data",
-  "datalist",
-  "dd",
-  "del",
-  "details",
-  "dfn",
-  "dialog",
-  "div",
-  "dl",
-  "dt",
-  "em",
-  "embed",
-  "fieldset",
-  "figcaption",
-  "figure",
-  "footer",
-  "form",
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "head",
-  "header",
-  "hgroup",
-  "hr",
-  "html",
-  "i",
-  "iframe",
-  "img",
-  "input",
-  "ins",
-  "kbd",
-  "label",
-  "legend",
-  "li",
-  "link",
-  "main",
-  "map",
-  "mark",
-  "math",
-  "menu",
-  "menuitem",
-  "meta",
-  "meter",
-  "nav",
-  "noscript",
-  "object",
-  "ol",
-  "optgroup",
-  "option",
-  "output",
-  "p",
-  "param",
-  "picture",
-  "pre",
-  "progress",
-  "q",
-  "rb",
-  "rp",
-  "rt",
-  "rtc",
-  "ruby",
-  "s",
-  "samp",
-  "script",
-  "section",
-  "select",
-  "slot",
-  "small",
-  "source",
-  "span",
-  "strong",
-  "style",
-  "sub",
-  "summary",
-  "sup",
-  "svg",
-  "table",
-  "tbody",
-  "td",
-  "template",
-  "textarea",
-  "tfoot",
-  "th",
-  "thead",
-  "time",
-  "title",
-  "tr",
-  "track",
-  "u",
-  "ul",
-  "var",
-  "video",
-  "wbr"
-];
-
-function paragraph(state, node) {
-  if (node.children && node.children[0] && node.children[0].type === "html") {
-    const tagName = kebabCase(getTagName(node.children[0].value) || "div");
-    if (!htmlTags.includes(tagName)) {
-      return state.all(node);
-    }
-  }
-  const result = {
-    type: "element",
-    tagName: "p",
-    properties: {},
-    children: state.all(node)
-  };
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-
-function image(state, node) {
-  const properties = { ...node.attributes, src: normalizeUri(node.url) };
-  if (node.alt !== null && node.alt !== void 0) {
-    properties.alt = node.alt;
-  }
-  if (node.title !== null && node.title !== void 0) {
-    properties.title = node.title;
-  }
-  const result = { type: "element", tagName: "img", properties, children: [] };
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-
-function strong(state, node) {
-  const result = {
-    type: "element",
-    tagName: "strong",
-    properties: node.attributes || {},
-    children: state.all(node)
-  };
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-
-function inlineCode(state, node) {
-  const language = node.attributes?.language || node.attributes?.lang;
-  const text = { type: "text", value: node.value.replace(/\r?\n|\r/g, " ") };
-  state.patch(node, text);
-  const result = {
-    type: "element",
-    tagName: "code",
-    properties: node.attributes || {},
-    children: [text]
-  };
-  const classes = (result.properties.class || "").split(" ");
-  delete result.properties.class;
-  if (language) {
-    result.properties.language = language;
-    delete result.properties.lang;
-    classes.push("language-" + language);
-  }
-  result.properties.className = classes.join(" ");
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-
-function containerComponent(state, node) {
-  const result = {
-    type: "element",
-    tagName: node.name,
-    properties: {
-      ...node.attributes,
-      ...node.data?.hProperties
-    },
-    children: state.all(node)
-  };
-  state.patch(node, result);
-  result.attributes = node.attributes;
-  result.fmAttributes = node.fmAttributes;
-  return result;
-}
-
-const handlers$1 = {
-  emphasis,
-  code,
-  link: link$1,
-  paragraph,
-  html,
-  list,
-  image,
-  strong,
-  inlineCode,
-  containerComponent
-};
-
-const defaults$1 = {
-  remark: {
-    plugins: {
-      "remark-mdc": {
-        instance: remarkMDC
-      },
-      "remark-gfm": {
-        instance: remarkGFM
-      }
-    }
-  },
-  rehype: {
-    options: {
-      handlers: handlers$1,
-      allowDangerousHtml: true
-    },
-    plugins: {
-      "rehype-external-links": {
-        instance: rehypeExternalLinks
-      },
-      "rehype-sort-attribute-values": {
-        instance: rehypeSortAttributeValues
-      },
-      "rehype-sort-attributes": {
-        instance: rehypeSortAttributes
-      },
-      "rehype-raw": {
-        instance: rehypeRaw,
-        options: {
-          passThrough: ["element"]
-        }
-      }
-    }
-  },
-  highlight: false,
-  toc: {
-    searchDepth: 2,
-    depth: 2
-  }
-};
-
-function flattenNodeText(node) {
-  if (node.type === "comment") {
-    return "";
-  }
-  if (node.type === "text") {
-    return node.value || "";
-  } else {
-    return (node.children || []).reduce((text, child) => {
-      return text.concat(flattenNodeText(child));
-    }, "");
-  }
-}
-function flattenNode(node, maxDepth = 2, _depth = 0) {
-  if (!Array.isArray(node.children) || _depth === maxDepth) {
-    return [node];
-  }
-  return [
-    node,
-    ...node.children.reduce((acc, child) => acc.concat(flattenNode(child, maxDepth, _depth + 1)), [])
-  ];
-}
-
-const TOC_TAGS = ["h2", "h3", "h4", "h5", "h6"];
-const TOC_TAGS_DEPTH = TOC_TAGS.reduce((tags, tag) => {
-  tags[tag] = Number(tag.charAt(tag.length - 1));
-  return tags;
-}, {});
-const getHeaderDepth = (node) => TOC_TAGS_DEPTH[node.tag];
-const getTocTags = (depth) => {
-  if (depth < 1 || depth > 5) {
-    console.log(`\`toc.depth\` is set to ${depth}. It should be a number between 1 and 5. `);
-    depth = 1;
-  }
-  return TOC_TAGS.slice(0, depth);
-};
-function nestHeaders(headers) {
-  if (headers.length <= 1) {
-    return headers;
-  }
-  const toc = [];
-  let parent;
-  headers.forEach((header) => {
-    if (!parent || header.depth <= parent.depth) {
-      header.children = [];
-      parent = header;
-      toc.push(header);
-    } else {
-      parent.children.push(header);
-    }
-  });
-  toc.forEach((header) => {
-    if (header.children?.length) {
-      header.children = nestHeaders(header.children);
-    } else {
-      delete header.children;
-    }
-  });
-  return toc;
-}
-function generateFlatToc(body, options) {
-  const { searchDepth, depth, title = "" } = options;
-  const tags = getTocTags(depth);
-  const headers = flattenNode(body, searchDepth).filter((node) => tags.includes(node.tag || ""));
-  const links = headers.map((node) => ({
-    id: node.props?.id,
-    depth: getHeaderDepth(node),
-    text: flattenNodeText(node)
-  }));
-  return {
-    title,
-    searchDepth,
-    depth,
-    links
-  };
-}
-function generateToc(body, options) {
-  const toc = generateFlatToc(body, options);
-  toc.links = nestHeaders(toc.links);
-  return toc;
-}
-
-const unsafeLinkPrefix = [
-  "javascript:",
-  "data:text/html",
-  "vbscript:",
-  "data:text/javascript",
-  "data:text/vbscript",
-  "data:text/css",
-  "data:text/plain",
-  "data:text/xml"
-];
-const validateProp = (attribute, value) => {
-  if (attribute.startsWith("on")) {
-    return false;
-  }
-  if (attribute === "href" || attribute === "src") {
-    return !unsafeLinkPrefix.some((prefix) => value.toLowerCase().startsWith(prefix));
-  }
-  return true;
-};
-const validateProps = (type, props) => {
-  if (!props) {
-    return {};
-  }
-  props = Object.fromEntries(
-    Object.entries(props).filter(([name, value]) => {
-      const isValid = validateProp(name, value);
-      if (!isValid) {
-        console.warn(`[@nuxtjs/mdc] removing unsafe attribute: ${name}="${value}"`);
-      }
-      return isValid;
-    })
-  );
-  if (type === "pre") {
-    if (typeof props.highlights === "string") {
-      props.highlights = props.highlights.split(" ").map((i) => Number.parseInt(i));
-    }
-  }
-  return props;
-};
-
-function compileHast(options = {}) {
-  const slugs = new Slugger();
-  function compileToJSON(node, parent) {
-    if (node.type === "root") {
-      return {
-        type: "root",
-        children: node.children.map((child) => compileToJSON(child, node)).filter(Boolean)
-      };
-    }
-    if (node.type === "element") {
-      if (node.tagName === "p" && node.children.every((child) => child.type === "text" && /^\s*$/.test(child.value))) {
-        return null;
-      }
-      if (node.tagName === "li") {
-        let hasPreviousParagraph = false;
-        node.children = node.children?.flatMap((child) => {
-          if (child.type === "element" && child.tagName === "p") {
-            if (hasPreviousParagraph) {
-              child.children.unshift({
-                type: "element",
-                tagName: "br",
-                properties: {},
-                children: []
-              });
-            }
-            hasPreviousParagraph = true;
-            return child.children;
-          }
-          return child;
-        });
-      }
-      if (node.tagName?.match(/^h\d$/)) {
-        node.properties = node.properties || {};
-        node.properties.id = String(node.properties?.id || slugs.slug(toString(node))).replace(/-+/g, "-").replace(/^-|-$/g, "").replace(/^(\d)/, "_$1");
-      }
-      if (node.tagName === "component-slot") {
-        node.tagName = "template";
-      }
-      const children = (node.tagName === "template" && node.content?.children.length ? node.content.children : node.children).map((child) => compileToJSON(child, node)).filter(Boolean);
-      return {
-        type: "element",
-        tag: node.tagName,
-        props: validateProps(node.tagName, node.properties),
-        children
-      };
-    }
-    if (node.type === "text") {
-      if (!/^\n+$/.test(node.value || "") || parent?.properties?.emptyLinePlaceholder) {
-        return {
-          type: "text",
-          value: node.value
-        };
-      }
-    }
-    if (options.keepComments && node.type === "comment") {
-      return {
-        type: "comment",
-        value: node.value
-      };
-    }
-    return null;
-  }
-  this.Compiler = (tree) => {
-    const body = compileToJSON(tree);
-    let excerpt = void 0;
-    const excerptIndex = tree.children.findIndex((node) => node.type === "comment" && node.value?.trim() === "more");
-    if (excerptIndex !== -1) {
-      excerpt = compileToJSON({
-        type: "root",
-        children: tree.children.slice(0, excerptIndex)
-      });
-      if (excerpt.children.find((node) => node.type === "element" && node.tag === "pre")) {
-        const lastChild = body.children[body.children.length - 1];
-        if (lastChild.type === "element" && lastChild.tag === "style") {
-          excerpt.children.push(lastChild);
-        }
-      }
-    }
-    body.children = (body.children || []).filter((child) => child.type !== "text");
-    return {
-      body,
-      excerpt
-    };
-  };
-}
-
-let moduleOptions;
-let generatedMdcConfigs;
-const createMarkdownParser = async (inlineOptions = {}) => {
-  if (!moduleOptions) {
-    moduleOptions = await Promise.resolve().then(function () { return mdcImports; }).catch(() => ({}));
-  }
-  if (!generatedMdcConfigs) {
-    generatedMdcConfigs = await Promise.resolve().then(function () { return mdcConfigs; }).then((r) => r.getMdcConfigs()).catch(() => []);
-  }
-  const mdcConfigs$1 = [
-    ...generatedMdcConfigs || [],
-    ...inlineOptions.configs || []
-  ];
-  if (inlineOptions.highlight != null && inlineOptions.highlight != false && inlineOptions.highlight.highlighter !== void 0 && typeof inlineOptions.highlight.highlighter !== "function") {
-    console.warn("[@nuxtjs/mdc] `highlighter` passed to `parseMarkdown` is should be a function, but got " + JSON.stringify(inlineOptions.highlight.highlighter) + ", ignored.");
-    inlineOptions = {
-      ...inlineOptions,
-      highlight: {
-        ...inlineOptions.highlight
-      }
-    };
-    delete inlineOptions.highlight.highlighter;
-  }
-  const options = defu$1(inlineOptions, {
-    remark: { plugins: moduleOptions?.remarkPlugins },
-    rehype: { plugins: moduleOptions?.rehypePlugins },
-    highlight: moduleOptions?.highlight
-  }, defaults$1);
-  if (options.rehype?.plugins?.highlight) {
-    options.rehype.plugins.highlight.options = {
-      ...options.rehype.plugins.highlight.options || {},
-      ...options.highlight || {}
-    };
-  }
-  let processor = unified();
-  for (const config of mdcConfigs$1) {
-    processor = await config.unified?.pre?.(processor) || processor;
-  }
-  processor.use(remarkParse);
-  for (const config of mdcConfigs$1) {
-    processor = await config.unified?.remark?.(processor) || processor;
-  }
-  await useProcessorPlugins(processor, options.remark?.plugins);
-  processor.use(remark2rehype, options.rehype?.options);
-  for (const config of mdcConfigs$1) {
-    processor = await config.unified?.rehype?.(processor) || processor;
-  }
-  await useProcessorPlugins(processor, options.rehype?.plugins);
-  processor.use(compileHast, options);
-  for (const config of mdcConfigs$1) {
-    processor = await config.unified?.post?.(processor) || processor;
-  }
-  return async function parse(md, { fileOptions } = {}) {
-    const { content, data: frontmatter } = await parseFrontMatter(md);
-    const processedFile = await processor.process({ ...fileOptions, value: content, data: frontmatter });
-    const result = processedFile.result;
-    const data = Object.assign(
-      contentHeading(result.body),
-      frontmatter,
-      processedFile?.data || {}
-    );
-    let toc;
-    if (data.toc !== false) {
-      const tocOption = defu$1(data.toc || {}, options.toc);
-      toc = generateToc(result.body, tocOption);
-    }
-    return {
-      data,
-      body: result.body,
-      excerpt: result.excerpt,
-      toc
-    };
-  };
-};
-const parseMarkdown = async (md, markdownParserOptions = {}, parseOptions = {}) => {
-  const parser = await createMarkdownParser(markdownParserOptions);
-  return parser(md, parseOptions);
-};
-function contentHeading(body) {
-  let title = "";
-  let description = "";
-  const children = body.children.filter((node) => node.type === "element" && node.tag !== "hr");
-  if (children.length && children[0].tag === "h1") {
-    const node = children.shift();
-    title = nodeTextContent(node);
-  }
-  if (children.length && children[0].tag === "p") {
-    const node = children.shift();
-    description = nodeTextContent(node);
-  }
-  return {
-    title,
-    description
-  };
-}
-
-const _83lfbzb9xHIMqezQCvnu2Atstjhi3buFQgj3W5F5akQ = defineNitroPlugin(async (nitro) => {
-  const { cleanCachedContents } = await Promise.resolve().then(function () { return storage; });
-  const storage$1 = useStorage();
-  const unwatch = await storage$1.watch(async (event, key) => {
-    if (key.startsWith("content:source")) {
-      cleanCachedContents();
-    }
-  });
-  nitro.hooks.hook("close", async () => {
-    if (typeof unwatch === "function") {
-      await unwatch();
-    }
-  });
+  return loadDatabaseAdapter(conf).all(sql);
 });
 
-const rootDir = "/Users/apple/Sites/Saloo";
-
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"First and fastest circumnavigators of the globe covering six continents. Guinness World Record holders Saloo & Neena Chowdhury from Kolkata."},{"name":"keywords","content":"Saloo Chowdhury, Neena Chowdhury, Guinness World Record, circumnavigation, motor rally, adventure, Kolkata, Ambassador car, world record holders"},{"name":"author","content":"Saloo & Neena Chowdhury"},{"name":"robots","content":"index, follow"},{"property":"og:type","content":"website"},{"property":"og:image","content":"https://salooneenachoudhury.com/images/gallery/og-image.jpg"},{"property":"og:site_name","content":"Saloo & Neena Chowdhury"},{"name":"twitter:creator","content":"@SalooNeena"},{"name":"theme-color","content":"#3b82f6"}],"link":[{"rel":"canonical","href":"https://salooneenachoudhury.com"},{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"}],"style":[],"script":[{"src":"https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js","defer":true},{"type":"application/ld+json","innerHTML":"{\"@context\":\"https://schema.org\",\"@type\":\"Person\",\"name\":\"Saloo Chowdhury\",\"alternateName\":\"Neena Chowdhury\",\"description\":\"World Record Holders - First and fastest circumnavigators of the globe by car\",\"url\":\"https://salooneenachoudhury.com\",\"sameAs\":[\"https://www.guinnessworldrecords.com\"],\"knowsAbout\":[\"Motor Rally\",\"Circumnavigation\",\"World Records\",\"Adventure Travel\",\"Guinness World Records\"],\"award\":[\"Guinness World Record - First Circumnavigation by Car (1989)\",\"Guinness World Record - Fastest Circumnavigation by Car (1991)\"],\"birthPlace\":{\"@type\":\"Place\",\"name\":\"Kolkata, India\"}}"}],"noscript":[],"title":"Saloo & Neena Chowdhury - World Record Circumnavigators"};
-
-const appRootTag = "div";
-
-const appRootAttrs = {"id":"__nuxt"};
-
-const appTeleportTag = "div";
-
-const appTeleportAttrs = {"id":"teleports"};
-
-const appSpaLoaderTag = "div";
-
-const appSpaLoaderAttrs = {"id":"__nuxt-loader"};
-
-const appId = "nuxt-app";
-
-const devReducers = {
-  VNode: (data) => isVNode(data) ? { type: data.type, props: data.props } : void 0,
-  URL: (data) => data instanceof URL ? data.toString() : void 0
-};
-const asyncContext = getContext("nuxt-dev", { asyncContext: true, AsyncLocalStorage });
-const _ONfmkf7MR50ck0LFn93ym2pJD4BueXPEPPYfQZM3U = (nitroApp) => {
-  const handler = nitroApp.h3App.handler;
-  nitroApp.h3App.handler = (event) => {
-    return asyncContext.callAsync({ logs: [], event }, () => handler(event));
+const _45IXAH = lazyEventHandler(() => {
+  const opts = useRuntimeConfig().ipx || {};
+  const fsDir = opts?.fs?.dir ? (Array.isArray(opts.fs.dir) ? opts.fs.dir : [opts.fs.dir]).map((dir) => isAbsolute$1(dir) ? dir : fileURLToPath(new URL(dir, globalThis._importMeta_.url))) : void 0;
+  const fsStorage = opts.fs?.dir ? ipxFSStorage({ ...opts.fs, dir: fsDir }) : void 0;
+  const httpStorage = opts.http?.domains ? ipxHttpStorage({ ...opts.http }) : void 0;
+  if (!fsStorage && !httpStorage) {
+    throw new Error("IPX storage is not configured!");
+  }
+  const ipxOptions = {
+    ...opts,
+    storage: fsStorage || httpStorage,
+    httpStorage
   };
-  onConsoleLog((_log) => {
-    const ctx = asyncContext.tryUse();
-    if (!ctx) {
-      return;
-    }
-    const rawStack = captureRawStackTrace();
-    if (!rawStack || rawStack.includes("runtime/vite-node.mjs")) {
-      return;
-    }
-    const trace = [];
-    let filename = "";
-    for (const entry of parseRawStackTrace(rawStack)) {
-      if (entry.source === globalThis._importMeta_.url) {
-        continue;
-      }
-      if (EXCLUDE_TRACE_RE.test(entry.source)) {
-        continue;
-      }
-      filename ||= entry.source.replace(withTrailingSlash(rootDir), "");
-      trace.push({
-        ...entry,
-        source: entry.source.startsWith("file://") ? entry.source.replace("file://", "") : entry.source
-      });
-    }
-    const log = {
-      ..._log,
-      // Pass along filename to allow the client to display more info about where log comes from
-      filename,
-      // Clean up file names in stack trace
-      stack: trace
-    };
-    ctx.logs.push(log);
-  });
-  nitroApp.hooks.hook("afterResponse", () => {
-    const ctx = asyncContext.tryUse();
-    if (!ctx) {
-      return;
-    }
-    return nitroApp.hooks.callHook("dev:ssr-logs", { logs: ctx.logs, path: ctx.event.path });
-  });
-  nitroApp.hooks.hook("render:html", (htmlContext) => {
-    const ctx = asyncContext.tryUse();
-    if (!ctx) {
-      return;
-    }
-    try {
-      const reducers = Object.assign(/* @__PURE__ */ Object.create(null), devReducers, ctx.event.context._payloadReducers);
-      htmlContext.bodyAppend.unshift(`<script type="application/json" data-nuxt-logs="${appId}">${stringify(ctx.logs, reducers)}<\/script>`);
-    } catch (e) {
-      const shortError = e instanceof Error && "toString" in e ? ` Received \`${e.toString()}\`.` : "";
-      console.warn(`[nuxt] Failed to stringify dev server logs.${shortError} You can define your own reducer/reviver for rich types following the instructions in https://nuxt.com/docs/4.x/api/composables/use-nuxt-app#payload.`);
-    }
-  });
-};
-const EXCLUDE_TRACE_RE = /\/node_modules\/(?:.*\/)?(?:nuxt|nuxt-nightly|nuxt-edge|nuxt3|consola|@vue)\/|core\/runtime\/nitro/;
-function onConsoleLog(callback) {
-  consola$1.addReporter({
-    log(logObj) {
-      callback(logObj);
-    }
-  });
-  consola$1.wrapConsole();
-}
-
-const plugins = [
-  _6m1RKHdNVOpt_SUTCeXvmrC7R6CkiW3LRghfQG08FsQ,
-_83lfbzb9xHIMqezQCvnu2Atstjhi3buFQgj3W5F5akQ,
-_ONfmkf7MR50ck0LFn93ym2pJD4BueXPEPPYfQZM3U
-];
-
-const assets = {};
-
-function readAsset (id) {
-  const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
-  return promises.readFile(resolve$1(serverDir, assets[id].path))
-}
-
-const publicAssetBases = {"/assets/builds/meta/":{"maxAge":31536000},"/assets/builds/":{"maxAge":1}};
-
-function isPublicAssetURL(id = '') {
-  if (assets[id]) {
-    return true
-  }
-  for (const base in publicAssetBases) {
-    if (id.startsWith(base)) { return true }
-  }
-  return false
-}
-
-function getAsset (id) {
-  return assets[id]
-}
-
-const METHODS = /* @__PURE__ */ new Set(["HEAD", "GET"]);
-const EncodingMap = { gzip: ".gz", br: ".br" };
-const _ZzIoLs = eventHandler((event) => {
-  if (event.method && !METHODS.has(event.method)) {
-    return;
-  }
-  let id = decodePath(
-    withLeadingSlash(withoutTrailingSlash(parseURL(event.path).pathname))
-  );
-  let asset;
-  const encodingHeader = String(
-    getRequestHeader(event, "accept-encoding") || ""
-  );
-  const encodings = [
-    ...encodingHeader.split(",").map((e) => EncodingMap[e.trim()]).filter(Boolean).sort(),
-    ""
-  ];
-  for (const encoding of encodings) {
-    for (const _id of [id + encoding, joinURL(id, "index.html" + encoding)]) {
-      const _asset = getAsset(_id);
-      if (_asset) {
-        asset = _asset;
-        id = _id;
-        break;
-      }
-    }
-  }
-  if (!asset) {
-    if (isPublicAssetURL(id)) {
-      removeResponseHeader(event, "Cache-Control");
-      throw createError({ statusCode: 404 });
-    }
-    return;
-  }
-  if (asset.encoding !== void 0) {
-    appendResponseHeader(event, "Vary", "Accept-Encoding");
-  }
-  const ifNotMatch = getRequestHeader(event, "if-none-match") === asset.etag;
-  if (ifNotMatch) {
-    setResponseStatus(event, 304, "Not Modified");
-    return "";
-  }
-  const ifModifiedSinceH = getRequestHeader(event, "if-modified-since");
-  const mtimeDate = new Date(asset.mtime);
-  if (ifModifiedSinceH && asset.mtime && new Date(ifModifiedSinceH) >= mtimeDate) {
-    setResponseStatus(event, 304, "Not Modified");
-    return "";
-  }
-  if (asset.type && !getResponseHeader(event, "Content-Type")) {
-    setResponseHeader(event, "Content-Type", asset.type);
-  }
-  if (asset.etag && !getResponseHeader(event, "ETag")) {
-    setResponseHeader(event, "ETag", asset.etag);
-  }
-  if (asset.mtime && !getResponseHeader(event, "Last-Modified")) {
-    setResponseHeader(event, "Last-Modified", mtimeDate.toUTCString());
-  }
-  if (asset.encoding && !getResponseHeader(event, "Content-Encoding")) {
-    setResponseHeader(event, "Content-Encoding", asset.encoding);
-  }
-  if (asset.size > 0 && !getResponseHeader(event, "Content-Length")) {
-    setResponseHeader(event, "Content-Length", asset.size);
-  }
-  return readAsset(id);
+  const ipx = createIPX(ipxOptions);
+  const ipxHandler = createIPXH3Handler(ipx);
+  return useBase(opts.baseURL, ipxHandler);
 });
 
-const VueResolver = (_, value) => {
-  return isRef(value) ? toValue(value) : value;
-};
-
-const headSymbol = "usehead";
-// @__NO_SIDE_EFFECTS__
-function vueInstall(head) {
-  const plugin = {
-    install(app) {
-      app.config.globalProperties.$unhead = head;
-      app.config.globalProperties.$head = head;
-      app.provide(headSymbol, head);
-    }
-  };
-  return plugin.install;
-}
-
-// @__NO_SIDE_EFFECTS__
-function resolveUnrefHeadInput(input) {
-  return walkResolver(input, VueResolver);
-}
-
-// @__NO_SIDE_EFFECTS__
-function createHead(options = {}) {
-  const head = createHead$1({
-    ...options,
-    propResolvers: [VueResolver]
-  });
-  head.install = vueInstall(head);
-  return head;
-}
-
-const unheadOptions = {
-  disableDefaults: true,
-};
-
-function createSSRContext(event) {
-  const ssrContext = {
-    url: event.path,
-    event,
-    runtimeConfig: useRuntimeConfig(event),
-    noSSR: true,
-    head: createHead(unheadOptions),
-    error: false,
-    nuxt: void 0,
-    /* NuxtApp */
-    payload: {},
-    _payloadReducers: /* @__PURE__ */ Object.create(null),
-    modules: /* @__PURE__ */ new Set()
-  };
-  return ssrContext;
-}
-function setSSRError(ssrContext, error) {
-  ssrContext.error = true;
-  ssrContext.payload = { error };
-  ssrContext.url = error.url;
-}
-
-const APP_ROOT_OPEN_TAG = `<${appRootTag}${propsToString(appRootAttrs)}>`;
-const APP_ROOT_CLOSE_TAG = `</${appRootTag}>`;
-const getServerEntry = () => Promise.resolve().then(function () { return server$1; }).then((r) => r.default || r);
-const getClientManifest = () => import('file:///Users/apple/Sites/Saloo/.nuxt//dist/server/client.manifest.mjs').then((r) => r.default || r).then((r) => typeof r === "function" ? r() : r);
-const getSSRRenderer = lazyCachedFunction(async () => {
-  const createSSRApp = await getServerEntry();
-  if (!createSSRApp) {
-    throw new Error("Server bundle is not available");
-  }
-  const precomputed = void 0 ;
-  const renderer = createRenderer(createSSRApp, {
-    precomputed,
-    manifest: await getClientManifest() ,
-    renderToString: renderToString$1,
-    buildAssetsURL
-  });
-  async function renderToString$1(input, context) {
-    const html = await renderToString(input, context);
-    if (process$1.env.NUXT_VITE_NODE_OPTIONS) {
-      renderer.rendererContext.updateManifest(await getClientManifest());
-    }
-    return APP_ROOT_OPEN_TAG + html + APP_ROOT_CLOSE_TAG;
-  }
-  return renderer;
-});
-const getSPARenderer = lazyCachedFunction(async () => {
-  const precomputed = void 0 ;
-  const spaTemplate = await Promise.resolve().then(function () { return _virtual__spaTemplate; }).then((r) => r.template).catch(() => "").then((r) => {
-    {
-      const APP_SPA_LOADER_OPEN_TAG = `<${appSpaLoaderTag}${propsToString(appSpaLoaderAttrs)}>`;
-      const APP_SPA_LOADER_CLOSE_TAG = `</${appSpaLoaderTag}>`;
-      const appTemplate = APP_ROOT_OPEN_TAG + APP_ROOT_CLOSE_TAG;
-      const loaderTemplate = r ? APP_SPA_LOADER_OPEN_TAG + r + APP_SPA_LOADER_CLOSE_TAG : "";
-      return appTemplate + loaderTemplate;
-    }
-  });
-  const renderer = createRenderer(() => () => {
-  }, {
-    precomputed,
-    manifest: await getClientManifest() ,
-    renderToString: () => spaTemplate,
-    buildAssetsURL
-  });
-  const result = await renderer.renderToString({});
-  const renderToString = (ssrContext) => {
-    const config = useRuntimeConfig(ssrContext.event);
-    ssrContext.modules ||= /* @__PURE__ */ new Set();
-    ssrContext.payload.serverRendered = false;
-    ssrContext.config = {
-      public: config.public,
-      app: config.app
-    };
-    return Promise.resolve(result);
-  };
-  return {
-    rendererContext: renderer.rendererContext,
-    renderToString
-  };
-});
-function lazyCachedFunction(fn) {
-  let res = null;
-  return () => {
-    if (res === null) {
-      res = fn().catch((err) => {
-        res = null;
-        throw err;
-      });
-    }
-    return res;
-  };
-}
-function getRenderer(ssrContext) {
-  return getSPARenderer() ;
-}
-const getSSRStyles = lazyCachedFunction(() => Promise.resolve().then(function () { return styles$1; }).then((r) => r.default || r));
-
-async function renderInlineStyles(usedModules) {
-  const styleMap = await getSSRStyles();
-  const inlinedStyles = /* @__PURE__ */ new Set();
-  for (const mod of usedModules) {
-    if (mod in styleMap && styleMap[mod]) {
-      for (const style of await styleMap[mod]()) {
-        inlinedStyles.add(style);
-      }
-    }
-  }
-  return Array.from(inlinedStyles).map((style) => ({ innerHTML: style }));
-}
-
-const ROOT_NODE_REGEX = new RegExp(`^<${appRootTag}[^>]*>([\\s\\S]*)<\\/${appRootTag}>$`);
-function getServerComponentHTML(body) {
-  const match = body.match(ROOT_NODE_REGEX);
-  return match?.[1] || body;
-}
-const SSR_SLOT_TELEPORT_MARKER = /^uid=([^;]*);slot=(.*)$/;
-const SSR_CLIENT_TELEPORT_MARKER = /^uid=([^;]*);client=(.*)$/;
-const SSR_CLIENT_SLOT_MARKER = /^island-slot=([^;]*);(.*)$/;
-function getSlotIslandResponse(ssrContext) {
-  if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.slots).length) {
-    return void 0;
-  }
-  const response = {};
-  for (const [name, slot] of Object.entries(ssrContext.islandContext.slots)) {
-    response[name] = {
-      ...slot,
-      fallback: ssrContext.teleports?.[`island-fallback=${name}`]
-    };
-  }
-  return response;
-}
-function getClientIslandResponse(ssrContext) {
-  if (!ssrContext.islandContext || !Object.keys(ssrContext.islandContext.components).length) {
-    return void 0;
-  }
-  const response = {};
-  for (const [clientUid, component] of Object.entries(ssrContext.islandContext.components)) {
-    const html = ssrContext.teleports?.[clientUid]?.replaceAll("<!--teleport start anchor-->", "") || "";
-    response[clientUid] = {
-      ...component,
-      html,
-      slots: getComponentSlotTeleport(clientUid, ssrContext.teleports ?? {})
-    };
-  }
-  return response;
-}
-function getComponentSlotTeleport(clientUid, teleports) {
-  const entries = Object.entries(teleports);
-  const slots = {};
-  for (const [key, value] of entries) {
-    const match = key.match(SSR_CLIENT_SLOT_MARKER);
-    if (match) {
-      const [, id, slot] = match;
-      if (!slot || clientUid !== id) {
-        continue;
-      }
-      slots[slot] = value;
-    }
-  }
-  return slots;
-}
-function replaceIslandTeleports(ssrContext, html) {
-  const { teleports, islandContext } = ssrContext;
-  if (islandContext || !teleports) {
-    return html;
-  }
-  for (const key in teleports) {
-    const matchClientComp = key.match(SSR_CLIENT_TELEPORT_MARKER);
-    if (matchClientComp) {
-      const [, uid, clientId] = matchClientComp;
-      if (!uid || !clientId) {
-        continue;
-      }
-      html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-component="${clientId}"[^>]*>`), (full) => {
-        return full + teleports[key];
-      });
-      continue;
-    }
-    const matchSlot = key.match(SSR_SLOT_TELEPORT_MARKER);
-    if (matchSlot) {
-      const [, uid, slot] = matchSlot;
-      if (!uid || !slot) {
-        continue;
-      }
-      html = html.replace(new RegExp(` data-island-uid="${uid}" data-island-slot="${slot}"[^>]*>`), (full) => {
-        return full + teleports[key];
-      });
-    }
-  }
-  return html;
-}
-
-const ISLAND_SUFFIX_RE = /\.json(?:\?.*)?$/;
-const _SxA8c9 = defineEventHandler(async (event) => {
-  const nitroApp = useNitroApp();
-  setResponseHeaders(event, {
-    "content-type": "application/json;charset=utf-8",
-    "x-powered-by": "Nuxt"
-  });
-  const islandContext = await getIslandContext(event);
-  const ssrContext = {
-    ...createSSRContext(event),
-    islandContext,
-    noSSR: false,
-    url: islandContext.url
-  };
-  const renderer = await getSSRRenderer();
-  const renderResult = await renderer.renderToString(ssrContext).catch(async (err) => {
-    await ssrContext.nuxt?.hooks.callHook("app:error", err);
-    throw err;
-  });
-  if (ssrContext.payload?.error) {
-    throw ssrContext.payload.error;
-  }
-  const inlinedStyles = await renderInlineStyles(ssrContext.modules ?? []);
-  await ssrContext.nuxt?.hooks.callHook("app:rendered", { ssrContext, renderResult });
-  if (inlinedStyles.length) {
-    ssrContext.head.push({ style: inlinedStyles });
-  }
-  {
-    const { styles } = getRequestDependencies(ssrContext, renderer.rendererContext);
-    const link = [];
-    for (const resource of Object.values(styles)) {
-      if ("inline" in getQuery(resource.file)) {
-        continue;
-      }
-      if (resource.file.includes("scoped") && !resource.file.includes("pages/")) {
-        link.push({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file), crossorigin: "" });
-      }
-    }
-    if (link.length) {
-      ssrContext.head.push({ link }, { mode: "server" });
-    }
-  }
-  const islandHead = {};
-  for (const entry of ssrContext.head.entries.values()) {
-    for (const [key, value] of Object.entries(resolveUnrefHeadInput(entry.input))) {
-      const currentValue = islandHead[key];
-      if (Array.isArray(currentValue)) {
-        currentValue.push(...value);
-      }
-      islandHead[key] = value;
-    }
-  }
-  const islandResponse = {
-    id: islandContext.id,
-    head: islandHead,
-    html: getServerComponentHTML(renderResult.html),
-    components: getClientIslandResponse(ssrContext),
-    slots: getSlotIslandResponse(ssrContext)
-  };
-  await nitroApp.hooks.callHook("render:island", islandResponse, { event, islandContext });
-  return islandResponse;
-});
-async function getIslandContext(event) {
-  let url = event.path || "";
-  const componentParts = url.substring("/__nuxt_island".length + 1).replace(ISLAND_SUFFIX_RE, "").split("_");
-  const hashId = componentParts.length > 1 ? componentParts.pop() : void 0;
-  const componentName = componentParts.join("_");
-  const context = event.method === "GET" ? getQuery$1(event) : await readBody(event);
-  const ctx = {
-    url: "/",
-    ...context,
-    id: hashId,
-    name: componentName,
-    props: destr$1(context.props) || {},
-    slots: {},
-    components: {}
-  };
-  return ctx;
-}
-
-const _ZhWbZn = eventHandler(async (event) => {
-  const { code, lang, theme: themeString, options: optionsStr } = getQuery$1(event);
-  const theme = JSON.parse(themeString);
-  const options = optionsStr ? JSON.parse(optionsStr) : {};
-  const highlighter = await Promise.resolve().then(function () { return mdcHighlighter; }).then((m) => m.default);
-  return await highlighter(code, lang, theme, options);
-});
-
-const _ZXXriV = defineEventHandler(async (event) => {
-  const { getContentQuery } = await Promise.resolve().then(function () { return query; });
-  const { serverQueryContent } = await Promise.resolve().then(function () { return storage; });
-  const query$1 = getContentQuery(event);
-  const { advanceQuery } = useRuntimeConfig().public.content.experimental;
-  if (query$1.first) {
-    let contentQuery = serverQueryContent(event, query$1);
-    if (!advanceQuery) {
-      contentQuery = contentQuery.withDirConfig();
-    }
-    const content = await contentQuery.findOne();
-    const _result = advanceQuery ? content?.result : content;
-    const missing = !_result && !content?.dirConfig?.navigation?.redirect && !content?._dir?.navigation?.redirect;
-    if (missing) {
-      throw createError({
-        statusMessage: "Document not found!",
-        statusCode: 404,
-        data: {
-          description: "Could not find document for the given query.",
-          query: query$1
-        }
-      });
-    }
-    return content;
-  }
-  if (query$1.count) {
-    return serverQueryContent(event, query$1).count();
-  }
-  return serverQueryContent(event, query$1).find();
-});
-
-const _f3DeLE = defineEventHandler(async (event) => {
-  const { getContentIndex } = await Promise.resolve().then(function () { return contentIndex; });
-  const { cacheStorage, serverQueryContent } = await Promise.resolve().then(function () { return storage; });
-  const { content } = useRuntimeConfig();
-  const now = Date.now();
-  const contents = await serverQueryContent(event).find();
-  await getContentIndex(event);
-  const navigation = await $fetch(`${content.api.baseURL}/navigation`);
-  await cacheStorage().setItem("content-navigation.json", navigation);
-  return {
-    generatedAt: now,
-    generateTime: Date.now() - now,
-    contents: content.experimental.cacheContents ? contents : [],
-    navigation
-  };
-});
-
-const isPreview = (event) => {
-  const previewToken = getQuery$1(event).previewToken || getCookie(event, "previewToken");
-  return !!previewToken;
-};
-const getPreview = (event) => {
-  const key = getQuery$1(event).previewToken || getCookie(event, "previewToken");
-  return { key };
-};
-
-const __Behxq = defineEventHandler(async (event) => {
-  const { getContentQuery } = await Promise.resolve().then(function () { return query; });
-  const { cacheStorage, serverQueryContent } = await Promise.resolve().then(function () { return storage; });
-  const { createNav } = await Promise.resolve().then(function () { return navigation; });
-  const query$1 = getContentQuery(event);
-  if (!isPreview(event) && Object.keys(query$1).length === 0) {
-    const cache = await cacheStorage().getItem("content-navigation.json");
-    if (cache) {
-      return cache;
-    }
-  }
-  const contents = await serverQueryContent(event, query$1).where({
-    /**
-     * Partial contents are not included in the navigation
-     * A partial content is a content that has `_` prefix in its path
-     */
-    _partial: false,
-    /**
-     * Exclude any pages which have opted out of navigation via frontmatter.
-     */
-    navigation: {
-      $ne: false
-    }
-  }).find();
-  const _locale = (query$1?.where || []).find((w) => w._locale)?._locale;
-  const dirConfigs = await serverQueryContent(event, _locale ? { where: [{ _locale }] } : void 0).where({ _path: /\/_dir$/i, _partial: true }).find();
-  const configs = (dirConfigs?.result || dirConfigs).reduce((configs2, conf) => {
-    if (conf.title?.toLowerCase() === "dir") {
-      conf.title = void 0;
-    }
-    const key = conf._path.split("/").slice(0, -1).join("/") || "/";
-    configs2[key] = {
-      ...conf,
-      // Extract meta from body. (non MD files)
-      ...conf.body
-    };
-    return configs2;
-  }, {});
-  return createNav(contents?.result || contents, configs);
-});
-
-const _lazy_pHSbEp = () => Promise.resolve().then(function () { return sitemap_xml$1; });
-const _lazy_tx_01i = () => Promise.resolve().then(function () { return renderer$1; });
+const _lazy_YRe72c = () => Promise.resolve().then(function () { return sitemap_xml$1; });
+const _lazy_QFZZ7J = () => Promise.resolve().then(function () { return renderer; });
 
 const handlers = [
-  { route: '', handler: _ZzIoLs, lazy: false, middleware: true, method: undefined },
-  { route: '/sitemap.xml', handler: _lazy_pHSbEp, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_error', handler: _lazy_tx_01i, lazy: true, middleware: false, method: undefined },
-  { route: '/__nuxt_island/**', handler: _SxA8c9, lazy: false, middleware: false, method: undefined },
-  { route: '/api/_mdc/highlight', handler: _ZhWbZn, lazy: false, middleware: false, method: undefined },
-  { route: '/api/_content/query/:qid/**:params', handler: _ZXXriV, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/query/:qid', handler: _ZXXriV, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/query', handler: _ZXXriV, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/cache.json', handler: _f3DeLE, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation/:qid/**:params', handler: __Behxq, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation/:qid', handler: __Behxq, lazy: false, middleware: false, method: "get" },
-  { route: '/api/_content/navigation', handler: __Behxq, lazy: false, middleware: false, method: "get" },
-  { route: '/**', handler: _lazy_tx_01i, lazy: true, middleware: false, method: undefined }
+  { route: '', handler: _qgqb07, lazy: false, middleware: true, method: undefined },
+  { route: '/sitemap.xml', handler: _lazy_YRe72c, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_error', handler: _lazy_QFZZ7J, lazy: true, middleware: false, method: undefined },
+  { route: '/__nuxt_content/blog/sql_dump.txt', handler: _J9RdUi, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/info/sql_dump.txt', handler: _J9RdUi, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_island/**', handler: handler$1, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/blog/query', handler: _4HvC0x, lazy: false, middleware: false, method: undefined },
+  { route: '/__nuxt_content/info/query', handler: _4HvC0x, lazy: false, middleware: false, method: undefined },
+  { route: '/_ipx/**', handler: _45IXAH, lazy: false, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_QFZZ7J, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {
@@ -3216,7 +3456,7 @@ function useNitroApp() {
 runNitroPlugins(nitroApp$1);
 
 if (!globalThis.crypto) {
-  globalThis.crypto = nodeCrypto.webcrypto;
+  globalThis.crypto = crypto$1.webcrypto;
 }
 const { NITRO_NO_UNIX_SOCKET, NITRO_DEV_WORKER_ID } = process.env;
 trapUnhandledNodeErrors();
@@ -3226,7 +3466,7 @@ parentPort?.on("message", (msg) => {
   }
 });
 const nitroApp = useNitroApp();
-const server$2 = new Server(toNodeListener(nitroApp.h3App));
+const server$1 = new Server(toNodeListener(nitroApp.h3App));
 let listener;
 listen().catch(() => listen(
   true
@@ -3266,8 +3506,8 @@ function listen(useRandomPort = Boolean(
 )) {
   return new Promise((resolve, reject) => {
     try {
-      listener = server$2.listen(useRandomPort ? 0 : getSocketAddress(), () => {
-        const address = server$2.address();
+      listener = server$1.listen(useRandomPort ? 0 : getSocketAddress(), () => {
+        const address = server$1.address();
         parentPort?.postMessage({
           event: "listen",
           address: typeof address === "string" ? { socketPath: address } : { host: "localhost", port: address?.port }
@@ -3293,7 +3533,7 @@ function getSocketAddress() {
   return join(tmpdir(), socketName);
 }
 async function shutdown() {
-  server$2.closeAllConnections?.();
+  server$1.closeAllConnections?.();
   await Promise.all([
     new Promise((resolve) => listener?.close(resolve)),
     nitroApp.hooks.callHook("close").catch(console.error)
@@ -3301,10 +3541,19 @@ async function shutdown() {
   parentPort?.postMessage({ event: "exit" });
 }
 
-const _messages = { "appName": "Nuxt", "statusCode": 500, "statusMessage": "Internal server error", "description": "This page is temporarily unavailable.", "refresh": "Refresh this page" };
+const _messages = {
+	"appName": "Nuxt",
+	"status": 500,
+	"statusText": "Internal server error",
+	"description": "This page is temporarily unavailable.",
+	"refresh": "Refresh this page"
+};
 const template$1 = (messages) => {
-  messages = { ..._messages, ...messages };
-  return '<!DOCTYPE html><html lang="en"><head><title>' + escapeHtml(messages.statusCode) + " - " + escapeHtml(messages.statusMessage) + " | " + escapeHtml(messages.appName) + `</title><meta charset="utf-8"><meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0" name="viewport"><script>!function(){const e=document.createElement("link").relList;if(!(e&&e.supports&&e.supports("modulepreload"))){for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const o of e)if("childList"===o.type)for(const e of o.addedNodes)"LINK"===e.tagName&&"modulepreload"===e.rel&&r(e)}).observe(document,{childList:!0,subtree:!0})}function r(e){if(e.ep)return;e.ep=!0;const r=function(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),"use-credentials"===e.crossOrigin?r.credentials="include":"anonymous"===e.crossOrigin?r.credentials="omit":r.credentials="same-origin",r}(e);fetch(e.href,r)}}();<\/script><style>*,:after,:before{border-color:var(--un-default-border-color,#e5e7eb);border-style:solid;border-width:0;box-sizing:border-box}:after,:before{--un-content:""}html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-moz-tab-size:4;tab-size:4;-webkit-tap-highlight-color:transparent}body{line-height:inherit;margin:0}h1,h2{font-size:inherit;font-weight:inherit}h1,h2,p{margin:0}*,:after,:before{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 transparent;--un-ring-shadow:0 0 transparent;--un-shadow-inset: ;--un-shadow:0 0 transparent;--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: }.grid{display:grid}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.max-w-520px{max-width:520px}.min-h-screen{min-height:100vh}.place-content-center{place-content:center}.overflow-hidden{overflow:hidden}.bg-white{--un-bg-opacity:1;background-color:rgb(255 255 255/var(--un-bg-opacity))}.px-2{padding-left:.5rem;padding-right:.5rem}.text-center{text-align:center}.text-\\[80px\\]{font-size:80px}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\\[\\#020420\\]{--un-text-opacity:1;color:rgb(2 4 32/var(--un-text-opacity))}.text-\\[\\#64748B\\]{--un-text-opacity:1;color:rgb(100 116 139/var(--un-text-opacity))}.font-semibold{font-weight:600}.leading-none{line-height:1}.tracking-wide{letter-spacing:.025em}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.tabular-nums{--un-numeric-spacing:tabular-nums;font-variant-numeric:var(--un-ordinal) var(--un-slashed-zero) var(--un-numeric-figure) var(--un-numeric-spacing) var(--un-numeric-fraction)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}@media(prefers-color-scheme:dark){.dark\\:bg-\\[\\#020420\\]{--un-bg-opacity:1;background-color:rgb(2 4 32/var(--un-bg-opacity))}.dark\\:text-white{--un-text-opacity:1;color:rgb(255 255 255/var(--un-text-opacity))}}@media(min-width:640px){.sm\\:text-\\[110px\\]{font-size:110px}.sm\\:text-3xl{font-size:1.875rem;line-height:2.25rem}}</style></head><body class="antialiased bg-white dark:bg-[#020420] dark:text-white font-sans grid min-h-screen overflow-hidden place-content-center text-[#020420] tracking-wide"><div class="max-w-520px text-center"><h1 class="font-semibold leading-none mb-4 sm:text-[110px] tabular-nums text-[80px]">` + escapeHtml(messages.statusCode) + '</h1><h2 class="font-semibold mb-2 sm:text-3xl text-2xl">' + escapeHtml(messages.statusMessage) + '</h2><p class="mb-4 px-2 text-[#64748B] text-md">' + escapeHtml(messages.description) + "</p></div></body></html>";
+	messages = {
+		..._messages,
+		...messages
+	};
+	return "<!DOCTYPE html><html lang=\"en\"><head><title>" + escapeHtml(messages.status) + " - " + escapeHtml(messages.statusText) + " | " + escapeHtml(messages.appName) + "</title><meta charset=\"utf-8\"><meta content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0\" name=\"viewport\"><script>!function(){const e=document.createElement(\"link\").relList;if(!(e&&e.supports&&e.supports(\"modulepreload\"))){for(const e of document.querySelectorAll('link[rel=\"modulepreload\"]'))r(e);new MutationObserver(e=>{for(const o of e)if(\"childList\"===o.type)for(const e of o.addedNodes)\"LINK\"===e.tagName&&\"modulepreload\"===e.rel&&r(e)}).observe(document,{childList:!0,subtree:!0})}function r(e){if(e.ep)return;e.ep=!0;const r=function(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),\"use-credentials\"===e.crossOrigin?r.credentials=\"include\":\"anonymous\"===e.crossOrigin?r.credentials=\"omit\":r.credentials=\"same-origin\",r}(e);fetch(e.href,r)}}();<\/script><style>*,:after,:before{box-sizing:border-box;border-width:0;border-style:solid;border-color:var(--un-default-border-color,#e5e7eb)}:after,:before{--un-content:\"\"}html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}h1,h2{font-size:inherit;font-weight:inherit}h1,h2,p{margin:0}*,:after,:before{--un-rotate:0;--un-rotate-x:0;--un-rotate-y:0;--un-rotate-z:0;--un-scale-x:1;--un-scale-y:1;--un-scale-z:1;--un-skew-x:0;--un-skew-y:0;--un-translate-x:0;--un-translate-y:0;--un-translate-z:0;--un-pan-x: ;--un-pan-y: ;--un-pinch-zoom: ;--un-scroll-snap-strictness:proximity;--un-ordinal: ;--un-slashed-zero: ;--un-numeric-figure: ;--un-numeric-spacing: ;--un-numeric-fraction: ;--un-border-spacing-x:0;--un-border-spacing-y:0;--un-ring-offset-shadow:0 0 transparent;--un-ring-shadow:0 0 transparent;--un-shadow-inset: ;--un-shadow:0 0 transparent;--un-ring-inset: ;--un-ring-offset-width:0px;--un-ring-offset-color:#fff;--un-ring-width:0px;--un-ring-color:rgba(147,197,253,.5);--un-blur: ;--un-brightness: ;--un-contrast: ;--un-drop-shadow: ;--un-grayscale: ;--un-hue-rotate: ;--un-invert: ;--un-saturate: ;--un-sepia: ;--un-backdrop-blur: ;--un-backdrop-brightness: ;--un-backdrop-contrast: ;--un-backdrop-grayscale: ;--un-backdrop-hue-rotate: ;--un-backdrop-invert: ;--un-backdrop-opacity: ;--un-backdrop-saturate: ;--un-backdrop-sepia: }.grid{display:grid}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.max-w-520px{max-width:520px}.min-h-screen{min-height:100vh}.place-content-center{place-content:center}.overflow-hidden{overflow:hidden}.bg-white{--un-bg-opacity:1;background-color:rgb(255 255 255/var(--un-bg-opacity))}.px-2{padding-left:.5rem;padding-right:.5rem}.text-center{text-align:center}.text-\\[80px\\]{font-size:80px}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\\[\\#020420\\]{--un-text-opacity:1;color:rgb(2 4 32/var(--un-text-opacity))}.text-\\[\\#64748B\\]{--un-text-opacity:1;color:rgb(100 116 139/var(--un-text-opacity))}.font-semibold{font-weight:600}.leading-none{line-height:1}.tracking-wide{letter-spacing:.025em}.font-sans{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji}.tabular-nums{--un-numeric-spacing:tabular-nums;font-variant-numeric:var(--un-ordinal) var(--un-slashed-zero) var(--un-numeric-figure) var(--un-numeric-spacing) var(--un-numeric-fraction)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}@media(prefers-color-scheme:dark){.dark\\:bg-\\[\\#020420\\]{--un-bg-opacity:1;background-color:rgb(2 4 32/var(--un-bg-opacity))}.dark\\:text-white{--un-text-opacity:1;color:rgb(255 255 255/var(--un-text-opacity))}}@media(min-width:640px){.sm\\:text-\\[110px\\]{font-size:110px}.sm\\:text-3xl{font-size:1.875rem;line-height:2.25rem}}</style></head><body class=\"antialiased bg-white dark:bg-[#020420] dark:text-white font-sans grid min-h-screen overflow-hidden place-content-center text-[#020420] tracking-wide\"><div class=\"max-w-520px text-center\"><h1 class=\"font-semibold leading-none mb-4 sm:text-[110px] tabular-nums text-[80px]\">" + escapeHtml(messages.status) + "</h1><h2 class=\"font-semibold mb-2 sm:text-3xl text-2xl\">" + escapeHtml(messages.statusText) + "</h2><p class=\"mb-4 px-2 text-[#64748B] text-md\">" + escapeHtml(messages.description) + "</p></div></body></html>";
 };
 
 const error500 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
@@ -3312,1679 +3561,16 @@ const error500 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   template: template$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
-function rehypeHighlight$1(opts) {
-  const options = opts;
-  return async (tree) => {
-    const tasks = [];
-    const styles = [];
-    visit(
-      tree,
-      (node) => ["pre", "code"].includes(node.tagName) && !!(node.properties?.language || node.properties?.highlights),
-      (node) => {
-        const _node = node;
-        const highlights = typeof _node.properties.highlights === "string" ? _node.properties.highlights.split(/[,\s]+/).map(Number) : Array.isArray(_node.properties.highlights) ? _node.properties.highlights.map(Number) : [];
-        const task = options.highlighter(
-          toString(node),
-          _node.properties.language,
-          options.theme,
-          {
-            highlights: highlights.filter(Boolean),
-            meta: _node.properties.meta
-          }
-        ).then(({ tree: tree2, className, style, inlineStyle }) => {
-          _node.properties.className = ((_node.properties.className || "") + " " + className).trim();
-          _node.properties.style = ((_node.properties.style || "") + " " + inlineStyle).trim();
-          if (_node.children[0]?.tagName === "code") {
-            _node.children[0].children = tree2;
-          } else {
-            _node.children = tree2[0].children || tree2;
-          }
-          if (style)
-            styles.push(style);
-        });
-        tasks.push(task);
-      }
-    );
-    if (tasks.length) {
-      await Promise.all(tasks);
-      tree.children.push({
-        type: "element",
-        tagName: "style",
-        children: [{ type: "text", value: cleanCSS(styles.join("")) }],
-        properties: {}
-      });
-    }
-  };
-}
-const cleanCSS = (css) => {
-  const styles = css.split("}").filter((s) => Boolean(s.trim())).map((s) => s.trim() + "}");
-  return Array.from(new Set(styles)).join("");
-};
-
-const defaults = {
-  theme: {},
-  async highlighter(code, lang, theme, options) {
-    try {
-      if (globalThis._importMeta_.browser && window.sessionStorage.getItem("mdc-shiki-highlighter") === "browser") {
-        return Promise.resolve().then(function () { return mdcHighlighter; }).then((h) => h.default(code, lang, theme, options)).catch(() => ({}));
-      }
-      return await $fetch("/api/_mdc/highlight", {
-        params: {
-          code,
-          lang,
-          theme: JSON.stringify(theme),
-          options: JSON.stringify(options)
-        }
-      });
-    } catch (e) {
-      if (globalThis._importMeta_.browser && e?.response?.status === 404) {
-        window.sessionStorage.setItem("mdc-shiki-highlighter", "browser");
-        return this.highlighter?.(code, lang, theme, options);
-      }
-    }
-    return Promise.resolve({ tree: [{ type: "text", value: code }], className: "", style: "" });
-  }
-};
-function rehypeHighlight(opts = {}) {
-  const options = { ...defaults, ...opts };
-  if (typeof options.highlighter !== "function") {
-    options.highlighter = defaults.highlighter;
-  }
-  return rehypeHighlight$1(options);
-}
-
-const remarkPlugins = {
-  'remark-emoji': { instance: _RemarkEmoji },
-};
-
-const rehypePlugins = {
-  'highlight': { instance: rehypeHighlight, options: {} },
-};
-
-const highlight = {"theme":"github-dark"};
-
-const mdcImports = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const server = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  highlight: highlight,
-  rehypePlugins: rehypePlugins,
-  remarkPlugins: remarkPlugins
+  default: viteNodeEntry_mjs
 }, Symbol.toStringTag, { value: 'Module' }));
 
-let configs;
-function getMdcConfigs () {
-if (!configs) {
-  configs = Promise.all([
-  ]);
-}
-return configs
-}
+const client_manifest = () => viteNodeFetch.getManifest();
 
-const mdcConfigs = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const client_manifest$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  getMdcConfigs: getMdcConfigs
-}, Symbol.toStringTag, { value: 'Module' }));
-
-const get = (obj, path) => path.split(".").reduce((acc, part) => acc && acc[part], obj);
-const _pick = (obj, condition) => Object.keys(obj).filter(condition).reduce((newObj, key) => Object.assign(newObj, { [key]: obj[key] }), {});
-const omit = (keys) => (obj) => keys && keys.length ? _pick(obj, (key) => !keys.includes(key)) : obj;
-const apply = (fn) => (data) => Array.isArray(data) ? data.map((item) => fn(item)) : fn(data);
-const detectProperties = (keys) => {
-  const prefixes = [];
-  const properties = [];
-  for (const key of keys) {
-    if (["$", "_"].includes(key)) {
-      prefixes.push(key);
-    } else {
-      properties.push(key);
-    }
-  }
-  return { prefixes, properties };
-};
-const withoutKeys = (keys = []) => (obj) => {
-  if (keys.length === 0 || !obj) {
-    return obj;
-  }
-  const { prefixes, properties } = detectProperties(keys);
-  return _pick(obj, (key) => !properties.includes(key) && !prefixes.includes(key[0]));
-};
-const withKeys = (keys = []) => (obj) => {
-  if (keys.length === 0 || !obj) {
-    return obj;
-  }
-  const { prefixes, properties } = detectProperties(keys);
-  return _pick(obj, (key) => properties.includes(key) || prefixes.includes(key[0]));
-};
-const sortList = (data, params) => {
-  const comperable = new Intl.Collator(params.$locale, {
-    numeric: params.$numeric,
-    caseFirst: params.$caseFirst,
-    sensitivity: params.$sensitivity
-  });
-  const keys = Object.keys(params).filter((key) => !key.startsWith("$"));
-  for (const key of keys) {
-    data = data.sort((a, b) => {
-      const values = [get(a, key), get(b, key)].map((value) => {
-        if (value === null) {
-          return void 0;
-        }
-        if (value instanceof Date) {
-          return value.toISOString();
-        }
-        return value;
-      });
-      if (params[key] === -1) {
-        values.reverse();
-      }
-      return comperable.compare(values[0], values[1]);
-    });
-  }
-  return data;
-};
-const assertArray = (value, message = "Expected an array") => {
-  if (!Array.isArray(value)) {
-    throw new TypeError(message);
-  }
-};
-const ensureArray = (value) => {
-  return Array.isArray(value) ? value : [void 0, null].includes(value) ? [] : [value];
-};
-
-const arrayParams = ["sort", "where", "only", "without"];
-function createQuery(fetcher, opts = {}) {
-  const queryParams = {};
-  for (const key of Object.keys(opts.initialParams || {})) {
-    queryParams[key] = arrayParams.includes(key) ? ensureArray(opts.initialParams[key]) : opts.initialParams[key];
-  }
-  const $set = (key, fn = (v) => v) => {
-    return (...values) => {
-      queryParams[key] = fn(...values);
-      return query;
-    };
-  };
-  const resolveResult = (result) => {
-    if (opts.legacy) {
-      if (result?.surround) {
-        return result.surround;
-      }
-      if (!result) {
-        return result;
-      }
-      if (result?.dirConfig) {
-        result.result = {
-          _path: result.dirConfig?._path,
-          ...result.result,
-          _dir: result.dirConfig
-        };
-      }
-      return result?._path || Array.isArray(result) || !Object.prototype.hasOwnProperty.call(result, "result") ? result : result?.result;
-    }
-    return result;
-  };
-  const query = {
-    params: () => ({
-      ...queryParams,
-      ...queryParams.where ? { where: [...ensureArray(queryParams.where)] } : {},
-      ...queryParams.sort ? { sort: [...ensureArray(queryParams.sort)] } : {}
-    }),
-    only: $set("only", ensureArray),
-    without: $set("without", ensureArray),
-    where: $set("where", (q) => [...ensureArray(queryParams.where), ...ensureArray(q)]),
-    sort: $set("sort", (sort) => [...ensureArray(queryParams.sort), ...ensureArray(sort)]),
-    limit: $set("limit", (v) => parseInt(String(v), 10)),
-    skip: $set("skip", (v) => parseInt(String(v), 10)),
-    // find
-    find: () => fetcher(query).then(resolveResult),
-    findOne: () => fetcher($set("first")(true)).then(resolveResult),
-    count: () => fetcher($set("count")(true)).then(resolveResult),
-    // locale
-    locale: (_locale) => query.where({ _locale }),
-    withSurround: $set("surround", (surroundQuery, options) => ({ query: surroundQuery, ...options })),
-    withDirConfig: () => $set("dirConfig")(true)
-  };
-  if (opts.legacy) {
-    query.findSurround = (surroundQuery, options) => {
-      return query.withSurround(surroundQuery, options).find().then(resolveResult);
-    };
-    return query;
-  }
-  return query;
-}
-
-const defineTransformer = (transformer) => {
-  return transformer;
-};
-
-function createTokenizer(parser, initialize, from) {
-  let point = Object.assign(
-    {
-      line: 1,
-      column: 1,
-      offset: 0
-    },
-    {
-      _index: 0,
-      _bufferIndex: -1
-    }
-  );
-  const columnStart = {};
-  const resolveAllConstructs = [];
-  let chunks = [];
-  let stack = [];
-  const effects = {
-    consume,
-    enter,
-    exit,
-    attempt: constructFactory(onsuccessfulconstruct),
-    check: constructFactory(onsuccessfulcheck),
-    interrupt: constructFactory(onsuccessfulcheck, {
-      interrupt: true
-    })
-  };
-  const context = {
-    previous: null,
-    code: null,
-    containerState: {},
-    events: [],
-    parser,
-    sliceStream,
-    sliceSerialize,
-    now,
-    defineSkip,
-    write
-  };
-  let state = initialize.tokenize.call(context, effects);
-  if (initialize.resolveAll) {
-    resolveAllConstructs.push(initialize);
-  }
-  return context;
-  function write(slice) {
-    chunks = push(chunks, slice);
-    main();
-    if (chunks[chunks.length - 1] !== null) {
-      return [];
-    }
-    addResult(initialize, 0);
-    context.events = resolveAll(resolveAllConstructs, context.events, context);
-    return context.events;
-  }
-  function sliceSerialize(token, expandTabs) {
-    return serializeChunks(sliceStream(token), expandTabs);
-  }
-  function sliceStream(token) {
-    return sliceChunks(chunks, token);
-  }
-  function now() {
-    return Object.assign({}, point);
-  }
-  function defineSkip(value) {
-    columnStart[value.line] = value.column;
-    accountForPotentialSkip();
-  }
-  function main() {
-    let chunkIndex;
-    while (point._index < chunks.length) {
-      const chunk = chunks[point._index];
-      if (typeof chunk === "string") {
-        chunkIndex = point._index;
-        if (point._bufferIndex < 0) {
-          point._bufferIndex = 0;
-        }
-        while (point._index === chunkIndex && point._bufferIndex < chunk.length) {
-          go(chunk.charCodeAt(point._bufferIndex));
-        }
-      } else {
-        go(chunk);
-      }
-    }
-  }
-  function go(code) {
-    state = state(code);
-  }
-  function consume(code) {
-    if (markdownLineEnding(code)) {
-      point.line++;
-      point.column = 1;
-      point.offset += code === -3 ? 2 : 1;
-      accountForPotentialSkip();
-    } else if (code !== -1) {
-      point.column++;
-      point.offset++;
-    }
-    if (point._bufferIndex < 0) {
-      point._index++;
-    } else {
-      point._bufferIndex++;
-      if (point._bufferIndex === chunks[point._index].length) {
-        point._bufferIndex = -1;
-        point._index++;
-      }
-    }
-    context.previous = code;
-  }
-  function enter(type, fields) {
-    const token = fields || {};
-    token.type = type;
-    token.start = now();
-    context.events.push(["enter", token, context]);
-    stack.push(token);
-    return token;
-  }
-  function exit(type) {
-    const token = stack.pop();
-    token.end = now();
-    context.events.push(["exit", token, context]);
-    return token;
-  }
-  function onsuccessfulconstruct(construct, info) {
-    addResult(construct, info.from);
-  }
-  function onsuccessfulcheck(_, info) {
-    info.restore();
-  }
-  function constructFactory(onreturn, fields) {
-    return hook;
-    function hook(constructs, returnState, bogusState) {
-      let listOfConstructs;
-      let constructIndex;
-      let currentConstruct;
-      let info;
-      return Array.isArray(constructs) ? (
-        /* c8 ignore next 1 */
-        handleListOfConstructs(constructs)
-      ) : "tokenize" in constructs ? handleListOfConstructs([constructs]) : handleMapOfConstructs(constructs);
-      function handleMapOfConstructs(map) {
-        return start;
-        function start(code) {
-          const def = code !== null && map[code];
-          const all = code !== null && map.null;
-          const list = [
-            // To do: add more extension tests.
-            /* c8 ignore next 2 */
-            ...Array.isArray(def) ? def : def ? [def] : [],
-            ...Array.isArray(all) ? all : all ? [all] : []
-          ];
-          return handleListOfConstructs(list)(code);
-        }
-      }
-      function handleListOfConstructs(list) {
-        listOfConstructs = list;
-        constructIndex = 0;
-        if (list.length === 0) {
-          return bogusState;
-        }
-        return handleConstruct(list[constructIndex]);
-      }
-      function handleConstruct(construct) {
-        return start;
-        function start(code) {
-          info = store();
-          currentConstruct = construct;
-          if (!construct.partial) {
-            context.currentConstruct = construct;
-          }
-          if (construct.name && context.parser.constructs.disable.null.includes(construct.name)) {
-            return nok();
-          }
-          return construct.tokenize.call(
-            // If we do have fields, create an object w/ `context` as its
-            // prototype.
-            // This allows a “live binding”, which is needed for `interrupt`.
-            fields ? Object.assign(Object.create(context), fields) : context,
-            effects,
-            ok,
-            nok
-          )(code);
-        }
-      }
-      function ok(code) {
-        onreturn(currentConstruct, info);
-        return returnState;
-      }
-      function nok(code) {
-        info.restore();
-        if (++constructIndex < listOfConstructs.length) {
-          return handleConstruct(listOfConstructs[constructIndex]);
-        }
-        return bogusState;
-      }
-    }
-  }
-  function addResult(construct, from2) {
-    if (construct.resolveAll && !resolveAllConstructs.includes(construct)) {
-      resolveAllConstructs.push(construct);
-    }
-    if (construct.resolve) {
-      splice(
-        context.events,
-        from2,
-        context.events.length - from2,
-        construct.resolve(context.events.slice(from2), context)
-      );
-    }
-    if (construct.resolveTo) {
-      context.events = construct.resolveTo(context.events, context);
-    }
-  }
-  function store() {
-    const startPoint = now();
-    const startPrevious = context.previous;
-    const startCurrentConstruct = context.currentConstruct;
-    const startEventsIndex = context.events.length;
-    const startStack = Array.from(stack);
-    return {
-      restore,
-      from: startEventsIndex
-    };
-    function restore() {
-      point = startPoint;
-      context.previous = startPrevious;
-      context.currentConstruct = startCurrentConstruct;
-      context.events.length = startEventsIndex;
-      stack = startStack;
-      accountForPotentialSkip();
-    }
-  }
-  function accountForPotentialSkip() {
-    if (point.line in columnStart && point.column < 2) {
-      point.column = columnStart[point.line];
-      point.offset += columnStart[point.line] - 1;
-    }
-  }
-}
-function sliceChunks(chunks, token) {
-  const startIndex = token.start._index;
-  const startBufferIndex = token.start._bufferIndex;
-  const endIndex = token.end._index;
-  const endBufferIndex = token.end._bufferIndex;
-  let view;
-  if (startIndex === endIndex) {
-    view = [chunks[startIndex].slice(startBufferIndex, endBufferIndex)];
-  } else {
-    view = chunks.slice(startIndex, endIndex);
-    if (startBufferIndex > -1) {
-      view[0] = view[0].slice(startBufferIndex);
-    }
-    if (endBufferIndex > 0) {
-      view.push(chunks[endIndex].slice(0, endBufferIndex));
-    }
-  }
-  return view;
-}
-function serializeChunks(chunks, expandTabs) {
-  let index = -1;
-  const result = [];
-  let atTab;
-  while (++index < chunks.length) {
-    const chunk = chunks[index];
-    let value;
-    if (typeof chunk === "string") {
-      value = chunk;
-    } else
-      switch (chunk) {
-        case -5: {
-          value = "\r";
-          break;
-        }
-        case -4: {
-          value = "\n";
-          break;
-        }
-        case -3: {
-          value = "\r\n";
-          break;
-        }
-        case -2: {
-          value = expandTabs ? " " : "	";
-          break;
-        }
-        case -1: {
-          if (!expandTabs && atTab) continue;
-          value = " ";
-          break;
-        }
-        default: {
-          value = String.fromCharCode(chunk);
-        }
-      }
-    atTab = chunk === -2;
-    result.push(value);
-  }
-  return result.join("");
-}
-
-function initializeDocument(effects) {
-  const self = this;
-  const delimiter = (this.parser.delimiter || ",").charCodeAt(0);
-  return enterRow;
-  function enterRow(code) {
-    return effects.attempt(
-      { tokenize: attemptLastLine },
-      (code2) => {
-        effects.consume(code2);
-        return enterRow;
-      },
-      (code2) => {
-        effects.enter("row");
-        return enterColumn(code2);
-      }
-    )(code);
-  }
-  function enterColumn(code) {
-    effects.enter("column");
-    return content(code);
-  }
-  function content(code) {
-    if (code === null) {
-      effects.exit("column");
-      effects.exit("row");
-      effects.consume(code);
-      return content;
-    }
-    if (code === 34) {
-      return quotedData(code);
-    }
-    if (code === delimiter) {
-      if (self.previous === delimiter || markdownLineEnding(self.previous) || self.previous === null) {
-        effects.enter("data");
-        effects.exit("data");
-      }
-      effects.exit("column");
-      effects.enter("columnSeparator");
-      effects.consume(code);
-      effects.exit("columnSeparator");
-      effects.enter("column");
-      return content;
-    }
-    if (markdownLineEnding(code)) {
-      effects.exit("column");
-      effects.enter("newline");
-      effects.consume(code);
-      effects.exit("newline");
-      effects.exit("row");
-      return enterRow;
-    }
-    return data(code);
-  }
-  function data(code) {
-    effects.enter("data");
-    return dataChunk(code);
-  }
-  function dataChunk(code) {
-    if (code === null || markdownLineEnding(code) || code === delimiter) {
-      effects.exit("data");
-      return content(code);
-    }
-    if (code === 92) {
-      return escapeCharacter(code);
-    }
-    effects.consume(code);
-    return dataChunk;
-  }
-  function escapeCharacter(code) {
-    effects.consume(code);
-    return function(code2) {
-      effects.consume(code2);
-      return content;
-    };
-  }
-  function quotedData(code) {
-    effects.enter("quotedData");
-    effects.enter("quotedDataChunk");
-    effects.consume(code);
-    return quotedDataChunk;
-  }
-  function quotedDataChunk(code) {
-    if (code === 92) {
-      return escapeCharacter(code);
-    }
-    if (code === 34) {
-      return effects.attempt(
-        { tokenize: attemptDoubleQuote },
-        (code2) => {
-          effects.exit("quotedDataChunk");
-          effects.enter("quotedDataChunk");
-          return quotedDataChunk(code2);
-        },
-        (code2) => {
-          effects.consume(code2);
-          effects.exit("quotedDataChunk");
-          effects.exit("quotedData");
-          return content;
-        }
-      )(code);
-    }
-    effects.consume(code);
-    return quotedDataChunk;
-  }
-}
-function attemptDoubleQuote(effects, ok, nok) {
-  return startSequence;
-  function startSequence(code) {
-    if (code !== 34) {
-      return nok(code);
-    }
-    effects.enter("quoteFence");
-    effects.consume(code);
-    return sequence;
-  }
-  function sequence(code) {
-    if (code !== 34) {
-      return nok(code);
-    }
-    effects.consume(code);
-    effects.exit("quoteFence");
-    return (code2) => ok(code2);
-  }
-}
-function attemptLastLine(effects, ok, nok) {
-  return enterLine;
-  function enterLine(code) {
-    if (!markdownSpace(code) && code !== null) {
-      return nok(code);
-    }
-    effects.enter("emptyLine");
-    return continueLine(code);
-  }
-  function continueLine(code) {
-    if (markdownSpace(code)) {
-      effects.consume(code);
-      return continueLine;
-    }
-    if (code === null) {
-      effects.exit("emptyLine");
-      return ok(code);
-    }
-    return nok(code);
-  }
-}
-const parse = (options) => {
-  return createTokenizer(
-    { ...options },
-    { tokenize: initializeDocument });
-};
-
-const own = {}.hasOwnProperty;
-const initialPoint = {
-  line: 1,
-  column: 1,
-  offset: 0
-};
-const fromCSV = function(value, encoding, options) {
-  if (typeof encoding !== "string") {
-    options = encoding;
-    encoding = void 0;
-  }
-  return compiler()(
-    postprocess(
-      parse(options).write(preprocess()(value, encoding, true))
-    )
-  );
-};
-function compiler() {
-  const config = {
-    enter: {
-      column: opener(openColumn),
-      row: opener(openRow),
-      data: onenterdata,
-      quotedData: onenterdata
-    },
-    exit: {
-      row: closer(),
-      column: closer(),
-      data: onexitdata,
-      quotedData: onexitQuotedData
-    }
-  };
-  return compile;
-  function compile(events) {
-    const tree = {
-      type: "root",
-      children: []
-    };
-    const stack = [tree];
-    const tokenStack = [];
-    const context = {
-      stack,
-      tokenStack,
-      config,
-      enter,
-      exit,
-      resume
-    };
-    let index = -1;
-    while (++index < events.length) {
-      const handler = config[events[index][0]];
-      if (own.call(handler, events[index][1].type)) {
-        handler[events[index][1].type].call(
-          Object.assign(
-            {
-              sliceSerialize: events[index][2].sliceSerialize
-            },
-            context
-          ),
-          events[index][1]
-        );
-      }
-    }
-    if (tokenStack.length > 0) {
-      const tail = tokenStack[tokenStack.length - 1];
-      const handler = tail[1] || defaultOnError;
-      handler.call(context, void 0, tail[0]);
-    }
-    tree.position = {
-      start: point(
-        events.length > 0 ? events[0][1].start : initialPoint
-      ),
-      end: point(
-        events.length > 0 ? events[events.length - 2][1].end : initialPoint
-      )
-    };
-    return tree;
-  }
-  function point(d) {
-    return {
-      line: d.line,
-      column: d.column,
-      offset: d.offset
-    };
-  }
-  function opener(create, and) {
-    return open;
-    function open(token) {
-      enter.call(this, create(token), token);
-    }
-  }
-  function enter(node, token, errorHandler) {
-    const parent = this.stack[this.stack.length - 1];
-    parent.children.push(node);
-    this.stack.push(node);
-    this.tokenStack.push([token, errorHandler]);
-    node.position = {
-      start: point(token.start)
-    };
-    return node;
-  }
-  function closer(and) {
-    return close;
-    function close(token) {
-      exit.call(this, token);
-    }
-  }
-  function exit(token, onExitError) {
-    const node = this.stack.pop();
-    const open = this.tokenStack.pop();
-    if (!open) {
-      throw new Error(
-        "Cannot close `" + token.type + "` (" + stringifyPosition({
-          start: token.start,
-          end: token.end
-        }) + "): it\u2019s not open"
-      );
-    } else if (open[0].type !== token.type) {
-      if (onExitError) {
-        onExitError.call(this, token, open[0]);
-      } else {
-        const handler = open[1] || defaultOnError;
-        handler.call(this, token, open[0]);
-      }
-    }
-    node.position.end = point(token.end);
-    return node;
-  }
-  function resume() {
-    return toString$1(this.stack.pop());
-  }
-  function onenterdata(token) {
-    const parent = this.stack[this.stack.length - 1];
-    let tail = parent.children[parent.children.length - 1];
-    if (!tail || tail.type !== "text") {
-      tail = text();
-      tail.position = {
-        start: point(token.start)
-      };
-      parent.children.push(tail);
-    }
-    this.stack.push(tail);
-  }
-  function onexitdata(token) {
-    const tail = this.stack.pop();
-    tail.value += this.sliceSerialize(token).trim().replace(/""/g, '"');
-    tail.position.end = point(token.end);
-  }
-  function onexitQuotedData(token) {
-    const tail = this.stack.pop();
-    const value = this.sliceSerialize(token);
-    tail.value += this.sliceSerialize(token).trim().substring(1, value.length - 1).replace(/""/g, '"');
-    tail.position.end = point(token.end);
-  }
-  function text() {
-    return {
-      type: "text",
-      value: ""
-    };
-  }
-  function openColumn() {
-    return {
-      type: "column",
-      children: []
-    };
-  }
-  function openRow() {
-    return {
-      type: "row",
-      children: []
-    };
-  }
-}
-function defaultOnError(left, right) {
-  if (left) {
-    throw new Error(
-      "Cannot close `" + left.type + "` (" + stringifyPosition({
-        start: left.start,
-        end: left.end
-      }) + "): a different token (`" + right.type + "`, " + stringifyPosition({
-        start: right.start,
-        end: right.end
-      }) + ") is open"
-    );
-  } else {
-    throw new Error(
-      "Cannot close document, a token (`" + right.type + "`, " + stringifyPosition({
-        start: right.start,
-        end: right.end
-      }) + ") is still open"
-    );
-  }
-}
-
-function csvParse(options) {
-  const parser = (doc) => {
-    return fromCSV(doc, options);
-  };
-  Object.assign(this, { Parser: parser });
-  const toJsonObject = (tree) => {
-    const [header, ...rows] = tree.children;
-    const columns = header.children.map((col) => col.children[0].value);
-    const data = rows.map((row) => {
-      return row.children.reduce((acc, col, i) => {
-        acc[String(columns[i])] = col.children[0]?.value;
-        return acc;
-      }, {});
-    });
-    return data;
-  };
-  const toJsonArray = (tree) => {
-    const data = tree.children.map((row) => {
-      return row.children.map((col) => col.children[0]?.value);
-    });
-    return data;
-  };
-  const compiler = (doc) => {
-    if (options.json) {
-      return toJsonObject(doc);
-    }
-    return toJsonArray(doc);
-  };
-  Object.assign(this, { Compiler: compiler });
-}
-const csv = defineTransformer({
-  name: "csv",
-  extensions: [".csv"],
-  parse: async (_id, content, options = {}) => {
-    const stream = unified().use(csvParse, {
-      delimiter: ",",
-      json: true,
-      ...options
-    });
-    const { result } = await stream.process(content);
-    return {
-      _id,
-      _type: "csv",
-      body: result
-    };
-  }
-});
-
-const SEMVER_REGEX = /^(\d+)(\.\d+)*(\.x)?$/;
-const describeId = (id) => {
-  const [_source, ...parts] = id.split(":");
-  const [, basename, _extension] = parts[parts.length - 1]?.match(/(.*)\.([^.]+)$/) || [];
-  if (basename) {
-    parts[parts.length - 1] = basename;
-  }
-  const _path = (parts || []).join("/");
-  return {
-    _source,
-    _path,
-    _extension,
-    _file: _extension ? `${_path}.${_extension}` : _path,
-    _basename: basename || ""
-  };
-};
-const pathMeta = defineTransformer({
-  name: "path-meta",
-  extensions: [".*"],
-  transform(content, options = {}) {
-    const { locales = [], defaultLocale = "en", respectPathCase = false } = options;
-    const { _source, _file, _path, _extension, _basename } = describeId(content._id);
-    const parts = _path.split("/");
-    const _locale = locales.includes(parts[0]) ? parts.shift() : defaultLocale;
-    const filePath = generatePath(parts.join("/"), { respectPathCase });
-    return {
-      _path: filePath,
-      _dir: filePath.split("/").slice(-2)[0],
-      _draft: content._draft || content.draft || isDraft(_path),
-      _partial: isPartial(_path),
-      _locale,
-      ...content,
-      // TODO: move title to Markdown parser
-      title: content.title || generateTitle(refineUrlPart(_basename)),
-      _source,
-      _file,
-      _stem: _path,
-      _extension
-    };
-  }
-});
-const isDraft = (path) => !!path.match(/\.draft(\/|\.|$)/);
-const isPartial = (path) => path.split(/[:/]/).some((part) => part.match(/^_.*/));
-const generatePath = (path, { forceLeadingSlash = true, respectPathCase = false } = {}) => {
-  path = path.split("/").map((part) => slugify(refineUrlPart(part), { lower: !respectPathCase })).join("/");
-  return forceLeadingSlash ? withLeadingSlash(withoutTrailingSlash(path)) : path;
-};
-const generateTitle = (path) => path.split(/[\s-]/g).map(pascalCase).join(" ");
-function refineUrlPart(name) {
-  name = name.split(/[/:]/).pop();
-  if (SEMVER_REGEX.test(name)) {
-    return name;
-  }
-  return name.replace(/(\d+\.)?(.*)/, "$2").replace(/^index(\.draft)?$/, "").replace(/\.draft$/, "");
-}
-
-const markdown = defineTransformer({
-  name: "markdown",
-  extensions: [".md"],
-  parse: async (_id, content, options = {}) => {
-    const config = { ...options };
-    config.rehypePlugins = await importPlugins(config.rehypePlugins);
-    config.remarkPlugins = await importPlugins(config.remarkPlugins);
-    const highlightOptions = options.highlight ? {
-      ...options.highlight,
-      // Pass only when it's an function. String values are handled by `@nuxtjs/mdc`
-      highlighter: typeof options.highlight?.highlighter === "function" ? options.highlight.highlighter : void 0
-    } : void 0;
-    const parsed = await parseMarkdown(content, {
-      ...config,
-      highlight: highlightOptions,
-      remark: {
-        plugins: config.remarkPlugins
-      },
-      rehype: {
-        options: {
-          handlers: {
-            link
-          }
-        },
-        plugins: config.rehypePlugins
-      },
-      toc: config.toc
-    });
-    return {
-      ...parsed.data,
-      excerpt: parsed.excerpt,
-      body: {
-        ...parsed.body,
-        toc: parsed.toc
-      },
-      _type: "markdown",
-      _id
-    };
-  }
-});
-async function importPlugins(plugins = {}) {
-  const resolvedPlugins = {};
-  for (const [name, plugin] of Object.entries(plugins)) {
-    if (plugin) {
-      resolvedPlugins[name] = {
-        instance: plugin.instance || await import(
-          /* @vite-ignore */
-          name
-        ).then((m) => m.default || m),
-        options: plugin
-      };
-    } else {
-      resolvedPlugins[name] = false;
-    }
-  }
-  return resolvedPlugins;
-}
-function link(state, node) {
-  const properties = {
-    ...node.attributes || {},
-    href: normalizeUri(normalizeLink(node.url))
-  };
-  if (node.title !== null && node.title !== void 0) {
-    properties.title = node.title;
-  }
-  const result = {
-    type: "element",
-    tagName: "a",
-    properties,
-    children: state.all(node)
-  };
-  state.patch(node, result);
-  return state.applyData(node, result);
-}
-function normalizeLink(link2) {
-  const match = link2.match(/#.+$/);
-  const hash = match ? match[0] : "";
-  if (link2.replace(/#.+$/, "").endsWith(".md") && (isRelative(link2) || !/^https?/.test(link2) && !link2.startsWith("/"))) {
-    return generatePath(link2.replace(".md" + hash, ""), { forceLeadingSlash: false }) + hash;
-  } else {
-    return link2;
-  }
-}
-
-const yaml = defineTransformer({
-  name: "Yaml",
-  extensions: [".yml", ".yaml"],
-  parse: (_id, content) => {
-    const { data } = parseFrontMatter(`---
-${content}
----`);
-    let parsed = data;
-    if (Array.isArray(data)) {
-      console.warn(`YAML array is not supported in ${_id}, moving the array into the \`body\` key`);
-      parsed = { body: data };
-    }
-    return {
-      ...parsed,
-      _id,
-      _type: "yaml"
-    };
-  }
-});
-
-const json = defineTransformer({
-  name: "Json",
-  extensions: [".json", ".json5"],
-  parse: async (_id, content) => {
-    let parsed;
-    if (typeof content === "string") {
-      if (_id.endsWith("json5")) {
-        parsed = (await import('file:///Users/apple/Sites/Saloo/node_modules/json5/lib/index.js').then((m) => m.default || m)).parse(content);
-      } else if (_id.endsWith("json")) {
-        parsed = destr$1(content);
-      }
-    } else {
-      parsed = content;
-    }
-    if (Array.isArray(parsed)) {
-      console.warn(`JSON array is not supported in ${_id}, moving the array into the \`body\` key`);
-      parsed = {
-        body: parsed
-      };
-    }
-    return {
-      ...parsed,
-      _id,
-      _type: "json"
-    };
-  }
-});
-
-const TRANSFORMERS = [
-  csv,
-  markdown,
-  json,
-  yaml,
-  pathMeta
-];
-function getParser(ext, additionalTransformers = []) {
-  let parser = additionalTransformers.find((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.parse);
-  if (!parser) {
-    parser = TRANSFORMERS.find((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.parse);
-  }
-  return parser;
-}
-function getTransformers(ext, additionalTransformers = []) {
-  return [
-    ...additionalTransformers.filter((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.transform),
-    ...TRANSFORMERS.filter((p) => ext.match(new RegExp(p.extensions.join("|"), "i")) && p.transform)
-  ];
-}
-async function transformContent(id, content, options = {}) {
-  const { transformers = [] } = options;
-  const file = { _id: id, body: content };
-  const ext = extname(id);
-  const parser = getParser(ext, transformers);
-  if (!parser) {
-    console.warn(`${ext} files are not supported, "${id}" falling back to raw content`);
-    return file;
-  }
-  const parserOptions = options[camelCase(parser.name)] || {};
-  const parsed = await parser.parse(file._id, file.body, parserOptions);
-  const matchedTransformers = getTransformers(ext, transformers);
-  const result = await matchedTransformers.reduce(async (prev, cur) => {
-    const next = await prev || parsed;
-    const transformOptions = options[camelCase(cur.name)];
-    if (transformOptions === false) {
-      return next;
-    }
-    return cur.transform(next, transformOptions || {});
-  }, Promise.resolve(parsed));
-  return result;
-}
-
-function makeIgnored(ignores) {
-  const rxAll = ["/\\.", "/-", ...ignores.filter((p) => p)].map((p) => new RegExp(p));
-  return function isIgnored(key) {
-    const path = "/" + key.replace(/:/g, "/");
-    return rxAll.some((rx) => rx.test(path));
-  };
-}
-
-function createMatch(opts = {}) {
-  const operators = createOperators(match, opts.operators);
-  function match(item, conditions) {
-    if (typeof conditions !== "object" || conditions instanceof RegExp) {
-      return operators.$eq(item, conditions);
-    }
-    return Object.keys(conditions || {}).every((key) => {
-      const condition = conditions[key];
-      if (key.startsWith("$") && operators[key]) {
-        const fn = operators[key];
-        return typeof fn === "function" ? fn(item, condition) : false;
-      }
-      return match(get(item, key), condition);
-    });
-  }
-  return match;
-}
-function createOperators(match, operators = {}) {
-  return {
-    $match: (item, condition) => match(item, condition),
-    /**
-     * Match if item equals condition
-     **/
-    $eq: (item, condition) => condition instanceof RegExp ? condition.test(item) : item === condition,
-    /**
-     * Match if item not equals condition
-     **/
-    $ne: (item, condition) => condition instanceof RegExp ? !condition.test(item) : item !== condition,
-    /**
-     * Match is condition is false
-     **/
-    $not: (item, condition) => !match(item, condition),
-    /**
-     * Match only if all of nested conditions are true
-     **/
-    $and: (item, condition) => {
-      assertArray(condition, "$and requires an array as condition");
-      return condition.every((cond) => match(item, cond));
-    },
-    /**
-     * Match if any of nested conditions is true
-     **/
-    $or: (item, condition) => {
-      assertArray(condition, "$or requires an array as condition");
-      return condition.some((cond) => match(item, cond));
-    },
-    /**
-     * Match if item is in condition array
-     **/
-    $in: (item, condition) => ensureArray(condition).some(
-      (cond) => Array.isArray(item) ? match(item, { $contains: cond }) : match(item, cond)
-    ),
-    /**
-     * Match if item contains every condition or match every rule in condition array
-     **/
-    $contains: (item, condition) => {
-      item = Array.isArray(item) ? item : String(item);
-      return ensureArray(condition).every((i) => item.includes(i));
-    },
-    /**
-     * Ignore case contains
-     **/
-    $icontains: (item, condition) => {
-      if (typeof condition !== "string") {
-        throw new TypeError("$icontains requires a string, use $contains instead");
-      }
-      item = String(item).toLocaleLowerCase();
-      return ensureArray(condition).every((i) => item.includes(i.toLocaleLowerCase()));
-    },
-    /**
-     * Match if item contains at least one rule from condition array
-     */
-    $containsAny: (item, condition) => {
-      assertArray(condition, "$containsAny requires an array as condition");
-      item = Array.isArray(item) ? item : String(item);
-      return condition.some((i) => item.includes(i));
-    },
-    /**
-     * Check key existence
-     */
-    $exists: (item, condition) => condition ? typeof item !== "undefined" : typeof item === "undefined",
-    /**
-     * Match if type of item equals condition
-     */
-    $type: (item, condition) => typeof item === String(condition),
-    /**
-     * Provides regular expression capabilities for pattern matching strings.
-     */
-    $regex: (item, condition) => {
-      if (!(condition instanceof RegExp)) {
-        const matched = String(condition).match(/\/(.*)\/([dgimsuy]*)$/);
-        condition = matched?.[1] ? new RegExp(matched[1], matched[2] || "") : new RegExp(condition);
-      }
-      return condition.test(String(item || ""));
-    },
-    /**
-     * Check if item is less than condition
-     */
-    $lt: (item, condition) => {
-      return item < condition;
-    },
-    /**
-     * Check if item is less than or equal to condition
-     */
-    $lte: (item, condition) => {
-      return item <= condition;
-    },
-    /**
-     * Check if item is greater than condition
-     */
-    $gt: (item, condition) => {
-      return item > condition;
-    },
-    /**
-     * Check if item is greater than or equal to condition
-     */
-    $gte: (item, condition) => {
-      return item >= condition;
-    },
-    ...operators || {}
-  };
-}
-
-function createPipelineFetcher(getContentsList) {
-  const match = createMatch();
-  const surround = (data, { query, before, after }) => {
-    const matchQuery = typeof query === "string" ? { _path: query } : query;
-    const index = data.findIndex((item) => match(item, matchQuery));
-    before = before ?? 1;
-    after = after ?? 1;
-    const slice = new Array(before + after).fill(null, 0);
-    return index === -1 ? slice : slice.map((_, i) => data[index - before + i + Number(i >= before)] || null);
-  };
-  const matchingPipelines = [
-    // Conditions
-    (state, params) => {
-      const filtered = state.result.filter((item) => ensureArray(params.where).every((matchQuery) => match(item, matchQuery)));
-      return {
-        ...state,
-        result: filtered,
-        total: filtered.length
-      };
-    },
-    // Sort data
-    (state, params) => ensureArray(params.sort).forEach((options) => sortList(state.result, options)),
-    function fetchSurround(state, params, db) {
-      if (params.surround) {
-        let _surround = surround(state.result?.length === 1 ? db : state.result, params.surround);
-        _surround = apply(withoutKeys(params.without))(_surround);
-        _surround = apply(withKeys(params.only))(_surround);
-        state.surround = _surround;
-      }
-      return state;
-    }
-  ];
-  const transformingPiples = [
-    // Skip first items
-    (state, params) => {
-      if (params.skip) {
-        return {
-          ...state,
-          result: state.result.slice(params.skip),
-          skip: params.skip
-        };
-      }
-    },
-    // Pick first items
-    (state, params) => {
-      if (params.limit) {
-        return {
-          ...state,
-          result: state.result.slice(0, params.limit),
-          limit: params.limit
-        };
-      }
-    },
-    function fetchDirConfig(state, params, db) {
-      if (params.dirConfig) {
-        const path = state.result[0]?._path || params.where?.find((w) => w._path)?._path;
-        if (typeof path === "string") {
-          const dirConfig = db.find((item) => item._path === joinURL(path, "_dir"));
-          if (dirConfig) {
-            state.dirConfig = { _path: dirConfig._path, ...withoutKeys(["_"])(dirConfig) };
-          }
-        }
-      }
-      return state;
-    },
-    // Remove unwanted fields
-    (state, params) => ({
-      ...state,
-      result: apply(withoutKeys(params.without))(state.result)
-    }),
-    // Select only wanted fields
-    (state, params) => ({
-      ...state,
-      result: apply(withKeys(params.only))(state.result)
-    })
-  ];
-  return async (query) => {
-    const db = await getContentsList();
-    const params = query.params();
-    const result1 = {
-      result: db,
-      limit: 0,
-      skip: 0,
-      total: db.length
-    };
-    const matchedData = matchingPipelines.reduce(($data, pipe) => pipe($data, params, db) || $data, result1);
-    if (params.count) {
-      return {
-        result: matchedData.result.length
-      };
-    }
-    const result = transformingPiples.reduce(($data, pipe) => pipe($data, params, db) || $data, matchedData);
-    if (params.first) {
-      return {
-        ...omit(["skip", "limit", "total"])(result),
-        result: result.result[0]
-      };
-    }
-    return result;
-  };
-}
-
-async function getContentIndex(event) {
-  const defaultLocale = useRuntimeConfig().content.defaultLocale;
-  let contentIndex = await cacheStorage().getItem("content-index.json");
-  if (!contentIndex) {
-    const data = await getContentsList(event);
-    contentIndex = data.reduce((acc, item) => {
-      acc[item._path] = acc[item._path] || [];
-      if (item._locale === defaultLocale) {
-        acc[item._path].unshift(item._id);
-      } else {
-        acc[item._path].push(item._id);
-      }
-      return acc;
-    }, {});
-    await cacheStorage().setItem("content-index.json", contentIndex);
-  }
-  return contentIndex;
-}
-async function getIndexedContentsList(event, query) {
-  const params = query.params();
-  const path = params?.where?.find((wh) => wh._path)?._path;
-  if (!isPreview(event) && !params.surround && !params.dirConfig && (typeof path === "string" || path instanceof RegExp)) {
-    const index = await getContentIndex(event);
-    const keys = Object.keys(index).filter((key) => path.test ? path.test(key) : key === String(path)).flatMap((key) => index[key]);
-    const keyChunks = [...chunksFromArray(keys, 10)];
-    const contents = [];
-    for await (const chunk of keyChunks) {
-      const result = await Promise.all(chunk.map((key) => getContent(event, key)));
-      contents.push(...result);
-    }
-    return contents;
-  }
-  return getContentsList(event);
-}
-
-const contentIndex = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  getContentIndex: getContentIndex,
-  getIndexedContentsList: getIndexedContentsList
-}, Symbol.toStringTag, { value: 'Module' }));
-
-const transformers = [];
-
-let _sourceStorage;
-let _cacheStorage;
-let _cacheParsedStorage;
-const sourceStorage = () => {
-  if (!_sourceStorage) {
-    _sourceStorage = prefixStorage(useStorage(), "content:source");
-  }
-  return _sourceStorage;
-};
-const cacheStorage = () => {
-  if (!_cacheStorage) {
-    _cacheStorage = prefixStorage(useStorage(), "cache:content");
-  }
-  return _cacheStorage;
-};
-const cacheParsedStorage = () => {
-  if (!_cacheParsedStorage) {
-    _cacheParsedStorage = prefixStorage(useStorage(), "cache:content:parsed");
-  }
-  return _cacheParsedStorage;
-};
-const contentConfig = () => useRuntimeConfig().content;
-const invalidKeyCharacters = `'"?#/`.split("");
-const contentIgnorePredicate = (key) => {
-  const isIgnored = makeIgnored(contentConfig().ignores);
-  if (key.startsWith("preview:") || isIgnored(key)) {
-    return false;
-  }
-  if (invalidKeyCharacters.some((ik) => key.includes(ik))) {
-    console.warn(`Ignoring [${key}]. File name should not contain any of the following characters: ${invalidKeyCharacters.join(", ")}`);
-    return false;
-  }
-  return true;
-};
-const getContentsIds = async (event, prefix) => {
-  let keys = [];
-  const source = sourceStorage();
-  if (keys.length === 0) {
-    keys = await source.getKeys(prefix);
-  }
-  if (isPreview(event)) {
-    const { key } = getPreview(event);
-    const previewPrefix = `preview:${key}:${prefix || ""}`;
-    const previewKeys = await source.getKeys(previewPrefix);
-    if (previewKeys.length) {
-      const keysSet = new Set(keys);
-      await Promise.all(
-        previewKeys.map(async (key2) => {
-          const meta = await source.getMeta(key2);
-          if (meta?.__deleted) {
-            keysSet.delete(key2.substring(previewPrefix.length));
-          } else {
-            keysSet.add(key2.substring(previewPrefix.length));
-          }
-        })
-      );
-      keys = Array.from(keysSet);
-    }
-  }
-  return keys.filter(contentIgnorePredicate);
-};
-function* chunksFromArray(arr, n) {
-  for (let i = 0; i < arr.length; i += n) {
-    yield arr.slice(i, i + n);
-  }
-}
-let cachedContents = [];
-const cleanCachedContents = () => {
-  cachedContents = [];
-};
-const getContentsList = /* @__PURE__ */ (() => {
-  let pendingContentsListPromise = null;
-  const _getContentsList = async (event, prefix) => {
-    const keys = await getContentsIds(event, prefix);
-    const keyChunks = [...chunksFromArray(keys, 10)];
-    const contents = [];
-    for (const chunk of keyChunks) {
-      const result = await Promise.all(chunk.map((key) => getContent(event, key)));
-      contents.push(...result);
-    }
-    return contents.filter((c) => c && c._path);
-  };
-  return (event, prefix) => {
-    if (event.context.__contentList) {
-      return event.context.__contentList;
-    }
-    if (cachedContents.length) {
-      return cachedContents;
-    }
-    if (!pendingContentsListPromise) {
-      pendingContentsListPromise = _getContentsList(event, prefix);
-      pendingContentsListPromise.then((result) => {
-        {
-          cachedContents = result;
-        }
-        event.context.__contentList = result;
-        pendingContentsListPromise = null;
-      });
-    }
-    return pendingContentsListPromise;
-  };
-})();
-const pendingPromises = {};
-const getContent = async (event, id) => {
-  const contentId = id;
-  if (!contentIgnorePredicate(id)) {
-    return { _id: contentId, body: null };
-  }
-  const source = sourceStorage();
-  const cache = cacheParsedStorage();
-  if (isPreview(event)) {
-    const { key } = getPreview(event);
-    const previewId = `preview:${key}:${id}`;
-    const draft = await source.getItem(previewId);
-    if (draft) {
-      id = previewId;
-    }
-  }
-  const cached = await cache.getItem(id);
-  const config = contentConfig();
-  const meta = await source.getMeta(id);
-  const mtime = meta.mtime;
-  const size = meta.size || 0;
-  const hash = hash$1({
-    // Last modified time
-    mtime,
-    // File size
-    size,
-    // Add Content version to the hash, to revalidate the cache on content update
-    version: config.cacheVersion,
-    integrity: config.cacheIntegrity
-  });
-  if (cached?.hash === hash) {
-    return cached.parsed;
-  }
-  if (!pendingPromises[id + hash]) {
-    pendingPromises[id + hash] = new Promise(async (resolve) => {
-      const body = await source.getItem(id);
-      if (body === null) {
-        return resolve({ _id: contentId, body: null });
-      }
-      const parsed = await parseContent(contentId, body);
-      await cache.setItem(id, { parsed, hash }).catch(() => {
-      });
-      resolve(parsed);
-      delete pendingPromises[id + hash];
-    });
-  }
-  return pendingPromises[id + hash];
-};
-const parseContent = async (id, content, opts = {}) => {
-  const nitroApp = useNitroApp();
-  const config = contentConfig();
-  const options = defu(
-    opts,
-    {
-      markdown: {
-        ...config.markdown,
-        highlight: config.highlight
-      },
-      csv: config.csv,
-      yaml: config.yaml,
-      transformers: transformers,
-      pathMeta: {
-        defaultLocale: config.defaultLocale,
-        locales: config.locales,
-        respectPathCase: config.respectPathCase
-      }
-    }
-  );
-  const file = { _id: id, body: typeof content === "string" ? content.replace(/\r\n|\r/g, "\n") : content };
-  await nitroApp.hooks.callHook("content:file:beforeParse", file);
-  const result = await transformContent(id, file.body, options);
-  await nitroApp.hooks.callHook("content:file:afterParse", result);
-  return result;
-};
-const createServerQueryFetch = (event) => (query) => {
-  return createPipelineFetcher(() => getIndexedContentsList(event, query))(query);
-};
-function serverQueryContent(event, query, ...pathParts) {
-  const { advanceQuery } = useRuntimeConfig().public.content.experimental;
-  const config = contentConfig();
-  const queryBuilder = advanceQuery ? createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: false }) : createQuery(createServerQueryFetch(event), { initialParams: typeof query !== "string" ? query || {} : {}, legacy: true });
-  let path;
-  if (typeof query === "string") {
-    path = withLeadingSlash(joinURL(query, ...pathParts));
-  }
-  const originalParamsFn = queryBuilder.params;
-  queryBuilder.params = () => {
-    const params = originalParamsFn();
-    if (path) {
-      params.where = params.where || [];
-      if (params.first && (params.where || []).length === 0) {
-        params.where.push({ _path: withoutTrailingSlash(path) });
-      } else {
-        params.where.push({ _path: new RegExp(`^${path.replace(/[-[\]{}()*+.,^$\s/]/g, "\\$&")}`) });
-      }
-    }
-    if (!params.sort?.length) {
-      params.sort = [{ _stem: 1, $numeric: true }];
-    }
-    if (config.locales.length) {
-      const queryLocale = params.where?.find((w) => w._locale)?._locale;
-      if (!queryLocale) {
-        params.where = params.where || [];
-        params.where.push({ _locale: config.defaultLocale });
-      }
-    }
-    return params;
-  };
-  return queryBuilder;
-}
-
-const storage = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  cacheParsedStorage: cacheParsedStorage,
-  cacheStorage: cacheStorage,
-  chunksFromArray: chunksFromArray,
-  cleanCachedContents: cleanCachedContents,
-  createServerQueryFetch: createServerQueryFetch,
-  getContent: getContent,
-  getContentsIds: getContentsIds,
-  getContentsList: getContentsList,
-  parseContent: parseContent,
-  serverQueryContent: serverQueryContent,
-  sourceStorage: sourceStorage
-}, Symbol.toStringTag, { value: 'Module' }));
-
-const server = () => {};
-
-const server$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  default: server
+  default: client_manifest
 }, Symbol.toStringTag, { value: 'Module' }));
 
 const template = "";
@@ -5001,431 +3587,36 @@ const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   default: styles
 }, Symbol.toStringTag, { value: 'Module' }));
 
-function createShikiHighlighter({
-  langs = [],
-  themes = [],
-  bundledLangs = {},
-  bundledThemes = {},
-  getMdcConfigs,
-  options: shikiOptions,
-  engine
-} = {}) {
-  let shiki;
-  let configs;
-  async function _getShiki() {
-    const { createHighlighterCore, addClassToHast, isSpecialLang, isSpecialTheme } = await import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/core.mjs');
-    const { transformerNotationDiff, transformerNotationErrorLevel, transformerNotationFocus, transformerNotationHighlight } = await import('file:///Users/apple/Sites/Saloo/node_modules/@shikijs/transformers/dist/index.mjs');
-    const shiki2 = await createHighlighterCore({
-      langs,
-      themes,
-      engine
-    });
-    for await (const config of await getConfigs()) {
-      await config.shiki?.setup?.(shiki2);
-    }
-    return {
-      shiki: shiki2,
-      addClassToHast,
-      isSpecialLang,
-      isSpecialTheme,
-      transformers: [
-        transformerNotationDiff(),
-        transformerNotationErrorLevel(),
-        transformerNotationFocus(),
-        transformerNotationHighlight()
-      ]
-    };
-  }
-  async function getShiki() {
-    if (!shiki) {
-      shiki = _getShiki();
-    }
-    return shiki;
-  }
-  async function getConfigs() {
-    if (!configs) {
-      configs = Promise.resolve(getMdcConfigs?.() || []);
-    }
-    return configs;
-  }
-  const highlighter = async (code, lang, theme, options = {}) => {
-    const {
-      shiki: shiki2,
-      addClassToHast,
-      isSpecialLang,
-      isSpecialTheme,
-      transformers: baseTransformers
-    } = await getShiki();
-    const codeToHastOptions = {
-      defaultColor: false,
-      meta: {
-        __raw: options.meta
-      }
-    };
-    if (lang === "ts-type" || lang === "typescript-type") {
-      lang = "typescript";
-      codeToHastOptions.grammarContextCode = "let a:";
-    } else if (lang === "vue-html" || lang === "vue-template") {
-      lang = "vue";
-      codeToHastOptions.grammarContextCode = "<template>";
-    }
-    const themesObject = { ...typeof theme === "string" ? { default: theme } : theme || {} };
-    const loadedThemes = shiki2.getLoadedThemes();
-    const loadedLanguages = shiki2.getLoadedLanguages();
-    if (typeof lang === "string" && !loadedLanguages.includes(lang) && !isSpecialLang(lang)) {
-      if (bundledLangs[lang]) {
-        await shiki2.loadLanguage(bundledLangs[lang]);
-      } else {
-        {
-          console.warn(`[@nuxtjs/mdc] Language "${lang}" is not loaded to the Shiki highlighter, fallback to plain text. Add the language to "mdc.highlight.langs" to fix this.`);
-        }
-        lang = "text";
-      }
-    }
-    for (const [color, theme2] of Object.entries(themesObject)) {
-      if (typeof theme2 === "string" && !loadedThemes.includes(theme2) && !isSpecialTheme(theme2)) {
-        if (bundledThemes[theme2]) {
-          await shiki2.loadTheme(bundledThemes[theme2]);
-        } else {
-          {
-            console.warn(`[@nuxtjs/mdc] Theme "${theme2}" is not loaded to the Shiki highlighter. Add the theme to "mdc.highlight.themes" to fix this.`);
-          }
-          themesObject[color] = "none";
-        }
-      }
-    }
-    const transformers = [
-      ...baseTransformers
-    ];
-    for (const config of await getConfigs()) {
-      const newTransformers = typeof config.shiki?.transformers === "function" ? await config.shiki?.transformers(code, lang, theme, options) : config.shiki?.transformers || [];
-      transformers.push(...newTransformers);
-    }
-    const root = shiki2.codeToHast(code.trimEnd(), {
-      lang,
-      ...codeToHastOptions,
-      themes: themesObject,
-      transformers: [
-        ...transformers,
-        {
-          name: "mdc:highlight",
-          line(node, line) {
-            if (options.highlights?.includes(line))
-              addClassToHast(node, "highlight");
-            node.properties.line = line;
-          }
-        },
-        {
-          name: "mdc:newline",
-          line(node) {
-            if (code?.includes("\n")) {
-              if (node.children.length === 0 || node.children.length === 1 && node.children[0].type === "element" && node.children[0].children.length === 1 && node.children[0].children[0].type === "text" && node.children[0].children[0].value === "") {
-                node.children = [{
-                  type: "element",
-                  tagName: "span",
-                  properties: {
-                    emptyLinePlaceholder: true
-                  },
-                  children: [{ type: "text", value: "\n" }]
-                }];
-                return;
-              }
-              const last = node.children.at(-1);
-              if (last?.type === "element" && last.tagName === "span") {
-                const text = last.children.at(-1);
-                if (text?.type === "text")
-                  text.value += "\n";
-              }
-            }
-          }
-        }
-      ]
-    });
-    const preEl = root.children[0];
-    const codeEl = preEl.children[0];
-    const wrapperStyle = shikiOptions?.wrapperStyle;
-    preEl.properties.style = wrapperStyle ? typeof wrapperStyle === "string" ? wrapperStyle : preEl.properties.style : "";
-    const styles = [];
-    Object.keys(themesObject).forEach((color) => {
-      const colorScheme = color !== "default" ? `.${color}` : "";
-      styles.push(
-        wrapperStyle ? `${colorScheme} .shiki,` : "",
-        `html .${color} .shiki span {`,
-        `color: var(--shiki-${color});`,
-        `background: var(--shiki-${color}-bg);`,
-        `font-style: var(--shiki-${color}-font-style);`,
-        `font-weight: var(--shiki-${color}-font-weight);`,
-        `text-decoration: var(--shiki-${color}-text-decoration);`,
-        "}"
-      );
-      styles.push(
-        `html${colorScheme} .shiki span {`,
-        `color: var(--shiki-${color});`,
-        `background: var(--shiki-${color}-bg);`,
-        `font-style: var(--shiki-${color}-font-style);`,
-        `font-weight: var(--shiki-${color}-font-weight);`,
-        `text-decoration: var(--shiki-${color}-text-decoration);`,
-        "}"
-      );
-    });
-    return {
-      tree: codeEl.children,
-      className: Array.isArray(preEl.properties.class) ? preEl.properties.class.join(" ") : preEl.properties.class,
-      inlineStyle: preEl.properties.style,
-      style: styles.join("")
-    };
-  };
-  return highlighter;
-}
-
-const bundledLangs = {
-"javascript": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/javascript.mjs'),
-"js": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/javascript.mjs'),
-"jsx": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/jsx.mjs'),
-"json": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/json.mjs'),
-"typescript": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/typescript.mjs'),
-"ts": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/typescript.mjs'),
-"tsx": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/tsx.mjs'),
-"vue": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/vue.mjs'),
-"css": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/css.mjs'),
-"html": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/html.mjs'),
-"shellscript": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/shellscript.mjs'),
-"bash": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/shellscript.mjs'),
-"sh": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/shellscript.mjs'),
-"shell": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/shellscript.mjs'),
-"zsh": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/shellscript.mjs'),
-"markdown": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/markdown.mjs'),
-"md": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/markdown.mjs'),
-"mdc": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/mdc.mjs'),
-"yaml": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/yaml.mjs'),
-"yml": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/langs/yaml.mjs'),
-};
-const bundledThemes = {
-"github-dark": () => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/themes/github-dark.mjs').then(r => r.default),
-};
-const options = {};
-const engine = createWasmOnigEngine(() => import('file:///Users/apple/Sites/Saloo/node_modules/shiki/dist/wasm.mjs'));
-const highlighter = createShikiHighlighter({ bundledLangs, bundledThemes, options, getMdcConfigs, engine });
-
-const mdcHighlighter = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  createShikiHighlighter: createShikiHighlighter,
-  default: highlighter
-}, Symbol.toStringTag, { value: 'Module' }));
-
-function jsonParse(value) {
-  return JSON.parse(value, regExpReviver);
-}
-function regExpReviver(_key, value) {
-  const withOperator = typeof value === "string" && value.match(/^--([A-Z]+) (.+)$/) || [];
-  if (withOperator[1] === "REGEX") {
-    const regex = withOperator[2]?.match(/\/(.*)\/([dgimsuy]*)$/);
-    return regex?.[1] ? new RegExp(regex[1], regex[2] || "") : value;
-  }
-  return value;
-}
-
-const parseJSONQueryParams = (body) => {
-  try {
-    return jsonParse(body);
-  } catch {
-    throw createError({ statusCode: 400, message: "Invalid _params query" });
-  }
-};
-const decodeQueryParams = (encoded) => {
-  encoded = encoded.replace(/\//g, "");
-  encoded = encoded.replace(/-/g, "+").replace(/_/g, "/");
-  encoded = encoded.padEnd(encoded.length + (4 - encoded.length % 4) % 4, "=");
-  return parseJSONQueryParams(typeof Buffer !== "undefined" ? Buffer.from(encoded, "base64").toString() : atob(encoded));
-};
-const memory = {};
-const getContentQuery = (event) => {
-  const { params } = event.context.params || {};
-  if (params) {
-    return decodeQueryParams(params.replace(/.json$/, ""));
-  }
-  const qid = event.context.params?.qid?.replace(/.json$/, "");
-  const query = getQuery$1(event) || {};
-  if (qid && query._params) {
-    memory[qid] = parseJSONQueryParams(decodeURIComponent(query._params));
-    if (memory[qid]?.where && !Array.isArray(memory[qid]?.where)) {
-      memory[qid].where = [memory[qid].where];
-    }
-    return memory[qid];
-  }
-  if (qid && memory[qid]) {
-    return memory[qid];
-  }
-  if (query._params) {
-    return parseJSONQueryParams(decodeURIComponent(query._params));
-  }
-  if (typeof query.only === "string" && query.only.includes(",")) {
-    query.only = query.only.split(",").map((s) => s.trim());
-  }
-  if (typeof query.without === "string" && query.without.includes(",")) {
-    query.without = query.without.split(",").map((s) => s.trim());
-  }
-  const where = query.where || {};
-  for (const key of ["draft", "partial", "empty"]) {
-    if (query[key] && ["true", "false"].includes(query[key])) {
-      where[key] = query[key] === "true";
-      delete query[key];
-    }
-  }
-  if (query.sort) {
-    query.sort = String(query.sort).split(",").map((s) => {
-      const [key, order] = s.split(":");
-      return [key, Number.parseInt(order || "0", 10)];
-    });
-  }
-  const reservedKeys = ["partial", "draft", "only", "without", "where", "sort", "limit", "skip"];
-  for (const key of Object.keys(query)) {
-    if (reservedKeys.includes(key)) {
-      continue;
-    }
-    query.where = query.where || {};
-    query.where[key] = query[key];
-  }
-  if (Object.keys(where).length > 0) {
-    query.where = [where];
-  } else {
-    delete query.where;
-  }
-  return query;
-};
-
-const query = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  decodeQueryParams: decodeQueryParams,
-  getContentQuery: getContentQuery
-}, Symbol.toStringTag, { value: 'Module' }));
-
-function createNav(contents, configs) {
-  const { navigation } = useRuntimeConfig().public.content;
-  if (navigation === false) {
-    return [];
-  }
-  const pickNavigationFields = (content) => ({
-    ...pick(["title", ...navigation.fields])(content),
-    ...isObject(content?.navigation) ? content.navigation : {}
-  });
-  const nav = contents.sort((a, b) => a._path.localeCompare(b._path)).reduce((nav2, content) => {
-    const parts = content._path.substring(1).split("/");
-    const idParts = content._id.split(":").slice(1);
-    const isIndex = !!idParts[idParts.length - 1]?.match(/([1-9][0-9]*\.)?index.md/g);
-    const getNavItem = (content2) => ({
-      title: content2.title,
-      _path: content2._path,
-      _file: content2._file,
-      children: [],
-      ...pickNavigationFields(content2),
-      ...content2._draft ? { _draft: true } : {}
-    });
-    const navItem = getNavItem(content);
-    if (isIndex) {
-      const dirConfig = configs[navItem._path];
-      if (typeof dirConfig?.navigation !== "undefined" && !dirConfig?.navigation) {
-        return nav2;
-      }
-      if (content._path !== "/") {
-        const indexItem = getNavItem(content);
-        navItem.children.push(indexItem);
-      }
-      if (dirConfig) {
-        Object.assign(
-          navItem,
-          pickNavigationFields(dirConfig)
-        );
-      }
-    }
-    if (parts.length === 1) {
-      nav2.push(navItem);
-      return nav2;
-    }
-    const siblings = parts.slice(0, -1).reduce((nodes, part, i) => {
-      const currentPathPart = "/" + parts.slice(0, i + 1).join("/");
-      const conf = configs[currentPathPart];
-      if (typeof conf?.navigation !== "undefined" && !conf.navigation) {
-        return [];
-      }
-      let parent = nodes.find((n) => n._path === currentPathPart);
-      if (!parent) {
-        parent = {
-          title: generateTitle(part),
-          _path: currentPathPart,
-          _file: content._file,
-          children: [],
-          ...conf && pickNavigationFields(conf)
-        };
-        nodes.push(parent);
-      }
-      return parent.children;
-    }, nav2);
-    siblings.push(navItem);
-    return nav2;
-  }, []);
-  return sortAndClear(nav);
-}
-const collator = new Intl.Collator(void 0, { numeric: true, sensitivity: "base" });
-function sortAndClear(nav) {
-  nav.forEach((item) => {
-    item._file = item._file.split(".").slice(0, -1).join(".");
-  });
-  const sorted = nav.sort((a, b) => collator.compare(a._file, b._file));
-  for (const item of sorted) {
-    if (item.children?.length) {
-      sortAndClear(item.children);
-    } else {
-      delete item.children;
-    }
-    delete item._file;
-  }
-  return nav;
-}
-function pick(keys) {
-  return (obj) => {
-    obj = obj || {};
-    if (keys && keys.length) {
-      return keys.filter((key) => typeof obj[key] !== "undefined").reduce((newObj, key) => Object.assign(newObj, { [key]: obj[key] }), {});
-    }
-    return obj;
-  };
-}
-function isObject(obj) {
-  return Object.prototype.toString.call(obj) === "[object Object]";
-}
-
-const navigation = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  createNav: createNav
-}, Symbol.toStringTag, { value: 'Module' }));
-
 const sitemap_xml = defineEventHandler(async (event) => {
-  const baseURL = "https://saloo-neena.com";
+  const baseURL = "https://irfatech.in";
   const routes = [
     { url: "/", changefreq: "weekly", priority: 1 },
-    { url: "/about", changefreq: "monthly", priority: 0.8 },
-    { url: "/timeline", changefreq: "monthly", priority: 0.8 },
-    { url: "/journeys", changefreq: "monthly", priority: 0.9 },
-    { url: "/journeys/1", changefreq: "monthly", priority: 0.7 },
-    { url: "/journeys/2", changefreq: "monthly", priority: 0.7 },
-    { url: "/journeys/3", changefreq: "monthly", priority: 0.7 },
-    { url: "/journeys/4", changefreq: "monthly", priority: 0.7 },
-    { url: "/journeys/5", changefreq: "monthly", priority: 0.7 },
-    { url: "/journeys/6", changefreq: "monthly", priority: 0.7 },
-    { url: "/achievements", changefreq: "monthly", priority: 0.8 },
-    { url: "/gallery", changefreq: "weekly", priority: 0.8 },
+    { url: "/about", changefreq: "monthly", priority: 0.9 },
+    { url: "/services", changefreq: "monthly", priority: 0.9 },
+    { url: "/services/websites", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/erp", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/crm", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/ai-automation", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/custom-software", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/whatsapp-automation", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/mobile-apps", changefreq: "monthly", priority: 0.8 },
+    { url: "/services/maintenance", changefreq: "monthly", priority: 0.8 },
+    { url: "/industries", changefreq: "monthly", priority: 0.8 },
+    { url: "/portfolio", changefreq: "weekly", priority: 0.8 },
+    { url: "/landflix", changefreq: "monthly", priority: 0.8 },
     { url: "/blog", changefreq: "weekly", priority: 0.9 },
-    { url: "/blog/first-journey-1989", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/breaking-army-record", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/australia-wild-encounters", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/guinness-world-record-story", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/partnership-that-conquered-world", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/beating-british-army-record", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/six-continents-countless-memories", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/car-that-conquered-world", changefreq: "monthly", priority: 0.7 },
-    { url: "/blog/fighting-for-recognition-guinness-battle", changefreq: "monthly", priority: 0.7 },
-    { url: "/contact", changefreq: "yearly", priority: 0.6 }
+    { url: "/blog/how-small-businesses-can-automate-operations", changefreq: "monthly", priority: 0.7 },
+    { url: "/blog/why-retail-shops-need-erp", changefreq: "monthly", priority: 0.7 },
+    { url: "/blog/whatsapp-business-automation-guide", changefreq: "monthly", priority: 0.7 },
+    { url: "/blog/best-crm-for-small-businesses", changefreq: "monthly", priority: 0.7 },
+    { url: "/blog/odoo-erp-india-sme", changefreq: "monthly", priority: 0.7 },
+    { url: "/blog/ai-workflows-local-businesses", changefreq: "monthly", priority: 0.7 },
+    { url: "/blog/digital-transformation-real-estate", changefreq: "monthly", priority: 0.7 },
+    { url: "/blog/business-website-cost-guide", changefreq: "monthly", priority: 0.7 },
+    { url: "/portfolio/landflix-real-estate-platform", changefreq: "monthly", priority: 0.7 },
+    { url: "/portfolio/distributor-erp-transformation", changefreq: "monthly", priority: 0.7 },
+    { url: "/portfolio/clinic-patient-management", changefreq: "monthly", priority: 0.7 },
+    { url: "/contact", changefreq: "yearly", priority: 0.7 }
   ];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -5445,179 +3636,269 @@ const sitemap_xml$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.definePrope
   default: sitemap_xml
 }, Symbol.toStringTag, { value: 'Module' }));
 
+function renderPayloadResponse(ssrContext) {
+	return {
+		body: encodeForwardSlashes(stringify(splitPayload(ssrContext).payload, ssrContext["~payloadReducers"])) ,
+		statusCode: getResponseStatus(ssrContext.event),
+		statusMessage: getResponseStatusText(ssrContext.event),
+		headers: {
+			"content-type": "application/json;charset=utf-8" ,
+			"x-powered-by": "Nuxt"
+		}
+	};
+}
 function renderPayloadJsonScript(opts) {
-  const contents = opts.data ? stringify(opts.data, opts.ssrContext._payloadReducers) : "";
-  const payload = {
-    "type": "application/json",
-    "innerHTML": contents,
-    "data-nuxt-data": appId,
-    "data-ssr": false
-  };
-  {
-    payload.id = "__NUXT_DATA__";
-  }
-  if (opts.src) {
-    payload["data-src"] = opts.src;
-  }
-  const config = uneval(opts.ssrContext.config);
-  return [
-    payload,
-    {
-      innerHTML: `window.__NUXT__={};window.__NUXT__.config=${config}`
-    }
-  ];
+	const contents = opts.data ? encodeForwardSlashes(stringify(opts.data, opts.ssrContext["~payloadReducers"])) : "";
+	const payload = {
+		"type": "application/json",
+		"innerHTML": contents,
+		"data-nuxt-data": appId,
+		"data-ssr": false
+	};
+	{
+		payload.id = "__NUXT_DATA__";
+	}
+	if (opts.src) {
+		payload["data-src"] = opts.src;
+	}
+	const config = uneval(opts.ssrContext.config);
+	return [payload, { innerHTML: `window.__NUXT__={};window.__NUXT__.config=${config}` }];
+}
+
+function encodeForwardSlashes(str) {
+	return str.replaceAll("/", "\\u002F");
+}
+function splitPayload(ssrContext) {
+	const { data, prerenderedAt, ...initial } = ssrContext.payload;
+	return {
+		initial: {
+			...initial,
+			prerenderedAt
+		},
+		payload: {
+			data,
+			prerenderedAt
+		}
+	};
 }
 
 const renderSSRHeadOptions = {"omitLineBreaks":true};
 
+// @ts-expect-error private property consumed by vite-generated url helpers
 globalThis.__buildAssetsURL = buildAssetsURL;
+// @ts-expect-error private property consumed by vite-generated url helpers
 globalThis.__publicAssetsURL = publicAssetsURL;
 const HAS_APP_TELEPORTS = !!(appTeleportAttrs.id);
 const APP_TELEPORT_OPEN_TAG = HAS_APP_TELEPORTS ? `<${appTeleportTag}${propsToString(appTeleportAttrs)}>` : "";
 const APP_TELEPORT_CLOSE_TAG = HAS_APP_TELEPORTS ? `</${appTeleportTag}>` : "";
-const renderer = defineRenderHandler(async (event) => {
-  const nitroApp = useNitroApp();
-  const ssrError = event.path.startsWith("/__nuxt_error") ? getQuery$1(event) : null;
-  if (ssrError && !("__unenv__" in event.node.req)) {
-    throw createError({
-      statusCode: 404,
-      statusMessage: "Page Not Found: /__nuxt_error"
-    });
-  }
-  const ssrContext = createSSRContext(event);
-  const headEntryOptions = { mode: "server" };
-  ssrContext.head.push(appHead, headEntryOptions);
-  if (ssrError) {
-    ssrError.statusCode &&= Number.parseInt(ssrError.statusCode);
-    if (typeof ssrError.data === "string") {
-      try {
-        ssrError.data = destr(ssrError.data);
-      } catch {
-      }
-    }
-    setSSRError(ssrContext, ssrError);
-  }
-  const routeOptions = getRouteRules(event);
-  if (routeOptions.ssr === false) {
-    ssrContext.noSSR = true;
-  }
-  const renderer = await getRenderer();
-  const _rendered = await renderer.renderToString(ssrContext).catch(async (error) => {
-    if (ssrContext._renderResponse && error.message === "skipping render") {
-      return {};
-    }
-    const _err = !ssrError && ssrContext.payload?.error || error;
-    await ssrContext.nuxt?.hooks.callHook("app:error", _err);
-    throw _err;
-  });
-  const inlinedStyles = [];
-  await ssrContext.nuxt?.hooks.callHook("app:rendered", { ssrContext, renderResult: _rendered });
-  if (ssrContext._renderResponse) {
-    return ssrContext._renderResponse;
-  }
-  if (ssrContext.payload?.error && !ssrError) {
-    throw ssrContext.payload.error;
-  }
-  const NO_SCRIPTS = routeOptions.noScripts;
-  const { styles, scripts } = getRequestDependencies(ssrContext, renderer.rendererContext);
-  if (ssrContext._preloadManifest && !NO_SCRIPTS) {
-    ssrContext.head.push({
-      link: [
-        { rel: "preload", as: "fetch", fetchpriority: "low", crossorigin: "anonymous", href: buildAssetsURL(`builds/meta/${ssrContext.runtimeConfig.app.buildId}.json`) }
-      ]
-    }, { ...headEntryOptions, tagPriority: "low" });
-  }
-  if (inlinedStyles.length) {
-    ssrContext.head.push({ style: inlinedStyles });
-  }
-  const link = [];
-  for (const resource of Object.values(styles)) {
-    if ("inline" in getQuery(resource.file)) {
-      continue;
-    }
-    link.push({ rel: "stylesheet", href: renderer.rendererContext.buildAssetsURL(resource.file), crossorigin: "" });
-  }
-  if (link.length) {
-    ssrContext.head.push({ link }, headEntryOptions);
-  }
-  if (!NO_SCRIPTS) {
-    ssrContext.head.push({
-      link: getPreloadLinks(ssrContext, renderer.rendererContext)
-    }, headEntryOptions);
-    ssrContext.head.push({
-      link: getPrefetchLinks(ssrContext, renderer.rendererContext)
-    }, headEntryOptions);
-    ssrContext.head.push({
-      script: renderPayloadJsonScript({ ssrContext, data: ssrContext.payload }) 
-    }, {
-      ...headEntryOptions,
-      // this should come before another end of body scripts
-      tagPosition: "bodyClose",
-      tagPriority: "high"
-    });
-  }
-  if (!routeOptions.noScripts) {
-    const tagPosition = "head";
-    ssrContext.head.push({
-      script: Object.values(scripts).map((resource) => ({
-        type: resource.module ? "module" : null,
-        src: renderer.rendererContext.buildAssetsURL(resource.file),
-        defer: resource.module ? null : true,
-        // if we are rendering script tag payloads that import an async payload
-        // we need to ensure this resolves before executing the Nuxt entry
-        tagPosition,
-        crossorigin: ""
-      }))
-    }, headEntryOptions);
-  }
-  const { headTags, bodyTags, bodyTagsOpen, htmlAttrs, bodyAttrs } = await renderSSRHead(ssrContext.head, renderSSRHeadOptions);
-  const htmlContext = {
-    htmlAttrs: htmlAttrs ? [htmlAttrs] : [],
-    head: normalizeChunks([headTags]),
-    bodyAttrs: bodyAttrs ? [bodyAttrs] : [],
-    bodyPrepend: normalizeChunks([bodyTagsOpen, ssrContext.teleports?.body]),
-    body: [
-      replaceIslandTeleports(ssrContext, _rendered.html) ,
-      APP_TELEPORT_OPEN_TAG + (HAS_APP_TELEPORTS ? joinTags([ssrContext.teleports?.[`#${appTeleportAttrs.id}`]]) : "") + APP_TELEPORT_CLOSE_TAG
-    ],
-    bodyAppend: [bodyTags]
-  };
-  await nitroApp.hooks.callHook("render:html", htmlContext, { event });
-  return {
-    body: renderHTMLDocument(htmlContext),
-    statusCode: getResponseStatus(event),
-    statusMessage: getResponseStatusText(event),
-    headers: {
-      "content-type": "text/html;charset=utf-8",
-      "x-powered-by": "Nuxt"
-    }
-  };
+const PAYLOAD_URL_RE = /^[^?]*\/_payload.json(?:\?.*)?$/ ;
+const PAYLOAD_FILENAME = "_payload.json" ;
+const handler = defineRenderHandler((event) => {
+	
+	const ssrError = event.path.startsWith("/__nuxt_error") ? getQuery$1(event) : null;
+	if (ssrError && !("__unenv__" in event.node.req)) {
+		throw createError({
+			status: 404,
+			statusText: "Page Not Found: /__nuxt_error",
+			message: "Page Not Found: /__nuxt_error"
+		});
+	}
+	return renderRoute(event, ssrError);
 });
+async function renderRoute(event, ssrError) {
+	const nitroApp = useNitroApp();
+	
+	const ssrContext = createSSRContext(event);
+	
+	const headEntryOptions = { mode: "server" };
+	ssrContext.head.push(appHead, headEntryOptions);
+	if (ssrError) {
+		
+		const status = ssrError.status || ssrError.statusCode;
+		if (status) {
+			
+			ssrError.status = ssrError.statusCode = Number.parseInt(status);
+		}
+		if (typeof ssrError.data === "string") {
+			try {
+				ssrError.data = destr(ssrError.data);
+			} catch {}
+		}
+		setSSRError(ssrContext, ssrError);
+	}
+	
+	const routeOptions = getRouteRules(event);
+	
+	const _PAYLOAD_EXTRACTION = !ssrContext.noSSR && (NUXT_RUNTIME_PAYLOAD_EXTRACTION);
+	
+	
+	
+	const _PAYLOAD_INLINE = !_PAYLOAD_EXTRACTION || NUXT_PAYLOAD_INLINE;
+	const isRenderingPayload = (_PAYLOAD_EXTRACTION || routeOptions.prerender) && PAYLOAD_URL_RE.test(ssrContext.url);
+	if (isRenderingPayload) {
+		const url = ssrContext.url.substring(0, ssrContext.url.lastIndexOf("/")) || "/";
+		ssrContext.url = url;
+		event._path = event.node.req.url = url;
+	}
+	if (routeOptions.ssr === false) {
+		ssrContext.noSSR = true;
+	}
+	const payloadURL = _PAYLOAD_EXTRACTION ? joinURL(ssrContext.runtimeConfig.app.cdnURL || ssrContext.runtimeConfig.app.baseURL, ssrContext.url.replace(/\?.*$/, ""), PAYLOAD_FILENAME) + "?" + ssrContext.runtimeConfig.app.buildId : undefined;
+	
+	const renderer = await getRenderer();
+	const _rendered = await renderer.renderToString(ssrContext).catch(async (error) => {
+		
+		
+		if ((ssrContext["~renderResponse"] || ssrContext._renderResponse) && error.message === "skipping render") {
+			return {};
+		}
+		
+		const _err = !ssrError && ssrContext.payload?.error || error;
+		await ssrContext.nuxt?.hooks.callHook("app:error", _err);
+		throw _err;
+	});
+	
+	
+	const inlinedStyles = [];
+	await ssrContext.nuxt?.hooks.callHook("app:rendered", {
+		ssrContext,
+		renderResult: _rendered
+	});
+	if (ssrContext["~renderResponse"] || ssrContext._renderResponse) {
+		
+		return ssrContext["~renderResponse"] || ssrContext._renderResponse;
+	}
+	
+	if (ssrContext.payload?.error && !ssrError) {
+		throw ssrContext.payload.error;
+	}
+	
+	if (isRenderingPayload) {
+		const response = renderPayloadResponse(ssrContext);
+		return response;
+	}
+	const NO_SCRIPTS = routeOptions.noScripts;
+	
+	const { styles, scripts } = getRequestDependencies(ssrContext, renderer.rendererContext);
+	
+	
+	if (_PAYLOAD_EXTRACTION && !_PAYLOAD_INLINE && !NO_SCRIPTS) {
+		ssrContext.head.push({ link: [{
+			rel: "preload",
+			as: "fetch",
+			crossorigin: "anonymous",
+			href: payloadURL
+		} ] }, headEntryOptions);
+	}
+	
+	if (inlinedStyles.length) {
+		ssrContext.head.push({ style: inlinedStyles });
+	}
+	const link = [];
+	for (const resource of Object.values(styles)) {
+		
+		if ("inline" in getQuery(resource.file)) {
+			continue;
+		}
+		
+		
+		
+		link.push({
+			rel: "stylesheet",
+			href: renderer.rendererContext.buildAssetsURL(resource.file),
+			crossorigin: ""
+		});
+	}
+	if (link.length) {
+		ssrContext.head.push({ link }, headEntryOptions);
+	}
+	if (!NO_SCRIPTS) {
+		
+		
+		
+		if (ssrContext["~lazyHydratedModules"]) {
+			for (const id of ssrContext["~lazyHydratedModules"]) {
+				ssrContext.modules?.delete(id);
+			}
+		}
+		ssrContext.head.push({ link: getPreloadLinks(ssrContext, renderer.rendererContext) }, headEntryOptions);
+		ssrContext.head.push({ link: getPrefetchLinks(ssrContext, renderer.rendererContext) }, headEntryOptions);
+		
+		ssrContext.head.push({ script: _PAYLOAD_INLINE ? renderPayloadJsonScript({
+			ssrContext,
+			data: ssrContext.payload
+		})  : renderPayloadJsonScript({
+			ssrContext,
+			data: splitPayload(ssrContext).initial,
+			src: payloadURL
+		})  }, {
+			...headEntryOptions,
+			
+			tagPosition: "bodyClose",
+			tagPriority: "high"
+		});
+	}
+	
+	if (!routeOptions.noScripts) {
+		const tagPosition = "head";
+		ssrContext.head.push({ script: Object.values(scripts).map((resource) => ({
+			type: resource.module ? "module" : null,
+			src: renderer.rendererContext.buildAssetsURL(resource.file),
+			defer: resource.module ? null : true,
+			
+			
+			tagPosition,
+			crossorigin: ""
+		})) }, headEntryOptions);
+	}
+	const { headTags, bodyTags, bodyTagsOpen, htmlAttrs, bodyAttrs } = await renderSSRHead(ssrContext.head, renderSSRHeadOptions);
+	
+	const htmlContext = {
+		htmlAttrs: htmlAttrs ? [htmlAttrs] : [],
+		head: normalizeChunks([headTags]),
+		bodyAttrs: bodyAttrs ? [bodyAttrs] : [],
+		bodyPrepend: normalizeChunks([bodyTagsOpen, ssrContext.teleports?.body]),
+		body: [replaceIslandTeleports(ssrContext, _rendered.html) , APP_TELEPORT_OPEN_TAG + (HAS_APP_TELEPORTS ? joinTags([ssrContext.teleports?.[`#${appTeleportAttrs.id}`]]) : "") + APP_TELEPORT_CLOSE_TAG],
+		bodyAppend: [bodyTags]
+	};
+	
+	await nitroApp.hooks.callHook("render:html", htmlContext, { event });
+	
+	return {
+		body: renderHTMLDocument(htmlContext),
+		statusCode: getResponseStatus(event),
+		statusMessage: getResponseStatusText(event),
+		headers: {
+			"content-type": "text/html;charset=utf-8",
+			"x-powered-by": "Nuxt"
+		}
+	};
+}
 function normalizeChunks(chunks) {
-  const result = [];
-  for (const _chunk of chunks) {
-    const chunk = _chunk?.trim();
-    if (chunk) {
-      result.push(chunk);
-    }
-  }
-  return result;
+	const result = [];
+	for (const _chunk of chunks) {
+		const chunk = _chunk?.trim();
+		if (chunk) {
+			result.push(chunk);
+		}
+	}
+	return result;
 }
 function joinTags(tags) {
-  return tags.join("");
+	return tags.join("");
 }
 function joinAttrs(chunks) {
-  if (chunks.length === 0) {
-    return "";
-  }
-  return " " + chunks.join(" ");
+	if (chunks.length === 0) {
+		return "";
+	}
+	return " " + chunks.join(" ");
 }
 function renderHTMLDocument(html) {
-  return `<!DOCTYPE html><html${joinAttrs(html.htmlAttrs)}><head>${joinTags(html.head)}</head><body${joinAttrs(html.bodyAttrs)}>${joinTags(html.bodyPrepend)}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body></html>`;
+	return "<!DOCTYPE html>" + `<html${joinAttrs(html.htmlAttrs)}>` + `<head>${joinTags(html.head)}</head>` + `<body${joinAttrs(html.bodyAttrs)}>${joinTags(html.bodyPrepend)}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body>` + "</html>";
 }
 
-const renderer$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const renderer = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
-  default: renderer
+  default: handler
 }, Symbol.toStringTag, { value: 'Module' }));
 //# sourceMappingURL=index.mjs.map

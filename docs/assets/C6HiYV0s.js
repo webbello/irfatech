@@ -1,0 +1,1 @@
+import{_ as o}from"./DlAUqK2U.js";import{K as t,h as r,Q as s}from"./9C3q-HLB.js";const c={};function n(e,a){return t(),r("blockquote",null,[s(e.$slots,"default")])}const f=Object.assign(o(c,[["render",n]]),{__name:"ProseBlockquote"});export{f as default};

@@ -3,7 +3,7 @@
  * Usage: call the relevant helper inside <script setup> of each page.
  */
 
-const BASE_URL = 'https://irfatech.com'
+const BASE_URL = 'https://irfatech.in'
 
 const ORG = {
   '@type': 'Organization',
@@ -14,7 +14,7 @@ const ORG = {
   logo: `${BASE_URL}/images/logo.png`,
   founder: { '@type': 'Person', name: 'Muhammad Irfan' },
   foundingDate: '2009',
-  areaServed: 'Pakistan',
+  areaServed: 'India',
 }
 
 /** Inject a Service schema for each service page */
@@ -35,7 +35,7 @@ export function useServiceSchema(opts: {
           description: opts.description,
           url: `${BASE_URL}${opts.url}`,
           provider: ORG,
-          areaServed: 'Pakistan',
+          areaServed: 'India',
           serviceType: opts.name,
           ...(opts.keywords ? { keywords: opts.keywords.join(', ') } : {}),
         }),
@@ -112,11 +112,11 @@ export function useLocalBusinessSchema() {
           name: 'IRFAtech',
           description: 'Digital infrastructure company helping SMBs automate, organize, and grow digitally.',
           url: BASE_URL,
-          telephone: '+923001234567',
-          email: 'hello@irfatech.com',
+          telephone: '+91 88 6481 2200',
+          email: 'irfatechgroup@gmail.com',
           priceRange: '$$',
-          currenciesAccepted: 'PKR',
-          paymentAccepted: 'Bank Transfer, Cash',
+          currenciesAccepted: 'INR',
+          paymentAccepted: 'Bank Transfer, UPI, Cash',
           openingHoursSpecification: [
             {
               '@type': 'OpeningHoursSpecification',

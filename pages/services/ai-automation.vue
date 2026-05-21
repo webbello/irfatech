@@ -41,7 +41,7 @@
 </template>
 <script setup>
 useSeoMeta({ title: 'AI & Workflow Automation | IRFAtech', description: 'IRFAtech builds AI chatbots, document automation, and intelligent business workflows for SMBs.' })
-const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20need%20AI%20automation%20for%20my%20business.'
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20AI%20automation%20for%20my%20business.'
 const automations = [
   { icon: 'lucide:bot', title: 'AI Chat Assistants', desc: 'Custom AI chatbots that handle customer inquiries, qualify leads, and book appointments around the clock.' },
   { icon: 'lucide:file-text', title: 'Document Automation', desc: 'Automatically generate quotes, invoices, contracts, and reports from your existing data.' },

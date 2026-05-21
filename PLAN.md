@@ -347,7 +347,7 @@ Each service page sections:
 | `why-retail-shops-need-erp.md` | Why Every Retail Shop Needs an ERP System | ERP for retail |
 | `best-crm-for-small-businesses.md` | Best CRM Solutions for Small Businesses | CRM small business |
 | `whatsapp-business-automation-guide.md` | Complete Guide to WhatsApp Business Automation | WhatsApp automation |
-| `odoo-erp-pakistan-sme.md` | Odoo ERP for Pakistan SMEs — What You Need to Know | Odoo ERP Pakistan |
+| `odoo-erp-india-sme.md` | Odoo ERP for India SMEs — What You Need to Know | Odoo ERP India |
 | `ai-workflows-local-businesses.md` | How AI Workflows Can Transform Local Businesses | AI for local business |
 | `digital-transformation-real-estate.md` | Digital Transformation for Real Estate Businesses | real estate technology |
 | `business-website-cost-guide.md` | How Much Does a Business Website Cost in 2025? | business website cost |

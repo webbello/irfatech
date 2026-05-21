@@ -9,7 +9,7 @@ readTime: "8"
 featured: false
 ---
 
-WhatsApp has over 2 billion users, and in Pakistan it's where most business conversations happen. Your customers are already there — but if you're managing those conversations manually, you're missing a massive opportunity.
+WhatsApp has over 2 billion users, and in India it's where most business conversations happen. Your customers are already there — but if you're managing those conversations manually, you're missing a massive opportunity.
 
 This guide explains how WhatsApp automation actually works, what you can and can't automate, and how to set it up properly for your business.
 

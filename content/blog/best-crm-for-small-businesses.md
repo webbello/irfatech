@@ -30,7 +30,7 @@ When a customer calls and says "we spoke last month," you don't have to panic-se
 
 **Good for:** Businesses with standard sales processes, international companies, teams who can self-onboard.
 
-**Problems for Pakistani SMBs:**
+**Problems for Indiai SMBs:**
 - Priced in USD — expensive at current exchange rates
 - Designed for Western market workflows
 - No WhatsApp integration out of the box
@@ -44,14 +44,14 @@ When a customer calls and says "we spoke last month," you don't have to panic-se
 
 ### 3. WhatsApp-Integrated CRM
 
-**Good for:** Pakistani SMBs where most business happens over WhatsApp.
+**Good for:** Indiai SMBs where most business happens over WhatsApp.
 
 This type of CRM is built around WhatsApp as the primary communication channel:
 - New WhatsApp inquiries automatically create leads
 - Sales reps respond from WhatsApp but it's all logged in the CRM
 - Automated follow-up messages sent via WhatsApp
 
-This is what most Pakistani retail, real estate, and service businesses actually need.
+This is what most Indiai retail, real estate, and service businesses actually need.
 
 ### 4. Custom-Built CRM
 
@@ -64,7 +64,7 @@ Examples:
 
 Custom CRMs cost more upfront but pay back faster because your team actually uses them.
 
-## What to Look for in a CRM for Pakistani SMBs
+## What to Look for in a CRM for Indiai SMBs
 
 1. **WhatsApp Integration** — Non-negotiable. If your CRM doesn't work with WhatsApp, you'll maintain two systems.
 2. **Mobile-friendly** — Your sales team is on the road. Desktop-only CRMs get ignored.
@@ -72,7 +72,7 @@ Custom CRMs cost more upfront but pay back faster because your team actually use
 4. **Local support** — Who do you call when it breaks at 6pm before a big client meeting?
 5. **Custom fields** — Your business has data points that generic CRMs don't anticipate.
 
-## Our Recommendation for Most Pakistani SMBs
+## Our Recommendation for Most Indiai SMBs
 
 For most businesses we work with, the answer is a **WhatsApp-integrated CRM built on Odoo**, customized to your specific sales pipeline.
 
@@ -84,4 +84,4 @@ Here's why:
 
 ---
 
-**IRFAtech builds CRM systems designed around how Pakistani businesses actually work.** [Book a free consultation](/contact) and let's see what fits your operation.
+**IRFAtech builds CRM systems designed around how Indiai businesses actually work.** [Book a free consultation](/contact) and let's see what fits your operation.

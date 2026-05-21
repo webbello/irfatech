@@ -1,9 +1,9 @@
 {
-  "_hash": "v3DHytVDJ55N2ss0pQJRy74s0hXYZMr1pyBcnbm9M0U",
+  "_hash": "rqXzExlzXRFtcVgruBobaPdZjXBvYNOQ7qqUvCXJxwA",
   "project": {
-    "rootDir": "/Users/apple/Sites/Saloo"
+    "rootDir": "/Users/apple/Sites/irfatech"
   },
   "versions": {
-    "nuxt": "4.2.2"
+    "nuxt": "4.4.6"
   }
 }

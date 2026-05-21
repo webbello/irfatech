@@ -1,6 +1,36 @@
 {
   "compilerOptions": {
     "paths": {
+      "@unhead/vue": [
+        "../node_modules/nuxt/node_modules/@unhead/vue"
+      ],
+      "@nuxt/devtools": [
+        "../node_modules/@nuxt/devtools"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "vue-router": [
+        "../node_modules/vue-router"
+      ],
+      "vue-router/auto-routes": [
+        "../node_modules/vue-router/vue-router-auto-routes"
+      ],
+      "@nuxt/schema": [
+        "../node_modules/@nuxt/schema"
+      ],
+      "nuxt": [
+        "../node_modules/nuxt"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
+      ],
+      "@nuxtjs/mdc": [
+        "../node_modules/@nuxtjs/mdc"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -22,35 +52,14 @@
       "ofetch": [
         "../node_modules/ofetch"
       ],
-      "@unhead/vue": [
-        "../node_modules/@unhead/vue"
+      "crossws": [
+        "../node_modules/crossws"
       ],
-      "@nuxt/devtools": [
-        "../node_modules/@nuxt/devtools"
+      "#content/components": [
+        "./content/components"
       ],
-      "@vue/runtime-core": [
-        "../node_modules/@vue/runtime-core"
-      ],
-      "@vue/compiler-sfc": [
-        "../node_modules/@vue/compiler-sfc"
-      ],
-      "vue-router": [
-        "../node_modules/vue-router"
-      ],
-      "vue-router/auto-routes": [
-        "../node_modules/vue-router/vue-router-auto-routes"
-      ],
-      "unplugin-vue-router/client": [
-        "../node_modules/unplugin-vue-router/client"
-      ],
-      "@nuxt/schema": [
-        "../node_modules/@nuxt/schema"
-      ],
-      "nuxt": [
-        "../node_modules/nuxt"
-      ],
-      "vite/client": [
-        "../node_modules/vite/client"
+      "#content/manifest": [
+        "./content/manifest"
       ],
       "~": [
         ".."
@@ -82,6 +91,12 @@
       "#shared/*": [
         "../shared/*"
       ],
+      "#server": [
+        "../server"
+      ],
+      "#server/*": [
+        "../server/*"
+      ],
       "#app": [
         "../node_modules/nuxt/dist/app"
       ],
@@ -91,15 +106,6 @@
       "vue-demi": [
         "../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
-      "#mdc-configs": [
-        "./mdc-configs"
-      ],
-      "#mdc-highlighter": [
-        "./mdc-highlighter"
-      ],
-      "#mdc-imports": [
-        "./mdc-imports"
-      ],
       "#vue-router": [
         "../node_modules/vue-router"
       ],
@@ -108,6 +114,15 @@
       ],
       "#imports": [
         "./imports"
+      ],
+      "#mdc-configs": [
+        "./mdc-configs"
+      ],
+      "#mdc-highlighter": [
+        "./mdc-highlighter"
+      ],
+      "#mdc-imports": [
+        "./mdc-imports"
       ],
       "#app-manifest": [
         "./manifest/meta/dev"
@@ -127,6 +142,7 @@
     "moduleDetection": "force",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
+    "allowArbitraryExtensions": true,
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "forceConsistentCasingInFileNames": true,

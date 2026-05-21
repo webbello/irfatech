@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         { name: 'robots', content: 'index, follow' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'IRFAtech' },
-        { property: 'og:image', content: 'https://irfatech.com/images/og-image.svg' },
+        { property: 'og:image', content: 'https://irfatech.in/images/og-image.svg' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -59,7 +59,7 @@ export default defineNuxtConfig({
         { name: 'color-scheme', content: 'dark' }
       ],
       link: [
-        { rel: 'canonical', href: 'https://irfatech.com' },
+        { rel: 'canonical', href: 'https://irfatech.in' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'manifest', href: '/manifest.json' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -82,8 +82,8 @@ export default defineNuxtConfig({
             'name': 'IRFAtech',
             'alternateName': 'Integrated Resources For Automation',
             'description': 'IRFAtech helps businesses automate, organize, and grow digitally through websites, ERP, CRM, AI automation, and custom software.',
-            'url': 'https://irfatech.com',
-            'logo': 'https://irfatech.com/images/logo.png',
+            'url': 'https://irfatech.in',
+            'logo': 'https://irfatech.in/images/logo.png',
             'foundingDate': '2009',
             'founder': {
               '@type': 'Person',
@@ -91,8 +91,10 @@ export default defineNuxtConfig({
             },
             'contactPoint': {
               '@type': 'ContactPoint',
+              'telephone': '+91 88 6481 2200',
+              'email': 'irfatechgroup@gmail.com',
               'contactType': 'customer service',
-              'availableLanguage': ['English', 'Urdu']
+              'availableLanguage': ['English', 'Hindi', 'Urdu']
             },
             'sameAs': [],
             'knowsAbout': [

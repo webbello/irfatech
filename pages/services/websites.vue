@@ -62,9 +62,9 @@
 <script setup>
 useSeoMeta({
   title: 'Business Website Development | IRFAtech',
-  description: 'IRFAtech builds professional business websites that are fast, SEO-optimized, and designed to generate leads for SMBs across Pakistan.',
+  description: 'IRFAtech builds professional business websites that are fast, SEO-optimized, and designed to generate leads for SMBs across India.',
 })
-const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20need%20a%20business%20website.'
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20a%20business%20website.'
 const features = ['Mobile Responsive', 'SEO Optimized', 'Fast Loading', 'WhatsApp Integration', 'Contact Forms', 'Blog / CMS', 'Analytics Ready', 'SSL Secured']
 const faqs = [
   { q: 'How long does a business website take?', a: 'A standard business website (5-10 pages) typically takes 2-4 weeks. E-commerce or complex portals take longer.' },

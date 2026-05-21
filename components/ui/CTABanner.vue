@@ -40,6 +40,6 @@ defineProps({
   primaryLabel: { type: String, default: 'Schedule Consultation' },
   primaryHref: { type: String, default: '/contact' },
   secondaryLabel: { type: String, default: 'Talk on WhatsApp' },
-  whatsappUrl: { type: String, default: 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20need%20help%20with%20my%20business.' },
+  whatsappUrl: { type: String, default: 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20help%20with%20my%20business.' },
 })
 </script>

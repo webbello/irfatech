@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const baseURL = 'https://irfatech.com'
+  const baseURL = 'https://irfatech.in'
 
   const routes = [
     { url: '/', changefreq: 'weekly', priority: 1.0 },
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
     { url: '/blog/why-retail-shops-need-erp', changefreq: 'monthly', priority: 0.7 },
     { url: '/blog/whatsapp-business-automation-guide', changefreq: 'monthly', priority: 0.7 },
     { url: '/blog/best-crm-for-small-businesses', changefreq: 'monthly', priority: 0.7 },
-    { url: '/blog/odoo-erp-pakistan-sme', changefreq: 'monthly', priority: 0.7 },
+    { url: '/blog/odoo-erp-india-sme', changefreq: 'monthly', priority: 0.7 },
     { url: '/blog/ai-workflows-local-businesses', changefreq: 'monthly', priority: 0.7 },
     { url: '/blog/digital-transformation-real-estate', changefreq: 'monthly', priority: 0.7 },
     { url: '/blog/business-website-cost-guide', changefreq: 'monthly', priority: 0.7 },

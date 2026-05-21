@@ -1,9 +1,9 @@
 ---
-title: "How Much Does a Business Website Cost in Pakistan? (2025 Honest Guide)"
-description: "A transparent breakdown of business website costs in Pakistan — what you're actually paying for, what cuts corners, and how to get the right website for your budget."
+title: "How Much Does a Business Website Cost in India? (2025 Honest Guide)"
+description: "A transparent breakdown of business website costs in India — what you're actually paying for, what cuts corners, and how to get the right website for your budget."
 date: "2026-02-08"
 category: "Websites"
-tags: ["business website", "website cost", "web development", "Pakistan", "SMB"]
+tags: ["business website", "website cost", "web development", "India", "SMB"]
 author: "Muhammad Irfan"
 readTime: "6"
 featured: false
@@ -15,7 +15,7 @@ Here's a transparent breakdown of what determines the cost and what you should r
 
 ## Why Prices Vary So Much
 
-Website pricing in Pakistan varies wildly because "website" means completely different things:
+Website pricing in India varies wildly because "website" means completely different things:
 
 - A freelancer's template website = PKR 20,000–50,000
 - A professional business website = PKR 80,000–250,000
@@ -73,7 +73,7 @@ The build cost is just the start. Budget for:
 - Maintenance: PKR 10,000–30,000/month (optional but recommended)
 - Content updates: as needed
 
-## Realistic Budget Ranges for Pakistani SMBs
+## Realistic Budget Ranges for Indiai SMBs
 
 ### PKR 20,000–50,000 (Template + Basic)
 

@@ -1,0 +1,1 @@
+const n="918864812200";function s(t){const e=encodeURIComponent(t||"Hi IRFAtech, I need help with my business digitalization.");return`https://wa.me/${n}?text=${e}`}const o={general:s()};export{s as u,o as w};

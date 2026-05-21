@@ -40,27 +40,27 @@
               </div>
             </a>
 
-            <a href="mailto:hello@irfatech.com"
+            <a href="mailto:irfatechgroup@gmail.com"
               class="flex items-start gap-4 p-5 rounded-2xl card-glass hover:border-electric-500/30 transition-all duration-200 group">
               <div class="w-12 h-12 rounded-xl bg-electric-500/10 flex items-center justify-center flex-shrink-0">
                 <iconify-icon icon="lucide:mail" class="text-2xl text-electric-400"></iconify-icon>
               </div>
               <div>
                 <div class="font-semibold text-white mb-1 group-hover:text-electric-400 transition-colors">Email Us</div>
-                <div class="text-sm text-slate-400">hello@irfatech.com</div>
+                <div class="text-sm text-slate-400">irfatechgroup@gmail.com</div>
                 <div class="text-xs text-slate-500 mt-2">We respond within 24 hours on business days.</div>
               </div>
             </a>
 
-            <a href="tel:+923001234567"
+            <a href="tel:+918864812200"
               class="flex items-start gap-4 p-5 rounded-2xl card-glass hover:border-electric-500/30 transition-all duration-200 group">
               <div class="w-12 h-12 rounded-xl bg-electric-500/10 flex items-center justify-center flex-shrink-0">
                 <iconify-icon icon="lucide:phone" class="text-2xl text-electric-400"></iconify-icon>
               </div>
               <div>
                 <div class="font-semibold text-white mb-1 group-hover:text-electric-400 transition-colors">Call Us</div>
-                <div class="text-sm text-slate-400">+92 300 123 4567</div>
-                <div class="text-xs text-slate-500 mt-2">Mon–Sat, 9 AM – 7 PM PKT</div>
+                <div class="text-sm text-slate-400">+91 88 6481 2200</div>
+                <div class="text-xs text-slate-500 mt-2">Mon–Sat, 9 AM – 7 PM IST</div>
               </div>
             </a>
 
@@ -145,7 +145,7 @@ useSeoMeta({
   title: 'Contact IRFAtech — Free Business Consultation',
   description: 'Book a free consultation with IRFAtech. WhatsApp, email, phone, or inquiry form — we respond fast and honestly.',
   ogTitle: 'Contact IRFAtech — Book a Free Consultation',
-  ogUrl: 'https://irfatech.com/contact',
+  ogUrl: 'https://irfatech.in/contact',
 })
 
 useLocalBusinessSchema()
@@ -154,7 +154,7 @@ useBreadcrumbSchema([
   { name: 'Contact', url: '/contact' },
 ])
 
-const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%27d%20like%20to%20book%20a%20free%20consultation.'
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%27d%20like%20to%20book%20a%20free%20consultation.'
 
 const form = ref({ name: '', business: '', email: '', phone: '', service: '', message: '' })
 const submitting = ref(false)

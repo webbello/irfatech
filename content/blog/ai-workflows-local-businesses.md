@@ -84,7 +84,7 @@ Most SMBs start with one workflow, run it for 30–60 days, measure the time sav
 
 Pick the task that costs your team the most time and has the most repetitive, rule-based steps. That's almost always your best first automation.
 
-Common first automations for Pakistani SMBs:
+Common first automations for Indiai SMBs:
 - WhatsApp inquiry response (retail, real estate, clinics)
 - Invoice data entry (distributors, manufacturers)
 - Lead assignment (any business with a sales team)

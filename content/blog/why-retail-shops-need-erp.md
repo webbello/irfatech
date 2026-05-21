@@ -55,7 +55,7 @@ Key reasons retail shops choose Odoo:
 - Has a POS (Point of Sale) module built in
 - Works on mobile
 
-IRFAtech specializes in Odoo implementation and customization for SMBs across Pakistan.
+IRFAtech specializes in Odoo implementation and customization for SMBs across India.
 
 ## How Long Does Implementation Take?
 
@@ -72,4 +72,4 @@ Start with an honest assessment of your biggest pain point. Is it inventory? Bil
 
 ---
 
-**IRFAtech implements and customizes ERP systems for retail businesses across Pakistan.** [Book a free consultation](/contact) to see what's possible for your shop.
+**IRFAtech implements and customizes ERP systems for retail businesses across India.** [Book a free consultation](/contact) to see what's possible for your shop.

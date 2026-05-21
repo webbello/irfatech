@@ -29,6 +29,36 @@
       "@@/*": [
         "../*"
       ],
+      "@unhead/vue": [
+        "../node_modules/nuxt/node_modules/@unhead/vue"
+      ],
+      "@nuxt/devtools": [
+        "../node_modules/@nuxt/devtools"
+      ],
+      "@vue/runtime-core": [
+        "../node_modules/@vue/runtime-core"
+      ],
+      "@vue/compiler-sfc": [
+        "../node_modules/@vue/compiler-sfc"
+      ],
+      "vue-router": [
+        "../node_modules/vue-router"
+      ],
+      "vue-router/auto-routes": [
+        "../node_modules/vue-router/vue-router-auto-routes"
+      ],
+      "@nuxt/schema": [
+        "../node_modules/@nuxt/schema"
+      ],
+      "nuxt": [
+        "../node_modules/nuxt"
+      ],
+      "vite/client": [
+        "../node_modules/vite/client"
+      ],
+      "@nuxtjs/mdc": [
+        "../node_modules/@nuxtjs/mdc"
+      ],
       "nitropack/types": [
         "../node_modules/nitropack/types"
       ],
@@ -50,41 +80,26 @@
       "ofetch": [
         "../node_modules/ofetch"
       ],
-      "@unhead/vue": [
-        "../node_modules/@unhead/vue"
+      "crossws": [
+        "../node_modules/crossws"
       ],
-      "@nuxt/devtools": [
-        "../node_modules/@nuxt/devtools"
+      "#content/components": [
+        "./content/components"
       ],
-      "@vue/runtime-core": [
-        "../node_modules/@vue/runtime-core"
-      ],
-      "@vue/compiler-sfc": [
-        "../node_modules/@vue/compiler-sfc"
-      ],
-      "vue-router": [
-        "../node_modules/vue-router"
-      ],
-      "vue-router/auto-routes": [
-        "../node_modules/vue-router/vue-router-auto-routes"
-      ],
-      "unplugin-vue-router/client": [
-        "../node_modules/unplugin-vue-router/client"
-      ],
-      "@nuxt/schema": [
-        "../node_modules/@nuxt/schema"
-      ],
-      "nuxt": [
-        "../node_modules/nuxt"
-      ],
-      "vite/client": [
-        "../node_modules/vite/client"
+      "#content/manifest": [
+        "./content/manifest"
       ],
       "#shared": [
         "../shared"
       ],
       "#shared/*": [
         "../shared/*"
+      ],
+      "#server": [
+        "../server"
+      ],
+      "#server/*": [
+        "../server/*"
       ],
       "#build": [
         "./"
@@ -95,6 +110,9 @@
       "#internal/nuxt/paths": [
         "../node_modules/@nuxt/nitro-server/dist/runtime/utils/paths"
       ],
+      "#unhead/composables": [
+        "../node_modules/nuxt/dist/head/runtime/composables"
+      ],
       "#mdc-configs": [
         "./mdc-configs"
       ],
@@ -104,20 +122,26 @@
       "#mdc-imports": [
         "./mdc-imports"
       ],
-      "#unhead/composables": [
-        "../node_modules/nuxt/dist/head/runtime/composables"
+      "#content/dump": [
+        "./content/database.compressed"
       ],
-      "#content/server": [
-        "../node_modules/@nuxt/content/dist/runtime/legacy/server"
+      "#content/adapter": [
+        "./db0/connectors/better-sqlite3"
+      ],
+      "#content/local-adapter": [
+        "./db0/connectors/better-sqlite3"
       ]
     },
     "lib": [
       "esnext",
       "webworker",
       "dom.iterable"
-    ]
+    ],
+    "noUncheckedIndexedAccess": true,
+    "allowArbitraryExtensions": true
   },
   "include": [
+    "./content/types.d.ts",
     "./types/nitro-nuxt.d.ts",
     "../node_modules/runtime/server",
     "../node_modules/dist/runtime/server",
@@ -128,11 +152,12 @@
   "exclude": [
     "../node_modules",
     "../node_modules/nuxt/node_modules",
-    "../node_modules/@nuxtjs/mdc/node_modules",
     "../node_modules/@nuxt/content/node_modules",
+    "../node_modules/@nuxt/image/node_modules",
     "../node_modules/@vueuse/nuxt/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",
     "../node_modules/@nuxt/telemetry/node_modules",
+    "../node_modules/@nuxtjs/mdc/node_modules",
     "../dist"
   ]
 }

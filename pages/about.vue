@@ -53,7 +53,7 @@
               Today, IRFAtech serves SMBs across multiple industries with websites, ERP systems, CRM, AI automation, and custom software. And I'm still the one on every project call.
             </p>
             <a
-              href="https://wa.me/923001234567?text=Hi%20Irfan%2C%20I%20read%20about%20IRFAtech%20and%20would%20like%20to%20connect."
+              href="https://wa.me/918864812200?text=Hi%20Irfan%2C%20I%20read%20about%20IRFAtech%20and%20would%20like%20to%20connect."
               target="_blank"
               rel="noopener noreferrer"
               class="btn-whatsapp inline-flex px-6 py-3 mt-2"

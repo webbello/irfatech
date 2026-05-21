@@ -1,5 +1,6 @@
 import { getMdcConfigs } from '#mdc-configs'
-import { createWasmOnigEngine } from 'shiki/engine/oniguruma'
+import { createOnigurumaEngine } from '@shikijs/engine-oniguruma'
+import { createJavaScriptRegexEngine } from "@shikijs/engine-javascript";
 export function createShikiHighlighter({
   langs = [],
   themes = [],
@@ -10,14 +11,13 @@ export function createShikiHighlighter({
   engine
 } = {}) {
   let shiki;
-  let configs;
   async function _getShiki() {
-    const { createHighlighterCore, addClassToHast, isSpecialLang, isSpecialTheme } = await import("shiki/core");
+    const { createHighlighterCore, addClassToHast, isSpecialLang, isSpecialTheme } = await import("@shikijs/core");
     const { transformerNotationDiff, transformerNotationErrorLevel, transformerNotationFocus, transformerNotationHighlight } = await import("@shikijs/transformers");
     const shiki2 = await createHighlighterCore({
       langs,
       themes,
-      engine
+      engine: engine || createJavaScriptRegexEngine()
     });
     for await (const config of await getConfigs()) {
       await config.shiki?.setup?.(shiki2);
@@ -42,12 +42,9 @@ export function createShikiHighlighter({
     return shiki;
   }
   async function getConfigs() {
-    if (!configs) {
-      configs = Promise.resolve(getMdcConfigs?.() || []);
-    }
-    return configs;
+    return getMdcConfigs?.() || [];
   }
-  const highlighter = async (code, lang, theme, options = {}) => {
+  const highlighter = async (code, _lang, theme, options = {}) => {
     const {
       shiki: shiki2,
       addClassToHast,
@@ -55,6 +52,7 @@ export function createShikiHighlighter({
       isSpecialTheme,
       transformers: baseTransformers
     } = await getShiki();
+    let lang = _lang?.toLowerCase();
     const codeToHastOptions = {
       defaultColor: false,
       meta: {
@@ -93,19 +91,22 @@ export function createShikiHighlighter({
         }
       }
     }
-    const transformers = [
-      ...baseTransformers
-    ];
+    const transformersMap = /* @__PURE__ */ new Map();
+    for (const transformer of baseTransformers) {
+      transformersMap.set(transformer.name || `transformer:${Math.random()}-${transformer.constructor.name}`, transformer);
+    }
     for (const config of await getConfigs()) {
       const newTransformers = typeof config.shiki?.transformers === "function" ? await config.shiki?.transformers(code, lang, theme, options) : config.shiki?.transformers || [];
-      transformers.push(...newTransformers);
+      for (const transformer of newTransformers) {
+        transformersMap.set(transformer.name || `transformer:${Math.random()}-${transformer.constructor.name}`, transformer);
+      }
     }
     const root = shiki2.codeToHast(code.trimEnd(), {
       lang,
       ...codeToHastOptions,
       themes: themesObject,
       transformers: [
-        ...transformers,
+        ...transformersMap.values(),
         {
           name: "mdc:highlight",
           line(node, line) {
@@ -178,31 +179,36 @@ export function createShikiHighlighter({
 }
 
 const bundledLangs = {
-"javascript": () => import('shiki/langs/javascript.mjs'),
-"js": () => import('shiki/langs/javascript.mjs'),
-"jsx": () => import('shiki/langs/jsx.mjs'),
-"json": () => import('shiki/langs/json.mjs'),
-"typescript": () => import('shiki/langs/typescript.mjs'),
-"ts": () => import('shiki/langs/typescript.mjs'),
-"tsx": () => import('shiki/langs/tsx.mjs'),
-"vue": () => import('shiki/langs/vue.mjs'),
-"css": () => import('shiki/langs/css.mjs'),
-"html": () => import('shiki/langs/html.mjs'),
-"shellscript": () => import('shiki/langs/shellscript.mjs'),
-"bash": () => import('shiki/langs/shellscript.mjs'),
-"sh": () => import('shiki/langs/shellscript.mjs'),
-"shell": () => import('shiki/langs/shellscript.mjs'),
-"zsh": () => import('shiki/langs/shellscript.mjs'),
-"markdown": () => import('shiki/langs/markdown.mjs'),
-"md": () => import('shiki/langs/markdown.mjs'),
-"mdc": () => import('shiki/langs/mdc.mjs'),
-"yaml": () => import('shiki/langs/yaml.mjs'),
-"yml": () => import('shiki/langs/yaml.mjs'),
+"javascript": () => import('@shikijs/langs/javascript').then(r => r.default || r),
+"js": () => import('@shikijs/langs/javascript').then(r => r.default || r),
+"cjs": () => import('@shikijs/langs/javascript').then(r => r.default || r),
+"mjs": () => import('@shikijs/langs/javascript').then(r => r.default || r),
+"jsx": () => import('@shikijs/langs/jsx').then(r => r.default || r),
+"json": () => import('@shikijs/langs/json').then(r => r.default || r),
+"typescript": () => import('@shikijs/langs/typescript').then(r => r.default || r),
+"ts": () => import('@shikijs/langs/typescript').then(r => r.default || r),
+"cts": () => import('@shikijs/langs/typescript').then(r => r.default || r),
+"mts": () => import('@shikijs/langs/typescript').then(r => r.default || r),
+"tsx": () => import('@shikijs/langs/tsx').then(r => r.default || r),
+"vue": () => import('@shikijs/langs/vue').then(r => r.default || r),
+"css": () => import('@shikijs/langs/css').then(r => r.default || r),
+"html": () => import('@shikijs/langs/html').then(r => r.default || r),
+"shellscript": () => import('@shikijs/langs/shellscript').then(r => r.default || r),
+"bash": () => import('@shikijs/langs/shellscript').then(r => r.default || r),
+"sh": () => import('@shikijs/langs/shellscript').then(r => r.default || r),
+"shell": () => import('@shikijs/langs/shellscript').then(r => r.default || r),
+"zsh": () => import('@shikijs/langs/shellscript').then(r => r.default || r),
+"markdown": () => import('@shikijs/langs/markdown').then(r => r.default || r),
+"md": () => import('@shikijs/langs/markdown').then(r => r.default || r),
+"mdc": () => import('@shikijs/langs/mdc').then(r => r.default || r),
+"yaml": () => import('@shikijs/langs/yaml').then(r => r.default || r),
+"yml": () => import('@shikijs/langs/yaml').then(r => r.default || r),
 }
 const bundledThemes = {
-"github-dark": () => import('shiki/themes/github-dark.mjs').then(r => r.default),
+"github-light": () => import('@shikijs/themes/github-light').then(r => r.default || r),
+"github-dark": () => import('@shikijs/themes/github-dark').then(r => r.default || r),
 }
-const options = {"theme":"github-dark"}
-const engine = createWasmOnigEngine(() => import('shiki/wasm'))
+const options = {"theme":{"default":"github-light","dark":"github-dark"}}
+const engine = createOnigurumaEngine(() => import('shiki/wasm'))
 const highlighter = createShikiHighlighter({ bundledLangs, bundledThemes, options, getMdcConfigs, engine })
 export default highlighter

@@ -43,7 +43,7 @@
 </template>
 <script setup>
 useSeoMeta({ title: 'WhatsApp Business Automation | IRFAtech', description: 'IRFAtech builds WhatsApp Business API automation for lead response, order updates, payment reminders, and customer follow-up.' })
-const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%20need%20WhatsApp%20automation%20for%20my%20business.'
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20WhatsApp%20automation%20for%20my%20business.'
 const automations = [
   { icon: 'lucide:zap', title: 'Instant Lead Response', desc: 'Automatically reply to new inquiries within seconds, collect details, and log to your CRM.' },
   { icon: 'lucide:package', title: 'Order Confirmations', desc: 'Customers receive automatic WhatsApp updates when orders are placed, processed, and delivered.' },
