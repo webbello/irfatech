@@ -123,8 +123,9 @@
 
 <script setup>
 const route = useRoute()
-const { data: post } = await useAsyncData(`blog-${route.params.slug}`, () =>
-  queryContent('/blog', route.params.slug).findOne()
+const slug = String(route.params.slug)
+const { data: post } = await useAsyncData(`blog-${slug}`, () =>
+  queryCollection('blog').path(`/blog/${slug}`).first()
 )
 
 if (post.value) {
@@ -142,7 +143,7 @@ if (post.value) {
   useArticleSchema({
     title: post.value.title,
     description: post.value.description,
-    slug: String(route.params.slug),
+    slug,
     date: post.value.date,
     image: post.value.image,
     author: post.value.author,
@@ -151,7 +152,7 @@ if (post.value) {
   useBreadcrumbSchema([
     { name: 'Home', url: '/' },
     { name: 'Blog', url: '/blog' },
-    { name: post.value.title, url: `/blog/${String(route.params.slug)}` },
+    { name: post.value.title, url: `/blog/${slug}` },
   ])
 }
 

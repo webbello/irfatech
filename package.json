@@ -11,10 +11,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/content": "^2.13.2",
+    "@nuxt/content": "^3.14.0",
     "@nuxt/image": "^2.0.0",
     "@vueuse/core": "^14.1.0",
     "@vueuse/nuxt": "^14.1.0",
+    "better-sqlite3": "^12.10.0",
     "iconify-icon": "^3.0.0",
     "nuxt": "^4.2.0",
     "vue": "latest"

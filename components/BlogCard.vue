@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="post._path"
+    :to="post.path"
     class="card-glass-hover group overflow-hidden flex flex-col"
   >
     <!-- Image -->

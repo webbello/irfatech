@@ -45,7 +45,7 @@
 
         <!-- Posts grid -->
         <div v-if="filteredPosts.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <BlogCard v-for="post in filteredPosts" :key="post._path" :post="post" :featured="post.featured" />
+          <BlogCard v-for="post in filteredPosts" :key="post.path" :post="post" :featured="post.featured" />
         </div>
 
         <div v-else class="text-center py-20">
@@ -81,7 +81,7 @@ useSeoMeta({
 })
 
 const { data: posts } = await useAsyncData('blog-posts', () =>
-  queryContent('/blog').sort({ date: -1 }).find()
+  queryCollection('blog').order('date', 'DESC').all()
 )
 
 const search = ref('')

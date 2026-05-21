@@ -115,9 +115,6 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark'
     },
-    experimental: {
-      clientDB: true
-    }
   },
 
   nitro: {
