@@ -4,7 +4,7 @@
  * changed in exactly one place.
  */
 
-const WHATSAPP_NUMBER = '923001234567' // format: country code + number, no +
+const WHATSAPP_NUMBER = '918864812200' // IN: 91 + 88 6481 2200
 
 export function useWhatsApp(message?: string) {
   const defaultMsg = 'Hi IRFAtech, I need help with my business digitalization.'
