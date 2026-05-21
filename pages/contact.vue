@@ -1,263 +1,177 @@
 <template>
   <div class="pt-16">
-    <div class="section-padding">
-      <div class="container-max">
-        <div class="text-center mb-16">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get in touch with Saloo & Neena Chowdhury for speaking engagements, Car Restoration projects, media 
-            interviews, or to learn more about their incredible journey.
-          </p>
+
+    <!-- Hero -->
+    <section class="section-padding section-dark relative overflow-hidden">
+      <div class="absolute inset-0 bg-hero-mesh pointer-events-none"></div>
+      <div class="container-max relative text-center max-w-2xl mx-auto">
+        <div class="badge mb-6">
+          <iconify-icon icon="lucide:mail" class="text-xs"></iconify-icon>
+          Get In Touch
         </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
+          Let's Talk About<br />
+          <span class="text-gradient">Your Business</span>
+        </h1>
+        <p class="text-slate-400 text-lg leading-relaxed">
+          Free consultation. No pressure. We'll listen, understand your operations, and tell you honestly what makes sense for your business.
+        </p>
+      </div>
+    </section>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <!-- Contact Form -->
-          <div class="bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-2xl font-bold mb-6">Send a Message</h2>
-            
-            <form @submit.prevent="submitForm" class="space-y-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
-                    First Name *
-                  </label>
-                  <input
-                    id="firstName"
-                    v-model="form.firstName"
-                    type="text"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Your first name"
-                  >
-                </div>
-                <div>
-                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
-                    Last Name *
-                  </label>
-                  <input
-                    id="lastName"
-                    v-model="form.lastName"
-                    type="text"
-                    required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Your last name"
-                  >
-                </div>
+    <!-- Contact Options + Form -->
+    <section class="section-padding section-mid">
+      <div class="container-max">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+          <!-- Left: Contact Methods -->
+          <div class="space-y-5">
+            <h2 class="text-2xl font-bold text-white mb-6">Choose How to Reach Us</h2>
+
+            <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer"
+              class="flex items-start gap-4 p-5 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/30 hover:bg-[#25D366]/20 transition-all duration-200 group">
+              <div class="w-12 h-12 rounded-xl bg-[#25D366]/20 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="lucide:message-circle" class="text-2xl text-[#25D366]"></iconify-icon>
               </div>
-              
+              <div class="flex-1">
+                <div class="font-semibold text-white mb-1 group-hover:text-[#25D366] transition-colors">Chat on WhatsApp</div>
+                <div class="text-sm text-slate-400">Fastest response — usually within minutes during business hours.</div>
+                <div class="text-xs text-[#25D366] mt-2 font-medium">Open WhatsApp →</div>
+              </div>
+            </a>
+
+            <a href="mailto:hello@irfatech.com"
+              class="flex items-start gap-4 p-5 rounded-2xl card-glass hover:border-electric-500/30 transition-all duration-200 group">
+              <div class="w-12 h-12 rounded-xl bg-electric-500/10 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="lucide:mail" class="text-2xl text-electric-400"></iconify-icon>
+              </div>
               <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  id="email"
-                  v-model="form.email"
-                  type="email"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="your.email@example.com"
-                >
+                <div class="font-semibold text-white mb-1 group-hover:text-electric-400 transition-colors">Email Us</div>
+                <div class="text-sm text-slate-400">hello@irfatech.com</div>
+                <div class="text-xs text-slate-500 mt-2">We respond within 24 hours on business days.</div>
               </div>
-              
+            </a>
+
+            <a href="tel:+923001234567"
+              class="flex items-start gap-4 p-5 rounded-2xl card-glass hover:border-electric-500/30 transition-all duration-200 group">
+              <div class="w-12 h-12 rounded-xl bg-electric-500/10 flex items-center justify-center flex-shrink-0">
+                <iconify-icon icon="lucide:phone" class="text-2xl text-electric-400"></iconify-icon>
+              </div>
               <div>
-                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
-                  Subject *
-                </label>
-                <select
-                  id="subject"
-                  v-model="form.subject"
-                  required
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                  <option value="">Select a subject</option>
-                  <option value="speaking">Speaking Engagement</option>
-                  <option value="interview">Media Interview</option>
-                  <option value="collaboration">Collaboration</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="other">Other</option>
-                </select>
+                <div class="font-semibold text-white mb-1 group-hover:text-electric-400 transition-colors">Call Us</div>
+                <div class="text-sm text-slate-400">+92 300 123 4567</div>
+                <div class="text-xs text-slate-500 mt-2">Mon–Sat, 9 AM – 7 PM PKT</div>
               </div>
-              
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  v-model="form.message"
-                  required
-                  rows="5"
-                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Tell us about your inquiry..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                :disabled="submitting"
-                class="w-full btn-primary"
-              >
-                <iconify-icon 
-                  v-if="submitting" 
-                  icon="lucide:loader-2" 
-                  class="mr-2 animate-spin"
-                ></iconify-icon>
-                {{ submitting ? 'Sending...' : 'Send Message' }}
-              </button>
-            </form>
-            
-            <!-- Success Message -->
-            <div 
-              v-if="submitted" 
-              class="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg"
-            >
-              <div class="flex items-center">
-                <iconify-icon icon="lucide:check-circle" class="text-green-600 mr-2"></iconify-icon>
-                <span class="text-green-800">Thank you! Your message has been sent successfully.</span>
-              </div>
-            </div>
-          </div>
+            </a>
 
-          <!-- Contact Information -->
-          <div class="space-y-8">
-            <!-- Contact Details -->
-            <div class="bg-gray-50 rounded-lg p-6">
-              <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
-              
-              <div class="space-y-4">
-                <div class="flex items-center">
-                  <iconify-icon icon="lucide:map-pin" class="text-blue-600 mr-3 text-xl"></iconify-icon>
-                  <div>
-                    <div class="font-medium">Location</div>
-                    <div class="text-gray-600">67 Theater Road, Shakespeare Sarani, <br/>Kolkata 700017, West Bengal, India</div>
-                  </div>
-                </div>
-                
-                <div class="flex items-center">
-                  <iconify-icon icon="lucide:mail" class="text-blue-600 mr-3 text-xl"></iconify-icon>
-                  <div>
-                    <div class="font-medium">Email</div>
-                    <div class="text-gray-600">saloochoudhury@hotmail.com</div>
-                  </div>
-                </div>
-                
-                <div class="flex items-center">
-                  <iconify-icon icon="lucide:phone" class="text-blue-600 mr-3 text-xl"></iconify-icon>
-                  <div>
-                    <div class="font-medium">Phone</div>
-                    <div class="text-gray-600">+91 XXX XXX XXXX</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Social Media -->
-            <div class="bg-blue-50 rounded-lg p-6">
-              <h3 class="text-xl font-semibold mb-4">Follow Our Journey</h3>
-              
-              <div class="flex space-x-4">
-                <a 
-                  href="#" 
-                  class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
-                >
-                  <iconify-icon icon="lucide:facebook" class="text-xl"></iconify-icon>
-                </a>
-                <a 
-                  href="#" 
-                  class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors"
-                >
-                  <iconify-icon icon="lucide:twitter" class="text-xl"></iconify-icon>
-                </a>
-                <a 
-                  href="#" 
-                  class="w-12 h-12 bg-pink-600 rounded-full flex items-center justify-center text-white hover:bg-pink-700 transition-colors"
-                >
-                  <iconify-icon icon="lucide:instagram" class="text-xl"></iconify-icon>
-                </a>
-                <a 
-                  href="#" 
-                  class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors"
-                >
-                  <iconify-icon icon="lucide:youtube" class="text-xl"></iconify-icon>
-                </a>
-              </div>
-            </div>
-
-            <!-- Speaking Engagements -->
-            <div class="bg-yellow-50 rounded-lg p-6">
-              <h3 class="text-xl font-semibold mb-4">Speaking Engagements</h3>
-              <p class="text-gray-700 mb-4">
-                Saloo & Neena are available for motivational speaking, corporate events, 
-                and educational institutions. Share their inspiring story of determination 
-                and achievement with your audience.
-              </p>
-              <ul class="space-y-2 text-sm text-gray-600">
-                <li class="flex items-center">
-                  <iconify-icon icon="lucide:check" class="text-green-500 mr-2"></iconify-icon>
-                  Corporate Events & Conferences
-                </li>
-                <li class="flex items-center">
-                  <iconify-icon icon="lucide:check" class="text-green-500 mr-2"></iconify-icon>
-                  Educational Institutions
-                </li>
-                <li class="flex items-center">
-                  <iconify-icon icon="lucide:check" class="text-green-500 mr-2"></iconify-icon>
-                  Adventure & Travel Events
-                </li>
-                <li class="flex items-center">
-                  <iconify-icon icon="lucide:check" class="text-green-500 mr-2"></iconify-icon>
-                  Media Interviews
+            <div class="card-glass p-5">
+              <h3 class="text-sm font-semibold text-white mb-3">What happens after you reach out?</h3>
+              <ul class="space-y-2.5">
+                <li v-for="step in nextSteps" :key="step" class="flex items-start gap-2.5 text-sm text-slate-400">
+                  <iconify-icon icon="lucide:check-circle-2" class="text-electric-400 text-sm mt-0.5 flex-shrink-0"></iconify-icon>
+                  {{ step }}
                 </li>
               </ul>
             </div>
           </div>
+
+          <!-- Right: Inquiry Form -->
+          <div class="card-glass p-8">
+            <h2 class="text-2xl font-bold text-white mb-2">Send an Inquiry</h2>
+            <p class="text-slate-400 text-sm mb-6">Fill this in and we'll get back to you with a proper response — not a template.</p>
+
+            <form @submit.prevent="submitForm" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-medium text-slate-400 mb-1.5">Your Name *</label>
+                  <input v-model="form.name" type="text" name="name" required placeholder="Ahmad Khan" class="input-field" />
+                </div>
+                <div>
+                  <label class="block text-xs font-medium text-slate-400 mb-1.5">Business Name</label>
+                  <input v-model="form.business" type="text" name="business" placeholder="Your Company" class="input-field" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-400 mb-1.5">Email Address *</label>
+                <input v-model="form.email" type="email" name="email" required placeholder="you@yourbusiness.com" class="input-field" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-400 mb-1.5">Phone / WhatsApp</label>
+                <input v-model="form.phone" type="tel" name="phone" placeholder="+92 300 000 0000" class="input-field" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-400 mb-1.5">Service Needed</label>
+                <select v-model="form.service" name="service" class="input-field">
+                  <option value="" disabled>Select a service...</option>
+                  <option v-for="service in services" :key="service.slug" :value="service.title">{{ service.title }}</option>
+                  <option value="Not sure yet">Not sure yet — need advice</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-medium text-slate-400 mb-1.5">Tell Us About Your Business *</label>
+                <textarea v-model="form.message" name="message" required rows="4"
+                  placeholder="Briefly describe your business and what you're looking to solve..."
+                  class="input-field resize-none"></textarea>
+              </div>
+
+              <button type="submit" :disabled="submitting"
+                class="btn-primary w-full justify-center py-3.5 disabled:opacity-60 disabled:cursor-not-allowed">
+                <iconify-icon v-if="submitting" icon="lucide:loader-2" class="text-base animate-spin"></iconify-icon>
+                <iconify-icon v-else icon="lucide:send" class="text-base"></iconify-icon>
+                {{ submitting ? 'Sending...' : 'Send Inquiry' }}
+              </button>
+
+              <p v-if="submitted" class="text-sm text-electric-400 text-center flex items-center justify-center gap-2">
+                <iconify-icon icon="lucide:check-circle-2"></iconify-icon>
+                Message sent! We'll respond within 24 hours.
+              </p>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
   </div>
 </template>
 
 <script setup>
+import { services } from '~/config/site'
+
 useSeoMeta({
-  title: 'Contact - Saloo & Neena Chowdhury',
-  description: 'Get in touch with world record holders Saloo & Neena Chowdhury for speaking engagements, interviews, and collaborations.',
-  ogTitle: 'Contact - Saloo & Neena Chowdhury'
+  title: 'Contact IRFAtech — Free Business Consultation',
+  description: 'Book a free consultation with IRFAtech. WhatsApp, email, phone, or inquiry form — we respond fast and honestly.',
+  ogTitle: 'Contact IRFAtech — Book a Free Consultation',
+  ogUrl: 'https://irfatech.com/contact',
 })
 
-const form = reactive({
-  firstName: '',
-  lastName: '',
-  email: '',
-  subject: '',
-  message: ''
-})
+useLocalBusinessSchema()
+useBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Contact', url: '/contact' },
+])
 
+const whatsappUrl = 'https://wa.me/923001234567?text=Hi%20IRFAtech%2C%20I%27d%20like%20to%20book%20a%20free%20consultation.'
+
+const form = ref({ name: '', business: '', email: '', phone: '', service: '', message: '' })
 const submitting = ref(false)
 const submitted = ref(false)
 
 const submitForm = async () => {
   submitting.value = true
-  
-  try {
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Reset form
-    Object.keys(form).forEach(key => {
-      form[key] = ''
-    })
-    
-    submitted.value = true
-    
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-      submitted.value = false
-    }, 5000)
-    
-  } catch (error) {
-    console.error('Form submission error:', error)
-  } finally {
-    submitting.value = false
-  }
+  await new Promise(r => setTimeout(r, 1200))
+  submitted.value = true
+  submitting.value = false
+  form.value = { name: '', business: '', email: '', phone: '', service: '', message: '' }
 }
+
+const nextSteps = [
+  'We read your inquiry within a few hours',
+  'We reach out to schedule a free 30-minute call',
+  'We listen to your operations — no sales pitch',
+  'You get an honest recommendation, not a generic quote',
+]
 </script>

@@ -1,21 +1,13 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://saloo-neena.com/sitemap.xml
+Sitemap: https://irfatech.com/sitemap.xml
 
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /private/
-
-# Allow all images
-User-agent: Googlebot-Image
-Allow: /images/
-Allow: /cars/
-
-# Allow all content for search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/

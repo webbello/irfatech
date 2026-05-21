@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" rx="40" fill="#020B18"/>
+  <rect x="8" y="8" width="176" height="176" rx="34" fill="#071E3D"/>
+  <path d="M96 44 L130 72 L130 120 L96 148 L62 120 L62 72 Z" fill="none" stroke="#0EA5E9" stroke-width="6"/>
+  <path d="M82 96 L90 108 L110 84" fill="none" stroke="#38BDF8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="96" y="168" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="700" fill="#38BDF8" text-anchor="middle">IRFA</text>
+</svg>

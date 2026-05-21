@@ -1,5 +1,6 @@
 {
-  "name": "saloo-neena-journey",
+  "name": "irfatech",
+  "description": "IRFAtech — Digital Infrastructure for Growing Businesses",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +13,6 @@
   "dependencies": {
     "@nuxt/content": "^2.13.2",
     "@nuxt/image": "^2.0.0",
-    "@tailwindcss/postcss": "^4.1.18",
     "@vueuse/core": "^14.1.0",
     "@vueuse/nuxt": "^14.1.0",
     "iconify-icon": "^3.0.0",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.14.0",
+    "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.15",
     "tailwindcss": "^4.1.0"
   }

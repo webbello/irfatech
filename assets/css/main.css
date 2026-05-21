@@ -1,48 +1,192 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
+/* ─── Tailwind v4 Design Tokens ─────────────────────────────────────────── */
+@theme {
+  /* Brand palette */
+  --color-navy-950: #020B18;
+  --color-navy-900: #04142A;
+  --color-navy-800: #071E3D;
+  --color-navy-700: #0D2B52;
+  --color-navy-600: #1A3D6B;
+
+  --color-electric-300: #7DD3FC;
+  --color-electric-400: #38BDF8;
+  --color-electric-500: #0EA5E9;
+  --color-electric-600: #0284C7;
+  --color-electric-700: #0369A1;
+
+  --color-accent-300: #A5B4FC;
+  --color-accent-400: #818CF8;
+  --color-accent-500: #6366F1;
+  --color-accent-600: #4F46E5;
+
+  /* Typography */
+  --font-sans: Inter, system-ui, sans-serif;
+
+  /* Shadows */
+  --shadow-glow-sm:  0 0 15px rgba(14, 165, 233, 0.3);
+  --shadow-glow:     0 0 30px rgba(14, 165, 233, 0.4);
+  --shadow-glow-lg:  0 0 60px rgba(14, 165, 233, 0.5);
+  --shadow-card:     0 4px 24px rgba(2, 11, 24, 0.6);
+
+  /* Animations */
+  --animate-fade-in:    fadeIn   0.6s ease-in-out;
+  --animate-slide-up:   slideUp  0.6s ease-out;
+  --animate-pulse-slow: pulse    3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float:      float    6s ease-in-out infinite;
+  --animate-glow:       glow     2s ease-in-out infinite alternate;
+}
+
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); }
+  to   { box-shadow: 0 0 40px rgba(14, 165, 233, 0.7); }
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply font-sans text-gray-900 bg-white;
+    @apply font-sans text-slate-300 bg-navy-950;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-white;
+  }
+
+  ::selection {
+    background-color: rgba(14, 165, 233, 0.3);
+    color: white;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track  { background: #04142A; }
+  ::-webkit-scrollbar-thumb  { background: #0D2B52; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #0284C7; }
 }
 
+/* ─── Components ─────────────────────────────────────────────────────────── */
 @layer components {
+  /* Buttons */
   .btn-primary {
-    @apply px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
+           bg-electric-500 text-white font-semibold
+           hover:bg-electric-600 transition-all duration-200
+           shadow-glow hover:shadow-glow-lg hover:scale-105;
   }
-  
-  .btn-secondary {
-    @apply px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200;
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
+           border border-electric-500/50 text-electric-400 font-semibold
+           hover:border-electric-400 hover:bg-electric-500/10
+           transition-all duration-200;
   }
-  
-  .section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
+
+  .btn-whatsapp {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full
+           text-white font-semibold
+           transition-all duration-200
+           shadow-md hover:shadow-lg hover:scale-105;
+    background-color: #25D366;
   }
-  
-  .container-max {
-    @apply max-w-7xl mx-auto;
+  .btn-whatsapp:hover {
+    background-color: #20BA5A;
+  }
+
+  /* Layout */
+  .section-padding    { @apply py-20 px-4 sm:px-6 lg:px-8; }
+  .section-padding-sm { @apply py-12 px-4 sm:px-6 lg:px-8; }
+  .container-max      { @apply max-w-7xl mx-auto; }
+
+  /* Backgrounds */
+  .section-dark    { @apply bg-navy-950; }
+  .section-mid     { @apply bg-navy-900; }
+  .section-surface { @apply bg-navy-800; }
+
+  /* Cards */
+  .card-glass {
+    @apply bg-navy-800/60 backdrop-blur-sm
+           border border-navy-700/50
+           rounded-2xl
+           hover:border-electric-500/30
+           transition-all duration-300;
+  }
+
+  .card-glass-hover {
+    @apply bg-navy-800/60 backdrop-blur-sm
+           border border-navy-700/50
+           rounded-2xl
+           hover:border-electric-500/30
+           transition-all duration-300
+           hover:bg-navy-800/80 hover:shadow-glow hover:-translate-y-1;
+  }
+
+  /* Text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-electric-400 to-accent-400
+           bg-clip-text text-transparent;
+  }
+
+  /* Divider */
+  .divider { @apply border-t border-navy-700/50; }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full
+           bg-electric-500/10 text-electric-400
+           border border-electric-500/20
+           text-xs font-medium;
+  }
+
+  .badge-accent {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full
+           bg-accent-500/10 text-accent-400
+           border border-accent-500/20
+           text-xs font-medium;
+  }
+
+  /* Form inputs */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl
+           bg-navy-800 border border-navy-700
+           text-white placeholder-slate-500
+           focus:outline-none focus:border-electric-500
+           transition-colors duration-200;
   }
 }
 
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
 @layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  .bg-hero-mesh {
+    background-image:
+      radial-gradient(at 40% 20%, rgba(14,165,233,0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 0%,  rgba(99,102,241,0.1)  0px, transparent 50%),
+      radial-gradient(at 0%  50%, rgba(14,165,233,0.08) 0px, transparent 50%);
   }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  .animate-spin-slow {
-    animation: spin 20s linear infinite;
+
+  .glow-text {
+    color: #38BDF8;
+    text-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
   }
 }

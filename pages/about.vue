@@ -1,148 +1,174 @@
 <template>
   <div class="pt-16">
-    <div class="section-padding">
-      <div class="container-max">
-        <!-- Hero Section -->
-        <div class="text-center mb-16">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">About Saloo & Neena Chowdhury</h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            The pioneering couple from Kolkata who made history as the first and fastest 
-            circumnavigators of the globe by car, covering six continents.
+
+    <!-- Hero -->
+    <section class="section-padding section-dark relative overflow-hidden">
+      <div class="absolute inset-0 bg-hero-mesh pointer-events-none"></div>
+      <div class="container-max relative">
+        <div class="max-w-3xl">
+          <div class="badge mb-6">
+            <iconify-icon icon="lucide:user" class="text-xs"></iconify-icon>
+            About IRFAtech
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Built by a Business Builder,<br />
+            <span class="text-gradient">Not Just a Developer</span>
+          </h1>
+          <p class="text-slate-400 text-xl leading-relaxed">
+            IRFAtech isn't a typical software agency. It's the result of 15+ years of learning what businesses actually need — and building it without the fluff.
           </p>
         </div>
+      </div>
+    </section>
 
-        <!-- Main Content -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <div class="relative">
-              <img 
-                src="/images/gallery/Scan8.jpg"
-                alt="Saloo and Neena Chowdhury - World Record Holders"
-                class="rounded-lg shadow-lg w-full"
-                loading="lazy"
-              />
-              <div class="absolute -bottom-6 -right-6 bg-blue-600 text-white p-4 rounded-lg">
-                <iconify-icon icon="lucide:trophy" class="text-2xl"></iconify-icon>
-              </div>
+    <!-- Founder Story -->
+    <section class="section-padding section-mid">
+      <div class="container-max">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <!-- Photo placeholder -->
+          <div class="card-glass p-8 flex flex-col items-center justify-center min-h-80 text-center">
+            <div class="w-28 h-28 rounded-full bg-electric-500/10 border-2 border-electric-500/30 flex items-center justify-center mb-5">
+              <iconify-icon icon="lucide:user" class="text-5xl text-electric-400"></iconify-icon>
             </div>
-          </div>
-          
-          <div class="space-y-6">
-            <h2 class="text-3xl font-bold">World Record Holders</h2>
-            <p class="text-gray-700 leading-relaxed">
-              The Guinness Book of World Records has reconfirmed Saloo and Neena Chowdhury of Kolkata 
-              as the first and fastest circumnavigators of the globe covering six continents. This motor 
-              rallyist couple beat the British Army's record with determination and vengeance.
-            </p>
-            <p class="text-gray-700 leading-relaxed">
-              "We participate in a rally to win, with a vengeance. Who remembers the runner up?" says the couple. 
-              Neena, who has accompanied Saloo on all his expeditions, adds, "It is a challenge for us. 
-              We love adventure and are ready to face the hardships. Glamour comes only as a reward after you win."
-            </p>
-            
-            <div class="grid grid-cols-2 gap-4 mt-8">
-              <div class="text-center p-4 bg-blue-50 rounded-lg">
-                <div class="text-2xl font-bold text-blue-600">1989</div>
-                <div class="text-sm text-gray-600">First Journey</div>
-              </div>
-              <div class="text-center p-4 bg-purple-50 rounded-lg">
-                <div class="text-2xl font-bold text-purple-600">1991</div>
-                <div class="text-sm text-gray-600">Record Breaking</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Journey Story -->
-        <div class="bg-gray-50 rounded-lg p-8 mb-16">
-          <h2 class="text-3xl font-bold mb-6 text-center">The Journey to Glory</h2>
-          
-          <div class="space-y-6 text-gray-700">
-            <p class="leading-relaxed">
-              The 'first and fastest' accolade did not come to them easy. For the first time, they covered 
-              45,000 kilometres in 69 days, 19 hours and 5 minutes, in 1989. The Guinness Book of World 
-              Records certified Saloo and Neena Chowdhury as the first and fastest circumnavigators of the globe, 
-              covering six continents.
-            </p>
-            
-            <p class="leading-relaxed">
-              However, in the 1991 edition of the book, they dropped the 'first' and mentioned them only as 
-              the fastest. The British Army had accomplished the same feat in 40 days in 1991, but with 
-              significant advantages - no customs hassles, passport or visa problems, delays at international 
-              airports, and the backup of the Royal Air Force.
-            </p>
-            
-            <p class="leading-relaxed">
-              Not ones to give up, the Chowdhurys hit the road again. They were flagged from Delhi on 
-              November 7, 1991. This time, they covered 40,535 kilometres in a record time of 39 days, 
-              20 hours, 15 minutes — 3 hours and 45 minutes less than the time taken by the army.
-            </p>
+            <h3 class="text-xl font-bold text-white mb-1">Muhammad Irfan</h3>
+            <p class="text-electric-400 text-sm font-medium mb-3">Founder & CEO, IRFAtech</p>
+            <p class="text-slate-500 text-sm">15+ years in business technology</p>
           </div>
 
-          <div class="mt-10">
-            <ArchivalVideo
-              :title="archivalVideos.aboutJourney.title"
-              :year="archivalVideos.aboutJourney.year"
-              :note="archivalVideos.aboutJourney.note"
-              :youtube-id="archivalVideos.aboutJourney.youtubeId"
-              :transcript="archivalVideos.aboutJourney.transcript"
-            />
-          </div>
-        </div>
-
-        <!-- Legal Battle -->
-        <div class="mb-16">
-          <h2 class="text-3xl font-bold mb-6 text-center">The Legal Victory</h2>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="text-xl font-semibold mb-4">The Challenge</h3>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                When Guinness would not concede them the 'first' title, the Chowdhurys filed a case 
-                against Guinness Publishing Limited in the Calcutta High Court. They demanded recognition 
-                as the first and fastest circumnavigators and sought seven-and-a-half million pounds in damages.
-              </p>
-            </div>
-            
-            <div>
-              <h3 class="text-xl font-semibold mb-4">The Victory</h3>
-              <p class="text-gray-700 leading-relaxed mb-4">
-                After five years of legal battle, on April 7, 1998, both parties signed an MOU. 
-                Guinness Publishing Limited consented to recognize the Chowdhurys as the first and fastest 
-                man and woman, to be included in all future editions of the Guinness Book of World Records.
-              </p>
-            </div>
-          </div>
-          
-          <div class="text-center mt-8 p-6 bg-green-50 rounded-lg">
-            <iconify-icon icon="lucide:award" class="text-4xl text-green-600 mb-4"></iconify-icon>
-            <p class="text-lg font-semibold text-green-800">
-              The Guinness World Records Road Challenge trophy is named the "Choudhury Trophy" 
-              in honor of their pioneering feat.
+          <!-- Story text -->
+          <div class="space-y-5">
+            <h2 class="text-3xl font-bold text-white leading-tight">
+              The Founder's Story
+            </h2>
+            <p class="text-slate-400 leading-relaxed">
+              I started my career as a developer — writing code, shipping features, and wondering why clients weren't actually using what I built. The software was technically correct. But it didn't fit how real businesses work.
             </p>
+            <p class="text-slate-400 leading-relaxed">
+              That realization changed everything. I spent the next decade not just building software, but learning businesses — how retail shops manage inventory, how real estate agencies track leads, how clinics handle patients, how distributors run their supply chain.
+            </p>
+            <p class="text-slate-400 leading-relaxed">
+              IRFAtech was born from that gap: the space between what developers build and what businesses actually need. Every system we deliver is designed for the people who will use it every day — not for a demo to impress investors.
+            </p>
+            <p class="text-slate-400 leading-relaxed">
+              Today, IRFAtech serves SMBs across multiple industries with websites, ERP systems, CRM, AI automation, and custom software. And I'm still the one on every project call.
+            </p>
+            <a
+              href="https://wa.me/923001234567?text=Hi%20Irfan%2C%20I%20read%20about%20IRFAtech%20and%20would%20like%20to%20connect."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-whatsapp inline-flex px-6 py-3 mt-2"
+            >
+              <iconify-icon icon="lucide:message-circle" class="text-base"></iconify-icon>
+              Talk to the Founder
+            </a>
           </div>
-        </div>
-
-        <!-- Personal Philosophy -->
-        <div class="text-center">
-          <blockquote class="text-2xl font-medium text-gray-800 mb-4">
-            "I did it for the city I was born in. It will feature on the world map of motor rallying."
-          </blockquote>
-          <cite class="text-gray-600">- Saloo Chowdhury</cite>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section-padding section-dark">
+      <div class="container-max">
+        <UiSectionHeader
+          eyebrow="Our Purpose"
+          title="Mission & Vision"
+          subtitle="The principles that guide every decision at IRFAtech."
+        />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="card-glass p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-electric-500/5 rounded-bl-full"></div>
+            <iconify-icon icon="lucide:target" class="text-4xl text-electric-400 mb-4"></iconify-icon>
+            <h3 class="text-xl font-bold text-white mb-3">Mission</h3>
+            <p class="text-slate-400 leading-relaxed">
+              To make enterprise-grade digital infrastructure accessible to every small and medium business — so they can compete, grow, and operate with the same efficiency as large corporations.
+            </p>
+          </div>
+          <div class="card-glass p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent-500/5 rounded-bl-full"></div>
+            <iconify-icon icon="lucide:eye" class="text-4xl text-accent-400 mb-4"></iconify-icon>
+            <h3 class="text-xl font-bold text-white mb-3">Vision</h3>
+            <p class="text-slate-400 leading-relaxed">
+              To become the most trusted business technology partner for SMBs in South Asia — known not just for building software, but for transforming how businesses operate and grow.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section-padding section-mid">
+      <div class="container-max">
+        <UiSectionHeader
+          eyebrow="Our Values"
+          title="What We Stand For"
+        />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div v-for="value in values" :key="value.title" class="card-glass p-6 flex flex-col gap-4 hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="w-11 h-11 rounded-xl bg-electric-500/10 flex items-center justify-center">
+              <iconify-icon :icon="value.icon" class="text-2xl text-electric-400"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-white mb-2">{{ value.title }}</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">{{ value.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Milestones -->
+    <section class="section-padding section-dark">
+      <div class="container-max">
+        <UiSectionHeader eyebrow="Our Journey" title="15+ Years of Building" :centered="false" />
+        <div class="max-w-2xl">
+          <div v-for="(milestone, i) in milestones" :key="milestone.year" class="flex gap-6 mb-8">
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full bg-electric-500/10 border border-electric-500/30 flex items-center justify-center flex-shrink-0">
+                <span class="text-xs font-bold text-electric-400">{{ milestone.year.toString().slice(-2) }}</span>
+              </div>
+              <div v-if="i < milestones.length - 1" class="w-px flex-1 bg-navy-700 mt-2"></div>
+            </div>
+            <div class="pb-8">
+              <div class="text-xs text-electric-400 font-medium mb-1">{{ milestone.year }}</div>
+              <h3 class="text-sm font-semibold text-white mb-1">{{ milestone.title }}</h3>
+              <p class="text-sm text-slate-400">{{ milestone.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <UiCTABanner
+      title="Work Directly With the Founder"
+      subtitle="No middlemen, no account managers. Your business gets senior attention from day one."
+      primary-label="Schedule a Call"
+      secondary-label="WhatsApp Irfan"
+    />
+
   </div>
 </template>
 
 <script setup>
-import ArchivalVideo from '@/components/ArchivalVideo.vue'
-import { archivalVideos } from '@/config/archivalVideos'
-
 useSeoMeta({
-  title: 'About Saloo & Neena Chowdhury - World Record Circumnavigators',
-  description: 'Learn about the pioneering couple from Kolkata who became the first and fastest circumnavigators of the globe by car, covering six continents and breaking world records.',
-  ogTitle: 'About Saloo & Neena Chowdhury - World Record Circumnavigators',
-  ogDescription: 'Learn about the pioneering couple from Kolkata who became the first and fastest circumnavigators of the globe by car, covering six continents and breaking world records.'
+  title: 'About IRFAtech — Founder-Led Business Technology Company',
+  description: 'Learn about IRFAtech — 15+ years of building digital infrastructure for SMBs. Meet the founder and understand our mission to help businesses grow digitally.',
+  ogTitle: 'About IRFAtech — Founder-Led Business Technology',
+  ogDescription: '15+ years building digital systems for real businesses. Meet Muhammad Irfan, founder of IRFAtech.',
 })
+
+const values = [
+  { icon: 'lucide:lightbulb', title: 'Innovation', desc: 'We explore AI, automation, and emerging technologies before recommending them to clients.' },
+  { icon: 'lucide:shield', title: 'Reliability', desc: "We deliver what we promise, on time, and we're still here six months after launch." },
+  { icon: 'lucide:eye', title: 'Transparency', desc: 'Clear pricing, honest timelines, and no hidden costs — ever.' },
+  { icon: 'lucide:handshake', title: 'Partnership', desc: "We think of clients as long-term partners, not one-time projects." },
+]
+
+const milestones = [
+  { year: 2009, title: 'Started as a Freelance Developer', desc: 'First client websites and custom scripts for local businesses.' },
+  { year: 2013, title: 'First Enterprise Project', desc: 'Delivered a full inventory management system for a regional distributor.' },
+  { year: 2016, title: 'ERP Specialization', desc: 'Began Odoo implementations and customizations for SMBs across industries.' },
+  { year: 2019, title: 'IRFAtech Officially Founded', desc: 'Formalized the company with a focus on full-stack business digitalization.' },
+  { year: 2022, title: 'Landflix Launched', desc: 'Launched our in-house real estate technology platform as proof of capability.' },
+  { year: 2024, title: 'AI & Automation Division', desc: 'Expanded into AI workflows, WhatsApp automation, and intelligent business processes.' },
+]
 </script>

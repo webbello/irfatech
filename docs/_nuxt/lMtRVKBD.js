@@ -1,1 +1,0 @@
-import{I as n,L as o}from"./CCHQSMW7.js";const e=n({name:"DocumentDrivenNotFound",render(){return o("div","Document not found")}}),m=Object.assign(e,{__name:"DocumentDrivenNotFound"});export{m as default};
