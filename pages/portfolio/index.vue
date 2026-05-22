@@ -64,8 +64,8 @@
 
 <script setup>
 useSeoMeta({
-  title: 'Portfolio — Business Transformations | IRFAtech',
-  description: 'See how IRFAtech has helped businesses across real estate, retail, distribution, clinics, and more go digital and grow faster.',
+  title: 'Portfolio — Business Transformations | IRFATECH',
+  description: 'See how IRFATECH has helped businesses across real estate, retail, distribution, clinics, and more go digital and grow faster.',
 })
 
 const activeFilter = ref('All')

@@ -37,7 +37,7 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'CRM & Sales Automation | IRFAtech', description: 'IRFAtech builds CRM systems with WhatsApp integration, lead tracking, and automated follow-ups for growing businesses.' })
-const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20a%20CRM%20system.'
+useSeoMeta({ title: 'CRM & Sales Automation | IRFATECH', description: 'IRFATECH builds CRM systems with WhatsApp integration, lead tracking, and automated follow-ups for growing businesses.' })
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20CRM%20system.'
 const features = ['Lead Pipeline', 'WhatsApp Integration', 'Auto Follow-Ups', 'Customer History', 'Sales Reports', 'Team Management', 'Email Campaigns', 'Mobile Access']
 </script>

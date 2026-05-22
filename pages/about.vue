@@ -8,14 +8,14 @@
         <div class="max-w-3xl">
           <div class="badge mb-6">
             <iconify-icon icon="lucide:user" class="text-xs"></iconify-icon>
-            About IRFAtech
+            About IRFATECH
           </div>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Built by a Business Builder,<br />
             <span class="text-gradient">Not Just a Developer</span>
           </h1>
           <p class="text-slate-400 text-xl leading-relaxed">
-            IRFAtech isn't a typical software agency. It's the result of 15+ years of learning what businesses actually need — and building it without the fluff.
+            IRFATECH isn't a typical software agency. It's the result of 15+ years of learning what businesses actually need — and building it without the fluff.
           </p>
         </div>
       </div>
@@ -31,7 +31,7 @@
               <iconify-icon icon="lucide:user" class="text-5xl text-electric-400"></iconify-icon>
             </div>
             <h3 class="text-xl font-bold text-white mb-1">Muhammad Irfan</h3>
-            <p class="text-electric-400 text-sm font-medium mb-3">Founder & CEO, IRFAtech</p>
+            <p class="text-electric-400 text-sm font-medium mb-3">Founder & CEO, IRFATECH</p>
             <p class="text-slate-500 text-sm">15+ years in business technology</p>
           </div>
 
@@ -47,13 +47,13 @@
               That realization changed everything. I spent the next decade not just building software, but learning businesses — how retail shops manage inventory, how real estate agencies track leads, how clinics handle patients, how distributors run their supply chain.
             </p>
             <p class="text-slate-400 leading-relaxed">
-              IRFAtech was born from that gap: the space between what developers build and what businesses actually need. Every system we deliver is designed for the people who will use it every day — not for a demo to impress investors.
+              IRFATECH was born from that gap: the space between what developers build and what businesses actually need. Every system we deliver is designed for the people who will use it every day — not for a demo to impress investors.
             </p>
             <p class="text-slate-400 leading-relaxed">
-              Today, IRFAtech serves SMBs across multiple industries with websites, ERP systems, CRM, AI automation, and custom software. And I'm still the one on every project call.
+              Today, IRFATECH serves SMBs across multiple industries with websites, ERP systems, CRM, AI automation, and custom software. And I'm still the one on every project call.
             </p>
             <a
-              href="https://wa.me/918864812200?text=Hi%20Irfan%2C%20I%20read%20about%20IRFAtech%20and%20would%20like%20to%20connect."
+              href="https://wa.me/918864812200?text=Hi%20Irfan%2C%20I%20read%20about%20IRFATECH%20and%20would%20like%20to%20connect."
               target="_blank"
               rel="noopener noreferrer"
               class="btn-whatsapp inline-flex px-6 py-3 mt-2"
@@ -72,7 +72,7 @@
         <UiSectionHeader
           eyebrow="Our Purpose"
           title="Mission & Vision"
-          subtitle="The principles that guide every decision at IRFAtech."
+          subtitle="The principles that guide every decision at IRFATECH."
         />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div class="card-glass p-8 relative overflow-hidden">
@@ -150,10 +150,10 @@
 
 <script setup>
 useSeoMeta({
-  title: 'About IRFAtech — Founder-Led Business Technology Company',
-  description: 'Learn about IRFAtech — 15+ years of building digital infrastructure for SMBs. Meet the founder and understand our mission to help businesses grow digitally.',
-  ogTitle: 'About IRFAtech — Founder-Led Business Technology',
-  ogDescription: '15+ years building digital systems for real businesses. Meet Muhammad Irfan, founder of IRFAtech.',
+  title: 'About IRFATECH — Founder-Led Business Technology Company',
+  description: 'Learn about IRFATECH — 15+ years of building digital infrastructure for SMBs. Meet the founder and understand our mission to help businesses grow digitally.',
+  ogTitle: 'About IRFATECH — Founder-Led Business Technology',
+  ogDescription: '15+ years building digital systems for real businesses. Meet Muhammad Irfan, founder of IRFATECH.',
 })
 
 const values = [
@@ -167,7 +167,7 @@ const milestones = [
   { year: 2009, title: 'Started as a Freelance Developer', desc: 'First client websites and custom scripts for local businesses.' },
   { year: 2013, title: 'First Enterprise Project', desc: 'Delivered a full inventory management system for a regional distributor.' },
   { year: 2016, title: 'ERP Specialization', desc: 'Began Odoo implementations and customizations for SMBs across industries.' },
-  { year: 2019, title: 'IRFAtech Officially Founded', desc: 'Formalized the company with a focus on full-stack business digitalization.' },
+  { year: 2019, title: 'IRFATECH Officially Founded', desc: 'Formalized the company with a focus on full-stack business digitalization.' },
   { year: 2022, title: 'Landflix Launched', desc: 'Launched our in-house real estate technology platform as proof of capability.' },
   { year: 2024, title: 'AI & Automation Division', desc: 'Expanded into AI workflows, WhatsApp automation, and intelligent business processes.' },
 ]

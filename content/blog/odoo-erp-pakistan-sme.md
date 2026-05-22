@@ -96,8 +96,8 @@ The best ERP is useless if your staff don't use it correctly. Data entry errors 
 | Distributor (multi-branch) | + Multi-company | 6–10 weeks | High |
 | Manufacturing | Manufacturing + full suite | 12–20 weeks | Very High |
 
-Implementation cost in India ranges from PKR 150,000 for a basic setup to PKR 1,000,000+ for complex multi-company implementations with custom modules.
+Implementation cost in India ranges from INR 150,000 for a basic setup to INR 1,000,000+ for complex multi-company implementations with custom modules.
 
 ---
 
-**IRFAtech specializes in Odoo ERP implementation for Indiai SMEs.** [Book a free consultation](/contact) — we'll assess your operations and give you an honest scope and cost estimate.
+**IRFATECH specializes in Odoo ERP implementation for Indiai SMEs.** [Book a free consultation](/contact) — we'll assess your operations and give you an honest scope and cost estimate.

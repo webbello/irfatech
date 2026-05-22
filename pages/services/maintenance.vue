@@ -45,8 +45,8 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'Maintenance & Support Plans | IRFAtech', description: 'IRFAtech provides ongoing maintenance, security updates, performance monitoring, and fast support for websites, ERP, and custom software.' })
-const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20maintenance%20and%20support.'
+useSeoMeta({ title: 'Maintenance & Support Plans | IRFATECH', description: 'IRFATECH provides ongoing maintenance, security updates, performance monitoring, and fast support for websites, ERP, and custom software.' })
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20maintenance%20and%20support.'
 const plans = [
   { name: 'Basic', desc: 'For small websites and simple systems.', featured: false, features: ['Monthly security updates', 'Uptime monitoring', 'Backup management', '4-hour response time', '2 hours change requests/month'] },
   { name: 'Business', desc: 'For active systems where downtime impacts revenue.', featured: true, features: ['Weekly updates & monitoring', '24/7 uptime alerts', 'Daily backups', '2-hour response time', '8 hours change requests/month', 'Monthly report'] },

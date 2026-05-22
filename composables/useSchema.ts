@@ -8,7 +8,7 @@ const BASE_URL = 'https://irfatech.in'
 const ORG = {
   '@type': 'Organization',
   '@id': `${BASE_URL}/#organization`,
-  name: 'IRFAtech',
+  name: 'IRFATECH',
   alternateName: 'Integrated Resources For Automation',
   url: BASE_URL,
   logo: `${BASE_URL}/images/logo.png`,
@@ -109,7 +109,7 @@ export function useLocalBusinessSchema() {
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           '@id': `${BASE_URL}/#localbusiness`,
-          name: 'IRFAtech',
+          name: 'IRFATECH',
           description: 'Digital infrastructure company helping SMBs automate, organize, and grow digitally.',
           url: BASE_URL,
           telephone: '+91 88 6481 2200',
@@ -127,7 +127,7 @@ export function useLocalBusinessSchema() {
           ],
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
-            name: 'IRFAtech Services',
+            name: 'IRFATECH Services',
             itemListElement: [
               'Business Websites', 'ERP Solutions', 'CRM Systems',
               'AI Automation', 'Custom Software', 'WhatsApp Automation',

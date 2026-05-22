@@ -13,7 +13,7 @@
           <div class="w-8 h-8 rounded-lg bg-electric-500 flex items-center justify-center group-hover:bg-electric-600 transition-colors duration-200">
             <iconify-icon icon="lucide:zap" class="text-white text-sm"></iconify-icon>
           </div>
-          <span class="font-display font-bold text-white text-lg tracking-tight">IRFAtech</span>
+          <span class="font-display font-bold text-white text-lg tracking-tight">IRFATECH</span>
         </NuxtLink>
 
         <!-- Desktop nav -->
@@ -189,7 +189,7 @@ const topServices = computed(() =>
   services.filter(s => ['erp', 'whatsapp-automation', 'crm', 'ai-automation'].includes(s.slug))
 )
 
-const waConsultation = useWhatsApp('Hi IRFAtech, I would like to book a free consultation.')
+const waConsultation = useWhatsApp('Hi IRFATECH, I would like to book a free consultation.')
 
 const route = useRoute()
 watch(() => route.path, () => {

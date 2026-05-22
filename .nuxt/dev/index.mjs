@@ -2175,7 +2175,7 @@ const _wnV_0xWog4S5qZQoXOP00kRlv1MpaCuj9xShFVEdI0 = (function(nitro) {
 
 const rootDir = "/Users/apple/Sites/irfatech";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"IRFAtech helps businesses automate, organize, and grow digitally. Websites, ERP, CRM, AI automation, and custom software for SMBs."},{"name":"keywords","content":"ERP solutions, CRM software, business automation, WhatsApp automation, AI workflows, custom software development, business websites, IRFAtech"},{"name":"author","content":"IRFAtech"},{"name":"robots","content":"index, follow"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"IRFAtech"},{"property":"og:image","content":"https://irfatech.in/images/og-image.svg"},{"property":"og:image:width","content":"1200"},{"property":"og:image:height","content":"630"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:creator","content":"@irfatech"},{"name":"theme-color","content":"#0EA5E9"},{"name":"color-scheme","content":"dark"}],"link":[{"rel":"canonical","href":"https://irfatech.in"},{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"manifest","href":"/manifest.json"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"}],"style":[],"script":[{"src":"https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js","defer":true},{"type":"application/ld+json","innerHTML":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"IRFAtech\",\"alternateName\":\"Integrated Resources For Automation\",\"description\":\"IRFAtech helps businesses automate, organize, and grow digitally through websites, ERP, CRM, AI automation, and custom software.\",\"url\":\"https://irfatech.in\",\"logo\":\"https://irfatech.in/images/logo.png\",\"foundingDate\":\"2009\",\"founder\":{\"@type\":\"Person\",\"name\":\"Muhammad Irfan\"},\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"+91 88 6481 2200\",\"email\":\"irfatechgroup@gmail.com\",\"contactType\":\"customer service\",\"availableLanguage\":[\"English\",\"Hindi\",\"Urdu\"]},\"sameAs\":[],\"knowsAbout\":[\"ERP Solutions\",\"CRM Systems\",\"Business Automation\",\"WhatsApp Automation\",\"AI Workflows\",\"Custom Software Development\",\"Business Websites\",\"Mobile App Development\"]}"}],"noscript":[],"title":"IRFAtech — Digital Infrastructure for Growing Businesses","htmlAttrs":{"lang":"en"}};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"IRFATECH helps businesses automate, organize, and grow digitally. Websites, ERP, CRM, AI automation, and custom software for SMBs."},{"name":"keywords","content":"ERP solutions, CRM software, business automation, WhatsApp automation, AI workflows, custom software development, business websites, IRFATECH"},{"name":"author","content":"IRFATECH"},{"name":"robots","content":"index, follow"},{"property":"og:type","content":"website"},{"property":"og:site_name","content":"IRFATECH"},{"property":"og:image","content":"https://irfatech.in/images/og-image.svg"},{"property":"og:image:width","content":"1200"},{"property":"og:image:height","content":"630"},{"name":"twitter:card","content":"summary_large_image"},{"name":"twitter:creator","content":"@irfatech"},{"name":"theme-color","content":"#0EA5E9"},{"name":"color-scheme","content":"dark"}],"link":[{"rel":"canonical","href":"https://irfatech.in"},{"rel":"icon","type":"image/x-icon","href":"/favicon.ico"},{"rel":"manifest","href":"/manifest.json"},{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"}],"style":[],"script":[{"src":"https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js","defer":true},{"type":"application/ld+json","innerHTML":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"IRFATECH\",\"alternateName\":\"Integrated Resources For Automation\",\"description\":\"IRFATECH helps businesses automate, organize, and grow digitally through websites, ERP, CRM, AI automation, and custom software.\",\"url\":\"https://irfatech.in\",\"logo\":\"https://irfatech.in/images/logo.png\",\"foundingDate\":\"2009\",\"founder\":{\"@type\":\"Person\",\"name\":\"Muhammad Irfan\"},\"contactPoint\":{\"@type\":\"ContactPoint\",\"telephone\":\"+91 88 6481 2200\",\"email\":\"irfatechgroup@gmail.com\",\"contactType\":\"customer service\",\"availableLanguage\":[\"English\",\"Hindi\",\"Urdu\"]},\"sameAs\":[],\"knowsAbout\":[\"ERP Solutions\",\"CRM Systems\",\"Business Automation\",\"WhatsApp Automation\",\"AI Workflows\",\"Custom Software Development\",\"Business Websites\",\"Mobile App Development\"]}"}],"noscript":[],"title":"IRFATECH — Digital Infrastructure for Growing Businesses","htmlAttrs":{"lang":"en"}};
 
 const appRootTag = "div";
 
@@ -2284,22 +2284,7 @@ _peeXwJPnqSFGfGwgwuopCkUlENOO1SKY5Phjb4M9bbo,
 _wH6JrtIxmaSoA8lCPWFnE9z4lQeXW6H5z3l5aymEQw
 ];
 
-const assets = {
-  "/index.mjs": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"1ff0d-zvNJ/rca3sWMR9wDxyFpmGdnqEo\"",
-    "mtime": "2026-05-21T21:31:07.427Z",
-    "size": 130829,
-    "path": "index.mjs"
-  },
-  "/index.mjs.map": {
-    "type": "application/json",
-    "etag": "\"7dd2f-wgO5WvAvbMucK/PDArLEw0nd9Os\"",
-    "mtime": "2026-05-21T21:31:07.427Z",
-    "size": 515375,
-    "path": "index.mjs.map"
-  }
-};
+const assets = {};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));
@@ -2861,7 +2846,7 @@ async function decompressSQLDump(base64Str, compressionType = "gzip") {
 }
 
 const checksums = {
-  "blog": "v3.5.0--hOPSgkFWHz0u_wmzvXCpyj28qoYPXBalSw-PiPU52y4"
+  "blog": "v3.5.0--Vw62__jDEplwGx1j1fc2AyQzUZbfggCW-gZTtt0x7UM"
 };
 const checksumsStructure = {
   "blog": "XO5HLmz6Yf4nPSe1lNYClQW8TwbXjUH3wmIu2ssMCTg"

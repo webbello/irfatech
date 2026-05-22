@@ -9,7 +9,7 @@ readTime: "6"
 featured: false
 ---
 
-"How much does a website cost?" is one of the most common questions we get — and one of the hardest to answer without knowing more. A website can cost PKR 20,000 or PKR 2,000,000 depending on what you actually need.
+"How much does a website cost?" is one of the most common questions we get — and one of the hardest to answer without knowing more. A website can cost INR 20,000 or INR 2,000,000 depending on what you actually need.
 
 Here's a transparent breakdown of what determines the cost and what you should realistically budget.
 
@@ -17,10 +17,10 @@ Here's a transparent breakdown of what determines the cost and what you should r
 
 Website pricing in India varies wildly because "website" means completely different things:
 
-- A freelancer's template website = PKR 20,000–50,000
-- A professional business website = PKR 80,000–250,000
-- An e-commerce platform = PKR 200,000–600,000
-- A custom web application = PKR 400,000–2,000,000+
+- A freelancer's template website = INR 20,000–50,000
+- A professional business website = INR 80,000–250,000
+- An e-commerce platform = INR 200,000–600,000
+- A custom web application = INR 400,000–2,000,000+
 
 The differences aren't arbitrary — they reflect fundamentally different products.
 
@@ -68,14 +68,14 @@ A fast, SEO-optimized website costs more to build but generates more business. S
 ### 5. Ongoing Costs
 
 The build cost is just the start. Budget for:
-- Hosting: PKR 5,000–20,000/year
-- Domain: PKR 2,000–5,000/year
-- Maintenance: PKR 10,000–30,000/month (optional but recommended)
+- Hosting: INR 5,000–20,000/year
+- Domain: INR 2,000–5,000/year
+- Maintenance: INR 10,000–30,000/month (optional but recommended)
 - Content updates: as needed
 
 ## Realistic Budget Ranges for Indiai SMBs
 
-### PKR 20,000–50,000 (Template + Basic)
+### INR 20,000–50,000 (Template + Basic)
 
 What you get:
 - Template-based design
@@ -91,7 +91,7 @@ What you won't get:
 
 **Best for:** Very early-stage businesses that just need a web presence.
 
-### PKR 80,000–180,000 (Professional Business Website)
+### INR 80,000–180,000 (Professional Business Website)
 
 What you get:
 - Custom or semi-custom design
@@ -103,7 +103,7 @@ What you get:
 
 **Best for:** Established SMBs using their website as a lead generation tool.
 
-### PKR 200,000–500,000 (E-commerce or Advanced)
+### INR 200,000–500,000 (E-commerce or Advanced)
 
 What you get:
 - Full e-commerce capability
@@ -116,7 +116,7 @@ What you get:
 
 ## Red Flags to Watch For
 
-**Extremely low prices with big promises.** PKR 15,000 for a "complete professional website" means a copied template with your logo pasted in.
+**Extremely low prices with big promises.** INR 15,000 for a "complete professional website" means a copied template with your logo pasted in.
 
 **No discovery process.** A good website developer asks about your business, your customers, your goals. If they quote without asking any questions, they're building a generic product.
 
@@ -124,9 +124,9 @@ What you get:
 
 **Vague deliverables.** Get a specific list: how many pages, which features, timeline, who provides content.
 
-## What IRFAtech Builds
+## What IRFATECH Builds
 
-Our business websites start at PKR 120,000 for a professional 8–12 page site with WhatsApp integration, inquiry forms, blog, and SEO basics. Custom projects are scoped and quoted transparently before we start.
+Our business websites start at INR 120,000 for a professional 8–12 page site with WhatsApp integration, inquiry forms, blog, and SEO basics. Custom projects are scoped and quoted transparently before we start.
 
 Every website we build is designed with one goal: generating business for you, not winning design awards.
 

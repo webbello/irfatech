@@ -62,7 +62,7 @@
         <iconify-icon icon="lucide:bell" class="text-3xl text-electric-400 mb-3"></iconify-icon>
         <h2 class="text-xl font-bold text-white mb-2">Get Business Tech Tips</h2>
         <p class="text-slate-400 text-sm mb-5">Practical insights on automation, ERP, and digitalization — straight to your WhatsApp.</p>
-        <a href="https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20please%20add%20me%20to%20your%20business%20tips%20list."
+        <a href="https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20please%20add%20me%20to%20your%20business%20tips%20list."
           target="_blank" rel="noopener noreferrer" class="btn-whatsapp px-7 py-3 inline-flex">
           <iconify-icon icon="lucide:message-circle" class="text-base"></iconify-icon>
           Subscribe via WhatsApp
@@ -75,9 +75,9 @@
 
 <script setup>
 useSeoMeta({
-  title: 'Blog — Business Tech Insights | IRFAtech',
+  title: 'Blog — Business Tech Insights | IRFATECH',
   description: 'Practical guides on business automation, ERP, CRM, WhatsApp automation, and digital transformation for SMB owners.',
-  ogTitle: 'IRFAtech Blog — Business Tech for Growing Companies',
+  ogTitle: 'IRFATECH Blog — Business Tech for Growing Companies',
 })
 
 const { data: posts } = await useAsyncData('blog-posts', () =>

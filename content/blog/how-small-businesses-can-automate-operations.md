@@ -74,4 +74,4 @@ Get that running well, measure the improvement, then expand.
 
 ---
 
-**IRFAtech builds automation systems for SMBs across India.** If you're unsure where to start, [book a free 30-minute consultation](/contact) — we'll tell you honestly what makes sense for your specific business.
+**IRFATECH builds automation systems for SMBs across India.** If you're unsure where to start, [book a free 30-minute consultation](/contact) — we'll tell you honestly what makes sense for your specific business.

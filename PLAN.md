@@ -23,7 +23,7 @@ Every section must do one of:
 - Build trust
 - Explain value clearly
 - Generate a lead (WhatsApp / form / consultation)
-- Position IRFAtech as a serious business technology company
+- Position IRFATECH as a serious business technology company
 
 ---
 
@@ -141,7 +141,7 @@ Every section must do one of:
 
 - [ ] S1: Hero — headline, subheading, 3 CTAs, trust badges
 - [ ] S2: Services Grid — 8 service cards
-- [ ] S3: Why IRFAtech — 5 differentiators
+- [ ] S3: Why IRFATECH — 5 differentiators
 - [ ] S4: Industries — 7 industry tiles
 - [ ] S5: Landflix Showcase — product highlight
 - [ ] S6: Process — 4-step flow (Discover → Design → Build → Support)
@@ -192,7 +192,7 @@ Each service page sections:
 - [ ] Product hero
 - [ ] Feature grid
 - [ ] Screenshots carousel
-- [ ] "Built by IRFAtech" story
+- [ ] "Built by IRFATECH" story
 - [ ] CTA
 
 ### Blog
@@ -246,7 +246,7 @@ Each service page sections:
 ### Analytics
 
 - [x] Plausible.io — `plugins/analytics.client.ts` (production-only, no cookie banner needed)
-- [ ] Replace `irfatech.com` in analytics plugin with real domain before launch
+- [ ] Replace `irfatech.in` in analytics plugin with real domain before launch
 
 ### Composables
 
@@ -285,7 +285,7 @@ Each service page sections:
 - [ ] OG images verified on social share (use opengraph.xyz)
 - [ ] 404 page styled (Nuxt default currently)
 - [ ] Replace phone number placeholder (`923001234567`) with real number
-- [ ] Replace email placeholder (`hello@irfatech.com`) with real email
+- [ ] Replace email placeholder (`hello@irfatech.in`) with real email
 
 ### Launch
 
@@ -374,7 +374,7 @@ Each service page sections:
 
 All CTA buttons use this pattern:
 ```
-https://wa.me/[PHONE]?text=Hi%20IRFAtech%2C%20I%20need%20help%20with%20[SERVICE]
+https://wa.me/[PHONE]?text=Hi%20IRFATECH%2C%20I%20need%20help%20with%20[SERVICE]
 ```
 
 Service-specific pre-filled messages on each service page CTA.

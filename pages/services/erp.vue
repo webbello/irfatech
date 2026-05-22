@@ -41,7 +41,7 @@
               One System. Your Entire Business.
             </h2>
             <p class="text-slate-400 leading-relaxed mb-4">
-              IRFAtech implements and customizes <strong class="text-white">Odoo ERP</strong> — one of the most capable open-source business systems available — and adapts it to fit exactly how your business works.
+              IRFATECH implements and customizes <strong class="text-white">Odoo ERP</strong> — one of the most capable open-source business systems available — and adapts it to fit exactly how your business works.
             </p>
             <p class="text-slate-400 leading-relaxed">
               We don't give you a generic system and leave you to figure it out. We configure it for your operations, train your team, and stay as your long-term support partner.
@@ -120,10 +120,10 @@
 
 <script setup>
 useSeoMeta({
-  title: 'ERP Solutions — Odoo Implementation for SMBs | IRFAtech',
-  description: 'IRFAtech implements and customizes Odoo ERP for small and medium businesses. Inventory, billing, CRM, and operations — all in one system.',
-  ogTitle: 'ERP Solutions for SMBs | IRFAtech',
-  ogDescription: 'Stop managing your business in spreadsheets. IRFAtech builds real ERP systems for growing businesses.',
+  title: 'ERP Solutions — Odoo Implementation for SMBs | IRFATECH',
+  description: 'IRFATECH implements and customizes Odoo ERP for small and medium businesses. Inventory, billing, CRM, and operations — all in one system.',
+  ogTitle: 'ERP Solutions for SMBs | IRFATECH',
+  ogDescription: 'Stop managing your business in spreadsheets. IRFATECH builds real ERP systems for growing businesses.',
   ogUrl: 'https://irfatech.in/services/erp',
 })
 
@@ -140,7 +140,7 @@ useServiceSchema({
   keywords: ['ERP', 'Odoo', 'inventory management', 'billing software', 'SMB ERP India'],
 })
 
-const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20ERP%20for%20my%20business.'
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20ERP%20for%20my%20business.'
 
 const modules = [
   'Inventory Management', 'Billing & Invoicing', 'Purchase Orders',
@@ -159,8 +159,8 @@ const process = [
 const faqs = [
   { q: 'How long does ERP implementation take?', a: 'For a basic retail or distribution ERP (inventory + billing + CRM), expect 3–6 weeks. More complex implementations with custom modules take 6–12 weeks.' },
   { q: 'Do I need to replace my current software immediately?', a: 'No. We can run a parallel period where both systems operate, so your team can get comfortable before you make the full switch.' },
-  { q: 'What if my business has specific processes that standard ERP doesn\'t support?', a: 'That\'s what customization is for. Odoo has a full development framework. IRFAtech builds custom modules to handle processes that are unique to your business.' },
-  { q: 'Is Odoo expensive?', a: 'Odoo has a free community edition and affordable paid plans. Implementation cost depends on complexity. IRFAtech offers packages designed for SMB budgets — contact us for a quote.' },
+  { q: 'What if my business has specific processes that standard ERP doesn\'t support?', a: 'That\'s what customization is for. Odoo has a full development framework. IRFATECH builds custom modules to handle processes that are unique to your business.' },
+  { q: 'Is Odoo expensive?', a: 'Odoo has a free community edition and affordable paid plans. Implementation cost depends on complexity. IRFATECH offers packages designed for SMB budgets — contact us for a quote.' },
   { q: 'What happens after the ERP goes live?', a: 'We provide 30 days of post-launch support included in every project. After that, we offer ongoing maintenance plans so you always have someone to call.' },
 ]
 

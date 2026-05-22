@@ -378,16 +378,16 @@ import { services, siteConfig } from '~/config/site'
 import { useWhatsApp } from '~/composables/useWhatsApp'
 
 useSeoMeta({
-  title: 'IRFAtech — Digital Infrastructure for Growing Businesses',
-  description: 'IRFAtech builds ERP systems, CRM, AI workflows, WhatsApp automation, and custom software for Indian SMBs. Automate operations and grow with confidence.',
-  ogTitle: 'IRFAtech — Digital Infrastructure for Growing Businesses',
+  title: 'IRFATECH — Digital Infrastructure for Growing Businesses',
+  description: 'IRFATECH builds ERP systems, CRM, AI workflows, WhatsApp automation, and custom software for Indian SMBs. Automate operations and grow with confidence.',
+  ogTitle: 'IRFATECH — Digital Infrastructure for Growing Businesses',
   ogDescription: 'ERP, CRM, AI automation & custom software for Indian SMBs. Book a free consultation.',
   ogUrl: 'https://irfatech.in',
 })
 
 // WhatsApp links
 const waGeneral = useWhatsApp()
-const waConsultation = useWhatsApp('Hi IRFAtech, I would like to book a free consultation about automating my business.')
+const waConsultation = useWhatsApp('Hi IRFATECH, I would like to book a free consultation about automating my business.')
 
 // Hero bento: top 4 services
 const heroServices = computed(() =>
@@ -448,14 +448,14 @@ const processSteps = [
 // Testimonials
 const testimonials = [
   {
-    quote: 'IRFAtech redesigned how we manage property leads and client follow-ups. The CRM they built cut our response time in half and we closed significantly more deals within the first quarter.',
+    quote: 'IRFATECH redesigned how we manage property leads and client follow-ups. The CRM they built cut our response time in half and we closed significantly more deals within the first quarter.',
     author: 'Ravi Sharma',
     role: 'Director',
     company: 'PropEdge Realty',
     initial: 'R',
   },
   {
-    quote: 'Our distribution operations ran on spreadsheets for years. After IRFAtech implemented Odoo ERP, billing errors dropped and our team saves 20+ hours a week on manual entry alone.',
+    quote: 'Our distribution operations ran on spreadsheets for years. After IRFATECH implemented Odoo ERP, billing errors dropped and our team saves 20+ hours a week on manual entry alone.',
     author: 'Amjad Khan',
     role: 'Managing Partner',
     company: 'KM Distributors',

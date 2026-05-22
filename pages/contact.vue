@@ -142,9 +142,9 @@
 import { services } from '~/config/site'
 
 useSeoMeta({
-  title: 'Contact IRFAtech — Free Business Consultation',
-  description: 'Book a free consultation with IRFAtech. WhatsApp, email, phone, or inquiry form — we respond fast and honestly.',
-  ogTitle: 'Contact IRFAtech — Book a Free Consultation',
+  title: 'Contact IRFATECH — Free Business Consultation',
+  description: 'Book a free consultation with IRFATECH. WhatsApp, email, phone, or inquiry form — we respond fast and honestly.',
+  ogTitle: 'Contact IRFATECH — Book a Free Consultation',
   ogUrl: 'https://irfatech.in/contact',
 })
 
@@ -154,7 +154,7 @@ useBreadcrumbSchema([
   { name: 'Contact', url: '/contact' },
 ])
 
-const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%27d%20like%20to%20book%20a%20free%20consultation.'
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%27d%20like%20to%20book%20a%20free%20consultation.'
 
 const form = ref({ name: '', business: '', email: '', phone: '', service: '', message: '' })
 const submitting = ref(false)

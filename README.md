@@ -1,189 +1,207 @@
-# Saloo & Neena Chowdhury - Journey Website
+# IRFAtech — Business Automation & Digital Infrastructure Platform
 
-A modern, performance-optimized website showcasing the incredible journey and world records of Saloo & Neena Chowdhury, the first and fastest circumnavigators of the globe by car.
+### *Integrated Resources For Automation*
 
-## 🌟 Features
+A modern, performance-optimized business consultancy and software solutions platform focused on helping businesses automate operations, streamline workflows, and scale digitally through custom software, ERP systems, CRM solutions, AI automation, and digital infrastructure services.
 
-- **Modern Tech Stack**: Built with Nuxt 4.2, Vue 3 Composition API, and Tailwind CSS 4.1
-- **Performance Optimized**: Fast loading, optimized images, and efficient code splitting
-- **SEO Optimized**: Comprehensive meta tags, structured data, and search engine friendly
-- **Responsive Design**: Mobile-first approach with beautiful animations
-- **Interactive Elements**: Globe animations, parallax effects, and smooth transitions
-- **Content Management**: Blog system with Markdown support via Nuxt Content
-- **Gallery System**: Categorized photo gallery with lightbox functionality
+---
 
-## 🚀 Tech Stack
+## Identity
 
-- **Framework**: Nuxt 4.2
-- **Frontend**: Vue 3 with Composition API
-- **Styling**: Tailwind CSS 4.1
-- **Icons**: Iconify with Lucide icons
-- **Content**: Nuxt Content for blog management
-- **Images**: Nuxt Image for optimization
-- **Utilities**: VueUse for composables
+| Field | Value |
+|-------|-------|
+| **Name** | IRFATECH |
+| **Full form** | Integrated Resources For Automation |
+| **Type** | B2B Business Technology & Automation Company |
+| **Founder** | Muhammad Irfan |
+| **Experience** | 15+ years software development |
+| **Market** | SMBs — India primary, scalable globally |
+| **Website** | https://irfatech.in |
+| **Tagline** | *Digital Infrastructure for Growing Businesses* |
 
-## 📁 Project Structure
+---
 
-```
+## Mission & Vision
+
+**Mission:** Empower businesses with smart, scalable, and affordable digital systems that simplify operations, improve productivity, and enable sustainable growth through automation and technology.
+
+**Vision:** Build a future where businesses of every size can access powerful digital infrastructure, automation systems, and intelligent business tools — without complexity or unnecessary cost.
+
+---
+
+## Services (ordered by strategic priority)
+
+| # | Service | Slug | Core Value |
+|---|---------|------|------------|
+| 1 | ERP Solutions | `/services/erp` | Odoo-based ERP — inventory, billing, ops, accounting |
+| 2 | AI & Workflow Automation | `/services/ai-automation` | Reduce manual work, intelligent business processes |
+| 3 | Custom Software Development | `/services/custom-software` | Laravel + Vue.js tailored systems |
+| 4 | WhatsApp Automation | `/services/whatsapp-automation` | Business communication automation (India-critical) |
+| 5 | CRM & Sales Automation | `/services/crm` | Lead tracking, follow-up automation, conversion |
+| 6 | Business Websites | `/services/websites` | Lead gen, credibility, entry-point service |
+| 7 | Mobile App Development | `/services/mobile-apps` | iOS/Android business operations apps |
+| 8 | Maintenance & Support | `/services/maintenance` | Ongoing support, updates, SLA-based |
+
+---
+
+## Tech Stack (what IRFATECH BUILDS with)
+
+- **Backend:** Laravel (PHP)
+- **Frontend:** Vue.js, Tailwind CSS
+- **ERP Platform:** Odoo
+- **APIs:** REST API integrations
+- **Mobile:** Cross-platform (web-based mobile, TBD native)
+- **Automation:** AI-driven workflows, WhatsApp Business API
+- **Database:** MySQL / PostgreSQL
+
+---
+
+## Flagship Product: Landflix
+
+IRFATECH's own SaaS venture — a modern real estate technology platform:
+- Property discovery, management, and digital real estate operations
+- Demonstrates IRFATECH's ability to build full-scale vertical SaaS
+- Used as a portfolio/credibility piece on the website
+
+---
+
+## Industries Served
+
+1. Real Estate (Landflix synergy)
+2. Retail Shops (POS, inventory)
+3. Distributors & Wholesalers (supply chain, billing)
+4. Clinics & Healthcare (patient records, appointments)
+5. Restaurants & Hospitality (orders, menu management)
+6. Coaching Centers / Educational (enrollment, payments)
+7. SMB Enterprises (end-to-end digital infrastructure)
+
+---
+
+## Core Values
+
+- **Innovation** — Smarter ways to solve business problems
+- **Reliability** — Systems businesses can trust
+- **Simplicity** — Making technology practical and accessible
+- **Growth** — Helping businesses scale through digital transformation
+- **Partnership** — Long-term client relationships, not one-off projects
+
+---
+
+# 🌟 Features
+
+- **Modern Tech Stack**: Built with Nuxt 4, Vue 3 Composition API, and Tailwind CSS 4
+- **Performance Optimized**: Fast loading, optimized assets, and efficient code splitting
+- **SEO Optimized**: Structured data, metadata optimization, Open Graph support, and search-engine-friendly architecture
+- **Responsive Design**: Mobile-first UI with premium dark/light theme support
+- **Business-Focused UX**: Clear messaging optimized for consultancy conversion and trust-building
+- **AI & Automation Showcase**: Interactive sections for ERP, CRM, AI workflows, and automation systems
+- **Content Management**: Blog and insights powered by Markdown via Nuxt Content
+- **Portfolio & Case Studies**: Showcase client projects, business transformations, and products like Landflix
+- **Lead Generation Ready**: Consultation forms, WhatsApp integration, and CTA-focused UI
+
+---
+
+# 🚀 Tech Stack
+
+- **Framework**: Nuxt 4
+- **Frontend**: Vue 3 Composition API
+- **Styling**: Tailwind CSS 4
+- **Icons**: Iconify / Lucide Icons
+- **Content Management**: Nuxt Content
+- **Image Optimization**: Nuxt Image
+- **Utilities**: VueUse
+- **Animations**: Motion & smooth UI transitions
+
+---
+
+# 📁 Project Structure
+
+```bash
 ├── assets/
 │   └── css/
-│       └── main.css          # Global styles and Tailwind imports
+│       └── main.css
 ├── components/
-│   ├── AppHeader.vue         # Navigation header
-│   ├── AppFooter.vue         # Site footer
-│   ├── GlobeAnimation.vue    # Hero globe animation
-│   ├── GlobeParallax.vue     # Timeline globe parallax
-│   ├── JourneyCard.vue       # Journey display card
-│   ├── TimelineEvent.vue     # Timeline event component
-│   ├── AchievementCard.vue   # Achievement display card
-│   └── BlogCard.vue          # Blog post card
 ├── content/
-│   └── blog/                 # Blog posts in Markdown
 ├── layouts/
-│   └── default.vue           # Default layout
 ├── pages/
-│   ├── index.vue             # Homepage
-│   ├── about.vue             # About page
-│   ├── timeline.vue          # Journey timeline
-│   ├── journeys/
-│   │   └── index.vue         # Journeys listing
-│   ├── achievements.vue      # World records & achievements
-│   ├── gallery.vue           # Photo gallery
-│   ├── blog/
-│   │   ├── index.vue         # Blog listing
-│   │   └── [...slug].vue     # Dynamic blog posts
-│   └── contact.vue           # Contact form
-├── app.vue                   # Root component
-├── nuxt.config.ts           # Nuxt configuration
-└── tailwind.config.js       # Tailwind configuration
+├── app.vue
+├── nuxt.config.ts
+└── tailwind.config.js
 ```
 
-## 🎨 Design Features
-
-### Animations & Interactions
-- Globe SVG animation on homepage hero
-- Parallax globe effects on timeline
-- Smooth hover transitions
-- Loading animations
-- Responsive image galleries with lightbox
-
-### Performance Optimizations
-- Lazy loading images
-- Optimized SVG animations
-- Efficient component structure
-- Minimal bundle size
-- Fast page transitions
-
-### SEO & Accessibility
-- Semantic HTML structure
-- Comprehensive meta tags
-- Open Graph and Twitter Card support
-- Accessible navigation
-- Screen reader friendly
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd saloo-neena-journey
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
-
-5. **Preview production build**
-   ```bash
-   npm run preview
-   ```
-
-## 📝 Content Management
-
-### Adding Blog Posts
-Create new Markdown files in `content/blog/` with frontmatter:
-
-```markdown
----
-title: 'Your Post Title'
-description: 'Post description'
-date: '2024-01-15'
-author: 'Author Name'
-category: 'Category'
-featured: true
-image: '/images/blog/post-image.jpg'
-tags: ['tag1', 'tag2']
 ---
 
-# Your content here...
+# 💼 Core Services
+
+## Custom Software Development
+Scalable business software tailored to unique operational needs.
+
+## ERP Solutions
+Business management systems for inventory, billing, CRM, and workflow automation.
+
+## CRM & Sales Automation
+Lead management, customer tracking, and automated follow-up systems.
+
+## AI & Workflow Automation
+Smart automation systems designed to reduce manual tasks and improve operational efficiency.
+
+## Web & Mobile Applications
+Modern scalable platforms built for business growth.
+
+## Consulting & Support
+Long-term technology partnership and digital transformation consulting.
+
+---
+
+# 🏢 Industries Served
+
+- Real Estate
+- Retail Businesses
+- Healthcare
+- Educational Institutions
+- Small Enterprises
+- Distributors
+- Service Businesses
+- Hospitality
+
+---
+
+# 🚀 Getting Started
+
+## Installation
+
+```bash
+git clone <repository-url>
+cd irfatech
+
+npm install
+npm run dev
 ```
 
-### Managing Gallery Images
-Update the `allImages` array in `pages/gallery.vue` to add new photos with proper categorization.
+---
 
-## 🎯 Key Pages
+# 🌐 Deployment
 
-1. **Homepage** (`/`) - Hero section with globe animation and featured content
-2. **About** (`/about`) - Detailed biography and story
-3. **Timeline** (`/timeline`) - Chronological journey events with parallax effects
-4. **Journeys** (`/journeys`) - Filterable journey collection
-5. **Achievements** (`/achievements`) - World records and recognition
-6. **Gallery** (`/gallery`) - Categorized photo collection with lightbox
-7. **Blog** (`/blog`) - Journey stories and updates
-8. **Contact** (`/contact`) - Contact form and information
-
-## 🌐 Deployment
-
-The site is optimized for static generation and can be deployed to:
-- Netlify
+Optimized for:
 - Vercel
-- GitHub Pages
-- AWS S3 + CloudFront
-- Any static hosting service
-
-## 📱 Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Saloo & Neena Chowdhury for their incredible achievements
-- Guinness World Records for official recognition
-- The adventure and motor rallying community
-- All supporters of their historic journeys
+- Netlify
+- AWS
+- Cloudflare Pages
 
 ---
 
-*Built with ❤️ to honor the legacy of world record holders Saloo & Neena Chowdhury*
+# 🤝 Business Philosophy
+
+IRFAtech believes technology should:
+- simplify operations
+- improve efficiency
+- support business growth
+- create scalable systems
+- reduce operational friction
+
+---
+
+# IRFAtech
+### *Integrated Resources For Automation*
+
+> Building smarter systems for growing businesses.

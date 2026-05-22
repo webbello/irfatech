@@ -1,4 +1,4 @@
-# IRFAtech — Company Profile (Reference Document)
+# IRFATECH — Company Profile (Reference Document)
 
 > **Read this file at the start of any future session** before editing pages, copy, or strategy.
 
@@ -8,13 +8,13 @@
 
 | Field | Value |
 |-------|-------|
-| **Name** | IRFAtech |
+| **Name** | IRFATECH |
 | **Full form** | Integrated Resources For Automation |
 | **Type** | B2B Business Technology & Automation Company |
 | **Founder** | Muhammad Irfan |
 | **Experience** | 15+ years software development |
 | **Market** | SMBs — India primary, scalable globally |
-| **Website** | https://irfatech.com |
+| **Website** | https://irfatech.in |
 | **Tagline** | *Digital Infrastructure for Growing Businesses* |
 
 ---
@@ -42,7 +42,7 @@
 
 ---
 
-## Tech Stack (what IRFAtech BUILDS with)
+## Tech Stack (what IRFATECH BUILDS with)
 
 - **Backend:** Laravel (PHP)
 - **Frontend:** Vue.js, Tailwind CSS
@@ -56,9 +56,9 @@
 
 ## Flagship Product: Landflix
 
-IRFAtech's own SaaS venture — a modern real estate technology platform:
+IRFATECH's own SaaS venture — a modern real estate technology platform:
 - Property discovery, management, and digital real estate operations
-- Demonstrates IRFAtech's ability to build full-scale vertical SaaS
+- Demonstrates IRFATECH's ability to build full-scale vertical SaaS
 - Used as a portfolio/credibility piece on the website
 
 ---
@@ -102,7 +102,7 @@ IRFAtech's own SaaS venture — a modern real estate technology platform:
 - **Sub:** Business automation, ERP solutions, AI workflows, and scalable software systems designed to help businesses operate smarter and grow faster.
 
 ### Short intro (cards / social)
-IRFAtech is a business automation and digital infrastructure company helping businesses streamline operations through ERP systems, websites, CRM solutions, AI workflows, and custom software development.
+IRFATECH is a business automation and digital infrastructure company helping businesses streamline operations through ERP systems, websites, CRM solutions, AI workflows, and custom software development.
 
 ### Primary CTA pattern
 "Book a Free Consultation" → `/contact` | "Talk on WhatsApp" → wa.me link
@@ -113,9 +113,9 @@ IRFAtech is a business automation and digital infrastructure company helping bus
 
 | Item | Current Placeholder | File |
 |------|-------------------|------|
-| WhatsApp number | `923001234567` | `composables/useWhatsApp.ts`, `components/WhatsAppFloat.vue`, `components/AppFooter.vue`, `pages/contact.vue` |
-| Email | `hello@irfatech.com` | `config/site.ts`, `components/AppFooter.vue` |
-| Phone | `+92 300 123 4567` | `config/site.ts`, `pages/contact.vue` |
+| WhatsApp number | `+918864812200` | `composables/useWhatsApp.ts`, `components/WhatsAppFloat.vue`, `components/AppFooter.vue`, `pages/contact.vue` |
+| Email | `hello@irfatech.in` | `config/site.ts`, `components/AppFooter.vue` |
+| Phone | `+91 88 6481 2200` | `config/site.ts`, `pages/contact.vue` |
 | Formspree form | `/` (action attr) | `pages/contact.vue` |
 | Social links | Placeholder URLs | `config/site.ts` |
 | Founder photo | Missing | `pages/about.vue` |

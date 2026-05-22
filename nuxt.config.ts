@@ -36,20 +36,20 @@ export default defineNuxtConfig({
     baseURL: '/',
     buildAssetsDir: 'assets',
     head: {
-      title: 'IRFAtech — Digital Infrastructure for Growing Businesses',
+      title: 'IRFATECH — Digital Infrastructure for Growing Businesses',
       htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           name: 'description',
-          content: 'IRFAtech helps businesses automate, organize, and grow digitally. Websites, ERP, CRM, AI automation, and custom software for SMBs.'
+          content: 'IRFATECH helps businesses automate, organize, and grow digitally. Websites, ERP, CRM, AI automation, and custom software for SMBs.'
         },
-        { name: 'keywords', content: 'ERP solutions, CRM software, business automation, WhatsApp automation, AI workflows, custom software development, business websites, IRFAtech' },
-        { name: 'author', content: 'IRFAtech' },
+        { name: 'keywords', content: 'ERP solutions, CRM software, business automation, WhatsApp automation, AI workflows, custom software development, business websites, IRFATECH' },
+        { name: 'author', content: 'IRFATECH' },
         { name: 'robots', content: 'index, follow' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:site_name', content: 'IRFAtech' },
+        { property: 'og:site_name', content: 'IRFATECH' },
         { property: 'og:image', content: 'https://irfatech.in/images/og-image.svg' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
@@ -79,9 +79,9 @@ export default defineNuxtConfig({
           innerHTML: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            'name': 'IRFAtech',
+            'name': 'IRFATECH',
             'alternateName': 'Integrated Resources For Automation',
-            'description': 'IRFAtech helps businesses automate, organize, and grow digitally through websites, ERP, CRM, AI automation, and custom software.',
+            'description': 'IRFATECH helps businesses automate, organize, and grow digitally through websites, ERP, CRM, AI automation, and custom software.',
             'url': 'https://irfatech.in',
             'logo': 'https://irfatech.in/images/logo.png',
             'foundingDate': '2009',

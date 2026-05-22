@@ -4,22 +4,25 @@
 /* ─── Tailwind v4 Design Tokens ─────────────────────────────────────────── */
 @theme {
   /* Brand palette */
-  --color-navy-950: #020B18;
-  --color-navy-900: #04142A;
-  --color-navy-800: #071E3D;
-  --color-navy-700: #0D2B52;
-  --color-navy-600: #1A3D6B;
+  /* Charcoal */
+--color-navy-950: #0A0A0B;
+--color-navy-900: #141517;
+--color-navy-800: #1F2125;
+--color-navy-700: #2A2E35;
+--color-navy-600: #3A404A;
 
-  --color-electric-300: #7DD3FC;
-  --color-electric-400: #38BDF8;
-  --color-electric-500: #0EA5E9;
-  --color-electric-600: #0284C7;
-  --color-electric-700: #0369A1;
+/* Orange */
+--color-electric-300: #FED7AA;
+--color-electric-400: #FDBA74;
+--color-electric-500: #F97316;
+--color-electric-600: #EA580C;
+--color-electric-700: #C2410C;
 
-  --color-accent-300: #A5B4FC;
-  --color-accent-400: #818CF8;
-  --color-accent-500: #6366F1;
-  --color-accent-600: #4F46E5;
+/* Copper Accent */
+--color-accent-300: #FDE68A;
+--color-accent-400: #F59E0B;
+--color-accent-500: #D97706;
+--color-accent-600: #B45309;
 
   /* Typography */
   --font-sans:    Inter, system-ui, sans-serif;

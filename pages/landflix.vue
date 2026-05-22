@@ -9,18 +9,18 @@
           <div>
             <div class="badge-accent mb-6">
               <iconify-icon icon="lucide:star" class="text-xs"></iconify-icon>
-              IRFAtech Venture
+              IRFATECH Venture
             </div>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-5 leading-tight">
               Landflix
               <span class="block text-gradient text-3xl md:text-4xl mt-2">Smart Real Estate Platform</span>
             </h1>
             <p class="text-slate-400 text-xl leading-relaxed mb-8">
-              Built entirely by IRFAtech to prove what's possible. Landflix is a full property technology platform that transforms how real estate businesses operate — from listing to closing.
+              Built entirely by IRFATECH to prove what's possible. Landflix is a full property technology platform that transforms how real estate businesses operate — from listing to closing.
             </p>
             <div class="flex flex-wrap gap-4">
               <a
-                href="https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%27d%20like%20to%20know%20more%20about%20Landflix."
+                href="https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%27d%20like%20to%20know%20more%20about%20Landflix."
                 target="_blank"
                 rel="noopener noreferrer"
                 class="btn-primary px-7 py-3"
@@ -75,7 +75,7 @@
       <div class="container-max">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div class="badge mb-4">Built by IRFAtech</div>
+            <div class="badge mb-4">Built by IRFATECH</div>
             <h2 class="text-3xl font-bold text-white mb-5 leading-tight">
               Why We Built Landflix
             </h2>
@@ -83,7 +83,7 @@
               We were tired of telling real estate clients what a platform "could" look like. So we built one ourselves — using the same technology stack we use for client projects.
             </p>
             <p class="text-slate-400 leading-relaxed mb-4">
-              Landflix became our proof of concept: that IRFAtech can take a business problem and turn it into a polished, scalable digital product. From backend to frontend to mobile — done in-house.
+              Landflix became our proof of concept: that IRFATECH can take a business problem and turn it into a polished, scalable digital product. From backend to frontend to mobile — done in-house.
             </p>
             <p class="text-slate-400 leading-relaxed">
               Need something similar for your industry? That's exactly the kind of project we love.
@@ -118,10 +118,10 @@
 
 <script setup>
 useSeoMeta({
-  title: 'Landflix — Smart Real Estate Platform by IRFAtech',
-  description: 'Landflix is a full property technology platform built by IRFAtech. Smart listings, lead management, agent dashboards, and WhatsApp integration.',
-  ogTitle: 'Landflix — Real Estate Platform by IRFAtech',
-  ogDescription: 'A full property technology solution built entirely by IRFAtech. Proof of what we can build for your business.',
+  title: 'Landflix — Smart Real Estate Platform by IRFATECH',
+  description: 'Landflix is a full property technology platform built by IRFATECH. Smart listings, lead management, agent dashboards, and WhatsApp integration.',
+  ogTitle: 'Landflix — Real Estate Platform by IRFATECH',
+  ogDescription: 'A full property technology solution built entirely by IRFATECH. Proof of what we can build for your business.',
 })
 
 const features = [

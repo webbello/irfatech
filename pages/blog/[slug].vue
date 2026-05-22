@@ -81,13 +81,13 @@
                 </div>
                 <h3 class="text-sm font-semibold text-white mb-2">Ready to automate your business?</h3>
                 <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                  IRFAtech builds the systems you read about — for real businesses, at SMB-friendly prices.
+                  IRFATECH builds the systems you read about — for real businesses, at SMB-friendly prices.
                 </p>
                 <NuxtLink to="/contact" class="btn-primary text-xs px-4 py-2.5 w-full justify-center">
                   Book Free Consultation
                 </NuxtLink>
                 <a
-                  href="https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20just%20read%20your%20blog%20and%20want%20to%20learn%20more."
+                  href="https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20just%20read%20your%20blog%20and%20want%20to%20learn%20more."
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn-whatsapp text-xs px-4 py-2.5 w-full justify-center mt-2"
@@ -130,7 +130,7 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () =>
 
 if (post.value) {
   useSeoMeta({
-    title: `${post.value.title} | IRFAtech Blog`,
+    title: `${post.value.title} | IRFATECH Blog`,
     description: post.value.description,
     ogTitle: post.value.title,
     ogDescription: post.value.description,

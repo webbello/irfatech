@@ -40,8 +40,8 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'Mobile App Development | IRFAtech', description: 'IRFAtech builds iOS and Android mobile apps for businesses — customer apps, field team tools, and management apps.' })
-const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20a%20mobile%20app.'
+useSeoMeta({ title: 'Mobile App Development | IRFATECH', description: 'IRFATECH builds iOS and Android mobile apps for businesses — customer apps, field team tools, and management apps.' })
+const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20mobile%20app.'
 const appTypes = [
   { icon: 'lucide:users', title: 'Customer Apps', desc: 'Let customers track orders, book appointments, browse products, and contact you from your branded app.' },
   { icon: 'lucide:truck', title: 'Field Team Apps', desc: 'Mobile tools for delivery staff, sales reps, and field technicians to log work in real time.' },

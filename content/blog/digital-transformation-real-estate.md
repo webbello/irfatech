@@ -72,7 +72,7 @@ Automated follow-ups — "New listings in your area of interest" or "Did you hav
 
 ## Landflix — What We Built as Proof
 
-IRFAtech built Landflix as our own real estate technology platform — not for a client, but as proof of concept that all of the above is achievable for Indiai real estate businesses.
+IRFATECH built Landflix as our own real estate technology platform — not for a client, but as proof of concept that all of the above is achievable for Indiai real estate businesses.
 
 Landflix includes:
 - Full property search and listing management
@@ -80,7 +80,7 @@ Landflix includes:
 - WhatsApp API integration for lead capture
 - Analytics on listing performance and agent activity
 
-If your agency needs a similar platform — customized for your brand and workflow — that's exactly the kind of project IRFAtech specializes in.
+If your agency needs a similar platform — customized for your brand and workflow — that's exactly the kind of project IRFATECH specializes in.
 
 ## Where to Start
 
@@ -92,4 +92,4 @@ Once that's working, add the listing platform. Then the analytics. Then the auto
 
 ---
 
-**IRFAtech has built real estate technology for multiple agencies in India.** [Book a free consultation](/contact) to discuss what's right for your business.
+**IRFATECH has built real estate technology for multiple agencies in India.** [Book a free consultation](/contact) to discuss what's right for your business.

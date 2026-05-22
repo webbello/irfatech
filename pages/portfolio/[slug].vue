@@ -64,7 +64,7 @@
                   <div class="w-7 h-7 rounded-lg bg-electric-500/10 flex items-center justify-center">
                     <iconify-icon icon="lucide:lightbulb" class="text-sm text-electric-400"></iconify-icon>
                   </div>
-                  The IRFAtech Solution
+                  The IRFATECH Solution
                 </h2>
                 <div class="card-glass p-6">
                   <p class="text-slate-400 leading-relaxed">{{ study.solution }}</p>
@@ -164,7 +164,7 @@
 
 <script setup>
 const route = useRoute()
-const whatsappUrl = useWhatsApp('Hi IRFAtech, I saw your portfolio and would like to discuss a similar project.')
+const whatsappUrl = useWhatsApp('Hi IRFATECH, I saw your portfolio and would like to discuss a similar project.')
 
 // Static case studies data — move to content/portfolio/ as markdown files when scaling
 const caseStudies = [
@@ -180,7 +180,7 @@ const caseStudies = [
       'No way to see which agent was performing and which listings were getting traction',
       'No professional web presence to share with serious buyers',
     ],
-    solution: 'IRFAtech designed and built Landflix — a full property technology platform with agent dashboards, smart search, WhatsApp lead integration, and real-time analytics.',
+    solution: 'IRFATECH designed and built Landflix — a full property technology platform with agent dashboards, smart search, WhatsApp lead integration, and real-time analytics.',
     solutionPoints: [
       'Searchable property catalog with filters (location, price, type, area)',
       'Individual agent dashboards with listing management',
@@ -260,7 +260,7 @@ const study = computed(() => caseStudies.find(s => s.slug === route.params.slug)
 
 if (study.value) {
   useSeoMeta({
-    title: `${study.value.title} — IRFAtech Portfolio`,
+    title: `${study.value.title} — IRFATECH Portfolio`,
     description: study.value.summary,
     ogTitle: study.value.title,
     ogDescription: study.value.summary,

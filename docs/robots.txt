@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://irfatech.com/sitemap.xml
+Sitemap: https://irfatech.in/sitemap.xml
 
 User-agent: Googlebot
 Allow: /

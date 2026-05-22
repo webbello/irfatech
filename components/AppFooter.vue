@@ -113,7 +113,7 @@
     <div class="border-t border-navy-700/50">
       <div class="container-max px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
         <p class="text-xs text-slate-500">
-          &copy; {{ year }} IRFAtech — Integrated Resources For Automation. All rights reserved.
+          &copy; {{ year }} IRFATECH — Integrated Resources For Automation. All rights reserved.
         </p>
         <div class="flex items-center gap-4">
           <NuxtLink to="/privacy" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">Privacy Policy</NuxtLink>
@@ -138,7 +138,7 @@ const socials = [
 ]
 
 const companyLinks = [
-  { name: 'About IRFAtech', href: '/about' },
+  { name: 'About IRFATECH', href: '/about' },
   { name: 'Our Portfolio', href: '/portfolio' },
   { name: 'Industries', href: '/industries' },
   { name: 'Landflix', href: '/landflix' },

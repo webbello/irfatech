@@ -68,7 +68,7 @@ Custom CRMs cost more upfront but pay back faster because your team actually use
 
 1. **WhatsApp Integration** — Non-negotiable. If your CRM doesn't work with WhatsApp, you'll maintain two systems.
 2. **Mobile-friendly** — Your sales team is on the road. Desktop-only CRMs get ignored.
-3. **PKR pricing or affordable USD** — Check total annual cost including per-user fees.
+3. **INR pricing or affordable USD** — Check total annual cost including per-user fees.
 4. **Local support** — Who do you call when it breaks at 6pm before a big client meeting?
 5. **Custom fields** — Your business has data points that generic CRMs don't anticipate.
 
@@ -84,4 +84,4 @@ Here's why:
 
 ---
 
-**IRFAtech builds CRM systems designed around how Indiai businesses actually work.** [Book a free consultation](/contact) and let's see what fits your operation.
+**IRFATECH builds CRM systems designed around how Indiai businesses actually work.** [Book a free consultation](/contact) and let's see what fits your operation.

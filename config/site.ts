@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: 'IRFAtech',
+  name: 'IRFATECH',
   tagline: 'Integrated Resources For Automation',
   description: 'Helping businesses automate, organize, and grow digitally.',
   url: 'https://irfatech.in',
   whatsapp: {
     number: '8864812200', // replace with real number
-    defaultMessage: 'Hi IRFAtech, I need help with my business digitalization.',
+    defaultMessage: 'Hi IRFATECH, I need help with my business digitalization.',
   },
   contact: {
     email: 'irfatechgroup@gmail.com',
@@ -25,7 +25,7 @@ export const services = [
     icon: 'lucide:globe',
     short: 'Professional websites that build trust and generate leads.',
     color: 'electric',
-    message: 'Hi IRFAtech, I need a professional business website.',
+    message: 'Hi IRFATECH, I need a professional business website.',
   },
   {
     slug: 'erp',
@@ -33,7 +33,7 @@ export const services = [
     icon: 'lucide:layout-dashboard',
     short: 'Odoo-based ERP to manage inventory, billing, and operations.',
     color: 'accent',
-    message: 'Hi IRFAtech, I need an ERP solution for my business.',
+    message: 'Hi IRFATECH, I need an ERP solution for my business.',
   },
   {
     slug: 'crm',
@@ -41,7 +41,7 @@ export const services = [
     icon: 'lucide:users',
     short: 'Track leads, automate follow-ups, and close more deals.',
     color: 'electric',
-    message: 'Hi IRFAtech, I need a CRM system for my business.',
+    message: 'Hi IRFATECH, I need a CRM system for my business.',
   },
   {
     slug: 'ai-automation',
@@ -49,7 +49,7 @@ export const services = [
     icon: 'lucide:bot',
     short: 'Automate repetitive tasks with AI and smart workflows.',
     color: 'accent',
-    message: 'Hi IRFAtech, I need AI automation for my business.',
+    message: 'Hi IRFATECH, I need AI automation for my business.',
   },
   {
     slug: 'custom-software',
@@ -57,7 +57,7 @@ export const services = [
     icon: 'lucide:code-2',
     short: 'Tailor-built dashboards, portals, and business applications.',
     color: 'electric',
-    message: 'Hi IRFAtech, I need custom software development.',
+    message: 'Hi IRFATECH, I need custom software development.',
   },
   {
     slug: 'whatsapp-automation',
@@ -65,7 +65,7 @@ export const services = [
     icon: 'lucide:message-circle',
     short: 'Automate customer communication via WhatsApp Business API.',
     color: 'accent',
-    message: 'Hi IRFAtech, I need WhatsApp automation for my business.',
+    message: 'Hi IRFATECH, I need WhatsApp automation for my business.',
   },
   {
     slug: 'mobile-apps',
@@ -73,7 +73,7 @@ export const services = [
     icon: 'lucide:smartphone',
     short: 'iOS and Android apps built for your business operations.',
     color: 'electric',
-    message: 'Hi IRFAtech, I need a mobile app for my business.',
+    message: 'Hi IRFATECH, I need a mobile app for my business.',
   },
   {
     slug: 'maintenance',
@@ -81,7 +81,7 @@ export const services = [
     icon: 'lucide:shield-check',
     short: 'Ongoing support, updates, and monitoring for your systems.',
     color: 'accent',
-    message: 'Hi IRFAtech, I need maintenance and support services.',
+    message: 'Hi IRFATECH, I need maintenance and support services.',
   },
 ]
 

@@ -74,7 +74,7 @@ You need access to the official WhatsApp Business API (not just the free WhatsAp
 - A verified business
 - A Business Solution Provider (BSP) integration
 
-IRFAtech handles the API setup and BSP integration as part of our WhatsApp automation service.
+IRFATECH handles the API setup and BSP integration as part of our WhatsApp automation service.
 
 ### CRM Integration
 
@@ -86,7 +86,7 @@ WhatsApp automation only works well when connected to a CRM. This way:
 
 ### Message Templates
 
-For outbound messages (sending first), WhatsApp requires pre-approved message templates. IRFAtech helps you write and get approval for templates that actually get replies.
+For outbound messages (sending first), WhatsApp requires pre-approved message templates. IRFATECH helps you write and get approval for templates that actually get replies.
 
 ## What to Avoid
 
@@ -106,4 +106,4 @@ The investment pays back in weeks, not months.
 
 ---
 
-**IRFAtech builds WhatsApp automation systems integrated with CRM for SMBs.** [Book a free consultation](/contact) to see what's possible for your business.
+**IRFATECH builds WhatsApp automation systems integrated with CRM for SMBs.** [Book a free consultation](/contact) to see what's possible for your business.

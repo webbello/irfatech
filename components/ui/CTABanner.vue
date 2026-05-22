@@ -36,10 +36,10 @@
 <script setup>
 defineProps({
   title: { type: String, default: "Let's Digitize Your Business" },
-  subtitle: { type: String, default: 'Book a free consultation and discover how IRFAtech can automate and scale your operations.' },
+  subtitle: { type: String, default: 'Book a free consultation and discover how IRFATECH can automate and scale your operations.' },
   primaryLabel: { type: String, default: 'Schedule Consultation' },
   primaryHref: { type: String, default: '/contact' },
   secondaryLabel: { type: String, default: 'Talk on WhatsApp' },
-  whatsappUrl: { type: String, default: 'https://wa.me/918864812200?text=Hi%20IRFAtech%2C%20I%20need%20help%20with%20my%20business.' },
+  whatsappUrl: { type: String, default: 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20help%20with%20my%20business.' },
 })
 </script>

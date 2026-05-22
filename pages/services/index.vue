@@ -52,9 +52,9 @@
 import { services } from '~/config/site'
 
 useSeoMeta({
-  title: 'Services — Websites, ERP, CRM, AI Automation | IRFAtech',
-  description: 'IRFAtech offers business websites, ERP solutions, CRM systems, AI automation, custom software, WhatsApp automation, mobile apps, and maintenance services.',
-  ogTitle: 'IRFAtech Services — Full-Stack Business Digitalization',
+  title: 'Services — Websites, ERP, CRM, AI Automation | IRFATECH',
+  description: 'IRFATECH offers business websites, ERP solutions, CRM systems, AI automation, custom software, WhatsApp automation, mobile apps, and maintenance services.',
+  ogTitle: 'IRFATECH Services — Full-Stack Business Digitalization',
   ogDescription: 'Websites, ERP, CRM, AI automation, custom software, and more. Built for growing SMBs.',
 })
 </script>

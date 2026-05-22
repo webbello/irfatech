@@ -91,4 +91,4 @@ Common first automations for Indiai SMBs:
 
 ---
 
-**IRFAtech builds AI workflows integrated with your existing systems.** [Book a free consultation](/contact) — we'll identify which automation gives your business the fastest return.
+**IRFATECH builds AI workflows integrated with your existing systems.** [Book a free consultation](/contact) — we'll identify which automation gives your business the fastest return.

@@ -12,22 +12,22 @@
       <div class="container-max max-w-3xl mx-auto">
         <div class="prose prose-invert prose-slate max-w-none prose-headings:text-white prose-p:text-slate-400 prose-li:text-slate-400 prose-strong:text-white">
           <h2>Services</h2>
-          <p>IRFAtech provides digital services including website development, ERP implementation, CRM systems, AI automation, custom software development, and related services. The specific scope of services is defined in individual project agreements or proposals.</p>
+          <p>IRFATECH provides digital services including website development, ERP implementation, CRM systems, AI automation, custom software development, and related services. The specific scope of services is defined in individual project agreements or proposals.</p>
 
           <h2>Project Agreements</h2>
           <p>Each project begins with a written proposal or agreement outlining scope, timeline, deliverables, and pricing. Work begins only after written confirmation and initial payment (as agreed).</p>
 
           <h2>Intellectual Property</h2>
-          <p>Upon full payment, clients receive ownership of the custom code and deliverables developed specifically for their project. IRFAtech retains the right to use general-purpose tools, frameworks, and methodologies developed independently.</p>
+          <p>Upon full payment, clients receive ownership of the custom code and deliverables developed specifically for their project. IRFATECH retains the right to use general-purpose tools, frameworks, and methodologies developed independently.</p>
 
           <h2>Payment Terms</h2>
-          <p>Payment schedules are defined per project. Late payments may result in work suspension. All prices are in Indiai Rupees (PKR) unless otherwise agreed in writing.</p>
+          <p>Payment schedules are defined per project. Late payments may result in work suspension. All prices are in Indiai Rupees (INR) unless otherwise agreed in writing.</p>
 
           <h2>Revisions & Changes</h2>
           <p>Reasonable revisions within the agreed scope are included. Changes that significantly alter the project scope are subject to additional pricing discussions.</p>
 
           <h2>Limitation of Liability</h2>
-          <p>IRFAtech's liability is limited to the amount paid for the specific service in question. We are not liable for indirect, consequential, or business losses arising from the use of our services.</p>
+          <p>IRFATECH's liability is limited to the amount paid for the specific service in question. We are not liable for indirect, consequential, or business losses arising from the use of our services.</p>
 
           <h2>Governing Law</h2>
           <p>These terms are governed by the laws of India. Disputes will be resolved through good-faith negotiation before any formal proceedings.</p>
@@ -42,8 +42,8 @@
 
 <script setup>
 useSeoMeta({
-  title: 'Terms of Service | IRFAtech',
-  description: 'IRFAtech terms of service — how we work, project agreements, and your rights.',
+  title: 'Terms of Service | IRFATECH',
+  description: 'IRFATECH terms of service — how we work, project agreements, and your rights.',
   robots: 'noindex',
 })
 </script>

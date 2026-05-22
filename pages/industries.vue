@@ -51,7 +51,7 @@
 
           <!-- Solutions -->
           <div>
-            <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">IRFAtech Solutions</h3>
+            <h3 class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">IRFATECH Solutions</h3>
             <ul class="space-y-2">
               <li v-for="s in industry.solutions" :key="s" class="flex items-start gap-2 text-sm text-slate-300">
                 <iconify-icon icon="lucide:check-circle-2" class="text-electric-400 text-sm mt-0.5 flex-shrink-0"></iconify-icon>
@@ -73,8 +73,8 @@
 
 <script setup>
 useSeoMeta({
-  title: 'Industries We Serve — Real Estate, Retail, Clinics & More | IRFAtech',
-  description: 'IRFAtech builds digital solutions for real estate, retail shops, distributors, clinics, restaurants, coaching centers, and SMB enterprises.',
+  title: 'Industries We Serve — Real Estate, Retail, Clinics & More | IRFATECH',
+  description: 'IRFATECH builds digital solutions for real estate, retail shops, distributors, clinics, restaurants, coaching centers, and SMB enterprises.',
 })
 
 const industryDetails = [

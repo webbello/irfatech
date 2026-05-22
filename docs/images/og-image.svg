@@ -52,6 +52,6 @@
 
   <!-- Bottom bar -->
   <rect x="0" y="570" width="1200" height="60" fill="#071E3D"/>
-  <text x="80" y="607" font-family="Inter,system-ui,sans-serif" font-size="18" fill="#64748B">irfatech.com</text>
+  <text x="80" y="607" font-family="Inter,system-ui,sans-serif" font-size="18" fill="#64748B">irfatech.in</text>
   <text x="1120" y="607" font-family="Inter,system-ui,sans-serif" font-size="18" fill="#38BDF8" text-anchor="end">Free Consultation →</text>
 </svg>
