@@ -1,47 +1,121 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+/* ─── CSS Theme Custom Properties ───────────────────────────────────────── */
+:root {
+  color-scheme: dark light;
+  
+  /* Default: Dark Theme (Enterprise Slate/Zinc & Teal) */
+  --bg-base: #09090b;
+  --bg-surface: #0f0f11;
+  --bg-card: #18181b;
+  --border-base: rgba(39, 39, 42, 0.6);
+  --border-hover: rgba(20, 184, 166, 0.3);
+  
+  --text-white: #ffffff;
+  --text-primary: #f4f4f5;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --text-muted-more: #71717a;
+  
+  --brand-primary-light: #99f6e4;
+  --brand-primary-light-2: #2dd4bf;
+  --brand-primary: #14b8a6;
+  --brand-primary-hover: #0d9488;
+  --brand-primary-dark: #0f766e;
+  
+  --brand-accent-light: #fde68a;
+  --brand-accent: #f59e0b;
+  --brand-accent-dark: #d97706;
+  --brand-accent-darker: #b45309;
+  
+  --shadow-glow-sm: 0 0 15px rgba(20, 184, 166, 0.2);
+  --shadow-glow: 0 0 30px rgba(20, 184, 166, 0.35);
+  --shadow-glow-lg: 0 0 60px rgba(20, 184, 166, 0.5);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+html.light {
+  color-scheme: light dark;
+
+  /* Light Theme (Soft Slate Surfaces, Clean Whites, and Slate Text) */
+  --bg-base: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --border-base: #e2e8f0;
+  --border-hover: rgba(13, 148, 136, 0.3);
+  
+  --text-white: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+  --text-muted-more: #64748b;
+  
+  --brand-primary-light: #ccfbf1;
+  --brand-primary-light-2: #14b8a6;
+  --brand-primary: #0d9488;
+  --brand-primary-hover: #0f766e;
+  --brand-primary-dark: #115e59;
+  
+  --brand-accent-light: #fef3c7;
+  --brand-accent: #d97706;
+  --brand-accent-dark: #b45309;
+  --brand-accent-darker: #92400e;
+  
+  --shadow-glow-sm: 0 0 12px rgba(13, 148, 136, 0.12);
+  --shadow-glow: 0 0 25px rgba(13, 148, 136, 0.2);
+  --shadow-glow-lg: 0 0 50px rgba(13, 148, 136, 0.3);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 8px -1px rgba(15, 23, 42, 0.03);
+}
+
 /* ─── Tailwind v4 Design Tokens ─────────────────────────────────────────── */
 @theme {
-  /* Brand palette */
-  /* Charcoal */
---color-navy-950: #0A0A0B;
---color-navy-900: #141517;
---color-navy-800: #1F2125;
---color-navy-700: #2A2E35;
---color-navy-600: #3A404A;
+  /* Dynamic Backgrounds (mapped to navy classes for backwards compatibility) */
+  --color-navy-950: var(--bg-base);
+  --color-navy-900: var(--bg-surface);
+  --color-navy-800: var(--bg-card);
+  --color-navy-700: var(--border-base);
+  --color-navy-600: var(--text-muted);
 
-/* Orange */
---color-electric-300: #FED7AA;
---color-electric-400: #FDBA74;
---color-electric-500: #F97316;
---color-electric-600: #EA580C;
---color-electric-700: #C2410C;
+  /* Dynamic Primaries (mapped to electric classes for backwards compatibility) */
+  --color-electric-300: var(--brand-primary-light);
+  --color-electric-400: var(--brand-primary-light-2);
+  --color-electric-500: var(--brand-primary);
+  --color-electric-600: var(--brand-primary-hover);
+  --color-electric-700: var(--brand-primary-dark);
 
-/* Copper Accent */
---color-accent-300: #FDE68A;
---color-accent-400: #F59E0B;
---color-accent-500: #D97706;
---color-accent-600: #B45309;
+  /* Dynamic Accents (mapped to accent classes for backwards compatibility) */
+  --color-accent-300: var(--brand-accent-light);
+  --color-accent-400: var(--brand-accent);
+  --color-accent-500: var(--brand-accent-dark);
+  --color-accent-600: var(--brand-accent-darker);
+
+  /* Overwrite white utility to support light mode automatically */
+  --color-white: var(--text-white);
+
+  /* Dynamically toggle standard text colors as well */
+  --color-slate-300: var(--text-secondary);
+  --color-slate-400: var(--text-muted);
+  --color-slate-500: var(--text-muted-more);
 
   /* Typography */
-  --font-sans:    Inter, system-ui, sans-serif;
+  --font-sans: Inter, system-ui, sans-serif;
   --font-display: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
 
   /* Shadows */
-  --shadow-glow-sm:  0 0 15px rgba(14, 165, 233, 0.3);
-  --shadow-glow:     0 0 30px rgba(14, 165, 233, 0.4);
-  --shadow-glow-lg:  0 0 60px rgba(14, 165, 233, 0.5);
-  --shadow-card:     0 4px 24px rgba(2, 11, 24, 0.6);
+  --shadow-glow-sm: var(--shadow-glow-sm);
+  --shadow-glow: var(--shadow-glow);
+  --shadow-glow-lg: var(--shadow-glow-lg);
+  --shadow-card: var(--shadow-card);
 
   /* Animations */
-  --animate-fade-in:    fadeIn        0.6s ease-in-out;
-  --animate-slide-up:   slideUp       0.6s ease-out;
-  --animate-pulse-slow: pulse         3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-float:      float         6s ease-in-out infinite;
-  --animate-glow:       glow          2s ease-in-out infinite alternate;
-  --animate-marquee:    marquee       45s linear infinite;
-  --animate-status:     statusPulse   2.4s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.6s ease-in-out;
+  --animate-slide-up: slideUp 0.6s ease-out;
+  --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-marquee: marquee 45s linear infinite;
+  --animate-status: statusPulse 2.4s ease-in-out infinite;
 }
 
 /* ─── Keyframes ──────────────────────────────────────────────────────────── */
@@ -85,10 +159,12 @@
     @apply font-sans text-slate-300 bg-navy-950;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply text-white;
+    transition: color 0.3s ease;
   }
 
   ::selection {

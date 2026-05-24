@@ -71,6 +71,21 @@ export default defineNuxtConfig({
       ],
       script: [
         {
+          innerHTML: `
+            (function() {
+              var theme = localStorage.getItem('color-scheme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+              if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+              } else {
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+              }
+            })();
+          `,
+          type: 'text/javascript'
+        },
+        {
           src: 'https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js',
           defer: true
         },

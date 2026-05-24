@@ -35,12 +35,14 @@
           </div>
 
           <!-- Visual -->
-          <div class="card-glass p-8 min-h-72 flex items-center justify-center relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-br from-electric-500/5 to-accent-500/5"></div>
-            <div class="text-center relative">
-              <iconify-icon icon="lucide:home" class="text-8xl text-electric-400/20 mb-4"></iconify-icon>
-              <div class="badge mx-auto">Screenshots Coming Soon</div>
-            </div>
+          <div class="relative w-full rounded-2xl overflow-hidden border border-navy-700/60 bg-navy-950 p-1.5 shadow-glow">
+            <NuxtImg
+              src="/images/landflix-showcase.png"
+              alt="Landflix Dashboard Mockup"
+              class="w-full h-auto rounded-xl opacity-90 hover:opacity-100 transition-opacity duration-300"
+              width="600"
+              height="380"
+            />
           </div>
         </div>
       </div>

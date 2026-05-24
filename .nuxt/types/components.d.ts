@@ -17,6 +17,7 @@ interface _GlobalComponents {
   AppFooter: typeof import("../../components/AppFooter.vue")['default']
   AppHeader: typeof import("../../components/AppHeader.vue")['default']
   BlogCard: typeof import("../../components/BlogCard.vue")['default']
+  HeroAnimation: typeof import("../../components/HeroAnimation.vue")['default']
   SocialShare: typeof import("../../components/SocialShare.vue")['default']
   TimelineEvent: typeof import("../../components/TimelineEvent.vue")['default']
   WhatsAppFloat: typeof import("../../components/WhatsAppFloat.vue")['default']
@@ -84,6 +85,7 @@ interface _GlobalComponents {
   LazyAppFooter: LazyComponent<typeof import("../../components/AppFooter.vue")['default']>
   LazyAppHeader: LazyComponent<typeof import("../../components/AppHeader.vue")['default']>
   LazyBlogCard: LazyComponent<typeof import("../../components/BlogCard.vue")['default']>
+  LazyHeroAnimation: LazyComponent<typeof import("../../components/HeroAnimation.vue")['default']>
   LazySocialShare: LazyComponent<typeof import("../../components/SocialShare.vue")['default']>
   LazyTimelineEvent: LazyComponent<typeof import("../../components/TimelineEvent.vue")['default']>
   LazyWhatsAppFloat: LazyComponent<typeof import("../../components/WhatsAppFloat.vue")['default']>
