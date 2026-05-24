@@ -61,7 +61,7 @@ A modern, performance-optimized business consultancy and software solutions plat
 IRFATECH's own SaaS venture — a modern real estate technology platform:
 - Property discovery, management, and digital real estate operations
 - Demonstrates IRFATECH's ability to build full-scale vertical SaaS
-- Used as a portfolio/credibility piece on the website
+- Used as a portfolio/credibility piece on the many website
 
 ---
 
