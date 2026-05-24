@@ -82,13 +82,21 @@
 
         <!-- Desktop CTAs -->
         <div class="hidden lg:flex items-center gap-4">
-          <a
+          <button
+            @click="toggleTheme"
+            class="w-9 h-9 flex items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-navy-800/50 transition-all duration-150 cursor-pointer"
+            :aria-label="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
+          >
+            <iconify-icon v-if="isDark" icon="lucide:sun" class="text-lg text-amber-400"></iconify-icon>
+            <iconify-icon v-else icon="lucide:moon" class="text-lg text-teal-600"></iconify-icon>
+          </button>
+          <!-- <a
             :href="`tel:${siteConfig.contact.phone}`"
             class="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors duration-200"
           >
             <iconify-icon icon="lucide:phone" class="text-xs text-electric-500"></iconify-icon>
             {{ siteConfig.contact.phone }}
-          </a>
+          </a> -->
           <NuxtLink to="/contact" class="btn-primary text-sm px-4 py-2">
             Book a Call
           </NuxtLink>
@@ -157,6 +165,18 @@
           <NuxtLink to="/blog"      class="flex items-center px-3 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/60 transition-all duration-150" @click="mobileOpen = false">Blog</NuxtLink>
           <NuxtLink to="/about"     class="flex items-center px-3 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/60 transition-all duration-150" @click="mobileOpen = false">About</NuxtLink>
           <NuxtLink to="/contact"   class="flex items-center px-3 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-navy-800/60 transition-all duration-150" @click="mobileOpen = false">Contact</NuxtLink>
+          
+          <div class="flex items-center justify-between px-3 py-2 rounded-lg text-sm font-medium text-slate-300">
+            <span>Theme Toggle</span>
+            <button
+              @click="toggleTheme"
+              class="w-9 h-9 flex items-center justify-center rounded-lg bg-navy-800 border border-navy-700/50 text-slate-400 hover:text-white cursor-pointer"
+              :aria-label="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
+            >
+              <iconify-icon v-if="isDark" icon="lucide:sun" class="text-base text-amber-400"></iconify-icon>
+              <iconify-icon v-else icon="lucide:moon" class="text-base text-teal-600"></iconify-icon>
+            </button>
+          </div>
 
           <div class="mt-4 pt-4 border-t border-navy-700/50 flex flex-col gap-3">
             <a :href="waConsultation" target="_blank" rel="noopener noreferrer" class="btn-whatsapp justify-center">
@@ -185,8 +205,35 @@ const mobileOpen = ref(false)
 const mobileServicesOpen = ref(false)
 const servicesOpen = ref(false)
 
+const isDark = ref(false)
+
+onMounted(() => {
+  if (import.meta.client) {
+    isDark.value = document.documentElement.classList.contains('dark')
+  }
+})
+
+const toggleTheme = () => {
+  const newTheme = isDark.value ? 'light' : 'dark'
+  isDark.value = !isDark.value
+  
+  if (newTheme === 'dark') {
+    document.documentElement.classList.add('dark')
+    document.documentElement.classList.remove('light')
+  } else {
+    document.documentElement.classList.add('light')
+    document.documentElement.classList.remove('dark')
+  }
+  localStorage.setItem('color-scheme', newTheme)
+  
+  const metaColorScheme = document.querySelector('meta[name="color-scheme"]')
+  if (metaColorScheme) {
+    metaColorScheme.setAttribute('content', newTheme)
+  }
+}
+
 const topServices = computed(() =>
-  services.filter(s => ['erp', 'whatsapp-automation', 'crm', 'ai-automation'].includes(s.slug))
+  services.filter(s => ['erp-solutions', 'whatsapp-automation', 'crm-automation', 'ai-workflows'].includes(s.slug))
 )
 
 const waConsultation = useWhatsApp('Hi IRFATECH, I would like to book a free consultation.')

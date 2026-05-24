@@ -124,19 +124,19 @@ useSeoMeta({
   description: 'IRFATECH implements and customizes Odoo ERP for small and medium businesses. Inventory, billing, CRM, and operations — all in one system.',
   ogTitle: 'ERP Solutions for SMBs | IRFATECH',
   ogDescription: 'Stop managing your business in spreadsheets. IRFATECH builds real ERP systems for growing businesses.',
-  ogUrl: 'https://irfatech.in/services/erp',
+  ogUrl: 'https://irfatech.in/services/erp-solutions',
 })
 
 useBreadcrumbSchema([
   { name: 'Home', url: '/' },
   { name: 'Services', url: '/services' },
-  { name: 'ERP Solutions', url: '/services/erp' },
+  { name: 'ERP Solutions', url: '/services/erp-solutions' },
 ])
 
 useServiceSchema({
   name: 'ERP Solutions',
   description: 'Odoo ERP implementation and customization for small and medium businesses. Covers inventory, billing, CRM, HR, and operations.',
-  url: '/services/erp',
+  url: '/services/erp-solutions',
   keywords: ['ERP', 'Odoo', 'inventory management', 'billing software', 'SMB ERP India'],
 })
 

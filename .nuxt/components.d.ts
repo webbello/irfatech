@@ -17,6 +17,7 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 export const AppFooter: typeof import("../components/AppFooter.vue")['default']
 export const AppHeader: typeof import("../components/AppHeader.vue")['default']
 export const BlogCard: typeof import("../components/BlogCard.vue")['default']
+export const HeroAnimation: typeof import("../components/HeroAnimation.vue")['default']
 export const SocialShare: typeof import("../components/SocialShare.vue")['default']
 export const TimelineEvent: typeof import("../components/TimelineEvent.vue")['default']
 export const WhatsAppFloat: typeof import("../components/WhatsAppFloat.vue")['default']
@@ -84,6 +85,7 @@ export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components
 export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter.vue")['default']>
 export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue")['default']>
 export const LazyBlogCard: LazyComponent<typeof import("../components/BlogCard.vue")['default']>
+export const LazyHeroAnimation: LazyComponent<typeof import("../components/HeroAnimation.vue")['default']>
 export const LazySocialShare: LazyComponent<typeof import("../components/SocialShare.vue")['default']>
 export const LazyTimelineEvent: LazyComponent<typeof import("../components/TimelineEvent.vue")['default']>
 export const LazyWhatsAppFloat: LazyComponent<typeof import("../components/WhatsAppFloat.vue")['default']>

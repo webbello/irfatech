@@ -28,7 +28,7 @@ export const services = [
     message: 'Hi IRFATECH, I need a professional business website.',
   },
   {
-    slug: 'erp',
+    slug: 'erp-solutions',
     title: 'ERP Solutions',
     icon: 'lucide:layout-dashboard',
     short: 'Odoo-based ERP to manage inventory, billing, and operations.',
@@ -36,7 +36,7 @@ export const services = [
     message: 'Hi IRFATECH, I need an ERP solution for my business.',
   },
   {
-    slug: 'crm',
+    slug: 'crm-automation',
     title: 'CRM & Sales Automation',
     icon: 'lucide:users',
     short: 'Track leads, automate follow-ups, and close more deals.',
@@ -44,7 +44,7 @@ export const services = [
     message: 'Hi IRFATECH, I need a CRM system for my business.',
   },
   {
-    slug: 'ai-automation',
+    slug: 'ai-workflows',
     title: 'AI & Workflow Automation',
     icon: 'lucide:bot',
     short: 'Automate repetitive tasks with AI and smart workflows.',

@@ -37,7 +37,27 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'CRM & Sales Automation | IRFATECH', description: 'IRFATECH builds CRM systems with WhatsApp integration, lead tracking, and automated follow-ups for growing businesses.' })
+useSeoMeta({
+  title: 'CRM & Sales Automation — Lead Tracking Systems | IRFATECH',
+  description: 'IRFATECH builds custom CRM systems with WhatsApp API integration, lead tracking, and automated follow-ups for businesses in Kolkata, Siliguri, and across West Bengal.',
+  ogTitle: 'CRM & Sales Automation Systems | IRFATECH',
+  ogDescription: 'Stop losing leads. IRFATECH builds custom WhatsApp-integrated CRM systems for growing businesses.',
+  ogUrl: 'https://irfatech.in/services/crm-automation',
+})
+
+useBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'CRM & Sales Automation', url: '/services/crm-automation' },
+])
+
+useServiceSchema({
+  name: 'CRM & Sales Automation',
+  description: 'Custom CRM systems with WhatsApp API integration, lead tracking, auto follow-ups, and sales analytics.',
+  url: '/services/crm-automation',
+  keywords: ['CRM software', 'WhatsApp CRM', 'lead tracking system', 'sales automation India', 'CRM Siliguri', 'CRM Kolkata'],
+})
+
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20CRM%20system.'
 const features = ['Lead Pipeline', 'WhatsApp Integration', 'Auto Follow-Ups', 'Customer History', 'Sales Reports', 'Team Management', 'Email Campaigns', 'Mobile Access']
 </script>
