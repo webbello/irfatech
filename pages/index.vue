@@ -281,7 +281,7 @@
 
             <!-- Right Image Mockup -->
             <div class="relative w-full rounded-2xl overflow-hidden border border-navy-700/60 bg-navy-950 p-1">
-              <NuxtImg
+              <img
                 src="/images/landflix-showcase.png"
                 alt="Landflix Real Estate Platform Mockup"
                 class="w-full h-auto rounded-xl shadow-glow opacity-90 hover:opacity-100 transition-opacity duration-300"
