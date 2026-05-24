@@ -40,7 +40,27 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'AI & Workflow Automation | IRFATECH', description: 'IRFATECH builds AI chatbots, document automation, and intelligent business workflows for SMBs.' })
+useSeoMeta({
+  title: 'AI & Workflow Automation — Smart Business Systems | IRFATECH',
+  description: 'IRFATECH builds custom AI chatbots, document automation, and intelligent workflows for businesses in Siliguri, Kolkata, and West Bengal.',
+  ogTitle: 'AI & Workflow Automation Systems | IRFATECH',
+  ogDescription: 'Let AI handle repetitive work. IRFATECH builds smart workflows and custom AI solutions for growing businesses.',
+  ogUrl: 'https://irfatech.in/services/ai-workflows',
+})
+
+useBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'AI & Workflow Automation', url: '/services/ai-workflows' },
+])
+
+useServiceSchema({
+  name: 'AI & Workflow Automation',
+  description: 'Custom AI chatbots, document automation, and intelligent business workflows for SMBs.',
+  url: '/services/ai-workflows',
+  keywords: ['AI automation', 'business workflows', 'AI chatbots', 'document automation India', 'AI Siliguri', 'AI Kolkata'],
+})
+
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20AI%20automation%20for%20my%20business.'
 const automations = [
   { icon: 'lucide:bot', title: 'AI Chat Assistants', desc: 'Custom AI chatbots that handle customer inquiries, qualify leads, and book appointments around the clock.' },
