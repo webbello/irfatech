@@ -5,6 +5,7 @@ date: "2026-01-25"
 category: "Real Estate"
 tags: ["real estate", "digital transformation", "CRM", "property technology", "India"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop"
 readTime: "7"
 featured: false
 ---

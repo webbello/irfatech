@@ -5,6 +5,7 @@ date: "2025-12-15"
 category: "ERP"
 tags: ["Odoo", "ERP", "India", "SME", "business software"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2076&auto=format&fit=crop"
 readTime: "7"
 featured: false
 ---
