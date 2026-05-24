@@ -14,13 +14,24 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 interface _GlobalComponents {
+  AccordionItem: typeof import("../../components/AccordionItem.vue")['default']
   AppFooter: typeof import("../../components/AppFooter.vue")['default']
   AppHeader: typeof import("../../components/AppHeader.vue")['default']
   BlogCard: typeof import("../../components/BlogCard.vue")['default']
   HeroAnimation: typeof import("../../components/HeroAnimation.vue")['default']
+  HeroBackgroundBoxes: typeof import("../../components/HeroBackgroundBoxes.vue")['default']
+  LandingAccordion: typeof import("../../components/LandingAccordion.vue")['default']
   SocialShare: typeof import("../../components/SocialShare.vue")['default']
   TimelineEvent: typeof import("../../components/TimelineEvent.vue")['default']
   WhatsAppFloat: typeof import("../../components/WhatsAppFloat.vue")['default']
+  SectionsCapabilityMarquee: typeof import("../../components/sections/CapabilityMarquee.vue")['default']
+  SectionsCtaBanner: typeof import("../../components/sections/CtaBanner.vue")['default']
+  SectionsHeroSection: typeof import("../../components/sections/HeroSection.vue")['default']
+  SectionsLandflixShowcase: typeof import("../../components/sections/LandflixShowcase.vue")['default']
+  SectionsProcessRail: typeof import("../../components/sections/ProcessRail.vue")['default']
+  SectionsServicesBento: typeof import("../../components/sections/ServicesBento.vue")['default']
+  SectionsStatsCounter: typeof import("../../components/sections/StatsCounter.vue")['default']
+  SectionsTestimonialsScroll: typeof import("../../components/sections/TestimonialsScroll.vue")['default']
   UiCTABanner: typeof import("../../components/ui/CTABanner.vue")['default']
   UiCaseStudyCard: typeof import("../../components/ui/CaseStudyCard.vue")['default']
   UiIndustryCard: typeof import("../../components/ui/IndustryCard.vue")['default']
@@ -82,13 +93,24 @@ interface _GlobalComponents {
   MDCRenderer: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/MDCRenderer.vue")['default']
   MDCSlot: typeof import("../../node_modules/@nuxtjs/mdc/dist/runtime/components/MDCSlot.vue")['default']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+  LazyAccordionItem: LazyComponent<typeof import("../../components/AccordionItem.vue")['default']>
   LazyAppFooter: LazyComponent<typeof import("../../components/AppFooter.vue")['default']>
   LazyAppHeader: LazyComponent<typeof import("../../components/AppHeader.vue")['default']>
   LazyBlogCard: LazyComponent<typeof import("../../components/BlogCard.vue")['default']>
   LazyHeroAnimation: LazyComponent<typeof import("../../components/HeroAnimation.vue")['default']>
+  LazyHeroBackgroundBoxes: LazyComponent<typeof import("../../components/HeroBackgroundBoxes.vue")['default']>
+  LazyLandingAccordion: LazyComponent<typeof import("../../components/LandingAccordion.vue")['default']>
   LazySocialShare: LazyComponent<typeof import("../../components/SocialShare.vue")['default']>
   LazyTimelineEvent: LazyComponent<typeof import("../../components/TimelineEvent.vue")['default']>
   LazyWhatsAppFloat: LazyComponent<typeof import("../../components/WhatsAppFloat.vue")['default']>
+  LazySectionsCapabilityMarquee: LazyComponent<typeof import("../../components/sections/CapabilityMarquee.vue")['default']>
+  LazySectionsCtaBanner: LazyComponent<typeof import("../../components/sections/CtaBanner.vue")['default']>
+  LazySectionsHeroSection: LazyComponent<typeof import("../../components/sections/HeroSection.vue")['default']>
+  LazySectionsLandflixShowcase: LazyComponent<typeof import("../../components/sections/LandflixShowcase.vue")['default']>
+  LazySectionsProcessRail: LazyComponent<typeof import("../../components/sections/ProcessRail.vue")['default']>
+  LazySectionsServicesBento: LazyComponent<typeof import("../../components/sections/ServicesBento.vue")['default']>
+  LazySectionsStatsCounter: LazyComponent<typeof import("../../components/sections/StatsCounter.vue")['default']>
+  LazySectionsTestimonialsScroll: LazyComponent<typeof import("../../components/sections/TestimonialsScroll.vue")['default']>
   LazyUiCTABanner: LazyComponent<typeof import("../../components/ui/CTABanner.vue")['default']>
   LazyUiCaseStudyCard: LazyComponent<typeof import("../../components/ui/CaseStudyCard.vue")['default']>
   LazyUiIndustryCard: LazyComponent<typeof import("../../components/ui/IndustryCard.vue")['default']>

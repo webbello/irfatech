@@ -5,6 +5,7 @@ date: "2026-02-08"
 category: "Websites"
 tags: ["business website", "website cost", "web development", "India", "SMB"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
 readTime: "6"
 featured: false
 ---

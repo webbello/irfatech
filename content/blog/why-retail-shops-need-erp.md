@@ -5,6 +5,7 @@ date: "2025-11-02"
 category: "ERP"
 tags: ["ERP", "retail", "inventory management", "Odoo", "small business"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=1974&auto=format&fit=crop"
 readTime: "6"
 featured: false
 ---

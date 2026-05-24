@@ -5,6 +5,7 @@ date: "2026-01-10"
 category: "Automation"
 tags: ["AI", "automation", "local business", "workflow", "ChatGPT"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format&fit=crop"
 readTime: "6"
 featured: false
 ---

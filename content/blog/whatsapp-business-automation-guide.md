@@ -5,6 +5,7 @@ date: "2025-11-20"
 category: "Automation"
 tags: ["WhatsApp", "automation", "CRM", "customer communication", "SMB"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1572502006587-8fa66cd2e9e6?q=80&w=2070&auto=format&fit=crop"
 readTime: "8"
 featured: false
 ---

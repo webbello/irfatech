@@ -5,6 +5,7 @@ date: "2025-12-01"
 category: "CRM"
 tags: ["CRM", "sales automation", "small business", "lead management"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
 readTime: "6"
 featured: false
 ---

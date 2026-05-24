@@ -14,13 +14,24 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const AccordionItem: typeof import("../components/AccordionItem.vue")['default']
 export const AppFooter: typeof import("../components/AppFooter.vue")['default']
 export const AppHeader: typeof import("../components/AppHeader.vue")['default']
 export const BlogCard: typeof import("../components/BlogCard.vue")['default']
 export const HeroAnimation: typeof import("../components/HeroAnimation.vue")['default']
+export const HeroBackgroundBoxes: typeof import("../components/HeroBackgroundBoxes.vue")['default']
+export const LandingAccordion: typeof import("../components/LandingAccordion.vue")['default']
 export const SocialShare: typeof import("../components/SocialShare.vue")['default']
 export const TimelineEvent: typeof import("../components/TimelineEvent.vue")['default']
 export const WhatsAppFloat: typeof import("../components/WhatsAppFloat.vue")['default']
+export const SectionsCapabilityMarquee: typeof import("../components/sections/CapabilityMarquee.vue")['default']
+export const SectionsCtaBanner: typeof import("../components/sections/CtaBanner.vue")['default']
+export const SectionsHeroSection: typeof import("../components/sections/HeroSection.vue")['default']
+export const SectionsLandflixShowcase: typeof import("../components/sections/LandflixShowcase.vue")['default']
+export const SectionsProcessRail: typeof import("../components/sections/ProcessRail.vue")['default']
+export const SectionsServicesBento: typeof import("../components/sections/ServicesBento.vue")['default']
+export const SectionsStatsCounter: typeof import("../components/sections/StatsCounter.vue")['default']
+export const SectionsTestimonialsScroll: typeof import("../components/sections/TestimonialsScroll.vue")['default']
 export const UiCTABanner: typeof import("../components/ui/CTABanner.vue")['default']
 export const UiCaseStudyCard: typeof import("../components/ui/CaseStudyCard.vue")['default']
 export const UiIndustryCard: typeof import("../components/ui/IndustryCard.vue")['default']
@@ -82,13 +93,24 @@ export const MDCCached: typeof import("../node_modules/@nuxtjs/mdc/dist/runtime/
 export const MDCRenderer: typeof import("../node_modules/@nuxtjs/mdc/dist/runtime/components/MDCRenderer.vue")['default']
 export const MDCSlot: typeof import("../node_modules/@nuxtjs/mdc/dist/runtime/components/MDCSlot.vue")['default']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyAccordionItem: LazyComponent<typeof import("../components/AccordionItem.vue")['default']>
 export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter.vue")['default']>
 export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue")['default']>
 export const LazyBlogCard: LazyComponent<typeof import("../components/BlogCard.vue")['default']>
 export const LazyHeroAnimation: LazyComponent<typeof import("../components/HeroAnimation.vue")['default']>
+export const LazyHeroBackgroundBoxes: LazyComponent<typeof import("../components/HeroBackgroundBoxes.vue")['default']>
+export const LazyLandingAccordion: LazyComponent<typeof import("../components/LandingAccordion.vue")['default']>
 export const LazySocialShare: LazyComponent<typeof import("../components/SocialShare.vue")['default']>
 export const LazyTimelineEvent: LazyComponent<typeof import("../components/TimelineEvent.vue")['default']>
 export const LazyWhatsAppFloat: LazyComponent<typeof import("../components/WhatsAppFloat.vue")['default']>
+export const LazySectionsCapabilityMarquee: LazyComponent<typeof import("../components/sections/CapabilityMarquee.vue")['default']>
+export const LazySectionsCtaBanner: LazyComponent<typeof import("../components/sections/CtaBanner.vue")['default']>
+export const LazySectionsHeroSection: LazyComponent<typeof import("../components/sections/HeroSection.vue")['default']>
+export const LazySectionsLandflixShowcase: LazyComponent<typeof import("../components/sections/LandflixShowcase.vue")['default']>
+export const LazySectionsProcessRail: LazyComponent<typeof import("../components/sections/ProcessRail.vue")['default']>
+export const LazySectionsServicesBento: LazyComponent<typeof import("../components/sections/ServicesBento.vue")['default']>
+export const LazySectionsStatsCounter: LazyComponent<typeof import("../components/sections/StatsCounter.vue")['default']>
+export const LazySectionsTestimonialsScroll: LazyComponent<typeof import("../components/sections/TestimonialsScroll.vue")['default']>
 export const LazyUiCTABanner: LazyComponent<typeof import("../components/ui/CTABanner.vue")['default']>
 export const LazyUiCaseStudyCard: LazyComponent<typeof import("../components/ui/CaseStudyCard.vue")['default']>
 export const LazyUiIndustryCard: LazyComponent<typeof import("../components/ui/IndustryCard.vue")['default']>
