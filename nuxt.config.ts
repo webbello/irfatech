@@ -142,7 +142,8 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'github-pages',
     prerender: {
-      routes: ['/'],
+      // Crawl links from the homepage + explicitly pre-render all sitemap routes
+      routes: ['/', '/sitemap.xml', '/sitemap/pages.xml', '/sitemap/blog.xml'],
       crawlLinks: true,
     }
   },
