@@ -92,4 +92,12 @@ Common first automations for Indiai SMBs:
 
 ---
 
+## Related Reading
+
+- **[How Small Businesses Can Automate Their Operations](/blog/how-small-businesses-can-automate-operations)** — The broader automation playbook: CRM, billing, inventory, and reporting for SMBs.
+- **[Complete Guide to WhatsApp Business Automation](/blog/whatsapp-business-automation-guide)** — WhatsApp is the highest-ROI automation for most Indian businesses — here's the full guide.
+- **[IRFATECH AI & Workflow Automation](/services/ai-workflows)** — Custom AI chatbots, document automation, and smart workflows built for your operations.
+
+---
+
 **IRFATECH builds AI workflows integrated with your existing systems.** [Book a free consultation](/contact) — we'll identify which automation gives your business the fastest return.

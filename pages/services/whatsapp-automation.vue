@@ -50,6 +50,41 @@
         </div>
       </div>
     </section>
+    <!-- Related Reading -->
+    <section class="section-padding section-mid">
+      <div class="container-max max-w-3xl mx-auto">
+        <div class="flex items-center gap-2 mb-6">
+          <iconify-icon icon="lucide:book-open" class="text-electric-400 text-base"></iconify-icon>
+          <span class="text-sm font-semibold text-electric-400 uppercase tracking-wide">From the Blog</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <NuxtLink to="/blog/whatsapp-business-automation-guide" class="card-glass p-5 group hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="text-xs text-electric-400 mb-2 uppercase tracking-wide">WhatsApp Guide</div>
+            <h3 class="text-sm font-semibold text-white group-hover:text-electric-300 transition-colors leading-snug">Complete Guide to WhatsApp Business Automation for SMBs</h3>
+            <div class="flex items-center gap-1 mt-3 text-xs text-slate-500 group-hover:text-electric-400 transition-colors">
+              <span>Read article</span>
+              <iconify-icon icon="lucide:arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+            </div>
+          </NuxtLink>
+          <NuxtLink to="/blog/best-crm-for-small-businesses" class="card-glass p-5 group hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="text-xs text-electric-400 mb-2 uppercase tracking-wide">CRM</div>
+            <h3 class="text-sm font-semibold text-white group-hover:text-electric-300 transition-colors leading-snug">Best CRM Solutions for Small Businesses in 2025</h3>
+            <div class="flex items-center gap-1 mt-3 text-xs text-slate-500 group-hover:text-electric-400 transition-colors">
+              <span>Read article</span>
+              <iconify-icon icon="lucide:arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="WhatsApp Business Automation | IRFATECH" description="Automate customer conversations — auto-replies, order updates, and lead follow-ups." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="WhatsApp Is Where Your Customers Are" subtitle="Let us build automation that converts conversations into customers — automatically." primary-label="Get WhatsApp Automation" :whatsapp-url="whatsappUrl" />
   </div>

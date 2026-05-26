@@ -93,4 +93,13 @@ Once that's working, add the listing platform. Then the analytics. Then the auto
 
 ---
 
+## Related Reading
+
+- **[Best CRM Solutions for Small Businesses](/blog/best-crm-for-small-businesses)** — How to choose the right CRM — especially for WhatsApp-heavy businesses like real estate.
+- **[Complete Guide to WhatsApp Business Automation](/blog/whatsapp-business-automation-guide)** — Automate lead response, follow-ups, and updates via WhatsApp Business API.
+- **[IRFATECH CRM & Sales Automation](/services/crm-automation)** — Custom CRM systems with WhatsApp integration built for agencies and property developers.
+- **[IRFATECH WhatsApp Automation](/services/whatsapp-automation)** — Never miss an inquiry — automated responses and follow-ups via WhatsApp.
+
+---
+
 **IRFATECH has built real estate technology for multiple agencies in India.** [Book a free consultation](/contact) to discuss what's right for your business.

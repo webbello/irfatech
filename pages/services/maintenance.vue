@@ -53,6 +53,14 @@
         </div>
       </div>
     </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="Maintenance & Support Plans | IRFATECH" description="We do not disappear after launch — ongoing support and monitoring for your systems." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="Already Have a System That Needs Support?" subtitle="We maintain systems we built and systems built by others. Let us assess yours." primary-label="Discuss Support Needs" :whatsapp-url="whatsappUrl" />
   </div>

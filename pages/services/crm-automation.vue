@@ -45,6 +45,41 @@
         </div>
       </div>
     </section>
+    <!-- Related Reading -->
+    <section class="section-padding section-mid">
+      <div class="container-max max-w-3xl mx-auto">
+        <div class="flex items-center gap-2 mb-6">
+          <iconify-icon icon="lucide:book-open" class="text-electric-400 text-base"></iconify-icon>
+          <span class="text-sm font-semibold text-electric-400 uppercase tracking-wide">From the Blog</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <NuxtLink to="/blog/best-crm-for-small-businesses" class="card-glass p-5 group hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="text-xs text-electric-400 mb-2 uppercase tracking-wide">CRM Guide</div>
+            <h3 class="text-sm font-semibold text-white group-hover:text-electric-300 transition-colors leading-snug">Best CRM Solutions for Small Businesses in 2025</h3>
+            <div class="flex items-center gap-1 mt-3 text-xs text-slate-500 group-hover:text-electric-400 transition-colors">
+              <span>Read article</span>
+              <iconify-icon icon="lucide:arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+            </div>
+          </NuxtLink>
+          <NuxtLink to="/blog/digital-transformation-real-estate" class="card-glass p-5 group hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="text-xs text-electric-400 mb-2 uppercase tracking-wide">Real Estate</div>
+            <h3 class="text-sm font-semibold text-white group-hover:text-electric-300 transition-colors leading-snug">Digital Transformation for Real Estate Businesses in India</h3>
+            <div class="flex items-center gap-1 mt-3 text-xs text-slate-500 group-hover:text-electric-400 transition-colors">
+              <span>Read article</span>
+              <iconify-icon icon="lucide:arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="CRM & Sales Automation | IRFATECH" description="Stop losing leads. Track every customer and automate follow-ups with a custom CRM." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="Ready to Close More Deals?" subtitle="A CRM built for your specific sales process — not a generic tool your team ignores." primary-label="Get a CRM Demo" :whatsapp-url="whatsappUrl" />
   </div>

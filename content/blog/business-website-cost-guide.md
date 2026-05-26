@@ -133,4 +133,12 @@ Every website we build is designed with one goal: generating business for you, n
 
 ---
 
+## Related Reading
+
+- **[How Small Businesses Can Automate Operations](/blog/how-small-businesses-can-automate-operations)** — Once your website is generating leads, here's how to automate what happens next.
+- **[Complete Guide to WhatsApp Business Automation](/blog/whatsapp-business-automation-guide)** — Turn website inquiries into WhatsApp conversations — automatically.
+- **[IRFATECH Business Website Development](/services/websites)** — What we build, how long it takes, and what a professional SMB website actually costs.
+
+---
+
 **[Book a free consultation](/contact)** — we'll ask the right questions, understand your goals, and give you a clear, honest quote.

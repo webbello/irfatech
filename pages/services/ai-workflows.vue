@@ -48,6 +48,41 @@
         </div>
       </div>
     </section>
+    <!-- Related Reading -->
+    <section class="section-padding section-mid">
+      <div class="container-max max-w-3xl mx-auto">
+        <div class="flex items-center gap-2 mb-6">
+          <iconify-icon icon="lucide:book-open" class="text-electric-400 text-base"></iconify-icon>
+          <span class="text-sm font-semibold text-electric-400 uppercase tracking-wide">From the Blog</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <NuxtLink to="/blog/ai-workflows-local-businesses" class="card-glass p-5 group hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="text-xs text-electric-400 mb-2 uppercase tracking-wide">AI</div>
+            <h3 class="text-sm font-semibold text-white group-hover:text-electric-300 transition-colors leading-snug">How AI Workflows Can Transform Local Businesses (Without a Tech Team)</h3>
+            <div class="flex items-center gap-1 mt-3 text-xs text-slate-500 group-hover:text-electric-400 transition-colors">
+              <span>Read article</span>
+              <iconify-icon icon="lucide:arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+            </div>
+          </NuxtLink>
+          <NuxtLink to="/blog/how-small-businesses-can-automate-operations" class="card-glass p-5 group hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="text-xs text-electric-400 mb-2 uppercase tracking-wide">Automation</div>
+            <h3 class="text-sm font-semibold text-white group-hover:text-electric-300 transition-colors leading-snug">How Small Businesses Can Automate Their Operations in 2025</h3>
+            <div class="flex items-center gap-1 mt-3 text-xs text-slate-500 group-hover:text-electric-400 transition-colors">
+              <span>Read article</span>
+              <iconify-icon icon="lucide:arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="AI & Workflow Automation | IRFATECH" description="Let AI handle repetitive work. Smart workflows built for real business operations." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="What Can AI Automate for Your Business?" subtitle="Book a free consultation — we will identify the highest-ROI automation opportunities in your operations." primary-label="Get AI Consultation" :whatsapp-url="whatsappUrl" />
   </div>

@@ -54,6 +54,14 @@
         </div>
       </div>
     </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="Custom Software Development | IRFATECH" description="Software built exactly for how you work — dashboards, portals, and business apps." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="Have a Software Idea?" subtitle="Tell us about it. We will assess the scope and give you an honest estimate — no obligation." primary-label="Discuss My Software Project" :whatsapp-url="whatsappUrl" />
   </div>
