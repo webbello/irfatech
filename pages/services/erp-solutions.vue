@@ -107,6 +107,14 @@
         </div>
       </div>
     </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="ERP Solutions for SMBs | IRFATECH" description="Odoo ERP implementation — inventory, billing, CRM and operations in one system." />
+      </div>
+    </section>
+
 
     <UiCTABanner
       title="Ready to Replace the Spreadsheets?"

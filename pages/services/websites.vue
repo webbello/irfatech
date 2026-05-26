@@ -54,6 +54,14 @@
         </div>
       </div>
     </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="Business Website Development | IRFATECH" description="Professional websites built to generate leads and win clients for your business." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="Ready for a Website That Works?" subtitle="Book a free consultation — we will scope your website and give you an honest timeline and cost." primary-label="Get a Website Quote" :whatsapp-url="whatsappUrl" />
   </div>

@@ -48,6 +48,14 @@
         </div>
       </div>
     </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="AI & Workflow Automation | IRFATECH" description="Let AI handle repetitive work. Smart workflows built for real business operations." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="What Can AI Automate for Your Business?" subtitle="Book a free consultation — we will identify the highest-ROI automation opportunities in your operations." primary-label="Get AI Consultation" :whatsapp-url="whatsappUrl" />
   </div>

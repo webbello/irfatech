@@ -50,6 +50,14 @@
         </div>
       </div>
     </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="WhatsApp Business Automation | IRFATECH" description="Automate customer conversations — auto-replies, order updates, and lead follow-ups." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="WhatsApp Is Where Your Customers Are" subtitle="Let us build automation that converts conversations into customers — automatically." primary-label="Get WhatsApp Automation" :whatsapp-url="whatsappUrl" />
   </div>
