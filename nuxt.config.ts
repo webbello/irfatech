@@ -61,7 +61,8 @@ export default defineNuxtConfig({
         { name: 'twitter:image', content: 'https://irfatech.in/images/og/og-home.png' },
         { name: 'twitter:image:alt', content: 'IRFATECH — Digital Infrastructure for Growing Businesses' },
         { name: 'theme-color', content: '#0EA5E9' },
-        { name: 'color-scheme', content: 'dark' }
+        { name: 'color-scheme', content: 'dark' },
+        { name: 'google-site-verification', content: 'TGC7wuyok9pN8kHGZFUyXyVZ1d_y3lZ6a5yBkTtT7yY' }
       ],
       link: [
         { rel: 'canonical', href: 'https://irfatech.in' },
