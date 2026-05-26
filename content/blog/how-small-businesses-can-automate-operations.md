@@ -75,4 +75,13 @@ Get that running well, measure the improvement, then expand.
 
 ---
 
+## Related Reading
+
+- **[How AI Workflows Can Transform Local Businesses](/blog/ai-workflows-local-businesses)** — Five AI workflows paying off for local businesses right now — customer service, document generation, and more.
+- **[Complete Guide to WhatsApp Business Automation](/blog/whatsapp-business-automation-guide)** — WhatsApp is often the highest-ROI starting point — this guide covers it end to end.
+- **[IRFATECH AI & Workflow Automation](/services/ai-workflows)** — Smart workflows and AI systems built around your real business operations.
+- **[IRFATECH WhatsApp Automation](/services/whatsapp-automation)** — Auto-replies, order updates, and payment reminders running without manual effort.
+
+---
+
 **IRFATECH builds automation systems for SMBs across India.** If you're unsure where to start, [book a free 30-minute consultation](/contact) — we'll tell you honestly what makes sense for your specific business.

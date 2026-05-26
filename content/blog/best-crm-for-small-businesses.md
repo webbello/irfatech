@@ -85,4 +85,12 @@ Here's why:
 
 ---
 
+## Related Reading
+
+- **[Complete Guide to WhatsApp Business Automation](/blog/whatsapp-business-automation-guide)** — How to automate lead response, order updates, and follow-ups via WhatsApp.
+- **[Digital Transformation for Real Estate Businesses](/blog/digital-transformation-real-estate)** — CRM + WhatsApp integration for property agencies and developers.
+- **[IRFATECH CRM & Sales Automation](/services/crm-automation)** — Custom CRM built around your specific sales process, with WhatsApp integration included.
+
+---
+
 **IRFATECH builds CRM systems designed around how Indiai businesses actually work.** [Book a free consultation](/contact) and let's see what fits your operation.

@@ -73,4 +73,12 @@ Start with an honest assessment of your biggest pain point. Is it inventory? Bil
 
 ---
 
+## Related Reading
+
+- **[Odoo ERP for India SMEs — What You Need to Know](/blog/odoo-erp-india-sme)** — A deep-dive into Odoo: editions, common implementations, mistakes to avoid, and realistic timelines.
+- **[How Small Businesses Can Automate Operations](/blog/how-small-businesses-can-automate-operations)** — Beyond ERP: billing automation, CRM, and inventory alerts for growing businesses.
+- **[IRFATECH ERP Solutions](/services/erp-solutions)** — See how we implement Odoo for retail, distribution, and manufacturing businesses.
+
+---
+
 **IRFATECH implements and customizes ERP systems for retail businesses across India.** [Book a free consultation](/contact) to see what's possible for your shop.

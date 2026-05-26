@@ -101,4 +101,12 @@ Implementation cost in India ranges from INR 150,000 for a basic setup to INR 1,
 
 ---
 
+## Related Reading
+
+- **[Why Every Retail Shop Needs an ERP System](/blog/why-retail-shops-need-erp)** — How ERP solves the 5 biggest problems for retail businesses: stock-outs, billing errors, and profit visibility.
+- **[How Small Businesses Can Automate Operations](/blog/how-small-businesses-can-automate-operations)** — Where to start with automation beyond ERP: billing, CRM, and reporting.
+- **[IRFATECH ERP Solutions](/services/erp-solutions)** — Odoo ERP implementation and customization for SMBs across India.
+
+---
+
 **IRFATECH specializes in Odoo ERP implementation for Indiai SMEs.** [Book a free consultation](/contact) — we'll assess your operations and give you an honest scope and cost estimate.
