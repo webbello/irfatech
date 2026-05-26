@@ -36,6 +36,19 @@
         </div>
       </div>
     </section>
+    <!-- FAQ -->
+    <section class="section-padding section-dark">
+      <div class="container-max max-w-3xl mx-auto">
+        <UiSectionHeader eyebrow="FAQ" title="AI Automation Questions Answered" />
+        <div class="space-y-4">
+          <div v-for="faq in faqs" :key="faq.q" class="card-glass p-6">
+            <h3 class="text-base font-semibold text-white mb-2">{{ faq.q }}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{{ faq.a }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <UiCTABanner title="What Can AI Automate for Your Business?" subtitle="Book a free consultation — we will identify the highest-ROI automation opportunities in your operations." primary-label="Get AI Consultation" :whatsapp-url="whatsappUrl" />
   </div>
 </template>
@@ -46,7 +59,15 @@ useSeoMeta({
   ogTitle: 'AI & Workflow Automation Systems | IRFATECH',
   ogDescription: 'Let AI handle repetitive work. IRFATECH builds smart workflows and custom AI solutions for growing businesses.',
   ogUrl: 'https://irfatech.in/services/ai-workflows',
+  ogImage: 'https://irfatech.in/images/og/og-ai.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'AI & Workflow Automation Systems — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-ai.png',
+  twitterImageAlt: 'AI & Workflow Automation Systems | IRFATECH',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/ai-workflows' }] })
 
 useBreadcrumbSchema([
   { name: 'Home', url: '/' },
@@ -62,6 +83,29 @@ useServiceSchema({
 })
 
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20AI%20automation%20for%20my%20business.'
+
+const faqs = [
+  { q: 'Do I need a tech team to maintain AI workflows?', a: 'No. IRFATECH builds AI workflows with a non-technical operator in mind. Once set up, most workflows run without any manual intervention. We also provide ongoing support.' },
+  { q: 'Which business tasks can AI realistically automate?', a: 'High-value automation targets include: customer inquiry replies (WhatsApp/email), invoice and document generation, lead qualification, data entry from PDFs, and daily/weekly report creation. We start with the highest-ROI tasks first.' },
+  { q: 'How is AI automation different from standard software automation?', a: 'Standard automation follows fixed rules. AI automation can interpret unstructured data — like a customer\'s free-text WhatsApp message — and respond intelligently, adapting to context rather than just matching keywords.' },
+  { q: 'How long does it take to set up AI workflows?', a: 'Simple automations (e.g., WhatsApp auto-reply, invoice generation) take 1–2 weeks. Complex multi-step workflows with integrations across multiple systems take 3–6 weeks.' },
+  { q: 'What does AI automation cost?', a: 'Costs depend on complexity. We structure projects with a one-time build fee and optional monthly maintenance. Contact us for a free assessment and honest estimate.' },
+]
+
+// AEO: FAQPage schema — matches FAQ section visible on this page
+useFaqSchema(faqs)
+
+useHowToSchema({
+  name: 'How IRFATECH implements AI automation for a business',
+  description: 'The process IRFATECH uses to identify, build, and deploy AI workflows for SMBs.',
+  steps: [
+    { name: 'Automation Audit', text: 'We review your current operations to identify the 3–5 tasks that consume the most manual hours and are best suited for automation.' },
+    { name: 'Workflow Design', text: 'We design the automation logic, map data flows between systems, and get your sign-off before building.' },
+    { name: 'Build & Integration', text: 'We build the AI workflow, connect it to your existing tools (WhatsApp, ERP, email), and test it with real business scenarios.' },
+    { name: 'Handover & Monitoring', text: 'We train your team to monitor the automation, set up alerts for edge cases, and provide 30 days of post-launch support.' },
+  ],
+})
+
 const automations = [
   { icon: 'lucide:bot', title: 'AI Chat Assistants', desc: 'Custom AI chatbots that handle customer inquiries, qualify leads, and book appointments around the clock.' },
   { icon: 'lucide:file-text', title: 'Document Automation', desc: 'Automatically generate quotes, invoices, contracts, and reports from your existing data.' },

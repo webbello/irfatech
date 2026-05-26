@@ -36,11 +36,74 @@
         </div>
       </div>
     </section>
+    <!-- FAQ -->
+    <section class="section-padding section-dark">
+      <div class="container-max max-w-3xl mx-auto">
+        <UiSectionHeader eyebrow="FAQ" title="Mobile App Questions" />
+        <div class="space-y-4">
+          <div v-for="faq in faqs" :key="faq.q" class="card-glass p-6">
+            <h3 class="text-base font-semibold text-white mb-2">{{ faq.q }}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{{ faq.a }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <UiCTABanner title="Have a Mobile App Idea?" subtitle="Tell us about it — we will scope it out and give you an honest estimate." primary-label="Discuss My App" :whatsapp-url="whatsappUrl" />
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'Mobile App Development | IRFATECH', description: 'IRFATECH builds iOS and Android mobile apps for businesses — customer apps, field team tools, and management apps.' })
+useSeoMeta({
+  title: 'Mobile App Development | IRFATECH',
+  description: 'IRFATECH builds iOS and Android mobile apps for businesses — customer apps, field team tools, and management apps.',
+  ogTitle: 'Mobile App Development | IRFATECH',
+  ogDescription: 'Your business, in every pocket — iOS and Android apps for field teams, customers, and management dashboards.',
+  ogUrl: 'https://irfatech.in/services/mobile-apps',
+  ogImage: 'https://irfatech.in/images/og/og-mobile.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Mobile App Development — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-mobile.png',
+  twitterImageAlt: 'Mobile App Development | IRFATECH',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/mobile-apps' }] })
+
+useBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Mobile App Development', url: '/services/mobile-apps' },
+])
+
+useServiceSchema({
+  name: 'Mobile App Development',
+  description: 'iOS and Android mobile apps for businesses — customer apps, field team tools, and management dashboards.',
+  url: '/services/mobile-apps',
+  keywords: ['mobile app development India', 'business app development', 'iOS Android app', 'mobile app Kolkata', 'mobile app Siliguri'],
+})
+
+const faqs = [
+  { q: 'Do you build native iOS and Android apps or cross-platform?', a: 'We build cross-platform apps that run natively on both iOS and Android from a single codebase. This approach keeps development cost and maintenance manageable without sacrificing performance or user experience.' },
+  { q: 'How long does it take to build a mobile app?', a: 'A focused business app (3–5 core screens, one user role) typically takes 6–10 weeks. Apps with multiple user types, offline capability, or complex integrations take 10–16 weeks.' },
+  { q: 'Will the app be listed on the App Store and Google Play?', a: 'Yes. We handle the App Store and Google Play submission process, including store listing, screenshots, and compliance checks. Apple and Google review times add 1–3 days after submission.' },
+  { q: 'Can the app connect to our existing ERP or CRM?', a: 'Yes. API integration with your existing systems is standard in all apps we build. The app becomes a mobile interface for data that already lives in your backend systems.' },
+  { q: 'What happens after launch? Who maintains the app?', a: 'We offer ongoing maintenance plans covering OS updates, bug fixes, and new feature additions. Apps that are not maintained tend to break when iOS or Android releases major updates — we keep yours current.' },
+]
+
+useHowToSchema({
+  name: 'How IRFATECH builds a mobile app for a business',
+  description: 'The end-to-end process for designing, building, and launching a business mobile app.',
+  steps: [
+    { name: 'App Scoping & UX Planning', text: 'We define user roles, core screens, data flows, and integration requirements before any design work begins.' },
+    { name: 'UI Design & Prototype', text: 'We design every screen, share an interactive prototype for your feedback, and get sign-off before development.' },
+    { name: 'Development & API Integration', text: 'We build the app, connect it to your backend systems, and test on real iOS and Android devices.' },
+    { name: 'App Store Submission & Launch', text: 'We handle App Store and Google Play submission, manage the review process, and support your launch.' },
+  ],
+})
+
+// AEO: FAQPage schema — matches FAQ section visible on this page
+useFaqSchema(faqs)
+
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20mobile%20app.'
 const appTypes = [
   { icon: 'lucide:users', title: 'Customer Apps', desc: 'Let customers track orders, book appointments, browse products, and contact you from your branded app.' },
