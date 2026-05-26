@@ -75,6 +75,31 @@ useSeoMeta({
   twitterImageAlt: 'Business Website Development | IRFATECH',
 })
 useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/websites' }] })
+
+useBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Business Websites', url: '/services/websites' },
+])
+
+useServiceSchema({
+  name: 'Business Website Development',
+  description: 'Professional business websites that are fast, SEO-optimized, and designed to generate leads for SMBs across India.',
+  url: '/services/websites',
+  keywords: ['business website India', 'website development Kolkata', 'website development Siliguri', 'SEO website SMB', 'professional business website'],
+})
+
+useHowToSchema({
+  name: 'How IRFATECH builds a business website',
+  description: 'Step-by-step process for building a professional business website with IRFATECH.',
+  steps: [
+    { name: 'Discovery & Briefing', text: 'We understand your business goals, target audience, competitors, and the pages you need — before any design starts.' },
+    { name: 'Design & Prototype', text: 'We design the homepage and key pages, share them for your feedback, and get sign-off before development begins.' },
+    { name: 'Development & Content', text: 'We build the site, integrate your content, set up forms, WhatsApp button, analytics, and CMS so you can self-manage.' },
+    { name: 'SEO & Launch', text: 'We optimize on-page SEO, test across devices, set up Google Search Console, then deploy to your domain.' },
+  ],
+})
+
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20business%20website.'
 const features = ['Mobile Responsive', 'SEO Optimized', 'Fast Loading', 'WhatsApp Integration', 'Contact Forms', 'Blog / CMS', 'Analytics Ready', 'SSL Secured']
 const faqs = [
@@ -83,4 +108,7 @@ const faqs = [
   { q: 'Will I be able to update content myself?', a: 'Yes. We integrate a simple CMS so you can update text, images, and blog posts without touching any code.' },
   { q: 'Is SEO included?', a: 'On-page SEO (meta tags, structure, page speed) is included in every website. Content-based SEO is a separate ongoing service.' },
 ]
+
+// AEO: FAQPage schema — matches FAQ section visible on this page
+useFaqSchema(faqs)
 </script>

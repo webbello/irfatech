@@ -41,6 +41,19 @@
         </div>
       </div>
     </section>
+    <!-- FAQ -->
+    <section class="section-padding section-dark">
+      <div class="container-max max-w-3xl mx-auto">
+        <UiSectionHeader eyebrow="FAQ" title="Maintenance & Support Questions" />
+        <div class="space-y-4">
+          <div v-for="faq in faqs" :key="faq.q" class="card-glass p-6">
+            <h3 class="text-base font-semibold text-white mb-2">{{ faq.q }}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{{ faq.a }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <UiCTABanner title="Already Have a System That Needs Support?" subtitle="We maintain systems we built and systems built by others. Let us assess yours." primary-label="Discuss Support Needs" :whatsapp-url="whatsappUrl" />
   </div>
 </template>
@@ -60,6 +73,31 @@ useSeoMeta({
   twitterImageAlt: 'Maintenance & Support Plans | IRFATECH',
 })
 useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/maintenance' }] })
+
+useBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Maintenance & Support', url: '/services/maintenance' },
+])
+
+useServiceSchema({
+  name: 'Maintenance & Support',
+  description: 'Ongoing maintenance, security updates, performance monitoring, and priority support for websites, ERP, and custom software.',
+  url: '/services/maintenance',
+  keywords: ['website maintenance India', 'ERP support', 'software maintenance', 'IT support Kolkata', 'business system support'],
+})
+
+const faqs = [
+  { q: 'Do you maintain systems built by other developers?', a: 'Yes. We regularly take over maintenance of systems we did not build — websites, ERP installations, custom applications. We start with a technical audit to understand what we are working with.' },
+  { q: 'What does the response time commitment mean?', a: 'Response time is how quickly we acknowledge your support request. Resolution time depends on the issue complexity. Critical system-down issues are always prioritised regardless of plan tier.' },
+  { q: 'What counts as a "change request"?', a: 'A change request is any modification to existing functionality — updating content, adjusting a form, changing a report layout. New features or major redesigns are scoped separately.' },
+  { q: 'Can I upgrade or downgrade my plan?', a: 'Yes. Plans are month-to-month. You can upgrade anytime and downgrade with 30 days notice.' },
+  { q: 'Is data backup included?', a: 'Yes. All plans include automated backup management — daily backups on Business and Enterprise plans, monthly on Basic. We also test restores periodically to ensure backups are actually usable.' },
+]
+
+// AEO: FAQPage schema — matches FAQ section visible on this page
+useFaqSchema(faqs)
+
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20maintenance%20and%20support.'
 const plans = [
   { name: 'Basic', desc: 'For small websites and simple systems.', featured: false, features: ['Monthly security updates', 'Uptime monitoring', 'Backup management', '4-hour response time', '2 hours change requests/month'] },

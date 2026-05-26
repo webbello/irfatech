@@ -172,6 +172,13 @@ const faqs = [
   { q: 'What happens after the ERP goes live?', a: 'We provide 30 days of post-launch support included in every project. After that, we offer ongoing maintenance plans so you always have someone to call.' },
 ]
 
-// Inject FAQPage schema for GEO (AI search engine pickup)
+// AEO: FAQPage schema — matches FAQ section visible on this page
 useFaqSchema(faqs)
+
+// AEO: HowTo schema — matches the 4-step process section
+useHowToSchema({
+  name: 'How to implement ERP for your business with IRFATECH',
+  description: 'IRFATECH\'s proven 4-step Odoo ERP implementation process for small and medium businesses.',
+  steps: process.map(s => ({ name: s.title, text: s.description })),
+})
 </script>

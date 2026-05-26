@@ -38,6 +38,12 @@ useSeoMeta({
 })
 useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in' }] })
 
+// GEO: Rich entity graph for AI search engines
+useEnhancedOrgSchema()
+
+// AEO: Mark hero content as speakable for voice/AI search
+useSpeakableSchema(['.hero-headline', '.hero-description', 'h1'])
+
 onMounted(() => {
   if (!import.meta.client) return
   const observer = new IntersectionObserver((entries) => {

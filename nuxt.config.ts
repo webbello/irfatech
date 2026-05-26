@@ -35,7 +35,7 @@ export default defineNuxtConfig({
     baseURL: '/',
     buildAssetsDir: 'assets',
     head: {
-      title: 'IRFATECH — Digital Infrastructure for Growing Businesses',
+      title: 'IRFATECH — We Build Smart Software That Helps You Scale.',
       htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },

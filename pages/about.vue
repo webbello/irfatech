@@ -165,6 +165,30 @@ useSeoMeta({
 })
 useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/about' }] })
 
+// AEO: Mark key sections as speakable for voice/AI search
+useSpeakableSchema(['h1', '.about-summary'])
+
+// GEO: Person + Organization entity for the founder
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Muhammad Irfan',
+      jobTitle: 'Founder & CEO',
+      description: 'Muhammad Irfan is the founder of IRFATECH with 15+ years of software development experience, specializing in ERP systems, business automation, and digital infrastructure for SMBs in India.',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'IRFATECH',
+        url: 'https://irfatech.in',
+      },
+      knowsAbout: ['ERP Systems', 'CRM Software', 'Business Automation', 'Custom Software Development', 'AI Workflows', 'WhatsApp Business API'],
+      url: 'https://irfatech.in/about',
+    }),
+  }],
+})
+
 const values = [
   { icon: 'lucide:lightbulb', title: 'Innovation', desc: 'We explore AI, automation, and emerging technologies before recommending them to clients.' },
   { icon: 'lucide:shield', title: 'Reliability', desc: "We deliver what we promise, on time, and we're still here six months after launch." },
