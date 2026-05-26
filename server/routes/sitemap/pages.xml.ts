@@ -12,6 +12,15 @@ interface PageEntry {
   image?: { loc: string; title: string }
 }
 
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 export default defineEventHandler((event) => {
   const base = 'https://irfatech.in'
   const today = new Date().toISOString().split('T')[0]
@@ -116,13 +125,13 @@ export default defineEventHandler((event) => {
   const urlEntries = pages.map((page) => {
     const imageTag = page.image
       ? `\n    <image:image>
-      <image:loc>${page.image.loc}</image:loc>
-      <image:title>${page.image.title}</image:title>
+      <image:loc>${escapeXml(page.image.loc)}</image:loc>
+      <image:title>${escapeXml(page.image.title)}</image:title>
     </image:image>`
       : ''
 
     return `  <url>
-    <loc>${base}${page.url}</loc>
+    <loc>${escapeXml(base + page.url)}</loc>
     <lastmod>${page.lastmod || today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority.toFixed(1)}</priority>${imageTag}
