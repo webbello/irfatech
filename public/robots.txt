@@ -42,6 +42,8 @@ Allow: /
 
 # === Sitemaps ===
 Sitemap: https://irfatech.in/sitemap.xml
+Sitemap: https://irfatech.in/sitemap/pages.xml
+Sitemap: https://irfatech.in/sitemap/blog.xml
 
 # === AI structured content ===
 # Machine-readable company profile for LLMs
