@@ -46,7 +46,21 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'Custom Software Development | IRFATECH', description: 'IRFATECH builds custom dashboards, portals, APIs, and business applications using Laravel, Vue.js, and modern tech stacks.' })
+useSeoMeta({
+  title: 'Custom Software Development | IRFATECH',
+  description: 'IRFATECH builds custom dashboards, portals, APIs, and business applications using Laravel, Vue.js, and modern tech stacks.',
+  ogTitle: 'Custom Software Development | IRFATECH',
+  ogDescription: 'Software built around your business — Laravel + Vue.js dashboards, portals, and applications tailored to your exact workflows.',
+  ogUrl: 'https://irfatech.in/services/custom-software',
+  ogImage: 'https://irfatech.in/images/og/og-custom.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Custom Software Development — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-custom.png',
+  twitterImageAlt: 'Custom Software Development | IRFATECH',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/custom-software' }] })
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20custom%20software%20development.'
 const buildItems = [
   { icon: 'lucide:layout-dashboard', title: 'Business Dashboards', desc: 'Real-time dashboards that surface the metrics that matter most to your operations.' },

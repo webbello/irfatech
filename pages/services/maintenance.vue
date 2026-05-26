@@ -45,7 +45,21 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'Maintenance & Support Plans | IRFATECH', description: 'IRFATECH provides ongoing maintenance, security updates, performance monitoring, and fast support for websites, ERP, and custom software.' })
+useSeoMeta({
+  title: 'Maintenance & Support Plans | IRFATECH',
+  description: 'IRFATECH provides ongoing maintenance, security updates, performance monitoring, and fast support for websites, ERP, and custom software.',
+  ogTitle: 'Maintenance & Support Plans | IRFATECH',
+  ogDescription: 'Always on, always supported — ongoing monitoring, updates, and priority support so your systems never go down.',
+  ogUrl: 'https://irfatech.in/services/maintenance',
+  ogImage: 'https://irfatech.in/images/og/og-maintenance.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Maintenance & Support Plans — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-maintenance.png',
+  twitterImageAlt: 'Maintenance & Support Plans | IRFATECH',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/maintenance' }] })
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20maintenance%20and%20support.'
 const plans = [
   { name: 'Basic', desc: 'For small websites and simple systems.', featured: false, features: ['Monthly security updates', 'Uptime monitoring', 'Backup management', '4-hour response time', '2 hours change requests/month'] },

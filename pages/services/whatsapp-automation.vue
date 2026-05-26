@@ -42,7 +42,21 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'WhatsApp Business Automation | IRFATECH', description: 'IRFATECH builds WhatsApp Business API automation for lead response, order updates, payment reminders, and customer follow-up.' })
+useSeoMeta({
+  title: 'WhatsApp Business Automation | IRFATECH',
+  description: 'IRFATECH builds WhatsApp Business API automation for lead response, order updates, payment reminders, and customer follow-up.',
+  ogTitle: 'WhatsApp Business Automation | IRFATECH',
+  ogDescription: 'Automate customer conversations at scale — auto-replies, order updates, lead follow-ups via WhatsApp Business API.',
+  ogUrl: 'https://irfatech.in/services/whatsapp-automation',
+  ogImage: 'https://irfatech.in/images/og/og-whatsapp.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'WhatsApp Business Automation — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-whatsapp.png',
+  twitterImageAlt: 'WhatsApp Business Automation | IRFATECH',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/whatsapp-automation' }] })
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20WhatsApp%20automation%20for%20my%20business.'
 const automations = [
   { icon: 'lucide:zap', title: 'Instant Lead Response', desc: 'Automatically reply to new inquiries within seconds, collect details, and log to your CRM.' },

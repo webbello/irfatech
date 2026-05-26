@@ -1,0 +1,86 @@
+# IRFATECH
+> Digital infrastructure company helping SMBs in India automate, organize, and grow digitally.
+
+## About IRFATECH
+IRFATECH (Integrated Resources For Automation) is a B2B business technology and automation company founded by Muhammad Irfan in 2009. With 15+ years of software development experience, IRFATECH builds ERP systems, CRM solutions, custom software, AI automation workflows, and business websites for small and medium businesses (SMBs) primarily in West Bengal, India — including Kolkata, Siliguri, and surrounding regions.
+
+IRFATECH is founder-led, not a typical software agency. The company focuses on long-term partnerships, helping businesses reduce manual work, improve operational efficiency, and scale through technology.
+
+## Services
+
+### ERP Solutions
+Odoo-based ERP implementation and customization for SMBs. Covers inventory management, billing and invoicing, purchase orders, CRM, HR and payroll, accounting, multi-branch operations, and reporting. Typical implementation: 3–12 weeks depending on complexity.
+URL: https://irfatech.in/services/erp-solutions
+
+### CRM & Sales Automation
+Customer relationship management systems for lead tracking, sales pipeline management, automated follow-ups, and customer communication. Built to help sales teams close more deals without manual effort.
+URL: https://irfatech.in/services/crm-automation
+
+### AI & Workflow Automation
+AI-powered workflows that automate repetitive business tasks — document processing, customer query handling, lead qualification, data entry, and report generation. No tech team required to maintain once set up.
+URL: https://irfatech.in/services/ai-workflows
+
+### WhatsApp Automation
+WhatsApp Business API integration for automated customer communication. Includes auto-replies, order updates, appointment reminders, lead follow-ups, and broadcast messaging. Critical for Indian SMBs where WhatsApp is the primary business communication channel.
+URL: https://irfatech.in/services/whatsapp-automation
+
+### Custom Software Development
+Tailor-built dashboards, portals, and business applications using Laravel (PHP) and Vue.js. For businesses whose processes don't fit off-the-shelf software.
+URL: https://irfatech.in/services/custom-software
+
+### Business Websites
+Professional business websites built to generate leads and build credibility. Designed for SMBs that need an online presence that converts visitors into customers.
+URL: https://irfatech.in/services/websites
+
+### Mobile App Development
+iOS and Android business applications for field teams, customers, and management. Cross-platform development optimised for Indian business operations.
+URL: https://irfatech.in/services/mobile-apps
+
+### Maintenance & Support
+Ongoing monitoring, updates, and priority support for all systems built by IRFATECH. SLA-based plans with dedicated support contact.
+URL: https://irfatech.in/services/maintenance
+
+## Industries Served
+- Retail Shops (POS, inventory, customer management)
+- Distributors & Wholesalers (supply chain, billing, logistics)
+- Clinics & Healthcare (patient records, appointments, billing)
+- Real Estate Agencies (property listings, CRM, Landflix platform)
+- Restaurants & Hospitality (orders, menu management, analytics)
+- Coaching Centers & Educational Institutes (enrollment, scheduling, payments)
+- SMB Enterprises (end-to-end digital business infrastructure)
+
+## Flagship Product: Landflix
+Landflix is IRFATECH's own SaaS product — a modern real estate technology platform for property discovery, management, and digital real estate operations in India.
+URL: https://irfatech.in/landflix
+
+## Technology Stack
+- Backend: Laravel (PHP)
+- Frontend: Vue.js, Tailwind CSS
+- ERP Platform: Odoo (open-source)
+- Mobile: Cross-platform web-based applications
+- Automation: AI-driven workflows, WhatsApp Business API
+- Database: MySQL, PostgreSQL
+
+## Key Facts
+- Founded: 2009
+- Founder: Muhammad Irfan
+- Location: India (West Bengal — Kolkata, Siliguri)
+- Market: SMBs in India, scalable globally
+- Languages: English, Hindi, Urdu
+- Pricing: SMB-accessible rates, enterprise-grade capability
+
+## Contact
+- Website: https://irfatech.in
+- Email: irfatechgroup@gmail.com
+- Phone: +91 88 6481 2200
+- WhatsApp: https://wa.me/918864812200
+- Consultation: https://irfatech.in/contact (free initial consultation)
+
+## Blog
+Practical guides on business automation, ERP, CRM, AI workflows, and digital transformation for Indian SMBs.
+URL: https://irfatech.in/blog
+
+## Social
+- LinkedIn: https://linkedin.com/company/irfatech
+- Facebook: https://facebook.com/irfatech
+- Instagram: https://instagram.com/irfatech

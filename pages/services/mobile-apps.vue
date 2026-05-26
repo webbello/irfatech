@@ -40,7 +40,21 @@
   </div>
 </template>
 <script setup>
-useSeoMeta({ title: 'Mobile App Development | IRFATECH', description: 'IRFATECH builds iOS and Android mobile apps for businesses — customer apps, field team tools, and management apps.' })
+useSeoMeta({
+  title: 'Mobile App Development | IRFATECH',
+  description: 'IRFATECH builds iOS and Android mobile apps for businesses — customer apps, field team tools, and management apps.',
+  ogTitle: 'Mobile App Development | IRFATECH',
+  ogDescription: 'Your business, in every pocket — iOS and Android apps for field teams, customers, and management dashboards.',
+  ogUrl: 'https://irfatech.in/services/mobile-apps',
+  ogImage: 'https://irfatech.in/images/og/og-mobile.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Mobile App Development — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-mobile.png',
+  twitterImageAlt: 'Mobile App Development | IRFATECH',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/mobile-apps' }] })
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20mobile%20app.'
 const appTypes = [
   { icon: 'lucide:users', title: 'Customer Apps', desc: 'Let customers track orders, book appointments, browse products, and contact you from your branded app.' },

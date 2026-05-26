@@ -63,7 +63,18 @@
 useSeoMeta({
   title: 'Business Website Development | IRFATECH',
   description: 'IRFATECH builds professional business websites that are fast, SEO-optimized, and designed to generate leads for SMBs across India.',
+  ogTitle: 'Business Website Development | IRFATECH',
+  ogDescription: 'A website that actually wins clients — professional, fast, and built to convert visitors into customers.',
+  ogUrl: 'https://irfatech.in/services/websites',
+  ogImage: 'https://irfatech.in/images/og/og-websites.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Business Website Development — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-websites.png',
+  twitterImageAlt: 'Business Website Development | IRFATECH',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/websites' }] })
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20business%20website.'
 const features = ['Mobile Responsive', 'SEO Optimized', 'Fast Loading', 'WhatsApp Integration', 'Contact Forms', 'Blog / CMS', 'Analytics Ready', 'SSL Secured']
 const faqs = [

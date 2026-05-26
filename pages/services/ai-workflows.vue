@@ -46,7 +46,15 @@ useSeoMeta({
   ogTitle: 'AI & Workflow Automation Systems | IRFATECH',
   ogDescription: 'Let AI handle repetitive work. IRFATECH builds smart workflows and custom AI solutions for growing businesses.',
   ogUrl: 'https://irfatech.in/services/ai-workflows',
+  ogImage: 'https://irfatech.in/images/og/og-ai.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'AI & Workflow Automation Systems — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-ai.png',
+  twitterImageAlt: 'AI & Workflow Automation Systems | IRFATECH',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/ai-workflows' }] })
 
 useBreadcrumbSchema([
   { name: 'Home', url: '/' },

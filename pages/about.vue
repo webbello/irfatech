@@ -154,7 +154,16 @@ useSeoMeta({
   description: 'Learn about IRFATECH — 15+ years of building digital infrastructure for SMBs. Meet the founder and understand our mission to help businesses grow digitally.',
   ogTitle: 'About IRFATECH — Founder-Led Business Technology',
   ogDescription: '15+ years building digital systems for real businesses. Meet Muhammad Irfan, founder of IRFATECH.',
+  ogUrl: 'https://irfatech.in/about',
+  ogImage: 'https://irfatech.in/images/og/og-about.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'About IRFATECH — Built by a Builder, Not Just a Developer',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-about.png',
+  twitterImageAlt: 'About IRFATECH — Founder-Led Business Technology',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/about' }] })
 
 const values = [
   { icon: 'lucide:lightbulb', title: 'Innovation', desc: 'We explore AI, automation, and emerging technologies before recommending them to clients.' },

@@ -75,7 +75,18 @@
 useSeoMeta({
   title: 'Industries We Serve — Real Estate, Retail, Clinics & More | IRFATECH',
   description: 'IRFATECH builds digital solutions for real estate, retail shops, distributors, clinics, restaurants, coaching centers, and SMB enterprises.',
+  ogTitle: 'Industries We Serve | IRFATECH',
+  ogDescription: 'Retail, distribution, healthcare, real estate, restaurants, coaching centers — IRFATECH builds digital systems for every industry.',
+  ogUrl: 'https://irfatech.in/industries',
+  ogImage: 'https://irfatech.in/images/og/og-industries.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Industries IRFATECH serves — Retail, Healthcare, Real Estate and more',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-industries.png',
+  twitterImageAlt: 'Industries We Serve | IRFATECH',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/industries' }] })
 
 const industryDetails = [
   {

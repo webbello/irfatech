@@ -56,5 +56,14 @@ useSeoMeta({
   description: 'IRFATECH offers business websites, ERP solutions, CRM systems, AI automation, custom software, WhatsApp automation, mobile apps, and maintenance services.',
   ogTitle: 'IRFATECH Services — Full-Stack Business Digitalization',
   ogDescription: 'Websites, ERP, CRM, AI automation, custom software, and more. Built for growing SMBs.',
+  ogUrl: 'https://irfatech.in/services',
+  ogImage: 'https://irfatech.in/images/og/og-services.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'IRFATECH Services — ERP, CRM, AI Automation, Custom Software',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-services.png',
+  twitterImageAlt: 'IRFATECH Services — Full-Stack Business Digitalization',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services' }] })
 </script>

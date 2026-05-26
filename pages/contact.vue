@@ -145,8 +145,17 @@ useSeoMeta({
   title: 'Contact IRFATECH — Free Business Consultation',
   description: 'Book a free consultation with IRFATECH. WhatsApp, email, phone, or inquiry form — we respond fast and honestly.',
   ogTitle: 'Contact IRFATECH — Book a Free Consultation',
+  ogDescription: 'Book a free consultation. We assess your operations and recommend the right solution at an SMB-friendly price.',
   ogUrl: 'https://irfatech.in/contact',
+  ogImage: 'https://irfatech.in/images/og/og-contact.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Contact IRFATECH — Free Business Consultation',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-contact.png',
+  twitterImageAlt: 'Contact IRFATECH — Book a Free Consultation',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/contact' }] })
 
 useLocalBusinessSchema()
 useBreadcrumbSchema([

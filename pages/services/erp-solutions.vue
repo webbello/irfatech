@@ -125,7 +125,15 @@ useSeoMeta({
   ogTitle: 'ERP Solutions for SMBs | IRFATECH',
   ogDescription: 'Stop managing your business in spreadsheets. IRFATECH builds real ERP systems for growing businesses.',
   ogUrl: 'https://irfatech.in/services/erp-solutions',
+  ogImage: 'https://irfatech.in/images/og/og-erp.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'ERP Solutions for SMBs — IRFATECH Odoo Implementation',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-erp.png',
+  twitterImageAlt: 'ERP Solutions for SMBs | IRFATECH',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/erp-solutions' }] })
 
 useBreadcrumbSchema([
   { name: 'Home', url: '/' },

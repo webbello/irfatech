@@ -28,7 +28,15 @@ useSeoMeta({
   ogTitle: 'IRFATECH — Digital Infrastructure for Growing Businesses',
   ogDescription: 'Odoo ERP, Custom CRMs, AI workflows, and software solutions for SMBs. Schedule a free consultation today.',
   ogUrl: 'https://irfatech.in',
+  ogImage: 'https://irfatech.in/images/og/og-home.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'IRFATECH — Digital Infrastructure for Growing Businesses',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-home.png',
+  twitterImageAlt: 'IRFATECH — Digital Infrastructure for Growing Businesses',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in' }] })
 
 onMounted(() => {
   if (!import.meta.client) return

@@ -43,7 +43,15 @@ useSeoMeta({
   ogTitle: 'CRM & Sales Automation Systems | IRFATECH',
   ogDescription: 'Stop losing leads. IRFATECH builds custom WhatsApp-integrated CRM systems for growing businesses.',
   ogUrl: 'https://irfatech.in/services/crm-automation',
+  ogImage: 'https://irfatech.in/images/og/og-crm.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'CRM & Sales Automation Systems — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-crm.png',
+  twitterImageAlt: 'CRM & Sales Automation Systems | IRFATECH',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/crm-automation' }] })
 
 useBreadcrumbSchema([
   { name: 'Home', url: '/' },
