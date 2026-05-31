@@ -65,7 +65,6 @@ export default defineNuxtConfig({
         { name: 'google-site-verification', content: 'TGC7wuyok9pN8kHGZFUyXyVZ1d_y3lZ6a5yBkTtT7yY' }
       ],
       link: [
-        { rel: 'canonical', href: 'https://irfatech.in' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'manifest', href: '/manifest.json' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

@@ -5,7 +5,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Crawl-delay: 1
 
 User-agent: Googlebot
 Allow: /

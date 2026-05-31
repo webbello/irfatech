@@ -124,7 +124,10 @@ useSeoMeta({
   description: 'Landflix is a full property technology platform built by IRFATECH. Smart listings, lead management, agent dashboards, and WhatsApp integration.',
   ogTitle: 'Landflix — Real Estate Platform by IRFATECH',
   ogDescription: 'A full property technology solution built entirely by IRFATECH. Proof of what we can build for your business.',
+  ogUrl: 'https://irfatech.in/landflix',
+  twitterCard: 'summary_large_image',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/landflix' }] })
 
 const features = [
   { icon: 'lucide:search', title: 'Smart Property Search', desc: 'Filter by location, price, type, and custom attributes with instant results.' },
