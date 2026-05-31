@@ -5,6 +5,7 @@ date: "2026-01-10"
 category: "Automation"
 tags: ["AI", "automation", "local business", "workflow", "ChatGPT"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2070&auto=format&fit=crop"
 readTime: "6"
 featured: false
 ---
@@ -88,6 +89,14 @@ Common first automations for Indiai SMBs:
 - WhatsApp inquiry response (retail, real estate, clinics)
 - Invoice data entry (distributors, manufacturers)
 - Lead assignment (any business with a sales team)
+
+---
+
+## Related Reading
+
+- **[How Small Businesses Can Automate Their Operations](/blog/how-small-businesses-can-automate-operations)** — The broader automation playbook: CRM, billing, inventory, and reporting for SMBs.
+- **[Complete Guide to WhatsApp Business Automation](/blog/whatsapp-business-automation-guide)** — WhatsApp is the highest-ROI automation for most Indian businesses — here's the full guide.
+- **[IRFATECH AI & Workflow Automation](/services/ai-workflows)** — Custom AI chatbots, document automation, and smart workflows built for your operations.
 
 ---
 

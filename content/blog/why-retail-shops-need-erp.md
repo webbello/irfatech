@@ -5,6 +5,7 @@ date: "2025-11-02"
 category: "ERP"
 tags: ["ERP", "retail", "inventory management", "Odoo", "small business"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=1974&auto=format&fit=crop"
 readTime: "6"
 featured: false
 ---
@@ -69,6 +70,14 @@ The time investment pays back quickly — most retail clients see 15–25% effic
 ## Getting Started
 
 Start with an honest assessment of your biggest pain point. Is it inventory? Billing? Reports? Start there, get it right, then expand.
+
+---
+
+## Related Reading
+
+- **[Odoo ERP for India SMEs — What You Need to Know](/blog/odoo-erp-india-sme)** — A deep-dive into Odoo: editions, common implementations, mistakes to avoid, and realistic timelines.
+- **[How Small Businesses Can Automate Operations](/blog/how-small-businesses-can-automate-operations)** — Beyond ERP: billing automation, CRM, and inventory alerts for growing businesses.
+- **[IRFATECH ERP Solutions](/services/erp-solutions)** — See how we implement Odoo for retail, distribution, and manufacturing businesses.
 
 ---
 

@@ -154,6 +154,39 @@ useSeoMeta({
   description: 'Learn about IRFATECH — 15+ years of building digital infrastructure for SMBs. Meet the founder and understand our mission to help businesses grow digitally.',
   ogTitle: 'About IRFATECH — Founder-Led Business Technology',
   ogDescription: '15+ years building digital systems for real businesses. Meet Muhammad Irfan, founder of IRFATECH.',
+  ogUrl: 'https://irfatech.in/about',
+  ogImage: 'https://irfatech.in/images/og/og-about.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'About IRFATECH — Built by a Builder, Not Just a Developer',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-about.png',
+  twitterImageAlt: 'About IRFATECH — Founder-Led Business Technology',
+})
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/about' }] })
+
+// AEO: Mark key sections as speakable for voice/AI search
+useSpeakableSchema(['h1', '.about-summary'])
+
+// GEO: Person + Organization entity for the founder
+useHead({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Muhammad Irfan',
+      jobTitle: 'Founder & CEO',
+      description: 'Muhammad Irfan is the founder of IRFATECH with 15+ years of software development experience, specializing in ERP systems, business automation, and digital infrastructure for SMBs in India.',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'IRFATECH',
+        url: 'https://irfatech.in',
+      },
+      knowsAbout: ['ERP Systems', 'CRM Software', 'Business Automation', 'Custom Software Development', 'AI Workflows', 'WhatsApp Business API'],
+      url: 'https://irfatech.in/about',
+    }),
+  }],
 })
 
 const values = [

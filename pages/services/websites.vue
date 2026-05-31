@@ -54,6 +54,33 @@
         </div>
       </div>
     </section>
+    <!-- Related Reading -->
+    <section class="section-padding section-mid">
+      <div class="container-max max-w-3xl mx-auto">
+        <div class="flex items-center gap-2 mb-6">
+          <iconify-icon icon="lucide:book-open" class="text-electric-400 text-base"></iconify-icon>
+          <span class="text-sm font-semibold text-electric-400 uppercase tracking-wide">From the Blog</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <NuxtLink to="/blog/business-website-cost-guide" class="card-glass p-5 group hover:border-electric-500/30 hover:-translate-y-1 transition-all duration-300">
+            <div class="text-xs text-electric-400 mb-2 uppercase tracking-wide">Pricing Guide</div>
+            <h3 class="text-sm font-semibold text-white group-hover:text-electric-300 transition-colors leading-snug">How Much Does a Business Website Cost in India? (2025 Honest Guide)</h3>
+            <div class="flex items-center gap-1 mt-3 text-xs text-slate-500 group-hover:text-electric-400 transition-colors">
+              <span>Read article</span>
+              <iconify-icon icon="lucide:arrow-right" class="text-xs group-hover:translate-x-0.5 transition-transform"></iconify-icon>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+    <!-- Social Share strip -->
+    <section class="py-8 section-mid border-t border-navy-700/30">
+      <div class="container-max flex flex-wrap items-center gap-3">
+        <span class="text-sm text-slate-500 shrink-0">Share this page:</span>
+        <SocialShare title="Business Website Development | IRFATECH" description="Professional websites built to generate leads and win clients for your business." />
+      </div>
+    </section>
+
 
     <UiCTABanner title="Ready for a Website That Works?" subtitle="Book a free consultation — we will scope your website and give you an honest timeline and cost." primary-label="Get a Website Quote" :whatsapp-url="whatsappUrl" />
   </div>
@@ -63,7 +90,43 @@
 useSeoMeta({
   title: 'Business Website Development | IRFATECH',
   description: 'IRFATECH builds professional business websites that are fast, SEO-optimized, and designed to generate leads for SMBs across India.',
+  ogTitle: 'Business Website Development | IRFATECH',
+  ogDescription: 'A website that actually wins clients — professional, fast, and built to convert visitors into customers.',
+  ogUrl: 'https://irfatech.in/services/websites',
+  ogImage: 'https://irfatech.in/images/og/og-websites.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Business Website Development — IRFATECH',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-websites.png',
+  twitterImageAlt: 'Business Website Development | IRFATECH',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/services/websites' }] })
+
+useBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Services', url: '/services' },
+  { name: 'Business Websites', url: '/services/websites' },
+])
+
+useServiceSchema({
+  name: 'Business Website Development',
+  description: 'Professional business websites that are fast, SEO-optimized, and designed to generate leads for SMBs across India.',
+  url: '/services/websites',
+  keywords: ['business website India', 'website development Kolkata', 'website development Siliguri', 'SEO website SMB', 'professional business website'],
+})
+
+useHowToSchema({
+  name: 'How IRFATECH builds a business website',
+  description: 'Step-by-step process for building a professional business website with IRFATECH.',
+  steps: [
+    { name: 'Discovery & Briefing', text: 'We understand your business goals, target audience, competitors, and the pages you need — before any design starts.' },
+    { name: 'Design & Prototype', text: 'We design the homepage and key pages, share them for your feedback, and get sign-off before development begins.' },
+    { name: 'Development & Content', text: 'We build the site, integrate your content, set up forms, WhatsApp button, analytics, and CMS so you can self-manage.' },
+    { name: 'SEO & Launch', text: 'We optimize on-page SEO, test across devices, set up Google Search Console, then deploy to your domain.' },
+  ],
+})
+
 const whatsappUrl = 'https://wa.me/918864812200?text=Hi%20IRFATECH%2C%20I%20need%20a%20business%20website.'
 const features = ['Mobile Responsive', 'SEO Optimized', 'Fast Loading', 'WhatsApp Integration', 'Contact Forms', 'Blog / CMS', 'Analytics Ready', 'SSL Secured']
 const faqs = [
@@ -72,4 +135,7 @@ const faqs = [
   { q: 'Will I be able to update content myself?', a: 'Yes. We integrate a simple CMS so you can update text, images, and blog posts without touching any code.' },
   { q: 'Is SEO included?', a: 'On-page SEO (meta tags, structure, page speed) is included in every website. Content-based SEO is a separate ongoing service.' },
 ]
+
+// AEO: FAQPage schema — matches FAQ section visible on this page
+useFaqSchema(faqs)
 </script>

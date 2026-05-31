@@ -78,7 +78,17 @@ useSeoMeta({
   title: 'Blog — Business Tech Insights | IRFATECH',
   description: 'Practical guides on business automation, ERP, CRM, WhatsApp automation, and digital transformation for SMB owners.',
   ogTitle: 'IRFATECH Blog — Business Tech for Growing Companies',
+  ogDescription: 'ERP, CRM, AI workflows, WhatsApp automation — practical guides written by practitioners, for real businesses.',
+  ogUrl: 'https://irfatech.in/blog',
+  ogImage: 'https://irfatech.in/images/og/og-blog.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'IRFATECH Blog — Practical Business Automation Guides',
+  twitterCard: 'summary_large_image',
+  twitterImage: 'https://irfatech.in/images/og/og-blog.png',
+  twitterImageAlt: 'IRFATECH Blog — Business Tech for Growing Companies',
 })
+useHead({ link: [{ rel: 'canonical', href: 'https://irfatech.in/blog' }] })
 
 const { data: posts } = await useAsyncData('blog-posts', () =>
   queryCollection('blog').order('date', 'DESC').all()

@@ -5,6 +5,7 @@ date: "2026-02-08"
 category: "Websites"
 tags: ["business website", "website cost", "web development", "India", "SMB"]
 author: "Muhammad Irfan"
+image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
 readTime: "6"
 featured: false
 ---
@@ -129,6 +130,14 @@ What you get:
 Our business websites start at INR 120,000 for a professional 8–12 page site with WhatsApp integration, inquiry forms, blog, and SEO basics. Custom projects are scoped and quoted transparently before we start.
 
 Every website we build is designed with one goal: generating business for you, not winning design awards.
+
+---
+
+## Related Reading
+
+- **[How Small Businesses Can Automate Operations](/blog/how-small-businesses-can-automate-operations)** — Once your website is generating leads, here's how to automate what happens next.
+- **[Complete Guide to WhatsApp Business Automation](/blog/whatsapp-business-automation-guide)** — Turn website inquiries into WhatsApp conversations — automatically.
+- **[IRFATECH Business Website Development](/services/websites)** — What we build, how long it takes, and what a professional SMB website actually costs.
 
 ---
 

@@ -1,7 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-13',
-  ssr: false,
-  target: 'static',
+  ssr: true,
 
   modules: [
     '@nuxt/content',
@@ -36,7 +35,7 @@ export default defineNuxtConfig({
     baseURL: '/',
     buildAssetsDir: 'assets',
     head: {
-      title: 'IRFATECH — Digital Infrastructure for Growing Businesses',
+      title: 'IRFATECH — We Build Smart Software That Helps You Scale.',
       htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },
@@ -50,16 +49,22 @@ export default defineNuxtConfig({
         { name: 'robots', content: 'index, follow' },
         { property: 'og:type', content: 'website' },
         { property: 'og:site_name', content: 'IRFATECH' },
-        { property: 'og:image', content: 'https://irfatech.in/images/og-image.svg' },
+        { property: 'og:locale', content: 'en_IN' },
+        { property: 'og:image', content: 'https://irfatech.in/images/og/og-home.png' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
+        { property: 'og:image:type', content: 'image/png' },
+        { property: 'og:image:alt', content: 'IRFATECH — Digital Infrastructure for Growing Businesses' },
         { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@irfatech' },
         { name: 'twitter:creator', content: '@irfatech' },
+        { name: 'twitter:image', content: 'https://irfatech.in/images/og/og-home.png' },
+        { name: 'twitter:image:alt', content: 'IRFATECH — Digital Infrastructure for Growing Businesses' },
         { name: 'theme-color', content: '#0EA5E9' },
-        { name: 'color-scheme', content: 'dark' }
+        { name: 'color-scheme', content: 'dark' },
+        { name: 'google-site-verification', content: 'TGC7wuyok9pN8kHGZFUyXyVZ1d_y3lZ6a5yBkTtT7yY' }
       ],
       link: [
-        { rel: 'canonical', href: 'https://irfatech.in' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'manifest', href: '/manifest.json' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -137,7 +142,8 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'github-pages',
     prerender: {
-      routes: ['/'],
+      // Crawl links from the homepage + explicitly pre-render all sitemap routes
+      routes: ['/', '/sitemap.xml', '/sitemap/pages.xml', '/sitemap/blog.xml'],
       crawlLinks: true,
     }
   },

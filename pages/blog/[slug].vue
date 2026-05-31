@@ -129,16 +129,21 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () =>
 )
 
 if (post.value) {
+  const postOgImage = post.value.image || 'https://irfatech.in/images/og/og-blog.png'
   useSeoMeta({
     title: `${post.value.title} | IRFATECH Blog`,
     description: post.value.description,
     ogTitle: post.value.title,
     ogDescription: post.value.description,
-    ogImage: post.value.image || 'https://irfatech.in/images/og-image.jpg',
+    ogImage: postOgImage,
+    ogImageAlt: post.value.title,
     ogType: 'article',
     ogUrl: `https://irfatech.in/blog/${route.params.slug}`,
     twitterCard: 'summary_large_image',
+    twitterImage: postOgImage,
+    twitterImageAlt: post.value.title,
   })
+  useHead({ link: [{ rel: 'canonical', href: `https://irfatech.in/blog/${route.params.slug}` }] })
 
   useArticleSchema({
     title: post.value.title,
