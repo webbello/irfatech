@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <SectionsHeroSection />
     <!-- Interactive Image Accordion -->
-    <LandingAccordion />
+    <!-- <LandingAccordion /> -->
     <!-- Capability Marquee Sections -->
     <SectionsCapabilityMarquee />
     <!-- Services Bento Grid -->
