@@ -86,6 +86,8 @@ const { class: className } = Astro.props;
 </style>
 
 <script>
+  import { DEFAULT_THEME_MODE } from '@/config/branding';
+
   type Mode = 'system' | 'light' | 'dark';
   const MODES: readonly Mode[] = ['system', 'light', 'dark'] as const;
 
@@ -96,7 +98,8 @@ const { class: className } = Astro.props;
     } catch {
       /* private mode */
     }
-    return 'system';
+    // No stored choice yet — see DEFAULT_THEME_MODE in config/branding.ts.
+    return DEFAULT_THEME_MODE;
   }
 
   function applyMode(mode: Mode): void {

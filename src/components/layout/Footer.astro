@@ -192,7 +192,13 @@ const GROUP_GRIDS: Record<number, string> = {
   4: 'lg:grid-cols-[minmax(0,1.4fr)_repeat(4,minmax(0,1fr))]',
 };
 const derivedGridClass = cn(
-  'grid grid-cols-1 sm:grid-cols-2 gap-y-[var(--space-stack-lg)] gap-x-8',
+  // Two columns from the narrowest screen up. Stacked one-per-row, four link
+  // groups of five links each turned the phone footer into roughly a full
+  // screen of scrolling before the copyright — the groups are short lists of
+  // short labels and pair up fine at 375px. The brand/newsletter cell spans
+  // both tracks below `sm` (see the column itself), so only the link groups
+  // sit side by side; from `sm` up nothing changes from before.
+  'grid grid-cols-2 gap-y-[var(--space-stack-lg)] gap-x-4 sm:gap-x-8',
   GROUP_GRIDS[Math.min(4, resolvedLinkGroups.length)]
 );
 
@@ -402,7 +408,15 @@ function getSocialIcon(platform: string): string {
         <div class={useDerivedGrid ? derivedGridClass : footerColumnGridVariants({ columns: resolvedColumns })}>
           {/* Logo Column */}
           {!hideLogo && (
-            <div class="space-y-[var(--space-stack-md)]">
+            <div
+              class={cn(
+                'space-y-[var(--space-stack-md)]',
+                // Full width on phones, where the grid is two link columns
+                // wide; back to a single cell from `sm` up, which is what the
+                // grid above has always given it.
+                useDerivedGrid && 'col-span-2 sm:col-span-1'
+              )}
+            >
               {hasLogoSlot ? (
                 <slot name="logo" />
               ) : (

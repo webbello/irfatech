@@ -22,6 +22,7 @@ import {
 } from '@/lib/schema';
 import siteConfig from '@/config/site.config';
 import { t, getLocaleFromPath } from '@/i18n';
+import { DEFAULT_THEME_MODE } from '@/config/branding';
 import { getRssUrl } from '@/lib/blog';
 import { getVisibleSolutions, getSolutionUrl } from '@/lib/solutions';
 import { getVisibleServices, getServiceUrl } from '@/lib/services';
@@ -194,7 +195,7 @@ if (commentsConfig?.enabled) {
 ---
 
 <!doctype html>
-<html lang={locale} class="scroll-smooth" data-theme="orange" data-theme-mode="system">
+<html lang={locale} class="scroll-smooth" data-theme="orange" data-theme-mode={DEFAULT_THEME_MODE}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -250,11 +251,11 @@ if (commentsConfig?.enabled) {
 
     <!-- Theme bootstrap (runs before body paint; no flash of wrong theme).
          Implements a 3-state colour-mode contract:
-           localStorage.theme ∈ {'system','light','dark'}  (default 'system')
+           localStorage.theme ∈ {'system','light','dark'}  (default: DEFAULT_THEME_MODE)
            <html data-theme-mode="…">                      (mirrors saved mode)
            <html class="dark">                              (resolved appearance)
          When mode === 'system', <html>.dark tracks prefers-color-scheme live. -->
-    <script is:inline>
+    <script is:inline define:vars={{ defaultThemeMode: DEFAULT_THEME_MODE }}>
       (function () {
         const COLOR_THEMES = ['orange', 'amber', 'lime', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'magenta'];
         const VALID_MODES = ['system', 'light', 'dark'];
@@ -264,7 +265,8 @@ if (commentsConfig?.enabled) {
             const stored = localStorage.getItem('theme');
             if (VALID_MODES.indexOf(stored) !== -1) return stored;
           } catch { /* private mode / disabled storage */ }
-          return 'system';
+          // No stored choice yet — see DEFAULT_THEME_MODE in config/branding.ts.
+          return defaultThemeMode;
         }
 
         function applyMode(el) {

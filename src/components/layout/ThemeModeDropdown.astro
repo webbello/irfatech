@@ -140,7 +140,7 @@ const triggerLabel = t('theme.modeTrigger', locale, { mode: modeNames.system.toL
   }
 
   /* Fallback in case <html> is missing the attribute (script disabled / pre-bootstrap) */
-  :global(html:not([data-theme-mode])) .ttg-trigger .ttg-icon-system { display: block; }
+  :global(html:not([data-theme-mode])) .ttg-trigger .ttg-icon-light { display: block; }
 
   /* Menu rows */
   .ttg-row {
@@ -210,6 +210,8 @@ const triggerLabel = t('theme.modeTrigger', locale, { mode: modeNames.system.toL
 </style>
 
 <script>
+  import { DEFAULT_THEME_MODE } from '@/config/branding';
+
   type Mode = 'system' | 'light' | 'dark';
 
   const STORAGE_KEY = 'theme';
@@ -220,7 +222,8 @@ const triggerLabel = t('theme.modeTrigger', locale, { mode: modeNames.system.toL
       const v = localStorage.getItem(STORAGE_KEY);
       if (v === 'system' || v === 'light' || v === 'dark') return v;
     } catch { /* private mode */ }
-    return 'system';
+    // No stored choice yet — see DEFAULT_THEME_MODE in config/branding.ts.
+    return DEFAULT_THEME_MODE;
   }
 
   function osIsDark(): boolean {
