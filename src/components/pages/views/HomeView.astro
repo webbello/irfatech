@@ -998,7 +998,11 @@ const SPEAKABLE_SELECTORS = ['h1', '.hero-description-slot'];
     padding: 0.3rem 0.75rem;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: var(--color-brand-300);
+    /* Was --color-brand-300: a shade picked to read on a dark surface, which
+       on the light page this pill actually sits on measured 2.11:1. The
+       mode-aware --color-brand-500 (see global.css) gives 4.9:1 against the
+       pill's own tinted background in light mode and stays bright in dark. */
+    color: var(--color-brand-500);
   }
   .process-step-stat svg {
     flex: none;

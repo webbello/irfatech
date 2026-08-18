@@ -117,13 +117,32 @@
   --font-display: var(--theme-font-display);
   --font-mono: var(--theme-font-mono);
 
-  /* Brand Colors in Tailwind theme */
+  /* Brand Colors in Tailwind theme.
+
+     `--color-brand-500` is deliberately NOT `--brand-500`. It is the shade the
+     `text-brand-500` / `bg-brand-500` utilities resolve to — roughly 150 call
+     sites — and it has to carry body-sized text on the page background and
+     white text inside a filled button. Measured against this palette:
+
+                       text on white   text on dark bg   white on it (fill)
+       --brand-500          3.93 ✗          5.27 ✓             3.93 ✗
+       --brand-600          5.69 ✓          3.64 ✗             5.69 ✓
+
+     No single value passes both modes, so this token is mode-aware: the light
+     default is below, the dark override sits right after this block, and the
+     always-dark surfaces (.invert-section, .footer-techlo) re-brighten it the
+     same way they already re-map the rest of their colours.
+
+     The raw `--brand-*` primitives are untouched — decorative glows, borders
+     and tints still reach for whichever step they want. */
   --color-brand-50: var(--brand-50);
   --color-brand-100: var(--brand-100);
   --color-brand-200: var(--brand-200);
   --color-brand-300: var(--brand-300);
   --color-brand-400: var(--brand-400);
-  --color-brand-500: var(--brand-500);
+  /* Light mode: one step deeper than the raw brand, for 4.5:1 on white
+     (5.69) and under white button text (5.69). See the table above. */
+  --color-brand-500: var(--brand-600);
   --color-brand-600: var(--brand-600);
   --color-brand-700: var(--brand-700);
   --color-brand-800: var(--brand-800);
@@ -165,6 +184,15 @@
 
   /* Container */
   --container-max: 1200px;
+}
+
+/* Dark mode restores the brighter brand for text: `--brand-600` only reaches
+   3.64:1 on the dark background, while `--brand-500` gets 5.27:1. Filled
+   buttons in dark mode are handled by the components that draw them.
+   Written as `html.dark` so it outranks the `:root` default above regardless
+   of source order. */
+html.dark {
+  --color-brand-500: var(--brand-500);
 }
 
 /* -------------------------------------------------------------------------
@@ -287,6 +315,9 @@
     --color-ring: var(--on-invert);
     --color-primary: var(--on-invert);
     --color-primary-foreground: var(--surface-invert);
+    /* Inverted surface: dark even on a light page, so the brand text shade
+       follows the dark-mode value rather than the page's. */
+    --color-brand-500: var(--brand-500);
   }
 
   .dark .invert-section {
@@ -331,6 +362,9 @@
     --color-secondary: color-mix(in srgb, white 6%, transparent);
     --color-secondary-hover: color-mix(in srgb, white 10%, transparent);
     --color-brand-600: var(--techlo-primary);
+    /* This surface is navy whatever the page mode is, so it needs the dark-mode
+       brand shade even while the rest of the page is light. */
+    --color-brand-500: var(--brand-500);
   }
 
   /* Container */

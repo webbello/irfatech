@@ -22,21 +22,32 @@
 
 @import './primitives.css';
 
-/* — active in selector — */
+/* Only the palette this site can actually reach is imported.
+   
+   `data-theme="orange"` is hardcoded on <html> (BaseLayout) and the theme
+   picker is disabled on every page (`showThemeSelector = false` in
+   Header.astro), so the other twelve palettes could never be selected — they
+   were 104 KB of the 226 KB render-blocking stylesheet, shipped to every
+   visitor on every page, for nothing. Removing them measured −58 KB raw and
+   −4.6 KB gzip (−13.6% of the critical CSS).
+
+   The files are all still in ../themes/. To bring one back: uncomment its
+   import here and flip it to `shipped: true` in src/lib/themes.ts — the
+   pickers and the pre-paint bootstrap read that list, so the two cannot
+   drift out of sync. */
 @import '../themes/orange.css';
+
+/* Available but not shipped — uncomment to use (see the note above):
 @import '../themes/lime.css';
 @import '../themes/emerald.css';
 @import '../themes/teal.css';
 @import '../themes/sky.css';
 @import '../themes/blue.css';
 @import '../themes/purple.css';
-
-/* — hidden from selector — */
 @import '../themes/cyan.css';
 @import '../themes/green.css';
 @import '../themes/indigo.css';
-
-/* — available, not in selector — */
 @import '../themes/amber.css';
 @import '../themes/violet.css';
 @import '../themes/magenta.css';
+*/

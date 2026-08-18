@@ -23,6 +23,7 @@ import {
 import siteConfig from '@/config/site.config';
 import { t, getLocaleFromPath } from '@/i18n';
 import { DEFAULT_THEME_MODE } from '@/config/branding';
+import { shippedThemeIds } from '@/lib/themes';
 import { getRssUrl } from '@/lib/blog';
 import { getVisibleSolutions, getSolutionUrl } from '@/lib/solutions';
 import { getVisibleServices, getServiceUrl } from '@/lib/services';
@@ -255,9 +256,13 @@ if (commentsConfig?.enabled) {
            <html data-theme-mode="…">                      (mirrors saved mode)
            <html class="dark">                              (resolved appearance)
          When mode === 'system', <html>.dark tracks prefers-color-scheme live. -->
-    <script is:inline define:vars={{ defaultThemeMode: DEFAULT_THEME_MODE }}>
+    <script is:inline define:vars={{ defaultThemeMode: DEFAULT_THEME_MODE, shippedThemeIds }}>
       (function () {
-        const COLOR_THEMES = ['orange', 'amber', 'lime', 'emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'magenta'];
+        // Only palettes actually imported in tokens/colors.css — see
+        // `shipped` in src/lib/themes.ts. Restoring a palette whose CSS was
+        // never shipped would set data-theme to a value with no tokens
+        // behind it, so a stale sessionStorage entry is ignored instead.
+        const COLOR_THEMES = shippedThemeIds;
         const VALID_MODES = ['system', 'light', 'dark'];
 
         function getMode() {
