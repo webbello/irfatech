@@ -58,6 +58,11 @@ for (const file of ['.env.local', '.env']) {
  * prerendered and only the `prerender = false` API routes (the contact form
  * and newsletter) ship as the platform's serverless/edge function — on
  * Cloudflare Pages, as a Pages Function.
+ *
+ * `DEPLOY_TARGET=github` installs no adapter at all: GitHub Pages has no
+ * server runtime, so the deploy workflow removes the server-only API routes
+ * from src/pages/api/ before building, and everything static lands in `dist/`,
+ * ready for actions/upload-pages-artifact.
  */
 const deployTarget = process.env.DEPLOY_TARGET;
 function resolveAdapter() {
@@ -66,6 +71,8 @@ function resolveAdapter() {
       return netlify();
     case 'cloudflare':
       return cloudflare();
+    case 'github':
+      return undefined;
     default:
       return vercel();
   }

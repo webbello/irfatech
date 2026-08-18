@@ -1,0 +1,71 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run lint
+
+      # GitHub Pages has no server runtime, so the site builds to plain
+      # static `dist/` and upload-pages-artifact publishes that directory
+      # verbatim. CNAME rides along from public/. The server-only API routes
+      # (contact + newsletter) cannot run without an adapter, so they are
+      # removed first — the forms already degrade gracefully (contact uses a
+      # WhatsApp link; newsletter disables its submit when unconfigured).
+      - name: Build
+        run: |
+          rm -f src/pages/api/contact.ts src/pages/api/newsletter.ts
+          pnpm run build
+        env:
+          DEPLOY_TARGET: github
+          SITE_URL: ${{ secrets.SITE_URL || 'https://irfatech.in' }}
+          GOOGLE_SITE_VERIFICATION: ${{ secrets.GOOGLE_SITE_VERIFICATION || '' }}
+          BING_SITE_VERIFICATION: ${{ secrets.BING_SITE_VERIFICATION || '' }}
+
+      # Gates: the previous Cloudflare bugs (#600) shipped on a green exit
+      # code, so read the output back before uploading anything.
+      - name: Verify the output is a usable site
+        run: pnpm run verify
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
