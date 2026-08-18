@@ -31,7 +31,15 @@ export function canonicalOf(html) {
   return match ? match[1] : null;
 }
 
-/** The first `url` in the page's JSON-LD, or null. */
+/**
+ * The first `url` in the page's JSON-LD, or null.
+ *
+ * Pages emit one `@graph` document rather than a script per type, so the
+ * nodes carrying a `url` are nested a level down. Both shapes are still
+ * handled: a theme user who emits bare nodes, and the `@graph` this site
+ * ships. Missing that nesting doesn't fail loudly — it just returns null,
+ * and this whole check quietly stops running.
+ */
 export function jsonLdUrlOf(html) {
   const blocks = html.matchAll(
     /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi
@@ -43,11 +51,22 @@ export function jsonLdUrlOf(html) {
     } catch {
       continue; // a malformed block is not this check's problem
     }
-    for (const entry of Array.isArray(data) ? data : [data]) {
+    for (const entry of flattenNodes(data)) {
       if (entry && typeof entry.url === 'string') return entry.url;
     }
   }
   return null;
+}
+
+/** Every node in a JSON-LD document, whether it's a bare node, an array, or a `@graph`. */
+function flattenNodes(data) {
+  const nodes = [];
+  for (const entry of Array.isArray(data) ? data : [data]) {
+    if (!entry || typeof entry !== 'object') continue;
+    if (Array.isArray(entry['@graph'])) nodes.push(...entry['@graph']);
+    else nodes.push(entry);
+  }
+  return nodes;
 }
 
 function originOf(value) {

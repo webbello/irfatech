@@ -10,7 +10,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
-import type { Thing, WithContext } from 'schema-dts';
+import type { SchemaNode, PageType, FaqItem } from '@/lib/schema';
 
 interface Props {
   title?: string;
@@ -19,10 +19,20 @@ interface Props {
   imageAlt?: string;
   noindex?: boolean;
   nofollow?: boolean;
-  includeOrgSchema?: boolean;
-  includePersonSchema?: boolean;
-  includeProfessionalServiceSchema?: boolean;
-  extraSchemas?: WithContext<Thing>[];
+  /** Page flavour for the WebPage node (AboutPage, ContactPage, CollectionPage…). */
+  pageType?: PageType;
+  /** Breadcrumb trail — pass the same array to <Breadcrumbs> for the visible one. */
+  breadcrumbs?: { label: string; href?: string }[];
+  /** Q&As rendered on this page; adds the FAQPage type to the WebPage node. */
+  faqs?: FaqItem[];
+  /** `@id` of the entity this page is about. */
+  aboutId?: string;
+  /** `@id` of the page's main entity (an ItemList on a collection page). */
+  mainEntityId?: string;
+  /** CSS selectors a voice assistant may read aloud. */
+  speakableSelectors?: string[];
+  /** Extra graph nodes: Service, BlogPosting, ItemList … */
+  extraSchemas?: SchemaNode[];
 }
 
 const {
@@ -32,9 +42,12 @@ const {
   imageAlt,
   noindex = false,
   nofollow = false,
-  includeOrgSchema = false,
-  includePersonSchema = false,
-  includeProfessionalServiceSchema = false,
+  pageType,
+  breadcrumbs,
+  faqs,
+  aboutId,
+  mainEntityId,
+  speakableSelectors,
   extraSchemas = [],
 } = Astro.props;
 ---
@@ -46,9 +59,12 @@ const {
   imageAlt={imageAlt}
   noindex={noindex}
   nofollow={nofollow}
-  includeOrgSchema={includeOrgSchema}
-  includePersonSchema={includePersonSchema}
-  includeProfessionalServiceSchema={includeProfessionalServiceSchema}
+  pageType={pageType}
+  breadcrumbs={breadcrumbs}
+  faqs={faqs}
+  aboutId={aboutId}
+  mainEntityId={mainEntityId}
+  speakableSelectors={speakableSelectors}
   extraSchemas={extraSchemas}
 >
   <Header

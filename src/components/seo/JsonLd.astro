@@ -1,17 +1,21 @@
 ---
-import type { Thing, WithContext } from 'schema-dts';
+/**
+ * Emits a page's structured data as ONE JSON-LD document.
+ *
+ * It used to take an array of schemas and write a separate `<script>` per
+ * entry. That is where the site's `@id` references went to die: JSON-LD `@id`
+ * resolution is reliable only within a single document, so a `publisher`
+ * pointing at `#organization` from its own isolated block referenced a node
+ * the consumer had no obligation to have seen. One `@graph` per page fixes it
+ * for every node at once.
+ */
+import type { SchemaGraph } from '@/lib/schema';
 
 interface Props {
-  schema: WithContext<Thing> | WithContext<Thing>[];
+  graph: SchemaGraph;
 }
 
-const { schema } = Astro.props;
-
-const schemas = Array.isArray(schema) ? schema : [schema];
+const { graph } = Astro.props;
 ---
 
-{
-  schemas.map((s) => (
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(s, null, 0)} />
-  ))
-}
+<script is:inline type="application/ld+json" set:html={JSON.stringify(graph, null, 0)} />

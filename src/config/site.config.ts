@@ -18,10 +18,77 @@ export interface SiteConfig {
   author: string;
   email: string;
   phone?: string;
+  /**
+   * Other names the business is genuinely known by. Emitted as schema.org
+   * `alternateName`, which is how a knowledge graph learns that "IRFAtech",
+   * "IRFATECH" and the expanded form all denote one entity — without this the
+   * casing in `name` and the casing used in the site's own prose read as two
+   * different strings.
+   */
+  alternateName?: string[];
+  /** Registered legal entity name, when it differs from the trading name. */
+  legalName?: string;
+  /**
+   * The founder, kept deliberately separate from the business above.
+   *
+   * `socialLinks` here must be the *person's own* profiles and nothing else.
+   * The company's profiles live in `socialLinks` at the bottom of this file.
+   * `sameAs` is the property search engines use to decide that two identifiers
+   * denote the same real-world thing, so listing a company page under a Person
+   * is a direct instruction to merge the founder and the company into one
+   * entity. Leave this empty rather than borrowing the company's links.
+   */
+  founder?: {
+    /** The founder's own page. Defaults to `/about/` — never the site root,
+     *  which belongs to the organization. */
+    url?: string;
+    jobTitle?: string;
+    /** One line separating the person from the business, for `description`. */
+    description?: string;
+    /** Raster photo of the founder (PNG/JPEG/WebP). SVG is skipped: schema.org
+     *  image fields are consumed by pipelines that don't rasterize. */
+    image?: string;
+    /** The founder's *personal* profiles only. See the note above. */
+    socialLinks?: string[];
+  };
   /** ISO 8601 year the business was founded — feeds Organization schema's `foundingDate`. */
   foundingYear?: string;
   /** Languages the team can be reached in, for schema's `contactPoint.availableLanguage` and llms.txt. */
   languages?: string[];
+  /**
+   * Countries the business actually serves, for schema `areaServed`. Named
+   * countries only — "Worldwide" is not a country and a `Country` node that
+   * can't be resolved lowers confidence in the resolvable ones next to it.
+   * Use `areaServedNote` for a broader plain-text claim instead.
+   */
+  countriesServed?: string[];
+  /** Free-text area statement appended to `areaServed`, e.g. "Worldwide". */
+  areaServedNote?: string;
+  /**
+   * Raster image representing the business itself (premises, team, or the
+   * logo mark as a fallback) for `LocalBusiness.image`. Not the founder's
+   * avatar: that's a different entity, and not an SVG.
+   */
+  businessImage?: string;
+  /** Coordinates of the business, for `LocalBusiness.geo`. */
+  geo?: {
+    latitude: number;
+    longitude: number;
+  };
+  /**
+   * Opening hours, for `LocalBusiness.openingHoursSpecification`. Days use
+   * schema.org day names ("Monday" … "Sunday"); times are 24h "HH:MM".
+   * Leave empty when you'd rather publish nothing than publish a guess.
+   */
+  openingHours?: Array<{
+    days: string[];
+    opens: string;
+    closes: string;
+  }>;
+  /** Price band, e.g. "₹₹" or "₹₹₹". Empty means "not published". */
+  priceRange?: string;
+  /** ISO 4217 codes accepted, e.g. "INR, USD". */
+  currenciesAccepted?: string;
   /**
    * Where the contact form actually delivers a message. `email` sends via
    * Resend (src/pages/api/contact.ts, unchanged); `whatsapp` skips the
@@ -294,6 +361,45 @@ const siteConfig: SiteConfig = {
   phone: '+91 88648 12200',
   foundingYear: '2009',
   languages: ['English', 'Hindi', 'Urdu'],
+  // `name` above is the wordmark's casing. These are the other spellings the
+  // business is referred to in its own copy and by other people; without them
+  // the two are unrelated strings to a machine.
+  alternateName: ['IRFAtech', 'Integrated Resources For Automation & Technology'],
+  founder: {
+    // The founder's own page, not the site root. The root is the
+    // organization's URL; three entities sharing one URL is what makes a
+    // resolver merge them.
+    url: '/about/',
+    jobTitle: 'Founder & Automation Engineer',
+    description:
+      'Founder of IRFAtech, working on ERP, workflow automation and custom software for growing businesses in India and Timor-Leste.',
+    // No raster photo published yet. `/avatar.svg` deliberately not used here:
+    // schema.org image fields are read by pipelines that do not rasterize SVG,
+    // and it is the site's generic mark rather than a photo of a person.
+    image: '',
+    // Empty on purpose. The LinkedIn/Facebook/Instagram accounts in
+    // `socialLinks` below belong to the *company*, and listing them here would
+    // tell every search engine that Mohammed Irfan and IRFAtech are the same
+    // entity. Add personal profiles (personal LinkedIn, GitHub, X) here when
+    // there are ones worth publishing — and nothing else.
+    socialLinks: [],
+  },
+  countriesServed: ['India', 'Timor-Leste'],
+  areaServedNote: 'Worldwide',
+  // Raster, and about the business rather than a person. Points at the
+  // build-generated brand mark until a real photo of the team or workspace
+  // exists to put here.
+  businessImage: '/apple-touch-icon.png',
+  // Unset until real values are published — every one of these is a claim a
+  // customer can turn up and test, so a guess is worse than a gap:
+  //   geo:              coordinates of the business
+  //   openingHours:     e.g. [{ days: ['Monday', … ], opens: '10:00', closes: '19:00' }]
+  //   priceRange:       e.g. '₹₹'
+  //   currenciesAccepted: e.g. 'INR, USD'
+  // Filling any of them in is enough on its own; the schema picks up whatever
+  // is present and omits the rest.
+  openingHours: [],
+  priceRange: '',
   contact: {
     channel: 'whatsapp',
   },
@@ -304,6 +410,8 @@ const siteConfig: SiteConfig = {
     zip: '',
     country: 'India',
   },
+  // The *company's* profiles. Kept apart from `founder.socialLinks` above so
+  // schema.org never states that the person and the business are one entity.
   socialLinks: [
     'https://linkedin.com/company/irfatech',
     'https://facebook.com/irfatech',

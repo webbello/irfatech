@@ -23,8 +23,8 @@ import { Hero } from '@/components/hero';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 import { t, defaultLocale, localizedPath } from '@/i18n';
 import { getSolutionUrl, getSolutionsBaseUrl, getRelatedSolutions } from '@/lib/solutions';
-import { createServiceSchema } from '@/lib/schema';
-import type { Thing, WithContext } from 'schema-dts';
+import { getVisibleServices, getServiceUrl } from '@/lib/services';
+import { createServiceNode, serviceId, type SchemaNode } from '@/lib/schema';
 
 interface Props {
   solution: CollectionEntry<'solutions'>;
@@ -41,11 +41,27 @@ const contactUrl = localizedPath('/contact', locale);
 const solutionsUrl = getSolutionsBaseUrl(locale);
 
 // A solution page is a sector-specific service offering — same shape as
-// ServiceDetailView's own Service schema — so it gets one too instead of
-// only ever appearing as a bare Offer line item in the site-wide catalog.
+// ServiceDetailView's own Service node — so it gets one too instead of only
+// ever appearing as a bare Offer line item in the site-wide catalog.
+//
+// `category` carries the sector, which is what actually distinguishes this
+// offering from the same-named one on the services side; `isRelatedTo` states
+// the relationship between the two outright.
 const pageUrl = new URL(getSolutionUrl(solution.id, locale), Astro.site).toString();
-const extraSchemas: WithContext<Thing>[] = [
-  createServiceSchema({ name: data.title, description: data.description, url: pageUrl, locale }),
+const services = await getVisibleServices(locale);
+const relatedOfferings = services
+  .filter((service) => service.data.title === data.title)
+  .map((service) => ({ name: service.data.title, url: getServiceUrl(service.id, locale) }));
+
+const extraSchemas: SchemaNode[] = [
+  createServiceNode({
+    name: data.title,
+    description: data.description,
+    url: pageUrl,
+    category: data.sector,
+    audiences: [data.sector],
+    relatedOfferings,
+  }),
 ];
 
 const breadcrumbs = [
@@ -59,8 +75,8 @@ const breadcrumbs = [
   title={`${data.title} — ${t('solutions.title', locale)}`}
   description={data.description}
   eagerReveal
-  includeOrgSchema
-  includeProfessionalServiceSchema
+  breadcrumbs={breadcrumbs}
+  aboutId={serviceId(pageUrl)}
   extraSchemas={extraSchemas}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>

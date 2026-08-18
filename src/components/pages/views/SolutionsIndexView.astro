@@ -18,6 +18,7 @@ import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 import { t, defaultLocale, localizedPath } from '@/i18n';
 import { getVisibleSolutions, getSolutionUrl } from '@/lib/solutions';
 import { tagToSlug } from '@/lib/tags';
+import { createItemListNode } from '@/lib/schema';
 
 interface Props {
   /** Locale whose solutions this index renders. Defaults to the site default. */
@@ -76,14 +77,36 @@ const sectorId = (sector: string) => `sector-${tagToSlug(sector)}`;
 
 const contactUrl = localizedPath('/contact', locale);
 const aboutUrl = localizedPath('/about', locale);
+
+// The page's actual inventory, enumerable. Before this the solutions index
+// shipped nothing but the site-wide WebSite node, so ten sector offerings
+// existed as a machine-readable set nowhere on the site.
+const solutionsUrl = localizedPath('/solutions', locale);
+const itemList = createItemListNode({
+  url: solutionsUrl,
+  name: t('solutions.title', locale),
+  description: t('solutions.metaDescription', locale),
+  items: solutions.map((solution) => ({
+    name: solution.data.title,
+    url: getSolutionUrl(solution.id, locale),
+    description: solution.data.description,
+  })),
+});
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('solutions.title', locale) },
+];
 ---
 
 <PageLayout
   title={t('solutions.metaTitle', locale)}
   description={t('solutions.metaDescription', locale)}
   eagerReveal
-  includeOrgSchema
-  includeProfessionalServiceSchema
+  pageType="CollectionPage"
+  breadcrumbs={breadcrumbs}
+  mainEntityId={itemList['@id'] as string}
+  extraSchemas={[itemList]}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

@@ -16,7 +16,9 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
 import { t, defaultLocale } from '@/i18n';
-import { getBlogBaseUrl, getPostUrl, tagToSlug } from '@/lib/blog';
+import { getBlogBaseUrl, getPostUrl, tagToSlug, getTagUrl } from '@/lib/blog';
+import { createItemListNode } from '@/lib/schema';
+import { localizedPath } from '@/i18n';
 import { getBlogTagOgPath } from '@/lib/og/svg';
 import BlogCta from '@/components/blog/BlogCta.astro';
 
@@ -35,6 +37,23 @@ const { locale = defaultLocale, tag, posts, visibleTags } = Astro.props;
 
 const blogHref = getBlogBaseUrl(locale);
 const countKey = posts.length === 1 ? 'blog.tagCountOne' : 'blog.tagCountOther';
+
+// The archive's contents, as a list a machine can read off.
+const itemList = createItemListNode({
+  url: getTagUrl(tag, locale),
+  name: t('blog.tagMetaTitle', locale, { tag }),
+  items: posts.map((post) => ({
+    name: post.data.title,
+    url: getPostUrl(post.id, locale),
+    description: post.data.description,
+  })),
+});
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('blog.title', locale), href: blogHref },
+  { label: `#${tag}` },
+];
 ---
 
 <PageLayout
@@ -42,6 +61,10 @@ const countKey = posts.length === 1 ? 'blog.tagCountOne' : 'blog.tagCountOther';
   description={t('blog.tagMetaDescription', locale, { tag })}
   image={getBlogTagOgPath(tagToSlug(tag))}
   eagerReveal
+  pageType="CollectionPage"
+  breadcrumbs={breadcrumbs}
+  mainEntityId={itemList['@id'] as string}
+  extraSchemas={[itemList]}
 >
   <Hero layout="centered" size="sm">
     <Badge slot="badge" variant="brand" pill>

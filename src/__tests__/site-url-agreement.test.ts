@@ -43,6 +43,33 @@ describe('reading a built page', () => {
     expect(jsonLdUrlOf(html)).toBe('https://example.test');
   });
 
+  it('reads the @graph the site actually ships', () => {
+    // The real shape: one script, one `@graph`, and the node carrying `url`
+    // nested inside it. Read as a bare node this returns null, and the whole
+    // check silently stops guarding the build.
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': [
+        { '@type': 'BreadcrumbList', '@id': 'https://example.test/#breadcrumb' },
+        { '@type': 'WebSite', url: 'https://example.test/' },
+      ],
+    })}</script>`;
+    expect(jsonLdUrlOf(html)).toBe('https://example.test/');
+  });
+
+  it('catches a mismatch inside a @graph', () => {
+    const html = `
+      <link rel="canonical" href="https://astro-rocket.pages.dev/about/" />
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [{ '@type': 'WebSite', url: 'https://irfatech.in/' }],
+      })}</script>`;
+    expect(siteUrlDisagreement(html)).toMatchObject({
+      canonicalOrigin: 'https://astro-rocket.pages.dev',
+      jsonLdOrigin: 'https://irfatech.in',
+    });
+  });
+
   it('steps over a malformed block instead of throwing', () => {
     const html = `
       <script type="application/ld+json">{ not json </script>

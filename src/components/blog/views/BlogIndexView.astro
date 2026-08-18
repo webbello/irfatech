@@ -23,7 +23,10 @@ import {
   getBlogPageUrl,
   getPostUrl,
   getPublishedPosts,
+  getBlogBaseUrl,
 } from '@/lib/blog';
+import { createItemListNode, createBlogNode } from '@/lib/schema';
+import { localizedPath } from '@/i18n';
 
 interface Props {
   /** Locale whose posts this index renders. Defaults to the site default. */
@@ -48,9 +51,45 @@ const totalPages = Math.max(1, Math.ceil(regularPostsAll.length / BLOG_POSTS_PER
 const regularPosts = regularPostsAll.slice(0, BLOG_POSTS_PER_PAGE);
 
 const topTags = collectTopTags(posts, BLOG_TAG_CLOUD_LIMIT);
+
+// The blog as a work in its own right, plus the posts this page actually
+// lists. Index pages used to carry only the site-wide WebSite node, which
+// left every post on the site enumerable nowhere.
+const blogUrl = getBlogBaseUrl(locale);
+const blogNode = createBlogNode({
+  url: blogUrl,
+  name: t('blog.title', locale),
+  description: t('blog.metaDescription', locale),
+  locale,
+});
+const listedPosts = [...featuredPosts, ...regularPosts];
+const itemList = createItemListNode({
+  url: blogUrl,
+  name: t('blog.title', locale),
+  items: listedPosts.map((post) => ({
+    name: post.data.title,
+    url: getPostUrl(post.id, locale),
+    description: post.data.description,
+  })),
+});
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('blog.title', locale) },
+];
 ---
 
-<PageLayout title={t('blog.metaTitle', locale)} description={t('blog.metaDescription', locale)} showScrollProgress eagerReveal>
+<PageLayout
+  title={t('blog.metaTitle', locale)}
+  description={t('blog.metaDescription', locale)}
+  showScrollProgress
+  eagerReveal
+  pageType="CollectionPage"
+  breadcrumbs={breadcrumbs}
+  aboutId={blogNode['@id'] as string}
+  mainEntityId={itemList['@id'] as string}
+  extraSchemas={[blogNode, itemList]}
+>
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>
       <Icon name="book" size="sm" />

@@ -187,6 +187,25 @@ const currentLanguageLabel = t('nav.currentLanguage', currentLocale);
     font-weight: 500;
   }
 
+  /*
+   * Opened upward, when `positionPanel()` finds there is no room below.
+   *
+   * The mobile menu puts this trigger about 76px above the bottom of a 812px
+   * viewport, and the panel is ~168px tall — so the default downward panel
+   * ran 101px past the edge and three of the four languages were unreachable.
+   *
+   * Specificity note: `top-full` and `mt-2` are Tailwind utilities, single
+   * classes like this rule would be. The two-class selector (plus the
+   * data-attribute Astro adds when scoping) is what makes this win, rather
+   * than relying on stylesheet order.
+   */
+  .lang-panel.lang-panel-up {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
   .lang-check {
     display: none;
     color: var(--color-brand-500);
@@ -199,11 +218,59 @@ const currentLanguageLabel = t('nav.currentLanguage', currentLocale);
 
 <script>
   function closeAllLangPanels(): void {
-    document.querySelectorAll<HTMLElement>('.lang-panel').forEach((p) => p.classList.add('hidden'));
+    document.querySelectorAll<HTMLElement>('.lang-panel').forEach((p) => {
+      p.classList.add('hidden');
+      // Drop the placement so the next open measures from a clean state
+      // rather than inheriting wherever the last one happened to fit.
+      p.classList.remove('lang-panel-up');
+      p.style.maxHeight = '';
+      p.style.overflowY = '';
+    });
     document.querySelectorAll<HTMLButtonElement>('.lang-trigger').forEach((t) => {
       t.setAttribute('aria-expanded', 'false');
       t.querySelector('.lang-chevron')?.classList.remove('rotate-180');
     });
+  }
+
+  /**
+   * Open the panel wherever it actually fits.
+   *
+   * It always opened downward before. In the header that's fine — there's a
+   * whole page below it. In the mobile menu the language row sits near the
+   * bottom of the screen, so the panel ran off the viewport and only the
+   * first language stayed reachable.
+   *
+   * Measured per open rather than switched on a breakpoint: the constraint is
+   * how much room is left below the trigger, which depends on where the menu
+   * has been scrolled to and how many locales are configured, not on how wide
+   * the screen is. Desktop keeps opening downward because down is where the
+   * room is.
+   */
+  function positionPanel(trigger: HTMLElement, panel: HTMLElement): void {
+    // Measure from a clean slate — the panel must already be un-hidden here,
+    // or `offsetHeight` reads 0 and every panel would flip.
+    panel.classList.remove('lang-panel-up');
+    panel.style.maxHeight = '';
+    panel.style.overflowY = '';
+
+    const GAP = 8; // matches the mt-2 / mb-2 offset from the trigger
+    const EDGE = 8; // don't sit flush against the viewport edge
+    const rect = trigger.getBoundingClientRect();
+    const needed = panel.offsetHeight + GAP;
+    const below = window.innerHeight - rect.bottom - EDGE;
+    const above = rect.top - EDGE;
+
+    const openUp = needed > below && above > below;
+    if (openUp) panel.classList.add('lang-panel-up');
+
+    // Neither direction fits — a short landscape phone, or a site with many
+    // locales. Keep the panel on screen and let the list scroll inside it,
+    // which still beats rendering rows nobody can reach.
+    const available = openUp ? above : below;
+    if (needed > available) {
+      panel.style.maxHeight = `${Math.max(96, available - GAP)}px`;
+      panel.style.overflowY = 'auto';
+    }
   }
 
   function initLanguageSwitcher(): void {
@@ -238,6 +305,7 @@ const currentLanguageLabel = t('nav.currentLanguage', currentLocale);
         closeAllLangPanels();
         if (willOpen) {
           panel.classList.remove('hidden');
+          positionPanel(trigger, panel);
           trigger.setAttribute('aria-expanded', 'true');
           trigger.querySelector('.lang-chevron')?.classList.add('rotate-180');
           // WAI-ARIA menu pattern: focus the first item when the menu opens.

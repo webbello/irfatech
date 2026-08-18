@@ -237,11 +237,36 @@ function ogCards() {
         const siteUrl = process.env.SITE_URL || SITE_URL_FALLBACK;
         const domain = new URL(siteUrl).host;
 
+        /**
+         * Read every page first, because the ORDER decides what gets drawn and
+         * it can't be left to the filesystem.
+         *
+         * A card is defined by the first page that references it, and 114
+         * pages reference `/og/default.png`. `readdir` returns `404.html`
+         * before `index.html` — digits sort ahead of letters — so the card
+         * standing in for the whole site was drawn from the 404 page, and
+         * every link to the homepage shared an image reading "Page not
+         * found". Per-post cards were never affected: each is claimed by
+         * exactly one page, so nothing races for those.
+         *
+         * The site's own front page goes first, so it names the card that
+         * represents the site. Pages asking not to be indexed (404, the theme
+         * demos) go last: they can still define a card nothing else claims,
+         * but they can never take one from a page meant to be shared.
+         */
+        const rootIndex = join(out, 'index.html');
+        const pages = [];
+        for (const file of await htmlFiles(out)) {
+          pages.push({ file, html: await readFile(file, 'utf8') });
+        }
+        const rank = ({ file, html }) =>
+          /<meta name="robots" content="[^"]*noindex/i.test(html) ? 2 : file === rootIndex ? 0 : 1;
+        pages.sort((a, b) => rank(a) - rank(b));
+
         // Collect one entry per distinct card path; several pages can point at
         // the same card (the default one, most obviously).
         const wanted = new Map();
-        for (const file of await htmlFiles(out)) {
-          const html = await readFile(file, 'utf8');
+        for (const { html } of pages) {
           const image = meta(html, 'og:image');
           if (!image) continue;
           let path;
@@ -406,7 +431,13 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    sitemap(),
+    sitemap({
+      // The theme's own demo pages are not part of this business's site. They
+      // were shipping in the sitemap and indexable, which spends crawl budget
+      // and adds pages with no relationship to anything the entity graph
+      // describes. Both also carry `noindex`.
+      filter: (page) => !/\/(components|preview-hero)\/?$/.test(new URL(page).pathname),
+    }),
     icon(),
     siteUrlCheck(),
     pagefind(),

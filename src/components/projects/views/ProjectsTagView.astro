@@ -16,7 +16,9 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
 import { t, defaultLocale } from '@/i18n';
-import { getProjectsBaseUrl } from '@/lib/projects';
+import { getProjectsBaseUrl, getProjectUrl, getProjectTagUrl } from '@/lib/projects';
+import { createItemListNode } from '@/lib/schema';
+import { localizedPath } from '@/i18n';
 
 interface Props {
   /** Locale whose projects this archive renders. Defaults to the site default. */
@@ -33,12 +35,32 @@ const { locale = defaultLocale, tag, projects, visibleTags } = Astro.props;
 
 const projectsHref = getProjectsBaseUrl(locale);
 const countKey = projects.length === 1 ? 'projects.tagCountOne' : 'projects.tagCountOther';
+
+const itemList = createItemListNode({
+  url: getProjectTagUrl(tag, locale),
+  name: t('projects.tagMetaTitle', locale, { tag }),
+  items: projects.map((project) => ({
+    name: project.data.title,
+    url: getProjectUrl(project.id, locale),
+    description: project.data.description,
+  })),
+});
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('projects.title', locale), href: projectsHref },
+  { label: `#${tag}` },
+];
 ---
 
 <PageLayout
   title={t('projects.tagMetaTitle', locale, { tag })}
   description={t('projects.tagMetaDescription', locale, { tag })}
   eagerReveal
+  pageType="CollectionPage"
+  breadcrumbs={breadcrumbs}
+  mainEntityId={itemList['@id'] as string}
+  extraSchemas={[itemList]}
 >
   <Hero layout="centered" size="sm">
     <Badge slot="badge" variant="brand" pill>

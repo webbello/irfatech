@@ -12,11 +12,12 @@ import TableOfContents from '@/components/blog/TableOfContents.astro';
 import Comments from '@/components/blog/Comments.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import { createBlogPostSchema, createFAQSchema } from '@/lib/schema';
+import { createBlogPostNode, type SchemaNode } from '@/lib/schema';
 import { getBlogOgPath, getDefaultOgPath, isShareableImage } from '@/lib/og/svg';
 import { t, getLocaleFromPath, localizedPath, getLocales } from '@/i18n';
 import { getPostSlug, getBlogBaseUrl, type CoverType } from '@/lib/blog';
 import { getPostTranslations } from '@/lib/post-links';
+import { getReadingTime, getWordCount } from '@/lib/utils';
 import BlogCta from '@/components/blog/BlogCta.astro';
 
 const locale = getLocaleFromPath(Astro.url.pathname);
@@ -124,7 +125,7 @@ const fullUrl = new URL(Astro.url.pathname, Astro.site).toString();
 // `ImageObject` with known dimensions. A real cover photo/screenshot's
 // dimensions aren't known at this layer, so it stays a plain URL.
 const usesGeneratedOgImage = ogImage !== image;
-const blogPostingSchema = createBlogPostSchema({
+const blogPostingSchema = createBlogPostNode({
   title,
   description,
   url: fullUrl,
@@ -133,12 +134,21 @@ const blogPostingSchema = createBlogPostSchema({
     : new URL(ogImage, Astro.site).toString(),
   datePublished: publishedAt,
   dateModified: updatedAt,
-  author: { name: author, url: siteConfig.url },
+  // Matched against the site's own author in `createBlogPostNode`, which
+  // resolves it to the Person the graph already defines rather than minting a
+  // fresh anonymous author node per post.
+  author: { name: author },
   locale,
+  tags,
+  // Derived from the same body the visible reading time is derived from, so
+  // `wordCount` and `timeRequired` can't disagree with what the page shows.
+  ...(body ? { wordCount: getWordCount(body), readingMinutes: getReadingTime(body) } : {}),
 });
 
-const faqSchema = faqs && faqs.length > 0 ? createFAQSchema(faqs) : null;
-const schemas = faqSchema ? [blogPostingSchema, faqSchema] : [blogPostingSchema];
+// FAQs go to the layout rather than into a floating FAQPage of their own:
+// they're part of this post's page, so they become the page node's
+// `mainEntity` and the page picks up the FAQPage type alongside WebPage.
+const schemas: SchemaNode[] = [blogPostingSchema];
 
 // Resolve this post's real per-locale URLs so the hreflang tags and the
 // LanguageSwitcher point at the correct translation — which may live at a
@@ -165,6 +175,9 @@ const languageAlternates = Object.fromEntries(
     tags,
   }}
   extraSchemas={schemas}
+  breadcrumbs={breadcrumbs}
+  faqs={faqs}
+  aboutId={`${fullUrl}#article`}
   localeAlternates={postTranslations}
 >
   <Header

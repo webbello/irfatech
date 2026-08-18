@@ -37,6 +37,19 @@ const CJK_PATTERN = /[぀-ヿ㐀-䶿一-鿿豈-﫿가-힯ｦ-ﾟ]/g;
  * code, HTML/JSX, or MDX import lines. Always returns at least 1.
  */
 export function getReadingTime(content: string): number {
+  const { words, cjkChars } = countProse(content);
+  const minutes = words / WORDS_PER_MINUTE + cjkChars / CJK_CHARS_PER_MINUTE;
+  return Math.max(1, Math.ceil(minutes));
+}
+
+/**
+ * Strip light markup and count what's left, split by script. Shared by
+ * `getReadingTime` and `getWordCount` so a post's schema.org `wordCount` and
+ * its displayed reading time are always derived from the same text — a
+ * mismatch between the two is exactly the kind of thing a structured-data
+ * consumer notices and a human never does.
+ */
+function countProse(content: string): { words: number; cjkChars: number } {
   const text = (content ?? '')
     .replace(/^\s*(?:import|export)\s.*$/gm, ' ') // MDX import/export statements
     .replace(/```[\s\S]*?```/g, ' ') // fenced code blocks
@@ -51,8 +64,18 @@ export function getReadingTime(content: string): number {
     .split(/\s+/)
     .filter(Boolean).length;
 
-  const minutes = words / WORDS_PER_MINUTE + cjkChars / CJK_CHARS_PER_MINUTE;
-  return Math.max(1, Math.ceil(minutes));
+  return { words, cjkChars };
+}
+
+/**
+ * Prose length of a post body, for schema.org's `wordCount`. CJK characters
+ * count as words individually, matching how `getReadingTime` treats them —
+ * schema.org has no character-count property, and a space-less Chinese post
+ * reporting `wordCount: 1` is worse than slightly over-reporting.
+ */
+export function getWordCount(content: string): number {
+  const { words, cjkChars } = countProse(content);
+  return words + cjkChars;
 }
 
 /**

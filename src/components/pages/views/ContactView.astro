@@ -17,7 +17,7 @@ import ContactForm from '@/components/patterns/ContactForm.astro';
 import siteConfig from '@/config/site.config';
 import { resolveSocialLinks } from '@/lib/utils';
 import { toWhatsAppDigits } from '@/lib/contact-channel';
-import { t, tData, defaultLocale } from '@/i18n';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 
 interface Props {
   /** Locale whose copy this page renders. Defaults to the site default. */
@@ -72,14 +72,19 @@ const channels = [
     external: true,
   })),
 ];
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('pages.contact.meta.title', locale) },
+];
 ---
 
 <PageLayout
   title={t('pages.contact.meta.title', locale)}
   description={t('pages.contact.meta.description', locale)}
   eagerReveal
-  includeOrgSchema
-  includeProfessionalServiceSchema
+  pageType="ContactPage"
+  breadcrumbs={breadcrumbs}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

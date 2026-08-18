@@ -28,7 +28,6 @@ import { getPostUrl, getPublishedPosts } from '@/lib/blog';
 import { getVisibleProjects } from '@/lib/projects';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import { t, tData, defaultLocale, localizedPath, getEntryLocale } from '@/i18n';
-import { createSpeakableSchema } from '@/lib/schema';
 
 interface Props {
   /** Locale whose copy and content this page renders. Defaults to the site default. */
@@ -194,15 +193,21 @@ const aboutPara1 = location
   ? t('pages.home.aboutTeaser.para1WithLocation', locale, { location })
   : t('pages.home.aboutTeaser.para1NoLocation', locale);
 const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
+
+/**
+ * Parts of the page a voice assistant may read aloud on its own. Both
+ * selectors are real: Hero's title slot renders the h1, and
+ * `.hero-description-slot` wraps its description slot. This lands on the
+ * page's own WebPage node now, rather than in a second, unconnected WebPage
+ * node of its own — which is what it used to be.
+ */
+const SPEAKABLE_SELECTORS = ['h1', '.hero-description-slot'];
 ---
 
 <LandingLayout
   title={t('pages.home.meta.title', locale)}
   description={t('pages.home.meta.description', locale)}
-  includeOrgSchema={true}
-  includePersonSchema={true}
-  includeProfessionalServiceSchema={true}
-  extraSchemas={[createSpeakableSchema(['h1', '.hero-description-slot'], `${siteConfig.url}${localizedPath('/', locale)}`)]}
+  speakableSelectors={SPEAKABLE_SELECTORS}
 >
   <!-- Hero -->
   <Hero

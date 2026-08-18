@@ -24,7 +24,9 @@ import {
   getVisibleProjects,
   PROJECT_TAG_CLOUD_LIMIT,
   PROJECTS_PER_PAGE,
+  getProjectUrl,
 } from '@/lib/projects';
+import { createItemListNode } from '@/lib/schema';
 
 interface Props {
   /** Locale whose projects this page renders. Defaults to the site default. */
@@ -46,12 +48,32 @@ const topTags = collectTopProjectTags(projects, PROJECT_TAG_CLOUD_LIMIT);
 const projectsHref = getProjectsBaseUrl(locale);
 const contactUrl = localizedPath('/contact', locale);
 const aboutUrl = localizedPath('/about', locale);
+
+const itemList = createItemListNode({
+  url: getProjectsPageUrl(page, locale),
+  name: t('projects.pageMetaTitle', locale, { page }),
+  items: pageProjects.map((project) => ({
+    name: project.data.title,
+    url: getProjectUrl(project.id, locale),
+    description: project.data.description,
+  })),
+});
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('projects.title', locale), href: projectsHref },
+  { label: t('projects.pageBadge', locale, { page, total: totalPages }) },
+];
 ---
 
 <PageLayout
   title={t('projects.pageMetaTitle', locale, { page })}
   description={t('projects.pageMetaDescription', locale, { page, total: totalPages })}
   eagerReveal
+  pageType="CollectionPage"
+  breadcrumbs={breadcrumbs}
+  mainEntityId={itemList['@id'] as string}
+  extraSchemas={[itemList]}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

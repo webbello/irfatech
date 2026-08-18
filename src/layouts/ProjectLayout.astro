@@ -21,8 +21,7 @@ import {
   getProjectsBaseUrl,
   getProjectTranslations,
 } from '@/lib/projects';
-import { createCreativeWorkSchema } from '@/lib/schema';
-import type { Thing, WithContext } from 'schema-dts';
+import { createProjectNode, type SchemaNode } from '@/lib/schema';
 
 interface Props {
   title: string;
@@ -40,6 +39,12 @@ interface Props {
   headings?: MarkdownHeading[];
   /** Per-project override: hide table of contents on this project */
   toc?: boolean;
+  /** Year the work shipped, for `datePublished`. */
+  year?: number;
+  client?: string;
+  /** schema.org type for this work — see the projects collection schema. */
+  schemaType?: 'CreativeWork' | 'SoftwareApplication' | 'WebApplication';
+  applicationCategory?: string;
 }
 
 const {
@@ -56,6 +61,10 @@ const {
   related = [],
   headings = [],
   toc: tocOverride,
+  year,
+  client,
+  schemaType,
+  applicationCategory,
 } = Astro.props;
 
 const locale = getLocaleFromPath(Astro.url.pathname);
@@ -106,19 +115,24 @@ const languageAlternates = Object.fromEntries(
   getLocales().map((loc) => [loc, translationByLocale.get(loc) ?? getProjectsBaseUrl(loc)])
 );
 
-// Project case studies had zero self-describing schema — only the generic
-// site-wide WebSite node. CreativeWork here mirrors what the page actually
-// shows: name/description, its own canonical URL, the cover image, and its
-// tags as keywords.
+// Mirrors what the page actually shows: name/description, its own URL, the
+// live product it documents, the cover image, tags as keywords, and the year.
+// `schemaType` lets a project say what it really is — IRFAtech's own SaaS
+// products are `WebApplication`s, not generic creative works.
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
-const extraSchemas: WithContext<Thing>[] = [
-  createCreativeWorkSchema({
+const extraSchemas: SchemaNode[] = [
+  createProjectNode({
     name: title,
     description,
     url: pageUrl,
+    liveUrl: url,
     image: new URL(ogImage, Astro.site).toString(),
     keywords: tags,
     locale,
+    year,
+    client,
+    type: schemaType,
+    applicationCategory,
   }),
 ];
 ---
@@ -130,6 +144,9 @@ const extraSchemas: WithContext<Thing>[] = [
   imageAlt={ogImageAlt}
   localeAlternates={projectTranslations}
   extraSchemas={extraSchemas}
+  pageType="ItemPage"
+  breadcrumbs={breadcrumbs}
+  aboutId={`${pageUrl}#project`}
 >
   <Header
     slot="header"

@@ -7,7 +7,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
-import type { Thing, WithContext } from 'schema-dts';
+import type { SchemaNode, PageType, FaqItem } from '@/lib/schema';
 
 interface Props {
   title?: string;
@@ -18,11 +18,20 @@ interface Props {
   nofollow?: boolean;
   showScrollProgress?: boolean;
   eagerReveal?: boolean;
-  includeOrgSchema?: boolean;
-  includePersonSchema?: boolean;
-  includeProfessionalServiceSchema?: boolean;
-  /** Additional JSON-LD schemas, e.g. per-service Service/FAQPage/HowTo. */
-  extraSchemas?: WithContext<Thing>[];
+  /** Page flavour for the WebPage node (AboutPage, ContactPage, CollectionPage…). */
+  pageType?: PageType;
+  /** Breadcrumb trail — pass the same array to <Breadcrumbs> for the visible one. */
+  breadcrumbs?: { label: string; href?: string }[];
+  /** Q&As rendered on this page; adds the FAQPage type to the WebPage node. */
+  faqs?: FaqItem[];
+  /** `@id` of the entity this page is about. */
+  aboutId?: string;
+  /** `@id` of the page's main entity (an ItemList on a collection page). */
+  mainEntityId?: string;
+  /** CSS selectors a voice assistant may read aloud. */
+  speakableSelectors?: string[];
+  /** Extra graph nodes: Service, BlogPosting, ItemList … */
+  extraSchemas?: SchemaNode[];
   /**
    * Footer background. Defaults to `techlo` (fixed navy, same on every
    * page — see .footer-techlo in global.css), which doesn't need to zebra
@@ -44,9 +53,12 @@ const {
   showScrollProgress = false,
   eagerReveal = false,
   footerBackground = 'techlo',
-  includeOrgSchema = false,
-  includePersonSchema = false,
-  includeProfessionalServiceSchema = false,
+  pageType,
+  breadcrumbs,
+  faqs,
+  aboutId,
+  mainEntityId,
+  speakableSelectors,
   extraSchemas = [],
 } = Astro.props;
 
@@ -60,9 +72,12 @@ const {
   noindex={noindex}
   nofollow={nofollow}
   eagerReveal={eagerReveal}
-  includeOrgSchema={includeOrgSchema}
-  includePersonSchema={includePersonSchema}
-  includeProfessionalServiceSchema={includeProfessionalServiceSchema}
+  pageType={pageType}
+  breadcrumbs={breadcrumbs}
+  faqs={faqs}
+  aboutId={aboutId}
+  mainEntityId={mainEntityId}
+  speakableSelectors={speakableSelectors}
   extraSchemas={extraSchemas}
 >
   <Header

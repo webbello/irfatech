@@ -49,10 +49,15 @@ import YouTube from '@/components/patterns/YouTube.astro';
 import StackMarquee from '@/components/landing/StackMarquee.astro';
 ---
 
+<!-- A theme demo page, not part of the business's site. It was indexable and
+     in the sitemap, competing for crawl budget with the pages the entity graph
+     actually describes; `noindex` and the sitemap filter in astro.config.mjs
+     keep it reachable for development without publishing it. -->
 <PageLayout
   title="Astro UI Component Library"
   description="Every component in IRFAtech on one page: buttons, forms, dialogs, navigation and data display, each one live and ready to copy."
   footerBackground="secondary"
+  noindex
 >
 
   <!-- Hero Section -->

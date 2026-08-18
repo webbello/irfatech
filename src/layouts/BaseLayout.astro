@@ -8,8 +8,18 @@ import Analytics from '@/components/layout/Analytics.astro';
 import ConsentBanner from '@/components/ui/overlay/ConsentBanner';
 import WhatsAppFloat from '@/components/ui/overlay/WhatsAppFloat.astro';
 import CursorTrail from '@/components/effects/CursorTrail.astro';
-import { createWebsiteSchema, createOrganizationSchema, createPersonSchema, createProfessionalServiceSchema } from '@/lib/schema';
-import type { Thing, WithContext } from 'schema-dts';
+import {
+  buildGraph,
+  createWebSiteNode,
+  createOrganizationNode,
+  createLogoNode,
+  createFounderNode,
+  createWebPageNode,
+  createBreadcrumbNode,
+  type SchemaNode,
+  type PageType,
+  type FaqItem,
+} from '@/lib/schema';
 import siteConfig from '@/config/site.config';
 import { t, getLocaleFromPath } from '@/i18n';
 import { getRssUrl } from '@/lib/blog';
@@ -29,10 +39,26 @@ interface Props {
   };
   noindex?: boolean;
   nofollow?: boolean;
-  includeOrgSchema?: boolean;
-  includePersonSchema?: boolean;
-  includeProfessionalServiceSchema?: boolean;
-  extraSchemas?: WithContext<Thing>[];
+  /**
+   * Page flavour for the WebPage node — AboutPage, ContactPage, CollectionPage,
+   * ItemPage. Defaults to WebPage.
+   */
+  pageType?: PageType;
+  /**
+   * Breadcrumb trail, in the same shape `<Breadcrumbs>` renders. Pass the same
+   * array to both so the visible trail and the BreadcrumbList node can't drift.
+   */
+  breadcrumbs?: { label: string; href?: string }[];
+  /** Q&As *rendered on this page*. Adds the FAQPage type to the WebPage node. */
+  faqs?: FaqItem[];
+  /** `@id` of the entity this page is about (a Service, a project, a post). */
+  aboutId?: string;
+  /** `@id` of the page's main entity — an ItemList, on a collection page. */
+  mainEntityId?: string;
+  /** CSS selectors a voice assistant may read aloud. */
+  speakableSelectors?: string[];
+  /** Extra graph nodes: the Service, BlogPosting, ItemList … this page adds. */
+  extraSchemas?: SchemaNode[];
   eagerReveal?: boolean;
   /** Verified locale alternates for this page, forwarded to SEO for hreflang. */
   localeAlternates?: { locale: string; url: string }[];
@@ -46,43 +72,104 @@ const {
   article,
   noindex = false,
   nofollow = false,
-  includeOrgSchema = false,
-  includePersonSchema = false,
-  includeProfessionalServiceSchema = false,
+  pageType = 'WebPage',
+  breadcrumbs,
+  faqs,
+  aboutId,
+  mainEntityId,
+  speakableSelectors,
   extraSchemas = [],
   eagerReveal = false,
   localeAlternates,
 } = Astro.props;
 
-// Build JSON-LD schemas
+/**
+ * One JSON-LD graph for this page.
+ *
+ * The three identity nodes go on every page without exception. That is a
+ * deliberate change from the old `includeOrgSchema` / `includePersonSchema` /
+ * `includeProfessionalServiceSchema` opt-ins: blog posts referenced
+ * `#organization` as their publisher and project pages as their creator, on
+ * pages where no Organization node was ever emitted, so those references
+ * resolved to nothing. An identity node that is present everywhere and
+ * identical everywhere is also the strongest signal that every page is
+ * describing the same business.
+ *
+ * The offer catalog is split in two — services and solutions — because
+ * several offerings share a name across the two collections; merged into one
+ * flat catalog they read as duplicate entities.
+ */
 const locale = getLocaleFromPath(Astro.url.pathname);
-const schemas: WithContext<Thing>[] = [createWebsiteSchema(locale)];
-if (includeOrgSchema) {
-  schemas.push(createOrganizationSchema());
-}
-if (includePersonSchema) {
-  schemas.push(createPersonSchema());
-}
-if (includeProfessionalServiceSchema) {
-  // Default locale only — schema.org data isn't locale-negotiated the way
-  // page content is, and the default locale's URLs are the canonical ones.
-  // The catalog lists the real service pages first (the commercial
-  // offerings), then the sector/problem solution pages.
-  const [solutions, services] = await Promise.all([getVisibleSolutions(), getVisibleServices()]);
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+
+// Default locale on purpose: schema.org entity data isn't locale-negotiated
+// the way page copy is, and the default locale's URLs are the canonical ones.
+// It also keeps the Organization node byte-identical on every page of every
+// locale, which is the point of having one identity node.
+const [solutions, services] = await Promise.all([getVisibleSolutions(), getVisibleServices()]);
+
+// Mirrors SEO.astro's own fallback, so the page node's image and the `og:image`
+// are never two different pictures. Build-generated cards under /og/ are always
+// exactly 1200×630 (see `ogCards()` in astro.config.mjs); a real cover photo's
+// dimensions aren't knowable here, so it ships without them.
+const schemaImage = image || siteConfig.ogImage;
+const schemaImageIsOgCard = schemaImage.startsWith('/og/');
+
+const schemas: SchemaNode[] = [
+  createWebSiteNode({
+    locale,
+    // Localized, so a /pt/ page doesn't declare Portuguese and then hand over
+    // an English description in the same node.
+    description: t('pages.home.meta.description', locale) || siteConfig.description,
+  }),
+  createOrganizationNode({
+    services: services.map((service) => ({
+      name: service.data.title,
+      url: getServiceUrl(service.id),
+      category: 'Service',
+    })),
+    solutions: solutions.map((solution) => ({
+      name: solution.data.title,
+      url: getSolutionUrl(solution.id),
+      category: solution.data.sector,
+    })),
+  }),
+  createLogoNode(),
+  createFounderNode(),
+  createWebPageNode({
+    url: pageUrl,
+    name: title || siteConfig.name,
+    description: description || siteConfig.description,
+    locale,
+    type: pageType,
+    image: schemaImage,
+    imageAlt,
+    imageWidth: schemaImageIsOgCard ? 1200 : undefined,
+    imageHeight: schemaImageIsOgCard ? 630 : undefined,
+    datePublished: article?.publishedTime,
+    dateModified: article?.modifiedTime,
+    aboutId,
+    mainEntityId,
+    faqs,
+    hasBreadcrumb: Boolean(breadcrumbs?.length),
+    speakableSelectors,
+  }),
+];
+
+if (breadcrumbs?.length) {
   schemas.push(
-    createProfessionalServiceSchema([
-      ...services.map((service) => ({
-        name: service.data.title,
-        url: `${siteConfig.url}${getServiceUrl(service.id)}`,
-      })),
-      ...solutions.map((solution) => ({
-        name: solution.data.title,
-        url: `${siteConfig.url}${getSolutionUrl(solution.id)}`,
-      })),
-    ])
+    createBreadcrumbNode(
+      // The current page renders as plain text rather than a link, so it has
+      // no `href` — its schema entry still has to point at the real page.
+      breadcrumbs.map((item) => ({ name: item.label, url: item.href ?? pageUrl })),
+      pageUrl
+    )
   );
 }
+
 schemas.push(...extraSchemas);
+
+const graph = buildGraph(schemas);
 
 const commentsConfig = siteConfig.articleFeatures?.comments;
 
@@ -145,7 +232,7 @@ if (commentsConfig?.enabled) {
     <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} RSS Feed`} href={getRssUrl(locale)} />
 
     <!-- JSON-LD Structured Data -->
-    <JsonLd schema={schemas} />
+    <JsonLd graph={graph} />
 
     <!-- Analytics (loads if PUBLIC_GA_MEASUREMENT_ID or PUBLIC_GTM_ID is set) -->
     <Analytics />

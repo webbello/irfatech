@@ -79,13 +79,25 @@ const openSource = tData<{
   cards: TitleText[];
 }>('pages.about.openSource', locale)!;
 const cta = tData<{ badge: string; heading: string; description: string; button: string }>('pages.about.cta', locale)!;
+
+// The FAQ accordion below renders every one of these. Flattened out of the
+// per-card grouping (which is presentation) into the flat Q&A list schema.org
+// models, so the answers a visitor can read are the answers a machine can
+// read. They were rendered and unmarked before — invisible to exactly the
+// answer engines this page is written for.
+const faqItems = faq.cards.flatMap((card) => card.items);
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('pages.about.meta.title', locale) },
+];
 ---
 <PageLayout
   title={t('pages.about.meta.title', locale)}
   description={t('pages.about.meta.description', locale)}
-  includeOrgSchema
-  includePersonSchema
-  includeProfessionalServiceSchema
+  pageType="AboutPage"
+  breadcrumbs={breadcrumbs}
+  faqs={faqItems}
 >
   <Hero layout="centered" size="sm" class="isolate pb-[var(--space-section-md)]" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

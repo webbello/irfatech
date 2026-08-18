@@ -56,6 +56,10 @@ const { Content, headings } = await render(project);
   related={related}
   headings={headings}
   toc={project.data.toc}
+  year={project.data.year}
+  client={project.data.client}
+  schemaType={project.data.schemaType}
+  applicationCategory={project.data.applicationCategory}
 >
   <Content />
 </ProjectLayout>

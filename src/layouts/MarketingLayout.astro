@@ -7,6 +7,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
+import type { PageType } from '@/lib/schema';
 
 interface Props {
   title?: string;
@@ -15,7 +16,8 @@ interface Props {
   imageAlt?: string;
   noindex?: boolean;
   nofollow?: boolean;
-  includeOrgSchema?: boolean;
+  /** Page flavour for the WebPage node (AboutPage, ContactPage, CollectionPage…). */
+  pageType?: PageType;
 }
 
 const {
@@ -25,7 +27,7 @@ const {
   imageAlt,
   noindex = false,
   nofollow = false,
-  includeOrgSchema = false,
+  pageType,
 } = Astro.props;
 ---
 
@@ -36,7 +38,7 @@ const {
   imageAlt={imageAlt}
   noindex={noindex}
   nofollow={nofollow}
-  includeOrgSchema={includeOrgSchema}
+  pageType={pageType}
 >
   <Header
     slot="header"

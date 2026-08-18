@@ -24,7 +24,10 @@ import {
   getVisibleProjects,
   PROJECT_TAG_CLOUD_LIMIT,
   PROJECTS_PER_PAGE,
+  getProjectsBaseUrl,
+  getProjectUrl,
 } from '@/lib/projects';
+import { createItemListNode } from '@/lib/schema';
 
 interface Props {
   /** Locale whose projects this index renders. Defaults to the site default. */
@@ -42,12 +45,34 @@ const pageProjects = projects.slice(0, PROJECTS_PER_PAGE);
 
 const contactUrl = localizedPath('/contact', locale);
 const aboutUrl = localizedPath('/about', locale);
+
+// The case studies this page lists, as an enumerable set.
+const projectsUrl = getProjectsBaseUrl(locale);
+const itemList = createItemListNode({
+  url: projectsUrl,
+  name: t('projects.title', locale),
+  description: t('projects.metaDescription', locale),
+  items: pageProjects.map((project) => ({
+    name: project.data.title,
+    url: getProjectUrl(project.id, locale),
+    description: project.data.description,
+  })),
+});
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('projects.title', locale) },
+];
 ---
 
 <PageLayout
   title={t('projects.metaTitle', locale)}
   description={t('projects.metaDescription', locale)}
   eagerReveal
+  pageType="CollectionPage"
+  breadcrumbs={breadcrumbs}
+  mainEntityId={itemList['@id'] as string}
+  extraSchemas={[itemList]}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

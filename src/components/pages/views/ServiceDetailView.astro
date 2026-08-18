@@ -30,8 +30,8 @@ import {
   buildWhatsAppUrl,
 } from '@/lib/services';
 import { getPostUrl } from '@/lib/blog';
-import { createServiceSchema, createFAQSchema, createHowToSchema } from '@/lib/schema';
-import type { Thing, WithContext } from 'schema-dts';
+import { getVisibleSolutions, getSolutionUrl } from '@/lib/solutions';
+import { createServiceNode, createProcessListNode, serviceId, type SchemaNode } from '@/lib/schema';
 
 interface Props {
   service: CollectionEntry<'services'>;
@@ -55,15 +55,43 @@ const breadcrumbs = [
   { label: data.title, href: getServiceUrl(service.id, locale) },
 ];
 
-// Schemas that mirror the sections actually rendered on the page. The
-// Service schema is always present; FAQPage only when faqs exist; HowTo only
-// when the numbered process steps render.
-const extraSchemas: WithContext<Thing>[] = [
-  createServiceSchema({ name: data.title, description: data.description, url: pageUrl, locale }),
-];
-if (data.faqs.length > 0) extraSchemas.push(createFAQSchema(data.faqs));
+/**
+ * Sector solution pages that sell the same-named offering.
+ *
+ * Several names exist in both collections — "Business Websites" and "CRM &
+ * Sales Automation" are each a service *and* a sector solution — and until
+ * now both pages emitted a `Service` with an identical `name` and `provider`
+ * and no `@id`, leaving two entities a machine had no way to tell apart.
+ * They're distinct nodes now (each keyed to its own page) and explicitly
+ * related, so the relationship is modeled rather than left to be guessed at.
+ */
+const solutions = await getVisibleSolutions(locale);
+const relatedOfferings = solutions
+  .filter((solution) => solution.data.title === data.title)
+  .map((solution) => ({ name: solution.data.title, url: getSolutionUrl(solution.id, locale) }));
+
+// Nodes that mirror the sections actually rendered on this page: the offering
+// itself always, the delivery process only when the numbered rail renders.
+// The FAQs go to the layout instead, where they become the page node's
+// `mainEntity` — an FAQ section is part of this page, not a page of its own.
+const serviceNode = createServiceNode({
+  name: data.title,
+  description: data.description,
+  url: pageUrl,
+  category: data.badge,
+  audiences: data.industries,
+  relatedOfferings,
+});
+
+const extraSchemas: SchemaNode[] = [serviceNode];
 if (data.process.length > 0) {
-  extraSchemas.push(createHowToSchema({ name: data.title, description: data.description, steps: data.process }));
+  extraSchemas.push(
+    createProcessListNode({
+      url: pageUrl,
+      name: `${data.title} — ${t('pages.services.detail.processHeading', locale)}`,
+      steps: data.process,
+    })
+  );
 }
 ---
 
@@ -71,8 +99,9 @@ if (data.process.length > 0) {
   title={`${data.title} — ${t('pages.services.meta.title', locale)}`}
   description={data.description}
   eagerReveal
-  includeOrgSchema
-  includeProfessionalServiceSchema
+  breadcrumbs={breadcrumbs}
+  faqs={data.faqs}
+  aboutId={serviceId(pageUrl)}
   extraSchemas={extraSchemas}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>

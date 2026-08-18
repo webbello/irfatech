@@ -180,6 +180,15 @@ const projects = defineCollection({
       order: z.number().default(99),
       year: z.number().optional(),
       client: z.string().optional(),
+      /**
+       * Which schema.org type this work actually is. A SaaS product the
+       * business built and runs is a `WebApplication`; a client engagement is
+       * a `CreativeWork` (the default). Everything used to be the latter,
+       * which tells a machine little beyond "a thing that was made".
+       */
+      schemaType: z.enum(['CreativeWork', 'SoftwareApplication', 'WebApplication']).optional(),
+      /** For app-typed projects: schema.org `applicationCategory`. */
+      applicationCategory: z.string().optional(),
       role: z.string().optional(),
       services: z.array(z.string()).default([]),
       /** Optional editorial tagline — short facts rendered as a single line under the hero description with brand-coloured dot separators. */
