@@ -1,0 +1,305 @@
+---
+/**
+ * SolutionsIndexView — the Solutions landing page.
+ *
+ * Shared by the default-locale route (`/solutions`) and the locale-prefixed
+ * route (`/<locale>/solutions`). Lists every sector/problem page defined in
+ * the `solutions` content collection, grouped by sector — Business.md's
+ * "Solution Portfolio" organised the same way (Small Business, Enterprise,
+ * Government, NGO, Healthcare, Education, Agriculture).
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import { Hero } from '@/components/hero';
+import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import { t, defaultLocale, localizedPath } from '@/i18n';
+import { getVisibleSolutions, getSolutionUrl } from '@/lib/solutions';
+import { tagToSlug } from '@/lib/tags';
+
+interface Props {
+  /** Locale whose solutions this index renders. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const solutions = await getVisibleSolutions(locale);
+
+// Group by sector, preserving each sector's first appearance order so the
+// grouping follows the same priority the content files were written in
+// (Small Business and Enterprise first, per Business.md's India-first
+// market strategy) rather than re-sorting alphabetically.
+const sectorOrder: string[] = [];
+const bySector = new Map<string, typeof solutions>();
+for (const solution of solutions) {
+  const sector = solution.data.sector;
+  if (!bySector.has(sector)) {
+    bySector.set(sector, []);
+    sectorOrder.push(sector);
+  }
+  bySector.get(sector)!.push(solution);
+}
+
+// Sector solutions currently only exist in English (see lib/solutions.ts —
+// same locale-fallback convention as projects), so `sector` values are
+// always these English strings regardless of the active site locale. A
+// sector this map doesn't recognise (a new one added via content only)
+// still works — it just falls back to a neutral icon/colour rather than
+// erroring.
+const SECTOR_ICON: Record<string, string> = {
+  'Small Business': 'briefcase',
+  Government: 'landmark',
+  NGO: 'heart-handshake',
+  Agriculture: 'sprout',
+  Education: 'graduation-cap',
+};
+const SECTOR_COLOR: Record<string, 'blue' | 'purple' | 'red' | 'green' | 'orange'> = {
+  'Small Business': 'blue',
+  Government: 'purple',
+  NGO: 'red',
+  Agriculture: 'green',
+  Education: 'orange',
+};
+const sectorIcon = (sector: string) => SECTOR_ICON[sector] ?? 'layout-grid';
+const sectorColor = (sector: string) => SECTOR_COLOR[sector] ?? 'blue';
+const sectorColorClasses: Record<string, string> = {
+  blue: 'bg-blue-500/12 text-blue-600 dark:text-blue-400',
+  purple: 'bg-purple-500/12 text-purple-600 dark:text-purple-400',
+  red: 'bg-red-500/12 text-red-600 dark:text-red-400',
+  green: 'bg-green-500/12 text-green-600 dark:text-green-400',
+  orange: 'bg-orange-500/12 text-orange-600 dark:text-orange-400',
+};
+const sectorId = (sector: string) => `sector-${tagToSlug(sector)}`;
+
+const contactUrl = localizedPath('/contact', locale);
+const aboutUrl = localizedPath('/about', locale);
+---
+
+<PageLayout
+  title={t('solutions.metaTitle', locale)}
+  description={t('solutions.metaDescription', locale)}
+  eagerReveal
+  includeOrgSchema
+  includeProfessionalServiceSchema
+>
+  <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
+    <Badge slot="badge" variant="brand" pill>
+      <Icon name="compass" size="sm" />
+      {t('solutions.heroBadge', locale)}
+    </Badge>
+
+    <h1 slot="title">{t('solutions.title', locale)}</h1>
+
+    <p slot="description">
+      {t('solutions.heroDescription', locale)}
+    </p>
+  </Hero>
+
+  <!-- Sector nav: sticky pill row, one per sector, that jumps to and
+       highlights whichever sector is currently in view. Plain anchor links
+       (each pill's href points at the matching section's id) so it works
+       with JS disabled; the script below only adds the active-state
+       tracking and smooth-scroll on top of that. -->
+  <nav
+    id="solutions-sector-nav"
+    aria-label={t('solutions.title', locale)}
+    class="sticky top-24 z-30 border-b border-border bg-background/90 backdrop-blur-md"
+  >
+    <div class="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-6 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {sectorOrder.map((sector) => (
+        <a
+          href={`#${sectorId(sector)}`}
+          data-sector-link={sectorId(sector)}
+          class="sector-nav-pill"
+        >
+          <Icon name={sectorIcon(sector)} size="sm" />
+          <span>{sector}</span>
+          <span class="sector-nav-count">{bySector.get(sector)!.length}</span>
+        </a>
+      ))}
+    </div>
+  </nav>
+
+  {sectorOrder.map((sector, sectorIndex) => (
+    <section
+      id={sectorId(sector)}
+      class:list={["scroll-mt-36 py-[var(--space-section-md)] border-t border-border", sectorIndex % 2 === 0 ? "bg-background-secondary" : "bg-background"]}
+    >
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-3 text-center" data-reveal>
+          <span class:list={["flex h-12 w-12 items-center justify-center rounded-2xl", sectorColorClasses[sectorColor(sector)]]}>
+            <Icon name={sectorIcon(sector)} size="lg" />
+          </span>
+          <h2 class="font-display text-2xl font-bold text-foreground">{sector}</h2>
+          <p class="text-sm text-foreground-muted">
+            {t('solutions.sectorCount', locale, { count: bySector.get(sector)!.length })}
+          </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {bySector.get(sector)!.map((solution, i) => (
+            <a href={getSolutionUrl(solution.id, locale)} class="group">
+              <Card variant="elevated" hover padding="lg" class="h-full flex flex-col gap-3" data-reveal data-reveal-delay={i % 3 || undefined}>
+                <div class:list={["w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110", sectorColorClasses[sectorColor(sector)]]}>
+                  <Icon name={solution.data.icon} size="md" />
+                </div>
+                <h3 class="font-display text-lg font-bold text-foreground group-hover:text-brand-500 transition-colors">
+                  {solution.data.title}
+                </h3>
+                <p class="text-sm text-foreground-muted leading-relaxed">
+                  {solution.data.description}
+                </p>
+                <span class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-brand-500">
+                  {t('common.readMore', locale)}
+                  <Icon name="arrow-right" size="sm" />
+                </span>
+              </Card>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
+      <Badge variant="brand" pill class="mb-6">
+        <Icon name="message-circle" size="sm" />
+        {t('solutions.ctaBadge', locale)}
+      </Badge>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        {t('solutions.ctaHeading', locale)}
+      </h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">
+        {t('solutions.ctaLead', locale)}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={contactUrl} class="cta-btn-brand">
+          {t('solutions.ctaPrimary', locale)}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+        <Button size="lg" variant="brand-outline" href={aboutUrl}>
+          {t('solutions.ctaSecondary', locale)}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </div>
+
+    <LetterGlitchBand>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        {t('solutions.ctaHeading', locale)}
+      </h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">
+        {t('solutions.ctaLead', locale)}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={contactUrl} class="hero-btn-brand">
+          {t('solutions.ctaPrimary', locale)}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+        <Button size="lg" variant="outline" href={aboutUrl}>
+          {t('solutions.ctaSecondary', locale)}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </LetterGlitchBand>
+  </section>
+</PageLayout>
+
+<style>
+  .sector-nav-pill {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-background-secondary);
+    padding: 0.5rem 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-foreground-muted);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+  }
+  .sector-nav-pill:hover {
+    color: var(--color-foreground);
+    border-color: var(--color-foreground-subtle);
+  }
+  .sector-nav-pill[data-active='true'] {
+    border-color: color-mix(in oklch, var(--color-brand-500) 50%, transparent);
+    background: color-mix(in oklch, var(--color-brand-500) 12%, transparent);
+    color: var(--color-brand-500);
+  }
+  .sector-nav-count {
+    border-radius: 9999px;
+    background: color-mix(in oklch, var(--color-foreground) 10%, transparent);
+    padding: 0.0625rem 0.4rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+  }
+  .sector-nav-pill[data-active='true'] .sector-nav-count {
+    background: color-mix(in oklch, var(--color-brand-500) 20%, transparent);
+  }
+</style>
+
+<script>
+  /**
+   * Sector nav scrollspy — highlights whichever sector section is
+   * currently in view, and smooth-scrolls to a section when its pill is
+   * clicked. The href/id pair already works with JS off (plain in-page
+   * anchors); this only adds the active-state tracking and the smooth
+   * scroll on top.
+   */
+  function initSolutionsSectorNav(): void {
+    const nav = document.getElementById('solutions-sector-nav');
+    if (!nav || nav.dataset.spyInit) return;
+    nav.dataset.spyInit = 'true';
+
+    const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>('[data-sector-link]'));
+    if (!links.length) return;
+
+    const setActive = (id: string | null) => {
+      links.forEach((link) => {
+        link.dataset.active = link.dataset.sectorLink === id ? 'true' : 'false';
+      });
+    };
+
+    const sections = links
+      .map((link) => document.getElementById(link.dataset.sectorLink!))
+      .filter((el): el is HTMLElement => el !== null);
+
+    // Trigger band centred a little below the sticky nav, so a section
+    // counts as "current" once its heading has cleared the nav rather than
+    // the instant its top pixel touches the viewport edge.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+    );
+    sections.forEach((section) => observer.observe(section));
+
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.dataset.sectorLink;
+        const target = targetId ? document.getElementById(targetId) : null;
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.replaceState(null, '', `#${targetId}`);
+      });
+    });
+  }
+
+  initSolutionsSectorNav();
+  document.addEventListener('astro:page-load', initSolutionsSectorNav);
+</script>

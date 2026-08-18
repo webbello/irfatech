@@ -1,0 +1,53 @@
+---
+/**
+ * WhatsAppFloat — a fixed, always-available chat button (bottom-right, above
+ * the back-to-top control) that opens wa.me with a pre-filled general enquiry.
+ *
+ * Ported from the old irfatech site's `WhatsAppFloat.vue`, where a persistent
+ * green chat button drove a large share of inbound leads. Rendered only when
+ * the site's contact channel is actually WhatsApp (`siteConfig.contact.channel
+ * === 'whatsapp'`) and a number is configured, so a site switched to email —
+ * or a theme consumer that doesn't want a chat button at all — gets none of
+ * this. Uses the theme's brand token rather than the WhatsApp brand green so
+ * it follows the active colour theme and passes the contrast checks.
+ */
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import siteConfig from '@/config/site.config';
+import { toWhatsAppDigits } from '@/lib/contact-channel';
+import { t, getLocaleFromPath } from '@/i18n';
+
+const whatsappNumber = siteConfig.contact?.whatsappNumber ?? siteConfig.phone;
+
+if (!whatsappNumber) throw new Error('WhatsAppFloat rendered without a WhatsApp number — check siteConfig.contact.whatsappNumber / phone.');
+
+const href = `https://wa.me/${toWhatsAppDigits(whatsappNumber)}?text=${encodeURIComponent(
+  'Hi IRFAtech, I need help with my business digitalization.'
+)}`;
+
+const locale = getLocaleFromPath(Astro.url.pathname);
+const label = t('pages.contact.whatsappLabel', locale);
+const note = t('pages.contact.whatsappNote', locale);
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={label}
+  class="group fixed bottom-24 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-brand-500 text-brand-50 shadow-lg transition-transform duration-200 hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
+>
+  <span class="absolute inset-0 rounded-full bg-brand-500 opacity-25 group-hover:animate-ping" aria-hidden="true"></span>
+  <Icon name="brand-whatsapp" size="lg" class="relative z-10" />
+
+  <span class="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-lg border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground opacity-0 shadow-md transition-opacity duration-200 group-hover:opacity-100">
+    {note}
+  </span>
+</a>
+
+<style is:global>
+  @media (prefers-reduced-motion: reduce) {
+    .group:hover > .animate-ping {
+      animation: none;
+    }
+  }
+</style>

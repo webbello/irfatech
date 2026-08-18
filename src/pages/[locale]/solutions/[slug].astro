@@ -1,0 +1,33 @@
+---
+import SolutionDetailView from '@/components/pages/views/SolutionDetailView.astro';
+import { getCollection } from 'astro:content';
+import { getSolutionSlug, getSecondaryLocales, getVisibleSolutions } from '@/lib/solutions';
+
+// Locale-prefixed solution detail pages (`/<locale>/solutions/<slug>`). The
+// default-locale solutions are served by `src/pages/solutions/[slug].astro`,
+// which also runs the build-time content-integrity guard across every
+// locale, so it is not repeated here.
+export async function getStaticPaths() {
+  const paths: {
+    params: { locale: string; slug: string };
+    props: { solution: Awaited<ReturnType<typeof getCollection<'solutions'>>>[number] };
+  }[] = [];
+
+  for (const locale of getSecondaryLocales()) {
+    const solutions = await getVisibleSolutions(locale);
+    for (const solution of solutions) {
+      paths.push({
+        params: { locale, slug: getSolutionSlug(solution.id, locale) },
+        props: { solution },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { solution } = Astro.props;
+const { locale } = Astro.params;
+---
+
+<SolutionDetailView solution={solution} locale={locale} />

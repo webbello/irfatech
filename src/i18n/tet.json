@@ -1,0 +1,946 @@
+{
+  "nav": {
+    "skipToContent": "Salta ba konteúdu",
+    "openMenu": "Loke menu",
+    "closeMenu": "Taka menu",
+    "selectLanguage": "Hili lian",
+    "currentLanguage": "Lian atuál",
+    "mainNav": "Navegasaun prinsipál",
+    "mobileNav": "Navegasaun telemóvel",
+    "toggleMenu": "Troka menu",
+    "sectionNavigate": "Navega",
+    "searchSite": "Buka iha site ida-ne'e",
+    "sectionTheme": "Tema",
+    "sectionLanguage": "Lian",
+    "sectionConnect": "Konekta",
+    "items": {
+      "home": "Uma",
+      "services": "Servisu",
+      "solutions": "Indústria",
+      "projects": "Projetu",
+      "blog": "Blog",
+      "about": "Kona-ba",
+      "contact": "Kontaktu"
+    },
+    "ctaLabel": "Hahu projetu"
+  },
+  "common": {
+    "readMore": "Lee tan",
+    "loading": "Hein…",
+    "backToTop": "Fila ba leten",
+    "search": "Buka",
+    "submit": "Haruka",
+    "cancel": "Kansela",
+    "next": "Tuir mai",
+    "previous": "Antes",
+    "home": "Uma"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Artigu no notísia foun",
+    "readingTime": "Minutu {minutes} atu lee",
+    "publishedOn": "Publika iha {date}",
+    "updatedOn": "Atualiza iha {date}",
+    "writtenBy": "Hakerek husi {author}",
+    "tagsLabel": "Tag",
+    "featured": "Destake",
+    "draft": "Rascunhu",
+    "noPostsFound": "La iha artigu ida hetan.",
+    "tableOfContents": "Índise konteúdu",
+    "shareThisPost": "Fahe artigu ida-ne'e",
+    "relatedPosts": "Artigu Relasionadu",
+    "share": "Fahe:",
+    "shareOn": "Fahe iha {platform}",
+    "copyLink": "Kopia link",
+    "metaTitle": "Blog",
+    "metaDescription": "Blog IRFAtech: gia prátiku kona-ba ERP, automasaun ho IA, automasaun WhatsApp, no harii infraestrutura digital ba negósiu sira ne'ebé kresse.",
+    "heroBadge": "Artigu hotu",
+    "heroDescription": "Nota kona-ba automasaun, ERP, no harii sistema ne'ebé kresse hamutuk ho ita-nia negósiu.",
+    "allPosts": "Artigu hotu",
+    "noPosts": "La iha artigu ida hetan",
+    "pageMetaTitle": "Blog — Pájina {page}",
+    "pageMetaDescription": "Pájina {page} husi {total} — gia prátiku kona-ba ERP, automasaun, no infraestrutura digital husi IRFAtech.",
+    "pageBadge": "Pájina {page} husi {total}",
+    "newestPosts": "Artigu foun liu",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Artigu ho tag \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "Artigu {count} ho tag \"{tag}\".",
+    "tagCountOther": "Artigu {count} ho tag \"{tag}\".",
+    "tagEmpty": "La iha artigu ba tag ida-ne'e.",
+    "tagBackToAll": "Fila ba artigu hotu",
+    "onThisPage": "Iha pájina ida-ne'e",
+    "tocShow": "Hatudu",
+    "tocHide": "Subar",
+    "backToBlog": "Fila ba Blog",
+    "updated": "Atualiza",
+    "rssFeed": "RSS Feed",
+    "cta": {
+      "heading": "Prontu atu automatiza ita-nia negósiu?",
+      "description": "Konta mai ami saida mak halo ita-nia negósiu lakon tempu — ami hatudu saida mak ami sei harii atu rezolve.",
+      "button": "Kontaktu ami"
+    }
+  },
+  "comments": {
+    "title": "Komentáriu",
+    "loadError": "Komentáriu la konsege karga. Favór atualiza pájina no tenta fila fali.",
+    "requiresJs": "Komentáriu presiza JavaScript atu karga."
+  },
+  "projects": {
+    "title": "Projetu",
+    "description": "Sistema sira ne'ebé ami harii ona",
+    "viewProject": "Haree projetu",
+    "viewSource": "Haree código-fonte",
+    "noProjectsFound": "La iha projetu ida hetan.",
+    "metaTitle": "Projetu",
+    "metaDescription": "Servisu selesionadu — implementasaun ERP, projetu automasaun, no plataforma ne'ebé IRFAtech harii ba negósiu sira ne'ebé kresse.",
+    "heroBadge": "Servisu selesionadu",
+    "heroDescription": "Sistema ne'ebé ami orgullu kona-ba.",
+    "allProjects": "Projetu hotu",
+    "pageMetaTitle": "Projetu — Pájina {page}",
+    "pageMetaDescription": "Pájina {page} husi {total} — servisu selesionadu no estudu de kazu husi IRFAtech.",
+    "pageBadge": "Pájina {page} husi {total}",
+    "tagMetaTitle": "#{tag} — Projetu",
+    "tagMetaDescription": "Projetu ho tag \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "Projetu {count} ho tag \"{tag}\".",
+    "tagCountOther": "Projetu {count} ho tag \"{tag}\".",
+    "tagEmpty": "La iha projetu ba tag ida-ne'e.",
+    "tagBackToAll": "Fila ba projetu hotu",
+    "backToProjects": "Fila ba Projetu",
+    "moreProjects": "Projetu seluk tan",
+    "ctaBadge": "Mai ita ko'alia",
+    "ctaHeading": "Mai ita ko'alia kona-ba saida mak ita presiza",
+    "ctaLead": "Kolaborasaun ida-idak hahú husi ita-nia prosesu, la'ós husi modelu jerál. Konta mai ami saida mak ita halo daudaun.",
+    "ctaPrimary": "Haruka mensajen",
+    "ctaSecondary": "Hatene tan kona-ba ami",
+    "closingHeading": "Iha sistema ida ita hanoin ona?",
+    "closingLead": "Bele implementasaun ERP, projetu automasaun, ka buat ida ne'ebé presiza haree foun — ami hakarak tebes rona kona-ba ida-ne'e."
+  },
+  "solutions": {
+    "title": "Solusaun",
+    "metaTitle": "Solusaun tuir Setór",
+    "metaDescription": "Solusaun transformasaun digital ba negósiu ki'ik, empreza, governu, ONG, saúde, edukasaun, no agrikultura — husi IRFAtech.",
+    "heroBadge": "Solusaun",
+    "heroDescription": "Organizasaun ida-idak iha problema diferente. Buka ida ne'ebé kaben ho ita-nia situasaun.",
+    "sectorCount": "{count} solusaun",
+    "challengeLabel": "Desafiu",
+    "approachLabel": "Ami-nia abordajen",
+    "outcomesLabel": "Saida mak ita simu",
+    "relatedLabel": "Solusaun relasionadu",
+    "ctaBadge": "Mai ita ko'alia",
+    "ctaHeading": "La hetan ita-nia problema iha lista?",
+    "ctaLead": "Ida-ne'e ezemplu deit, la'ós lista kompletu. Konta mai ami saida mak ita hasoru no ami sei onestu kona-ba ami bele ajuda ka lae.",
+    "ctaPrimary": "Haruka mensajen",
+    "ctaSecondary": "Hatene tan kona-ba ami",
+    "detailCtaHeading": "Prontu atu ko'alia kona-ba {title}?"
+  },
+  "pagination": {
+    "page": "Pájina {current} husi {total}",
+    "label": "Paginasaun",
+    "previousPage": "Pájina antes",
+    "nextPage": "Pájina tuir mai"
+  },
+  "errors": {
+    "pageNotFound": "Pájina la hetan",
+    "pageNotFoundMessage": "Pájina ne'ebé ita buka la iha ka muda ona ba fatin seluk.",
+    "goHome": "Fila ba pájina prinsipál",
+    "metaTitle": "Pájina la hetan",
+    "metaDescription": "Pájina ida-ne'e muda ona, hasai ona, ka nunka iha.",
+    "badge": "404 — pájina la hetan",
+    "titleLead": "Pájina",
+    "titleHighlight": "la hetan.",
+    "description": "Pájina ida-ne'e muda ona, hasai ona, ka nunka iha. Mai ami ajuda ita fila ba dalan loos.",
+    "backHome": "Fila ba uma",
+    "browseBlog": "Esplora blog",
+    "tryInstead": "Tenta opsaun ida iha ne'e",
+    "projectsDesc": "Servisu selesionadu no estudu de kazu.",
+    "blogDesc": "Nota kona-ba automasaun, ERP, no infraestrutura digital.",
+    "contactTitle": "Kontaktu",
+    "contactDesc": "Hahú konversa kona-ba ita-nia negósiu."
+  },
+  "newsletter": {
+    "heading": "Subskreve newsletter",
+    "description": "Simu artigu foun liu iha ita-nia email.",
+    "emailPlaceholder": "Tau ita-nia email",
+    "subscribe": "Subskreve",
+    "subscribing": "Hala'o subskrisaun…",
+    "success": "Obrigadu tanba subskreve!",
+    "genericError": "Iha buat ida sala",
+    "notConfigured": "Seidauk configura — tau RESEND_API_KEY no RESEND_AUDIENCE_ID atu ativa ida-ne'e. Só ita mak bele haree liña ida-ne'e.",
+    "unavailable": "Subskrisaun la disponivel iha momentu ida-ne'e.",
+    "error": "Subskrisaun falha. Favór tenta fila fali."
+  },
+  "contact": {
+    "heading": "Kontaktu ami",
+    "name": "Naran",
+    "email": "Email",
+    "service": "Servisu",
+    "servicePlaceholder": "Saida presiza ajuda kona-ba saida?",
+    "serviceBusinessSystems": "ERP, CRM & Sistema Negósiu",
+    "serviceAutomation": "Automasaun & AI",
+    "servicePresence": "Website, App & Suporte",
+    "serviceOther": "Seidauk hatene / Seluk tan",
+    "message": "Mensajen",
+    "send": "Haruka mensajen",
+    "sendWhatsapp": "Kontinua iha WhatsApp",
+    "sending": "Hala'o haruka…",
+    "success": "Mensajen haruka ho susesu!",
+    "whatsappOpening": "Loke WhatsApp — hakat haruka iha ne'eba atu kompleta.",
+    "genericError": "Iha buat ida sala",
+    "notConfigured": "Seidauk configura — tau RESEND_API_KEY atu ativa ida-ne'e. Só ita mak bele haree liña ida-ne'e.",
+    "unavailable": "Formuláriu ida-ne'e la disponivel iha momentu ida-ne'e.",
+    "error": "Haruka mensajen falha. Favór tenta fila fali."
+  },
+  "theme": {
+    "selectColourTheme": "Hili tema kór",
+    "colourTheme": "Tema kór",
+    "colourMode": "Modu kór",
+    "modeTrigger": "Tema: {mode}. Klik atu muda.",
+    "system": "Sistema",
+    "light": "Naroman",
+    "dark": "Nakukun",
+    "currentlyLight": "Agora naroman",
+    "currentlyDark": "Agora nakukun",
+    "swatchLabel": "Tema {name}"
+  },
+  "search": {
+    "placeholder": "Buka artigu, projetu, no pájina…",
+    "inputLabel": "Liafuan atu buka",
+    "resultsLabel": "Rezultadu buka",
+    "hint": "Hahú hakerek atu buka iha site.",
+    "noResults": "La iha rezultadu ba “{query}”",
+    "unavailable": "Índise buka jerada durante build no la disponivel iha <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Halo <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> atu tenta iha ita-nia komputadór."
+  },
+  "video": {
+    "playLabel": "Hala'o vídeo: {title}",
+    "watchOn": "Haree iha YouTube"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName}",
+    "builtWith": "Harii ho Astro Rocket",
+    "groups": {
+      "site": "Site",
+      "topics": "Tópiku",
+      "projects": "Projetu",
+      "questions": "Iha pergunta?"
+    },
+    "followOn": "Tuir ami iha {platform}"
+  },
+  "pages": {
+    "about": {
+      "meta": {
+        "title": "Kona-ba — Automasaun Negósiu no Infraestrutura Digital",
+        "description": "IRFAtech (Integrated Resources For Automation & Technology) ajuda negósiu sira ne'ebé kresse iha Índia no Timor-Leste atu automatiza operasaun liuhusi ERP, workflow ho IA, no software personalizadu."
+      },
+      "hero": {
+        "badge": "Kona-ba",
+        "titleLead": "IRFAtech —",
+        "typingWords": [
+          "Solusaun ERP",
+          "Automasaun IA",
+          "Software Personalizadu",
+          "Automasaun WhatsApp",
+          "Sistema CRM",
+          "Kolesaun Dadus iha Terenu",
+          "Site Negósiu"
+        ],
+        "typingWordsMobile": [
+          "Solusaun ERP",
+          "Automasaun IA",
+          "Automasaun WhatsApp",
+          "Kolesaun Dadus iha Terenu",
+          "Site Negósiu"
+        ],
+        "description": "Parseiru tekonolójia B2B ne'ebé ajuda negósiu sira ne'ebé kresse atu automatiza, organiza sistema, no kresse."
+      },
+      "whatYouGet": {
+        "badge": "Saida mak ami halo",
+        "heading": "Buat hotu ne'ebé negósiu ne'ebé kresse presiza",
+        "lead": "Servisu ualu, parseiru ida deit: sistema, automasaun, no suporta ne'ebé lori negósiu ida husi spreadsheet ba infraestrutura digital.",
+        "items": [
+          {
+            "icon": "database",
+            "title": "Solusaun ERP",
+            "description": "Sistema bazeia iha Odoo ba inventáriu, fatura, operasaun, no kontabilidade — sistema ida deit, la'ós spreadsheet lima."
+          },
+          {
+            "icon": "workflow",
+            "title": "Automasaun IA no Workflow",
+            "description": "Servisu repetitivu trata automátiku, atu ita-nia ekipa bele foka ba buat ne'ebé presiza tebes ema atu halo."
+          },
+          {
+            "icon": "code",
+            "title": "Dezenvolvimentu Software Personalizadu",
+            "description": "Sistema Laravel + Vue.js ne'ebé harii ba prosesu ne'ebé software prontu-uza labele kobre."
+          },
+          {
+            "icon": "message-circle",
+            "title": "Automasaun WhatsApp",
+            "description": "Atualizasaun enkomenda, lembrete, no resposta ba kliente trata iha fatin ne'ebé ita-nia kliente sira já iha."
+          },
+          {
+            "icon": "users",
+            "title": "CRM no Automasaun Vendas",
+            "description": "Akompaña lead no follow-up ne'ebé transforma oportunidade barak liu ba negósiu taka."
+          },
+          {
+            "icon": "globe",
+            "title": "Site Negósiu",
+            "description": "Site lalais no kredível, harii atu jera kontaktu, la'ós deit atu iha online."
+          },
+          {
+            "icon": "smartphone",
+            "title": "Dezenvolvimentu Aplikasaun Móvel",
+            "description": "Aplikasaun iOS no Android ba ekipa terenu, entrega, no operasaun ne'ebé direta ho kliente."
+          },
+          {
+            "icon": "life-buoy",
+            "title": "Manutensaun no Suporta",
+            "description": "Atualizasaun no monitorizasaun ho garantia SLA, atu buat ne'ebé ami harii kontinua funciona depois lansamentu."
+          },
+          {
+            "icon": "handshake",
+            "title": "Konsulta primeiru grátis",
+            "description": "La iha obrigasaun, la iha faturasaun oras — proposta klaru ho presu fixu no prazu."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "Oinsá Ami Servisu",
+        "heading": "Harii ho intensaun",
+        "lead": "Kolaborasaun ida-idak iha IRFAtech tuir prinsípiu tolu hanesan.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "Automasaun Uluk",
+            "description": "Ami buka uluk servisu manuál no repetitivu — fatin ne'ebé normalmente retornu mais lalais mosu."
+          },
+          {
+            "icon": "award",
+            "title": "Disiplina Engenharia",
+            "description": "Laravel, Vue.js, no Odoo, harii ho limpu no dokumenta — fásil atu manutensaun tinan barak depois lansamentu, la'ós deit iha entrega."
+          },
+          {
+            "icon": "rocket",
+            "title": "Adapta ba PME",
+            "description": "Sistema ne'ebé adapta ba ita-nia orsamentu no fase krese, la'ós software korporativu boot ne'ebé ita sei aproveita iha futuru."
+          }
+        ]
+      },
+      "stack": {
+        "badge": "Ferramenta no Teknolojia",
+        "title": "Ami-nia Stack",
+        "description": "Teknolojia ne'ebé suporta servisu IRFAtech nian — hili tanba konfiavel, fásil manutensaun ba tempu naruk, no ekosistema suporta forte."
+      },
+      "faq": {
+        "badge": "Diak atu hatene",
+        "heading": "Pergunta ne'ebé ofte husu",
+        "lead": "Buat hotu ne'ebé ita hakarak hatene antes kontaktu ami.",
+        "cards": [
+          {
+            "icon": "building-2",
+            "title": "Kona-ba IRFAtech",
+            "items": [
+              {
+                "question": "Saida mak IRFAtech signifika?",
+                "answer": "IRFAtech mai husi Integrated Resources For Automation & Technology. Ami parseiru transformasaun digital, fundadu husi Mohammed Irfan, ne'ebé ajuda negósiu, governu, no ONG troka prosesu manuál ho sistema digital konektadu."
+              },
+              {
+                "question": "Ho sé mak ita servisu hamutuk?",
+                "answer": "Negósiu ki'ik no médiu iha setór retallu, saúde, edukasaun, no distribuisaun — no mós governu, ONG, no organizasaun internasionál ba kolesaun dadus iha terenu. Liuliu iha Índia no Timor-Leste, ho kliente sira ne'ebé sei kresse ba mundu tomak."
+              },
+              {
+                "question": "Saida mak Landflix?",
+                "answer": "Landflix mak ami-nia plataforma SaaS prinsipál ba teknolojia imobiliáriu no jestaun propriedade digital — produtu rasik no mós prova husi saida mak ami-nia stack bele harii."
+              },
+              {
+                "question": "IRFAtech kompañia rejistradu ka freelancer?",
+                "answer": "IRFAtech konsultoria teknolojia lidera husi fundadór. Ita servisu direta ho ekipa ne'ebé harii ita-nia sistema, la'ós liuhusi kamada vendas."
+              },
+              {
+                "question": "Iha ne'ebé mak ita hela?",
+                "answer": "Ami opera husi Kolkata, Índia no Dili, Timor-Leste, no servisu ho kliente sira iha distánsia iha mundu tomak."
+              }
+            ]
+          },
+          {
+            "icon": "handshake",
+            "title": "Servisu hamutuk ho ami",
+            "items": [
+              {
+                "question": "Oinsá ami hahú?",
+                "answer": "Haruka mensajen liuhusi formuláriu kontaktu ka WhatsApp. Ami responde iha loron servisu ida no organiza xamada grátis, la iha obrigasaun, atu komprende saida mak ita presiza."
+              },
+              {
+                "question": "Ami harii deit sistema ERP?",
+                "answer": "Lae — ERP mak servisu ida husi ualu. Ami mós harii automasaun IA/workflow, software personalizadu, automasaun WhatsApp, sistema CRM, site negósiu, aplikasaun móvel, no fó manutensaun kontínua."
+              },
+              {
+                "question": "Ami-nia automasaun WhatsApp tuir polítika WhatsApp nian ka lae?",
+                "answer": "Sim. Ami harii iha leten WhatsApp Business Platform ofisiál (Cloud API), atu mensajen kontinua tuir polítika mensajen negósiu Meta nian, la'ós solusaun la ofisiál."
+              },
+              {
+                "question": "Ami sei iha kódigu no dadus rasik?",
+                "answer": "Sim. Sistema personalizadu sira mak ita-nia — kódigu, base de dadus, no sistema ne'ebé halo funciona. Ami transparente kona-ba ida-ne'e iha proposta, antes servisu hahú."
+              },
+              {
+                "question": "Oinsá presu projetu ida determina?",
+                "answer": "Konsulta grátis, tuir mai proposta hakerek ho presu fixu no prazu. La iha faturasaun oras no la iha fatura surpreza."
+              }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Código Aberta",
+        "heading": "Harii ho transparénsia",
+        "description": "Código-fonte site ida-ne'e públiku iha GitHub — disiplina engenharia hanesan ne'ebé ami aplika ba projetu kliente ida-idak, aplika mós ba ami-nia rasik.",
+        "button": "Haree código-fonte iha GitHub",
+        "cards": [
+          {
+            "title": "Engenharia lidera husi fundadór",
+            "text": "Projetu ida-idak liuhusi Mohammed Irfan no ekipa prinsipál — esperiénsia liu tinan 15 iha dezenvolvimentu software direta, la'ós kamada vendas entre ita no servisu."
+          },
+          {
+            "title": "Site ho código disponivel",
+            "text": "Site ida-ne'e públiku iha <a href=\"https://github.com/webbello/irfatech\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub</a> — ezemplu reál husi padraun kualidade ne'ebé ami aplika ba sistema kliente sira nian."
+          },
+          {
+            "title": "Manutensaun ativu",
+            "text": "Site ida-ne'e no sistema sira ne'ebé ami entrega ba kliente hotu-hotu manutensaun, monitoriza, no diak liu tan liuhusi planu suporta kontínua."
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Hahú ona",
+        "heading": "Prontu atu automatiza ita-nia negósiu?",
+        "description": "Konsulta primeiru grátis no informál — liuhusi telefone, vídeo, ka WhatsApp. Ita simu resposta onestu, no depois proposta klaru ho presu fixu no prazu.",
+        "button": "Kontaktu ami"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Servisu — ERP, Automasaun, Software no Suporta",
+        "description": "Solusaun ERP, automasaun IA no workflow, software personalizadu, automasaun WhatsApp, CRM, site, aplikasaun móvel, no suporta — parseiru ida, servisu ualu."
+      },
+      "includedLabel": "Saida mak inklui",
+      "hero": {
+        "badge": "Servisu",
+        "titleLead": "Sistema, automasaun,",
+        "titleHighlight": "no buat hotu depois lansamentu",
+        "description": "Servisu ualu harii ho objetivu ida deit: troka servisu manuál no dispersu ho infraestrutura digital ne'ebé kresse hamutuk ho ita-nia negósiu.",
+        "jumpLabels": [
+          "Sistema negósiu",
+          "Automasaun no IA",
+          "Prezensa no suporta"
+        ]
+      },
+      "design": {
+        "badge": "Sistema",
+        "heading": "Sistema negósiu",
+        "paragraphs": [
+          "Sistema negósiu mak fundasaun: ERP, CRM, no software personalizadu ne'ebé troka spreadsheet dispersu no rejistu manuál ho fonte dadus ida deit ne'ebé konektadu.",
+          "Ami harii ERP iha leten Odoo — inventáriu, fatura, kontabilidade, no operasaun iha plataforma ida — no Laravel ho Vue.js ba buat personalizadu hotu ne'ebé software prontu-uza labele kobre. Sistema ida-idak harii tuir oinsá ita-nia negósiu funciona duni, la'ós modelu jerál ne'ebé ita tenke adapta ba nia."
+        ],
+        "included": [
+          {
+            "lead": "ERP ne'ebé kaben ho ita-nia oinsá servisu",
+            "text": "inventáriu, fatura, kontabilidade, no operasaun bazeia Odoo, iha sistema ida."
+          },
+          {
+            "lead": "CRM no automasaun vendas",
+            "text": "akompaña lead no follow-up ne'ebé transforma oportunidade barak liu ba negósiu taka."
+          },
+          {
+            "lead": "Software personalizadu, harii tuir presiza",
+            "text": "sistema Laravel no Vue.js ba prosesu ne'ebé software prontu-uza labele kobre."
+          },
+          {
+            "lead": "Sistema ida, la'ós spreadsheet lima",
+            "text": "ita-nia inventáriu, fatura, no dadus kliente ko'alia ba malu ikus mai."
+          },
+          {
+            "lead": "Suporta ne'ebé mantein funciona",
+            "text": "atualizasaun, hadia, no monitorizasaun ho SLA, la'ós entrega ida deit."
+          }
+        ],
+        "ctaLabel": "Diskute ita-nia sistema"
+      },
+      "development": {
+        "badge": "Automasaun",
+        "heading": "Automasaun no IA",
+        "paragraphs": [
+          "Automasaun mak normalmente fatin ne'ebé retornu mais lalais mosu: servisu manuál no repetitivu ne'ebé ita-nia ekipa halo loron-loron ne'ebé workflow bele trata.",
+          "Ami harii automasaun WhatsApp Business ba atualizasaun enkomenda, lembrete, no resposta ba kliente, no konekta ho ferramenta workflow no IA ne'ebé lori dadus entre ita-nia ERP, CRM, no site sem ema ida rejistu fila fali. IA uza deit iha fatin ne'ebé konviene — atu rezume, organiza, no direciona — la'ós tau deit hodi tau."
+        ],
+        "included": [
+          {
+            "lead": "Oras manuál ki'ik liu",
+            "text": "servisu repetitivu trata automátiku, atu ita-nia ekipa foka ba buat ne'ebé presiza ema."
+          },
+          {
+            "lead": "Automasaun WhatsApp Business",
+            "text": "atualizasaun enkomenda, lembrete, no resposta ba kliente, trata iha fatin ne'ebé ita-nia kliente já iha."
+          },
+          {
+            "lead": "Workflow ne'ebé konekta ita-nia ferramenta",
+            "text": "dadus muda entre ERP, CRM, no site sem tenke rejistu fila fali husi liman."
+          },
+          {
+            "lead": "IA iha fatin ne'ebé konviene",
+            "text": "uza atu rezume, organiza, no direciona — la'ós tau deit hodi tau."
+          },
+          {
+            "lead": "Harii tuir ita-nia prosesu",
+            "text": "automasaun harii tuir oinsá ita-nia negósiu funciona duni, la'ós modelu jerál."
+          }
+        ],
+        "ctaLabel": "Haree automasaun iha aksaun"
+      },
+      "performance": {
+        "badge": "Prezensa",
+        "heading": "Prezensa digital no suporta",
+        "paragraphs": [
+          "Prezensa digital mak oinsá kliente hetan no kontaktu ita: site ne'ebé jera kontaktu, aplikasaun móvel ba operasaun terenu ka direta ho kliente, no suporta kontínua ne'ebé mantein buat hotu funciona.",
+          "Ami harii site no aplikasaun atu fásil hetan — husi motór buka no assistente IA — la'ós deit atu bonita. No nenhum husi ami-nia entrega mak entrega ida deit: projetu ida-idak mai ho manutensaun no suporta ho SLA, atu kontinua funciona naruk depois lansamentu."
+        ],
+        "included": [
+          {
+            "lead": "Site ne'ebé jera kontaktu",
+            "text": "lalais, kredível, no harii atu transforma vizitante sira ba pedidu kontaktu."
+          },
+          {
+            "lead": "Aplikasaun móvel tuir oinsá ita opera",
+            "text": "aplikasaun iOS no Android ba ekipa terenu, entrega, ka uzu direta ho kliente."
+          },
+          {
+            "lead": "Hetan husi Google no IA",
+            "text": "SEO no dadus estruturadu harii husi liña primeiru, la'ós tau tarde liu."
+          },
+          {
+            "lead": "Manutensaun no suporta",
+            "text": "atualizasaun ho garantia SLA, monitorizasaun, no ekipa ne'ebé responde bainhira presiza atensaun."
+          },
+          {
+            "lead": "Espasu atu kresse",
+            "text": "projetu ida-idak iha espasu ba funsionalidade foun bainhira ita-nia negósiu kresse."
+          }
+        ],
+        "ctaLabel": "Hahú projetu"
+      },
+      "process": {
+        "badge": "Oinsá ida-ne'e funciona",
+        "heading": "Oinsá kolaborasaun ida hala'o",
+        "lead": "Husi ita-nia mensajen primeiru to'o sistema ida ne'ebé ativu no iha suporta.",
+        "steps": [
+          {
+            "title": "Kontaktu primeiru",
+            "description": "Ita haruka mensajen liuhusi formuláriu kontaktu ka WhatsApp. Ami responde iha loron servisu ida no organiza xamada informativu grátis kona-ba saida mak ita presiza. La iha obrigasaun.",
+            "icon": "message-circle",
+            "stat": "Resposta iha loron servisu 1"
+          },
+          {
+            "title": "Proposta",
+            "description": "Depois xamada ita simu dokumentu klaru ida: saida mak ami sei harii, kuandu prontu, no presu fixu. Ita desidi ho buat hotu iha mesa.",
+            "icon": "file-text",
+            "stat": "Presu fixu, la iha supreza"
+          },
+          {
+            "title": "Konstrusaun",
+            "description": "Ami servisu iha siklu badak. Ita akompaña progresu liuhusi link staging no haree sistema hetan forma antes lansamentu.",
+            "icon": "code-2",
+            "stat": "Progresu semana-semana ita bele akompaña"
+          },
+          {
+            "title": "Lansamentu no suporta",
+            "description": "Ita-nia sistema mosu online, ho ita-nia dadus no naran. Depois ida-ne'e ami kontinua bele kontaktu, no iha planu suporta ho SLA ba atualizasaun kontínua.",
+            "icon": "rocket",
+            "stat": "Suporta ho garantia SLA"
+          }
+        ]
+      },
+      "faq": {
+        "badge": "Pergunta",
+        "heading": "Pergunta no resposta",
+        "lead": "Buat ne'ebé kliente sira husu antes ami hahú.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Antes ami hahú",
+            "items": [
+              {
+                "question": "Projetu ida kustu hira?",
+                "answer": "Kolaborasaun ida-idak iha presu fixu ida, akorda antes ami hahú. La iha faturasaun oras, la iha surpreza depois. Konsulta grátis fó hatene ba ami saida mak ita-nia projetu presiza, no ita simu presu iha proposta klaru ida."
+              },
+              {
+                "question": "Projetu ida kleur hira?",
+                "answer": "Depende ba ámbitu — projetu automasaun WhatsApp entrega lalais liu duké implementasaun ERP kompletu. Proposta hatudu prazu hamutuk ho presu, atu ita hatene rua-rua antes ami hahú."
+              },
+              {
+                "question": "Saida sei akontese ba ami-nia sistema no spreadsheet atuál?",
+                "answer": "Sira kontinua uza to'o sistema foun prontu no ita-nia dadus muda ona. Ami rekoñese saida mak ita uza daudaun antes xamada primeiru, atu ita simu resposta klaru husi hahú."
+              },
+              {
+                "question": "Ita halo hosting no manutensaun sistema ba ami ka lae?",
+                "answer": "Sim, se ita hakarak — ka ami bele configura iha infraestrutura ne'ebé ita kontrola diretamente. Ida-ne'e defini iha proposta antes servisu hahú."
+              },
+              {
+                "question": "Ita presiza hasoru malu diretu?",
+                "answer": "La presiza. Kolaborasaun barak hala'o tomak liuhusi telefone, vídeo, no WhatsApp. Ami servisu ho kliente sira iha Índia, Timor-Leste, no mundu tomak, no fuzu horáriu la'ós problema boot."
+              }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Servisu hamutuk ho IRFAtech",
+            "items": [
+              {
+                "question": "Ita kompañia ka freelancer?",
+                "answer": "IRFAtech konsultoria teknolojia lidera husi fundadór — ita servisu direta ho ekipa ne'ebé halo servisu, husi xamada primeiru to'o sistema remata. La iha kamada vendas, la iha jestór konta, la iha transisaun barak."
+              },
+              {
+                "question": "Ami bele halo mudansa rasik depois lansamentu?",
+                "answer": "Depende ba sistema, bele — hatete iha xamada primeiru no ami sei prepara sistema ba ida-ne'e. Se lae, haruka mai ami mudansa ne'ebé ita hakarak no planu suporta trata."
+              },
+              {
+                "question": "Ita harii loja online boot?",
+                "answer": "Plataforma e-commerce eskala boot la'ós ami-nia foku — maibé ERP ho inventáriu no fatura, site negósiu, no buat hotu iha ami-nia lista servisu, ami harii. Konta mai ami saida mak ita hanoin no ami sei onestu kona-ba adekuasaun."
+              },
+              {
+                "question": "Sistema ne'e duni ami-nia?",
+                "answer": "Sim. Ba projetu personalizadu, kódigu, dadus, no sistema ne'ebé halo funciona sira mak ita-nia husi loron primeiru. Ita nunka fika prezu ba IRFAtech atu mantein funciona."
+              },
+              {
+                "question": "Saida sei akontese se buat ida falha depois lansamentu?",
+                "answer": "Ami kontinua bele kontaktu depois lansamentu, no planu suporta ho SLA kobre monitorizasaun, hadia, no atualizasaun — atu problema hetan antes kustu ita-nia tempu."
+              }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Mai ita ko'alia",
+        "heading": "Mai ita ko'alia kona-ba saida mak ita presiza",
+        "description": "Konsulta primeiru grátis no informál, la iha obrigasaun — liuhusi telefone, vídeo, ka WhatsApp. Ita simu resposta onestu, no depois xamada proposta klaru ho prazu no presu fixu.",
+        "primary": "Haruka mensajen",
+        "secondary": "Hatene tan kona-ba ami"
+      },
+      "grid": {
+        "badge": "Ami-nia servisu sira",
+        "heading": "Servisu ualu, partner ida",
+        "lead": "Hili area ida, lee saida mak envolve, no hahu diskusaun.",
+        "readMore": "Haree servisu"
+      },
+      "detail": {
+        "featuresBadge": "Saida mak ita hetan",
+        "featuresHeading": "Saida mak {service} kobre",
+        "industriesBadge": "Ba sé mak ne'e",
+        "industriesHeading": "Tuu ba indústria sira hanesan ita-nian",
+        "processBadge": "Oinsá funsiona",
+        "processHeading": "Husi pergunta to'o lansamentu",
+        "faqBadge": "Pergunta komun sira",
+        "faqHeading": "Resposta klaru, la ho jargão",
+        "relatedHeading": "Leitura relasionadu"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Kontaktu",
+        "description": "Hahú projetu ERP, automasaun, ka software? Konta mai ami kona-ba ita-nia negósiu no ami sei responde iha loron servisu 1."
+      },
+      "hero": {
+        "badge": "Hahú projetu",
+        "titleLead": "Konta mai ami kona-ba ita-nia",
+        "titleHighlight": "negósiu",
+        "description": "Ami hakarak tebes rona saida mak halo ita-nia negósiu lakon tempu. Haruka mensajen liuhusi formuláriu iha okos, ka kontaktu liuhusi kanál seluk."
+      },
+      "formTitle": "Hato'o ba ami saida mak presiza",
+      "channelsTitle": "Kanál seluk",
+      "channelsSubtitle": "Prefere kanál direta? Hili ne'ebé mak diak liu ba ita — inklui WhatsApp.",
+      "emailLabel": "Email",
+      "emailNote": "Haruka mensajen badak mai ami",
+      "whatsappLabel": "WhatsApp",
+      "whatsappNote": "Chat diretu ho ami",
+      "socialNote": "Tuir ami",
+      "basedIn": "Hela iha {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Infraestrutura Digital ba Negósiu ne'ebé Kresse",
+        "description": "ERP, automasaun workflow ho IA, software personalizadu, automasaun WhatsApp, CRM, site, no aplikasaun móvel — harii ba PME sira ne'ebé kresse iha Índia no Timor-Leste."
+      },
+      "hero": {
+        "badge": "Liu Tinan 15 Esperiénsia · Índia & Timor-Leste",
+        "titleLine1": "Halo Negósiu",
+        "titleLine2": "Serbisu",
+        "titleLine2Accent": "Matenek Liu",
+        "titleLine3": "Liu Husi",
+        "titleLine3Accent": "Software",
+        "description": "Konta ba ami saida mak konsume tempu barak liu iha ita-nia negósiu. Ami harii software no solusaun digital ne'ebé simplifika ita-nia servisu, rai tempu, no ajuda ita-nia negósiu boot.",
+        "descriptionMobile": "Konta ba ami saida mak konsume tempu barak liu iha ita-nia negósiu. Ami harii software no solusaun digital ne'ebé simplifika ita-nia servisu, rai tempu, no ajuda ita-nia negósiu boot.",
+        "primary": "Konta Ba Ami Ita-Nia Dezafiu Negósiu",
+        "getStarted": "Esplora Ami-Nia Solusaun",
+        "highlights": [
+          { "icon": "code", "title": "Software Kustomizadu" },
+          { "icon": "settings", "title": "Automatizasaun Negósiu" },
+          { "icon": "bar-chart-3", "title": "Dadus & Insight" },
+          { "icon": "headset", "title": "Apoiu Kontinu" }
+        ],
+        "industriesLabel": "Halo ba negósiu iha indústria oioin",
+        "industries": [
+          { "icon": "shopping-cart", "title": "Retallu & Atacadu" },
+          { "icon": "building-2", "title": "Propriedade" },
+          { "icon": "truck", "title": "Lojístika" },
+          { "icon": "graduation-cap", "title": "Edukasaun" },
+          { "icon": "heart-pulse", "title": "Saúde" }
+        ]
+      },
+      "ecosystem": {
+        "badge": "Ekosistema Negósiu",
+        "heading": "Buat Hotu Konektadu.",
+        "headingAccent": "Buat Ida La Dispersu.",
+        "lead": "Ami konekta ita-nia website, CRM, inventáriu, finansas, WhatsApp no ferramenta negósiu seluk—depois automatiza fluxu servisu entre sira.",
+        "features": [
+          {
+            "icon": "link-2",
+            "title": "Hotu Konektadu",
+            "description": "ERP, CRM, website, WhatsApp, pagamentu, no seluk tan — servisu hamutuk hotu."
+          },
+          {
+            "icon": "settings",
+            "title": "Fluxu Servisu Automátiku",
+            "description": "Automatiza knaar repetitivu no hakotu servisu manuál."
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Informasaun Real-Time",
+            "description": "Fonte verdade ida deit ba desizaun di'ak liu no kontrolu forte liu."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Konstrui Tuir Ita",
+            "description": "Software no integrasaun espesífiku ne'ebé desenhadu tuir oinsá ita-nia negósiu servisu."
+          }
+        ],
+        "hubLabel": "IRFATECH",
+        "hubSubLabel": "Ita-Nia Negósiu. Konektadu.",
+        "nodes": [
+          {
+            "icon": "users",
+            "title": "CRM",
+            "description": "Lead, Kliente, Akompañamentu",
+            "color": "blue"
+          },
+          {
+            "icon": "package",
+            "title": "Inventáriu",
+            "description": "Stock, Produtu, Armazén",
+            "color": "orange"
+          },
+          {
+            "icon": "file-text",
+            "title": "Kontabilidade & Finansas",
+            "description": "Fatura, Pagamentu, Relatóriu",
+            "color": "blue"
+          },
+          {
+            "icon": "users-round",
+            "title": "RH & Ekipa",
+            "description": "Empregadu, Prezensa, Dezempeñu",
+            "color": "red"
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Relatóriu & BI",
+            "description": "Dashboard, KPI, Informasaun Negósiu",
+            "color": "orange"
+          },
+          {
+            "icon": "bot",
+            "title": "Automatizasaun Fluxu",
+            "description": "Aprovasaun, Lembrete, Automatizasaun Knaar",
+            "color": "purple"
+          },
+          {
+            "icon": "message-circle",
+            "title": "Automatizasaun WhatsApp",
+            "description": "Alerta, Atualizasaun, Notifikasaun",
+            "color": "green"
+          },
+          {
+            "icon": "shopping-cart",
+            "title": "Website / E-commerce",
+            "description": "Enkomenda, Pergunta, Loja Online",
+            "color": "green"
+          }
+        ],
+        "stats": [
+          {
+            "icon": "target",
+            "title": "Servisu Manuál Menus",
+            "description": "Rai tempu no hakotu sala"
+          },
+          {
+            "icon": "trending-up",
+            "title": "Produtividade Aas Liu",
+            "description": "Foku ba buat ne'ebé halo ita-nia negósiu boot"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Kontrolu Di'ak Liu",
+            "description": "Nafatin iha kontrolu"
+          },
+          {
+            "icon": "rocket",
+            "title": "Prontu atu Boot",
+            "description": "Boot la muda sistema"
+          }
+        ]
+      },
+      "businessProblem": {
+        "badge": "Problema",
+        "heading": "Negósiu labele halao ho ferramenta ne'ebé la konekta malu.",
+        "lead": "WhatsApp, spreadsheet, dokumentu, software separadu, no prosesu manuál halo susar atu organizadu no kresse. Ami ajuda atu hamutuk parte importante sira.",
+        "toolsLabel": "Ferramenta atual sira",
+        "buildChip": "Ami harii ne'ebé seidauk iha",
+        "tools": [
+          {
+            "icon": "brand-whatsapp",
+            "title": "WhatsApp"
+          },
+          {
+            "icon": "file-spreadsheet",
+            "title": "Excel / spreadsheet"
+          },
+          {
+            "icon": "globe",
+            "title": "Website"
+          },
+          {
+            "icon": "users",
+            "title": "CRM"
+          },
+          {
+            "icon": "calculator",
+            "title": "Kontabilidade"
+          },
+          {
+            "icon": "package",
+            "title": "Inventáriu"
+          },
+          {
+            "icon": "clipboard-list",
+            "title": "Prosesu manuál"
+          }
+        ],
+        "layerLabel": "IRFAtech",
+        "layerMessage": "Ita nia ferramenta bele servisu hamutuk. Ne'ebé seidauk iha, ami harii.",
+        "layerNote": "Ami konekta ferramenta ne'ebé ita uza ona no automátika servisu entre sira — ka harii ne'ebé ita seidauk iha, husi website negósiu simples to'o sistema kompletu."
+      },
+      "services": {
+        "badge": "Saida mak ami halo",
+        "heading": "Sistema, automasaun, kresimentu",
+        "lead": "Servisu ualu, hotu-hotu harii ho objetivu ida deit: servisu manuál ki'ik liu, espasu barak liu atu kresse.",
+        "learnMore": "Hatene tan",
+        "cards": [
+          {
+            "icon": "database",
+            "title": "Sistema Negósiu",
+            "description": "ERP, CRM, no software espesiál ne'ebé konekta ferramenta ne'ebé ita uza ona ba fluxu ida ne'ebé suave — dados loke dala ida deit, la'ós hakerek fila-fali."
+          },
+          {
+            "icon": "workflow",
+            "title": "Automasaun no IA",
+            "description": "Automasaun WhatsApp no ferramenta workflow ne'ebé lori dadus no mensajen sem rejistu fila fali husi liman."
+          },
+          {
+            "icon": "globe",
+            "title": "Prezensa no Suporta",
+            "description": "Site, aplikasaun móvel, no manutensaun ho SLA ne'ebé kontinua funciona naruk depois lansamentu."
+          }
+        ]
+      },
+      "sectors": {
+        "label": "Ami mós fó servisu ba",
+        "sectors": [
+          "Governu",
+          "ONG",
+          "Saúde",
+          "Edukasaun",
+          "Agrikultura"
+        ],
+        "cta": "Esplora solusaun hotu"
+      },
+      "workWithMe": {
+        "badge": "Servisu hamutuk ho IRFAtech",
+        "heading": "Mai ita harii ita-nia sistema",
+        "lead": "Saida mak ita simu bainhira servisu hamutuk ho ami.",
+        "cards": [
+          {
+            "icon": "handshake",
+            "title": "Lidera husi fundadór",
+            "description": "Asesu direta ba ekipa ne'ebé harii ita-nia sistema — la iha kamada vendas, la iha transisaun barak."
+          },
+          {
+            "icon": "zap",
+            "title": "Retornu automasaun lalais",
+            "description": "Ami hahú husi servisu manuál ne'ebé konsume tempu liu ba ita, atu retornu mosu sedu."
+          },
+          {
+            "icon": "search",
+            "title": "Ita mak kontrola",
+            "description": "Sistema ne'ebé ita simu lori ita nia dados no ita nia naran — konekta ferramenta ne'ebé ita iha ona, la'ós muda hotu ba sistema ida deit."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Suporta ne'ebé la lakon",
+            "description": "Manutensaun ho SLA depois lansamentu, atu ita labele hela mesak bainhira buat ida presiza atensaun."
+          }
+        ],
+        "cta": "Marka konsulta grátis"
+      },
+      "portfolio": {
+        "badge": "Servisu selesionadu",
+        "heading": "Sistema ne'ebé ami harii ona",
+        "lead": "Seleksaun husi kolaborasaun resente.",
+        "viewAll": "Haree projetu hotu"
+      },
+      "process": {
+        "badge": "Oinsá ida-ne'e funciona"
+      },
+      "testimonials": {
+        "badge": "Testemuña",
+        "heading": "Saida mak kliente sira dehan",
+        "lead": "Liafuan reál husi kolaborasaun ne'ebé remata ona.",
+        "items": []
+      },
+      "aboutTeaser": {
+        "badge": "Kona-ba ami",
+        "headingLine1": "Lidera husi fundadór,",
+        "headingLine2": "foka ba engenharia.",
+        "para1WithLocation": "Esperiénsia liu tinan 15 iha dezenvolvimentu software direta, hela iha {location} no servisu ho kliente sira iha Índia, Timor-Leste, no mundu tomak. Ami harii ho Odoo, Laravel, no Vue.js tanba kombina ho ami-nia hanoin kona-ba sistema negósiu: konektadu, fásil manutensaun, no harii atu naruk.",
+        "para1NoLocation": "Esperiénsia liu tinan 15 iha dezenvolvimentu software direta, servisu ho kliente sira iha Índia, Timor-Leste, no mundu tomak. Ami harii ho Odoo, Laravel, no Vue.js tanba kombina ho ami-nia hanoin kona-ba sistema negósiu: konektadu, fásil manutensaun, no harii atu naruk.",
+        "para2": "Iha blog, ami fahe hanoin ne'ebé iha kotuk sistema ne'ebé ami harii.",
+        "moreAboutMe": "Hatene tan kona-ba ami",
+        "statsIntro": "Faktu balu kona-ba IRFAtech.",
+        "stat1": "Liu Tinan 15 Esperiénsia",
+        "stat2": "Odoo · Laravel · Vue.js",
+        "stat3": "Índia no Timor-Leste",
+        "basedIn": "Hela iha"
+      },
+      "blog": {
+        "badge": "Husi blog",
+        "heading": "Destake",
+        "viewAll": "Haree artigu hotu"
+      },
+      "cta": {
+        "badge": "Mai ita ko'alia",
+        "heading": "Mai ita ko'alia kona-ba saida mak ita presiza",
+        "description": "Konsulta primeiru grátis no informál, la iha obrigasaun. Husi konversa primeiru to'o sistema remata, ita servisu hamutuk ho ekipa hanesan.",
+        "primary": "Marka konsulta grátis",
+        "secondary": "Hatene tan kona-ba ami"
+      }
+    }
+  }
+}

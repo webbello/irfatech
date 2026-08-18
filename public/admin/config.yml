@@ -1,0 +1,979 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Sveltia CMS config for IRFAtech.
+#
+# LOCAL EDITING (works right now, no setup):
+#   1. pnpm dev
+#   2. Open http://localhost:4321/admin/ in Chrome or Edge (needs the File
+#      System Access API — Firefox/Safari can't do local-repo editing)
+#   3. Click "Work with Local Repository" and select the Astro-Rocket
+#      project's root folder
+#   4. Edit content — changes are written straight to the files on disk
+#   5. Review with `git diff`, then commit/push yourself as normal
+#
+# REMOTE EDITING (edit from anywhere, no local checkout):
+#   The `backend.repo` below is a PLACEHOLDER (webbello/irfatech) — this
+#   repo's `origin` remote is still the upstream theme repo, not a real
+#   IRFAtech deployment. Once there's a real GitHub repo to point at:
+#   1. Replace `repo:` below with the actual `owner/name`
+#   2. Register a GitHub OAuth App (or deploy Sveltia's small OAuth
+#      Cloudflare Worker — see https://github.com/sveltia/sveltia-cms-auth)
+#      and set `base_url`/`auth_endpoint` here to match
+#   3. Visit /admin/ and sign in with GitHub
+#   Until that's done, only local-repository editing works — this file
+#   still needs *some* valid backend block for Sveltia to boot, but it's
+#   never actually contacted in local mode.
+backend:
+  name: github
+  repo: webbello/irfatech
+  branch: main
+
+# Default media location for fields that don't override it below (the
+# marketing-content JSON fields further down don't use images).
+media_folder: /public/uploads
+public_folder: /uploads
+
+media_libraries:
+  default:
+    config:
+      max_file_size: 5242880
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 2048
+
+i18n:
+  structure: multiple_folders
+  locales: [en, id, pt, tet]
+  default_locale: en
+
+collections:
+  # =========================================================================
+  # CONTENT — blog posts, projects, solution pages. Each is a folder
+  # collection under multiple_folders i18n: creating a translation adds a
+  # matching file under content/<collection>/<locale>/<slug>.mdx
+  # automatically.
+  # =========================================================================
+  - name: blog
+    label: Blog Posts
+    label_singular: Post
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    i18n: true
+    extension: mdx
+    format: frontmatter
+    # Plain public/ folder, absolute web path — not a src/assets relative
+    # path. A src/assets image processed through Astro's image() schema
+    # helper isn't servable at any real URL until the build pipeline runs,
+    # so this editor's own preview could never render one; public/ files
+    # are directly fetchable, so the preview (and the frontend) both just
+    # work. See the comment on `image` in content.config.ts's blog schema.
+    media_folder: /public/uploads/blog
+    public_folder: /uploads/blog
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Description, name: description, widget: text, i18n: true, hint: 'Max 200 characters — used for meta description and card previews.' }
+      - { label: 'Published Date', name: publishedAt, widget: datetime, i18n: duplicate }
+      - { label: 'Updated Date', name: updatedAt, widget: datetime, required: false, i18n: duplicate }
+      - { label: Author, name: author, widget: string, default: Team, i18n: duplicate }
+      - label: 'Cover Visual'
+        name: coverType
+        widget: select
+        required: false
+        i18n: duplicate
+        options:
+          - { label: 'Auto (SVG icon wins if both are set)', value: auto }
+          - { label: 'Uploaded Image', value: image }
+          - { label: 'Decorative Icon (SVG)', value: svg }
+          - { label: 'None', value: none }
+        hint: 'Controls which visual shows below the title. Pick "Uploaded Image" to make sure the image displays even if a Decorative SVG Slug is still set below — no need to clear it first.'
+      - { label: 'Cover Image', name: image, widget: image, required: false, i18n: true }
+      - { label: 'Cover Image Alt Text', name: imageAlt, widget: string, required: false, i18n: true }
+      - { label: Tags, name: tags, widget: list, required: false, i18n: duplicate }
+      - { label: 'Decorative SVG Slug', name: svgSlug, widget: string, required: false, i18n: duplicate, hint: 'Matches a file in src/assets/blog/<slug>.svg. Only used when Cover Visual above is "Auto" or "Decorative Icon".' }
+      - label: 'Stable ID (uid)'
+        name: uid
+        widget: compute
+        value: '{{fields.title | slugify}}'
+        i18n: duplicate
+        hint: 'Auto-generated from the title — used for internal links that survive future renames. Nothing to fill in here.'
+      - { label: Draft, name: draft, widget: boolean, default: false, i18n: duplicate }
+      - { label: Featured, name: featured, widget: boolean, default: false, i18n: duplicate }
+      - &locale_field
+        label: Locale
+        name: locale
+        widget: select
+        options: [en, id, pt, tet]
+        default: en
+        i18n: true
+        hint: 'Must match the locale of this translation (shown in the tab above) — folder placement is automatic, but this field is also read directly.'
+      - label: 'FAQs (optional — adds FAQ schema to this post)'
+        name: faqs
+        widget: list
+        required: false
+        i18n: true
+        fields:
+          - { label: Question, name: question, widget: string }
+          - { label: Answer, name: answer, widget: text }
+      - { label: 'Hide Table of Contents', name: toc, widget: boolean, required: false, i18n: duplicate }
+      - { label: 'Hide Comments', name: comments, widget: boolean, required: false, i18n: duplicate }
+      - { label: Body, name: body, widget: markdown, i18n: true }
+
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: src/content/projects
+    create: true
+    slug: '{{slug}}'
+    i18n: true
+    extension: mdx
+    format: frontmatter
+    # Same reasoning as the blog collection above — relative to folder:
+    # (src/content/projects), not the entry's own locale subfolder.
+    media_folder: '/public/uploads/projects'
+    public_folder: '/uploads/projects'
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Description, name: description, widget: text, i18n: true }
+      - { label: Icon, name: icon, widget: string, required: false, i18n: duplicate, hint: 'Lucide icon name shown on the project card, e.g. car, rocket, layers.' }
+      - { label: 'Live URL', name: url, widget: string, required: false, i18n: duplicate }
+      - { label: 'Repo URL', name: repo, widget: string, required: false, i18n: duplicate }
+      - { label: 'Hero Image', name: image, widget: image, required: false, i18n: true }
+      - { label: 'Hero Image Alt Text', name: imageAlt, widget: string, required: false, i18n: true }
+      - label: Gallery
+        name: gallery
+        widget: list
+        required: false
+        i18n: true
+        hint: 'Optional — when set, replaces the single Hero Image with a swipeable carousel.'
+        types:
+          - label: Image
+            name: image_slide
+            widget: object
+            fields:
+              - { label: Image, name: src, widget: image }
+              - { label: 'Alt Text', name: alt, widget: string }
+          - label: Video
+            name: video_slide
+            widget: object
+            fields:
+              - { label: 'Video Path', name: video, widget: string, hint: 'Root-relative path to a file in public/, e.g. /videos/demo.mp4' }
+              - { label: Poster, name: poster, widget: image }
+              - { label: 'Alt Text', name: alt, widget: string }
+      - { label: Tags, name: tags, widget: list, required: false, i18n: duplicate }
+      - { label: Featured, name: featured, widget: boolean, default: false, i18n: duplicate }
+      - { label: 'Sort Order (lower = earlier)', name: order, widget: number, default: 99, i18n: duplicate }
+      - { label: Year, name: year, widget: number, required: false, i18n: duplicate }
+      - { label: Client, name: client, widget: string, required: false, i18n: duplicate }
+      - { label: 'Our Role', name: role, widget: string, required: false, i18n: duplicate }
+      - { label: Services, name: services, widget: list, required: false, i18n: duplicate }
+      - { label: 'Meta Facts Line', name: meta, widget: list, required: false, i18n: true, hint: 'Short facts shown as one line under the hero, e.g. "Live client site", "Astro-built".' }
+      - { label: Draft, name: draft, widget: boolean, default: false, i18n: duplicate }
+      - { label: 'Placeholder (no detail page)', name: placeholder, widget: boolean, default: false, i18n: duplicate }
+      - { label: 'Hide Table of Contents', name: toc, widget: boolean, required: false, i18n: duplicate }
+      - *locale_field
+      - { label: Body, name: body, widget: markdown, i18n: true }
+
+  - name: solutions
+    label: Solutions
+    label_singular: Solution
+    folder: src/content/solutions
+    create: true
+    slug: '{{slug}}'
+    i18n: true
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true, hint: 'Also the nav/card label, e.g. "School Inspection".' }
+      - { label: Sector, name: sector, widget: string, i18n: true, hint: 'Badge shown in the hero and on the index card, e.g. Government, Healthcare.' }
+      - { label: Headline, name: headline, widget: string, i18n: true, hint: 'Problem-first H1, distinct from Title.' }
+      - { label: Description, name: description, widget: text, i18n: true }
+      - { label: Icon, name: icon, widget: string, default: layers, i18n: duplicate }
+      - { label: 'The Challenge (paragraphs)', name: challenge, widget: list, i18n: true, field: { label: Paragraph, name: paragraph, widget: text } }
+      - label: 'Our Approach (checklist)'
+        name: approach
+        widget: list
+        i18n: true
+        summary: '{{fields.lead}}'
+        fields:
+          - { label: Lead, name: lead, widget: string }
+          - { label: Text, name: text, widget: text }
+      - label: 'Outcomes (benefit cards)'
+        name: outcomes
+        widget: list
+        i18n: true
+        summary: '{{fields.title}}'
+        fields:
+          - { label: Icon, name: icon, widget: string, required: false }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+      - { label: 'Related Solution Slugs', name: related, widget: list, required: false, i18n: duplicate, hint: 'Slugs of other solutions to cross-link at the foot of the page.' }
+      - { label: 'Sort Order', name: order, widget: number, default: 99, i18n: duplicate }
+      - { label: Featured, name: featured, widget: boolean, default: false, i18n: duplicate }
+      - { label: Draft, name: draft, widget: boolean, default: false, i18n: duplicate }
+      - *locale_field
+      - { label: Body, name: body, widget: markdown, required: false, i18n: true }
+
+  # =========================================================================
+  # STACK — the tech-stack logos shown on the About page and homepage
+  # marquee. No i18n: not user-facing copy, just tool names/links.
+  # =========================================================================
+  - name: stack
+    label: 'Tech Stack'
+    label_singular: Tool
+    folder: src/content/stack
+    create: true
+    slug: '{{slug}}'
+    extension: mdx
+    format: frontmatter
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Version, name: version, widget: string }
+      - { label: URL, name: url, widget: string }
+      - { label: Icon, name: icon, widget: string, hint: 'Icon name, e.g. brand-astro, brand-laravel.' }
+      - { label: 'Colour (OKLCH params)', name: colorOklch, widget: string, hint: 'e.g. "62.5% 0.22 38" — no oklch() wrapper.' }
+      - { label: 'Sort Order', name: order, widget: number, default: 0 }
+
+  # =========================================================================
+  # AUTHORS — blog byline info. No i18n: a person's name/bio doesn't
+  # translate per-locale in this schema.
+  # =========================================================================
+  - name: authors
+    label: Authors
+    label_singular: Author
+    folder: src/content/authors
+    create: true
+    slug: '{{slug}}'
+    extension: json
+    format: json
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Bio, name: bio, widget: text }
+      - { label: Avatar, name: avatar, widget: image, required: false }
+      - label: Social
+        name: social
+        widget: object
+        required: false
+        fields:
+          - { label: Twitter, name: twitter, widget: string, required: false }
+          - { label: GitHub, name: github, widget: string, required: false }
+          - { label: LinkedIn, name: linkedin, widget: string, required: false }
+
+  # =========================================================================
+  # FAQs — general FAQ entries used for JSON-LD FAQ schema (distinct from
+  # the About/Services page's own inline FAQ accordions, which live in the
+  # marketing-content file below). Filenames aren't locale-foldered
+  # (general-en.json, general-id.json, ...), so this is a plain folder
+  # collection rather than an i18n one — set Locale per file.
+  # =========================================================================
+  - name: faqs
+    label: 'General FAQs'
+    label_singular: FAQ
+    folder: src/content/faqs
+    create: true
+    slug: '{{slug}}'
+    extension: json
+    format: json
+    fields:
+      - { label: Question, name: question, widget: string }
+      - { label: Answer, name: answer, widget: text }
+      - { label: Category, name: category, widget: string, required: false }
+      - { label: 'Sort Order', name: order, widget: number, default: 0 }
+      - *locale_field
+
+  # =========================================================================
+  # SITE CONTENT — the full translation dictionary (src/i18n/<locale>.json):
+  # every page's marketing copy plus the UI/system strings (nav labels,
+  # form placeholders, error messages, etc). One multilingual file entry
+  # covering all four locales via {{locale}} in the path, editable side by
+  # side in the locale tabs.
+  #
+  # Every top-level key from the JSON is mapped below on purpose, even the
+  # rarely-touched UI strings — Sveltia's file collections write back only
+  # what's defined in `fields`, so anything left unmapped here would be
+  # silently dropped from the file on save. The UI-string sections (nav,
+  # common, pagination, theme, search, video, footer, and the top-level
+  # blog/projects/solutions/contact/errors/newsletter namespaces) are
+  # grouped under "System & UI Text" and often contain {variable}
+  # interpolation placeholders in curly braces (e.g. {count}, {date},
+  # {platform}) — keep those exactly as shown, just translate the words
+  # around them.
+  # =========================================================================
+  - name: site_content
+    label: 'Site Content'
+    files:
+      - name: dictionary
+        label: 'Site Content (all locales)'
+        file: src/i18n/{{locale}}.json
+        format: json
+        i18n: true
+        fields:
+          - label: '📄 Homepage'
+            name: pages
+            widget: object
+            i18n: true
+            fields:
+              - label: Home
+                name: home
+                widget: object
+                fields:
+                  - label: 'Meta / SEO'
+                    name: meta
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: 'Page Title', name: title, widget: string }
+                      - { label: 'Meta Description', name: description, widget: text }
+                  - label: Hero
+                    name: hero
+                    widget: object
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: 'Headline — Line 1', name: titleLine1, widget: string }
+                      - { label: 'Headline — Line 2', name: titleLine2, widget: string }
+                      - { label: 'Headline — Line 3', name: titleLine3, widget: string }
+                      - { label: 'Description (desktop)', name: description, widget: text }
+                      - { label: 'Description (mobile, shorter)', name: descriptionMobile, widget: text }
+                      - { label: 'Primary Button Label', name: github, widget: string }
+                      - { label: 'Secondary Button Label', name: getStarted, widget: string }
+                  - label: '"Everything Connected" Section'
+                    name: ecosystem
+                    widget: object
+                    collapsed: true
+                    hint: 'The hub-and-spoke visual just under the hero.'
+                    fields:
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: 'Heading — Accent Line', name: headingAccent, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - name: features
+                        label: 'Feature List (left column, 4 recommended)'
+                        widget: list
+                        summary: '{{fields.title}}'
+                        fields: &icon_title_desc_fields
+                          - { label: Icon, name: icon, widget: string, hint: 'Lucide icon name' }
+                          - { label: Title, name: title, widget: string }
+                          - { label: Description, name: description, widget: text }
+                      - { label: 'Hub Label', name: hubLabel, widget: string }
+                      - { label: 'Hub Sub-label', name: hubSubLabel, widget: string }
+                      - name: nodes
+                        label: 'Connected Modules (exactly 8 — arranged clockwise from the top)'
+                        widget: list
+                        summary: '{{fields.title}}'
+                        fields:
+                          - { label: Icon, name: icon, widget: string, hint: 'Lucide icon name' }
+                          - { label: Title, name: title, widget: string }
+                          - { label: Description, name: description, widget: text }
+                          - label: Color
+                            name: color
+                            widget: select
+                            options: [blue, orange, red, purple, green]
+                            default: blue
+                      - name: stats
+                        label: 'Stats Row (4 recommended)'
+                        widget: list
+                        summary: '{{fields.title}}'
+                        fields: *icon_title_desc_fields
+                  - label: '"How It Works" Section'
+                    name: systemsFlow
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - { label: '"Before" Label', name: beforeLabel, widget: string }
+                      - { label: 'Hub Label', name: hubLabel, widget: string }
+                      - { label: '"After" Label', name: afterLabel, widget: string }
+                  - label: Services Section
+                    name: services
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - { label: '"Learn More" Label', name: learnMore, widget: string }
+                      - name: cards
+                        label: Cards
+                        widget: list
+                        summary: '{{fields.title}}'
+                        fields: *icon_title_desc_fields
+                  - label: Sectors Strip
+                    name: sectors
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Label, name: label, widget: string }
+                      - { label: 'Sector Names', name: sectors, widget: list, field: { label: Sector, name: sector, widget: string } }
+                      - { label: 'CTA Label', name: cta, widget: string }
+                  - label: '"Work With IRFAtech" Section'
+                    name: workWithMe
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - { label: Cards, name: cards, widget: list, summary: '{{fields.title}}', fields: *icon_title_desc_fields }
+                      - { label: 'CTA Label', name: cta, widget: string }
+                  - label: Portfolio Section
+                    name: portfolio
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - { label: '"View All" Label', name: viewAll, widget: string }
+                  - label: Testimonials Section
+                    name: testimonials
+                    widget: object
+                    collapsed: true
+                    hint: 'Leave Items empty to hide the whole section — it only renders once there''s at least one real testimonial.'
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - label: Items
+                        name: items
+                        widget: list
+                        required: false
+                        summary: '{{fields.name}}'
+                        fields:
+                          - { label: Quote, name: quote, widget: text }
+                          - { label: Name, name: name, widget: string }
+                          - { label: 'Role / Company', name: role, widget: string }
+                  - label: About Teaser Section
+                    name: aboutTeaser
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: 'Heading — Line 1', name: headingLine1, widget: string }
+                      - { label: 'Heading — Line 2', name: headingLine2, widget: string }
+                      - { label: 'Paragraph (with location)', name: para1WithLocation, widget: text, hint: 'Use {location} where the city/country should be inserted.' }
+                      - { label: 'Paragraph (no location)', name: para1NoLocation, widget: text }
+                      - { label: 'Paragraph 2', name: para2, widget: text }
+                      - { label: '"More About Us" Label', name: moreAboutMe, widget: string }
+                      - { label: 'Stats Intro', name: statsIntro, widget: string }
+                      - { label: 'Stat 1', name: stat1, widget: string }
+                      - { label: 'Stat 2', name: stat2, widget: string }
+                      - { label: 'Stat 3', name: stat3, widget: string }
+                      - { label: '"Based In" Label', name: basedIn, widget: string }
+                  - label: Blog Section
+                    name: blog
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: '"View All" Label', name: viewAll, widget: string }
+                  - label: Final CTA Section
+                    name: cta
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Description, name: description, widget: text }
+                      - { label: 'Primary Button Label', name: primary, widget: string }
+                      - { label: 'Secondary Button Label', name: secondary, widget: string }
+              - label: 'About Page'
+                name: about
+                widget: object
+                collapsed: true
+                fields:
+                  - label: 'Meta / SEO'
+                    name: meta
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: 'Page Title', name: title, widget: string }
+                      - { label: 'Meta Description', name: description, widget: text }
+                  - label: Hero
+                    name: hero
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: 'Title Lead-in', name: titleLead, widget: string }
+                      - { label: 'Typing Words (desktop)', name: typingWords, widget: list, field: { label: Word, name: word, widget: string } }
+                      - { label: 'Typing Words (mobile)', name: typingWordsMobile, widget: list, field: { label: Word, name: word, widget: string } }
+                      - { label: Description, name: description, widget: text }
+                  - label: '"What You Get" Section'
+                    name: whatYouGet
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - { label: Items, name: items, widget: list, summary: '{{fields.title}}', fields: *icon_title_desc_fields }
+                  - label: Principles Section
+                    name: principles
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - { label: Items, name: items, widget: list, summary: '{{fields.title}}', fields: *icon_title_desc_fields }
+                  - label: Stack Section
+                    name: stack
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Title, name: title, widget: string }
+                      - { label: Description, name: description, widget: text }
+                  - label: FAQ Section
+                    name: faq
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - name: cards
+                        label: 'FAQ Cards'
+                        widget: list
+                        summary: '{{fields.title}}'
+                        fields: &faq_card_fields
+                          - { label: Icon, name: icon, widget: string, hint: 'Lucide icon name, e.g. building-2, handshake' }
+                          - { label: 'Card Title', name: title, widget: string }
+                          - label: Questions
+                            name: items
+                            widget: list
+                            summary: '{{fields.question}}'
+                            fields:
+                              - { label: Question, name: question, widget: string }
+                              - { label: Answer, name: answer, widget: text }
+                  - label: Open Source Section
+                    name: openSource
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Description, name: description, widget: text }
+                      - { label: 'Button Label', name: button, widget: string }
+                      - label: Cards
+                        name: cards
+                        widget: list
+                        summary: '{{fields.title}}'
+                        fields:
+                          - { label: Title, name: title, widget: string }
+                          - { label: Text, name: text, widget: text, hint: 'May contain a raw <a> HTML link tag — edit carefully.' }
+                  - label: Final CTA Section
+                    name: cta
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Description, name: description, widget: text }
+                      - { label: 'Button Label', name: button, widget: string }
+              - label: 'Services Page'
+                name: services
+                widget: object
+                collapsed: true
+                fields:
+                  - label: 'Meta / SEO'
+                    name: meta
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: 'Page Title', name: title, widget: string }
+                      - { label: 'Meta Description', name: description, widget: text }
+                  - { label: '"What''s Included" Label', name: includedLabel, widget: string }
+                  - label: Hero
+                    name: hero
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: 'Title Lead-in', name: titleLead, widget: string }
+                      - { label: 'Title Highlight', name: titleHighlight, widget: string }
+                      - { label: Description, name: description, widget: text }
+                      - { label: 'Jump-Link Labels', name: jumpLabels, widget: list, field: { label: Label, name: label, widget: string } }
+                  - &service_pillar
+                    label: 'Pillar 1 — Business Systems'
+                    name: design
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Paragraphs, name: paragraphs, widget: list, field: { label: Paragraph, name: paragraph, widget: text } }
+                      - label: 'What''s Included'
+                        name: included
+                        widget: list
+                        summary: '{{fields.lead}}'
+                        fields:
+                          - { label: Lead, name: lead, widget: string }
+                          - { label: Text, name: text, widget: text }
+                      - { label: 'CTA Label', name: ctaLabel, widget: string }
+                  - <<: *service_pillar
+                    label: 'Pillar 2 — Automation & AI'
+                    name: development
+                  - <<: *service_pillar
+                    label: 'Pillar 3 — Presence & Support'
+                    name: performance
+                  - label: Process Section
+                    name: process
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - label: Steps
+                        name: steps
+                        widget: list
+                        summary: '{{fields.title}}'
+                        fields:
+                          - { label: Title, name: title, widget: string }
+                          - { label: Description, name: description, widget: text }
+                  - label: FAQ Section
+                    name: faq
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Lead, name: lead, widget: text }
+                      - { label: 'FAQ Cards', name: cards, widget: list, summary: '{{fields.title}}', fields: *faq_card_fields }
+                  - label: Final CTA Section
+                    name: cta
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: Heading, name: heading, widget: string }
+                      - { label: Description, name: description, widget: text }
+                      - { label: 'Primary Button Label', name: primary, widget: string }
+                      - { label: 'Secondary Button Label', name: secondary, widget: string }
+              - label: 'Contact Page'
+                name: contact
+                widget: object
+                collapsed: true
+                fields:
+                  - label: 'Meta / SEO'
+                    name: meta
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: 'Page Title', name: title, widget: string }
+                      - { label: 'Meta Description', name: description, widget: text }
+                  - label: Hero
+                    name: hero
+                    widget: object
+                    collapsed: true
+                    fields:
+                      - { label: Badge, name: badge, widget: string }
+                      - { label: 'Title Lead-in', name: titleLead, widget: string }
+                      - { label: 'Title Highlight', name: titleHighlight, widget: string }
+                      - { label: Description, name: description, widget: text }
+                  - { label: 'Form Section Title', name: formTitle, widget: string }
+                  - { label: 'Other Channels Title', name: channelsTitle, widget: string }
+                  - { label: 'Other Channels Subtitle', name: channelsSubtitle, widget: text }
+                  - { label: 'Email Field Label', name: emailLabel, widget: string }
+                  - { label: 'Email Note', name: emailNote, widget: string }
+                  - { label: 'WhatsApp Field Label', name: whatsappLabel, widget: string }
+                  - { label: 'WhatsApp Note', name: whatsappNote, widget: string }
+                  - { label: 'Social Note', name: socialNote, widget: string }
+                  - { label: '"Based In" Line', name: basedIn, widget: string, hint: 'Use {country} where the country name should be inserted.' }
+
+          - label: Navigation
+            name: nav
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "nav" key.'
+            fields:
+              - { label: 'Skip to Content', name: skipToContent, widget: string }
+              - { label: 'Open Menu', name: openMenu, widget: string }
+              - { label: 'Close Menu', name: closeMenu, widget: string }
+              - { label: 'Select Language', name: selectLanguage, widget: string }
+              - { label: 'Current Language', name: currentLanguage, widget: string }
+              - { label: 'Main Nav (a11y label)', name: mainNav, widget: string }
+              - { label: 'Mobile Nav (a11y label)', name: mobileNav, widget: string }
+              - { label: 'Toggle Menu', name: toggleMenu, widget: string }
+              - { label: 'Section: Navigate', name: sectionNavigate, widget: string }
+              - { label: 'Search This Site', name: searchSite, widget: string }
+              - { label: 'Section: Theme', name: sectionTheme, widget: string }
+              - { label: 'Section: Language', name: sectionLanguage, widget: string }
+              - { label: 'Section: Connect', name: sectionConnect, widget: string }
+              - label: 'Nav Items'
+                name: items
+                widget: object
+                fields:
+                  - { label: Home, name: home, widget: string }
+                  - { label: Services, name: services, widget: string }
+                  - { label: Solutions, name: solutions, widget: string }
+                  - { label: Projects, name: projects, widget: string }
+                  - { label: Blog, name: blog, widget: string }
+                  - { label: About, name: about, widget: string }
+                  - { label: Contact, name: contact, widget: string }
+          - label: Common
+            name: common
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "common" key.'
+            fields:
+              - { label: 'Read More', name: readMore, widget: string }
+              - { label: Loading, name: loading, widget: string }
+              - { label: 'Back to Top', name: backToTop, widget: string }
+              - { label: Search, name: search, widget: string }
+              - { label: Submit, name: submit, widget: string }
+              - { label: Cancel, name: cancel, widget: string }
+              - { label: Next, name: next, widget: string }
+              - { label: Previous, name: previous, widget: string }
+              - { label: Home, name: home, widget: string }
+          - label: 'Blog (listing UI)'
+            name: blog
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "blog" key (list/tag/pagination chrome — not post content).'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: 'Reading Time', name: readingTime, widget: string }
+              - { label: 'Published On', name: publishedOn, widget: string }
+              - { label: 'Updated On', name: updatedOn, widget: string }
+              - { label: 'Written By', name: writtenBy, widget: string }
+              - { label: 'Tags Label', name: tagsLabel, widget: string }
+              - { label: Featured, name: featured, widget: string }
+              - { label: Draft, name: draft, widget: string }
+              - { label: 'No Posts Found', name: noPostsFound, widget: string }
+              - { label: 'Table of Contents', name: tableOfContents, widget: string }
+              - { label: 'Share This Post', name: shareThisPost, widget: string }
+              - { label: 'Related Posts', name: relatedPosts, widget: string }
+              - { label: Share, name: share, widget: string }
+              - { label: 'Share On', name: shareOn, widget: string }
+              - { label: 'Copy Link', name: copyLink, widget: string }
+              - { label: 'Meta Title', name: metaTitle, widget: string }
+              - { label: 'Meta Description', name: metaDescription, widget: text }
+              - { label: 'Hero Badge', name: heroBadge, widget: string }
+              - { label: 'Hero Description', name: heroDescription, widget: text }
+              - { label: 'All Posts', name: allPosts, widget: string }
+              - { label: 'No Posts', name: noPosts, widget: string }
+              - { label: 'Page Meta Title', name: pageMetaTitle, widget: string }
+              - { label: 'Page Meta Description', name: pageMetaDescription, widget: text }
+              - { label: 'Page Badge', name: pageBadge, widget: string }
+              - { label: 'Newest Posts', name: newestPosts, widget: string }
+              - { label: 'Tag Meta Title', name: tagMetaTitle, widget: string }
+              - { label: 'Tag Meta Description', name: tagMetaDescription, widget: text }
+              - { label: 'Tag Badge', name: tagBadge, widget: string }
+              - { label: 'Tag Count (one)', name: tagCountOne, widget: string }
+              - { label: 'Tag Count (other)', name: tagCountOther, widget: string }
+              - { label: 'Tag Empty', name: tagEmpty, widget: string }
+              - { label: 'Tag Back to All', name: tagBackToAll, widget: string }
+              - { label: 'On This Page', name: onThisPage, widget: string }
+              - { label: 'ToC Show', name: tocShow, widget: string }
+              - { label: 'ToC Hide', name: tocHide, widget: string }
+              - { label: 'Back to Blog', name: backToBlog, widget: string }
+              - { label: Updated, name: updated, widget: string }
+              - { label: 'RSS Feed', name: rssFeed, widget: string }
+              - label: 'Blog CTA'
+                name: cta
+                widget: object
+                fields:
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Button, name: button, widget: string }
+          - label: Comments
+            name: comments
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "comments" key.'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: 'Load Error', name: loadError, widget: string }
+              - { label: 'Requires JS', name: requiresJs, widget: string }
+          - label: 'Projects (listing UI)'
+            name: projects
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "projects" key (list/tag chrome — not project content).'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: 'View Project', name: viewProject, widget: string }
+              - { label: 'View Source', name: viewSource, widget: string }
+              - { label: 'No Projects Found', name: noProjectsFound, widget: string }
+              - { label: 'Meta Title', name: metaTitle, widget: string }
+              - { label: 'Meta Description', name: metaDescription, widget: text }
+              - { label: 'Hero Badge', name: heroBadge, widget: string }
+              - { label: 'Hero Description', name: heroDescription, widget: text }
+              - { label: 'All Projects', name: allProjects, widget: string }
+              - { label: 'Page Meta Title', name: pageMetaTitle, widget: string }
+              - { label: 'Page Meta Description', name: pageMetaDescription, widget: text }
+              - { label: 'Page Badge', name: pageBadge, widget: string }
+              - { label: 'Tag Meta Title', name: tagMetaTitle, widget: string }
+              - { label: 'Tag Meta Description', name: tagMetaDescription, widget: text }
+              - { label: 'Tag Badge', name: tagBadge, widget: string }
+              - { label: 'Tag Count (one)', name: tagCountOne, widget: string }
+              - { label: 'Tag Count (other)', name: tagCountOther, widget: string }
+              - { label: 'Tag Empty', name: tagEmpty, widget: string }
+              - { label: 'Tag Back to All', name: tagBackToAll, widget: string }
+              - { label: 'Back to Projects', name: backToProjects, widget: string }
+              - { label: 'More Projects', name: moreProjects, widget: string }
+              - { label: 'CTA Badge', name: ctaBadge, widget: string }
+              - { label: 'CTA Heading', name: ctaHeading, widget: string }
+              - { label: 'CTA Lead', name: ctaLead, widget: text }
+              - { label: 'CTA Primary', name: ctaPrimary, widget: string }
+              - { label: 'CTA Secondary', name: ctaSecondary, widget: string }
+              - { label: 'Closing Heading', name: closingHeading, widget: string }
+              - { label: 'Closing Lead', name: closingLead, widget: text }
+          - label: 'Solutions (listing UI)'
+            name: solutions
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "solutions" key (index/hero chrome — not each solution''s own content).'
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: 'Meta Title', name: metaTitle, widget: string }
+              - { label: 'Meta Description', name: metaDescription, widget: text }
+              - { label: 'Hero Badge', name: heroBadge, widget: string }
+              - { label: 'Hero Description', name: heroDescription, widget: text }
+              - { label: 'Challenge Label', name: challengeLabel, widget: string }
+              - { label: 'Approach Label', name: approachLabel, widget: string }
+              - { label: 'Outcomes Label', name: outcomesLabel, widget: string }
+              - { label: 'Related Label', name: relatedLabel, widget: string }
+              - { label: 'CTA Badge', name: ctaBadge, widget: string }
+              - { label: 'CTA Heading', name: ctaHeading, widget: string }
+              - { label: 'CTA Lead', name: ctaLead, widget: text }
+              - { label: 'CTA Primary', name: ctaPrimary, widget: string }
+              - { label: 'CTA Secondary', name: ctaSecondary, widget: string }
+              - { label: 'Detail Page CTA Heading', name: detailCtaHeading, widget: string }
+          - label: Pagination
+            name: pagination
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "pagination" key.'
+            fields:
+              - { label: Page, name: page, widget: string }
+              - { label: 'Label (a11y)', name: label, widget: string }
+              - { label: 'Previous Page', name: previousPage, widget: string }
+              - { label: 'Next Page', name: nextPage, widget: string }
+          - label: Errors
+            name: errors
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "errors" key (404 page).'
+            fields:
+              - { label: 'Page Not Found', name: pageNotFound, widget: string }
+              - { label: 'Page Not Found Message', name: pageNotFoundMessage, widget: text }
+              - { label: 'Go Home', name: goHome, widget: string }
+              - { label: 'Meta Title', name: metaTitle, widget: string }
+              - { label: 'Meta Description', name: metaDescription, widget: text }
+              - { label: Badge, name: badge, widget: string }
+              - { label: 'Title Lead', name: titleLead, widget: string }
+              - { label: 'Title Highlight', name: titleHighlight, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: 'Back Home', name: backHome, widget: string }
+              - { label: 'Browse Blog', name: browseBlog, widget: string }
+              - { label: 'Try Instead', name: tryInstead, widget: string }
+              - { label: 'Projects Description', name: projectsDesc, widget: text }
+              - { label: 'Blog Description', name: blogDesc, widget: text }
+              - { label: 'Contact Title', name: contactTitle, widget: string }
+              - { label: 'Contact Description', name: contactDesc, widget: text }
+          - label: Newsletter
+            name: newsletter
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "newsletter" key.'
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: 'Email Placeholder', name: emailPlaceholder, widget: string }
+              - { label: Subscribe, name: subscribe, widget: string }
+              - { label: 'Subscribing…', name: subscribing, widget: string }
+              - { label: Success, name: success, widget: string }
+              - { label: 'Generic Error', name: genericError, widget: string }
+              - { label: 'Not Configured', name: notConfigured, widget: text }
+              - { label: Unavailable, name: unavailable, widget: string }
+              - { label: Error, name: error, widget: string }
+          - label: 'Contact Form (UI)'
+            name: contact
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "contact" key (form field labels — not the Contact page''s marketing copy, which is under Homepage → Contact Page above).'
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: 'Name Field', name: name, widget: string }
+              - { label: 'Email Field', name: email, widget: string }
+              - { label: 'Subject Field', name: subject, widget: string }
+              - { label: 'Service Field', name: service, widget: string }
+              - { label: 'Service Placeholder', name: servicePlaceholder, widget: string }
+              - { label: 'Service Option: Business Systems', name: serviceBusinessSystems, widget: string }
+              - { label: 'Service Option: Automation', name: serviceAutomation, widget: string }
+              - { label: 'Service Option: Presence', name: servicePresence, widget: string }
+              - { label: 'Service Option: Other', name: serviceOther, widget: string }
+              - { label: 'Message Field', name: message, widget: string }
+              - { label: Send, name: send, widget: string }
+              - { label: 'Send (WhatsApp channel)', name: sendWhatsapp, widget: string }
+              - { label: 'Sending…', name: sending, widget: string }
+              - { label: Success, name: success, widget: string }
+              - { label: 'WhatsApp Opening', name: whatsappOpening, widget: string, hint: 'Shown after "Continue on WhatsApp" is pressed, in place of Success.' }
+              - { label: 'Generic Error', name: genericError, widget: string }
+              - { label: 'Not Configured', name: notConfigured, widget: text }
+              - { label: Unavailable, name: unavailable, widget: string }
+              - { label: Error, name: error, widget: string }
+          - label: Theme
+            name: theme
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "theme" key (colour mode / theme picker labels).'
+            fields:
+              - { label: 'Select Colour Theme', name: selectColourTheme, widget: string }
+              - { label: 'Colour Theme', name: colourTheme, widget: string }
+              - { label: 'Colour Mode', name: colourMode, widget: string }
+              - { label: 'Mode Trigger', name: modeTrigger, widget: string }
+              - { label: System, name: system, widget: string }
+              - { label: Light, name: light, widget: string }
+              - { label: Dark, name: dark, widget: string }
+              - { label: 'Currently Light', name: currentlyLight, widget: string }
+              - { label: 'Currently Dark', name: currentlyDark, widget: string }
+              - { label: 'Swatch Label', name: swatchLabel, widget: string }
+          - label: Search
+            name: search
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "search" key. "Unavailable" contains raw HTML — edit carefully.'
+            fields:
+              - { label: Placeholder, name: placeholder, widget: string }
+              - { label: 'Input Label', name: inputLabel, widget: string }
+              - { label: 'Results Label', name: resultsLabel, widget: string }
+              - { label: Hint, name: hint, widget: string }
+              - { label: 'No Results', name: noResults, widget: string }
+              - { label: Unavailable, name: unavailable, widget: text }
+          - label: Video
+            name: video
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "video" key.'
+            fields:
+              - { label: 'Play Label', name: playLabel, widget: string }
+              - { label: 'Watch On', name: watchOn, widget: string }
+          - label: Footer
+            name: footer
+            widget: object
+            collapsed: true
+            hint: 'Maps to the top-level "footer" key.'
+            fields:
+              - { label: Copyright, name: copyright, widget: string }
+              - { label: 'Built With', name: builtWith, widget: string }
+              - label: 'Column Group Labels'
+                name: groups
+                widget: object
+                fields:
+                  - { label: Site, name: site, widget: string }
+                  - { label: Topics, name: topics, widget: string }
+                  - { label: Projects, name: projects, widget: string }
+                  - { label: 'Got Questions?', name: questions, widget: string }
+              - { label: 'Follow On', name: followOn, widget: string }

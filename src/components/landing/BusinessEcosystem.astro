@@ -1,0 +1,355 @@
+---
+/**
+ * BusinessEcosystem — "everything your business needs, built to work
+ * together": a headline + feature list on the left, and a radial
+ * hub-and-spoke diagram on the right with the brand at the centre and the
+ * eight connected modules (CRM, inventory, accounting, etc.) around it.
+ *
+ * The radial diagram only renders at `lg+`, where there's room for eight
+ * spoke cards around a hub without crowding. Below that it collapses to a
+ * plain two-column grid of the same eight modules — same content, no
+ * diagram geometry to fight on a narrow viewport.
+ *
+ * Node positions are computed once here (8 points, 45° apart, starting at
+ * the top) and shared between the CSS custom properties that place each
+ * card and the SVG overlay that draws the spoke lines connecting them to
+ * the hub, so the two layers can't drift out of sync.
+ */
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Node {
+  icon: string;
+  title: string;
+  description: string;
+  color: 'blue' | 'orange' | 'red' | 'purple' | 'green';
+}
+
+interface Stat {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  badge: string;
+  heading: string;
+  headingAccent: string;
+  lead: string;
+  features: Feature[];
+  hubLabel: string;
+  hubSubLabel: string;
+  nodes: Node[];
+  stats: Stat[];
+}
+
+const { badge, heading, headingAccent, lead, features, hubLabel, hubSubLabel, nodes, stats } = Astro.props;
+
+// Eight points evenly spaced around a circle, starting at the top (-90°) and
+// going clockwise — matches reading order top → upper-right → right → ...
+const RADIUS = 38;
+const positions = Array.from({ length: 8 }, (_, i) => {
+  const angle = ((-90 + i * 45) * Math.PI) / 180;
+  return {
+    x: 50 + RADIUS * Math.cos(angle),
+    y: 50 + RADIUS * Math.sin(angle),
+  };
+});
+
+const colorClasses: Record<Node['color'], string> = {
+  blue: 'bg-blue-500/12 text-blue-600 dark:text-blue-400',
+  orange: 'bg-orange-500/12 text-orange-600 dark:text-orange-400',
+  red: 'bg-red-500/12 text-red-600 dark:text-red-400',
+  purple: 'bg-purple-500/12 text-purple-600 dark:text-purple-400',
+  green: 'bg-green-500/12 text-green-600 dark:text-green-400',
+};
+---
+
+<section class="be-section relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border overflow-hidden">
+  <div class="relative z-10 mx-auto max-w-6xl px-6">
+    <div class="grid grid-cols-1 items-center gap-y-16 lg:grid-cols-2 lg:gap-x-16">
+      <!-- Left: badge, heading, lead, feature list -->
+      <div data-reveal>
+        <Badge variant="brand" pill class="mb-[var(--space-heading-gap)]">
+          <Icon name="network" size="sm" />
+          {badge}
+        </Badge>
+        <h2 class="font-display text-3xl font-bold text-foreground text-balance mb-[var(--space-heading-gap)]">
+          {heading}{' '}<span class="text-brand-500">{headingAccent}</span>
+        </h2>
+        <p class="text-lg text-foreground-muted leading-relaxed max-w-xl mb-[var(--space-stack-lg)]">
+          {lead}
+        </p>
+        <ul class="flex flex-col gap-5">
+          {features.map((feature, i) => (
+            <li class="flex items-start gap-4" data-reveal data-reveal-delay={((i % 4) + 1).toString()}>
+              <span class="be-feature-icon">
+                <Icon name={feature.icon} size="md" />
+              </span>
+              <div class="min-w-0">
+                <p class="font-semibold text-foreground">{feature.title}</p>
+                <p class="text-sm text-foreground-muted leading-relaxed">{feature.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Right: radial hub diagram (lg+) -->
+      <div class="be-diagram relative mx-auto hidden aspect-square w-full max-w-[30rem] lg:block" data-reveal data-reveal-delay="2">
+        <svg class="be-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          {positions.map((p, i) => (
+            <line x1="50" y1="50" x2={p.x} y2={p.y} class="be-line" />
+          ))}
+          {positions.map((p, i) => (
+            <circle r="1.4" class="be-flow-dot">
+              <animateMotion
+                dur="3s"
+                begin={`${i * 0.22}s`}
+                repeatCount="indefinite"
+                path={`M50,50 L${p.x},${p.y}`}
+                keyPoints="0;1;1"
+                keyTimes="0;0.55;1"
+                calcMode="linear"
+              />
+            </circle>
+          ))}
+        </svg>
+
+        <div class="be-hub">
+          <span class="be-hub-ping" aria-hidden="true"></span>
+          <span class="be-hub-mark">IT</span>
+          <span class="be-hub-label">{hubLabel}</span>
+          <span class="be-hub-sub">{hubSubLabel}</span>
+        </div>
+
+        <div class="be-nodes" data-reveal-children style="--reveal-stagger: 70ms; --reveal-distance: 14px;">
+          {nodes.map((node, i) => (
+            <div class="be-node" style={`left:${positions[i].x}%; top:${positions[i].y}%;`}>
+              <span class:list={['be-node-icon', colorClasses[node.color]]}>
+                <Icon name={node.icon} size="sm" />
+              </span>
+              <span class="be-node-title">{node.title}</span>
+              <span class="be-node-desc">{node.description}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: plain grid fallback (below lg) -->
+      <div class="grid grid-cols-2 gap-4 lg:hidden" data-reveal-children style="--reveal-stagger: 60ms;">
+        {nodes.map((node) => (
+          <div class="flex flex-col items-start gap-2 rounded-xl border border-border bg-card p-4">
+            <span class:list={['be-node-icon', colorClasses[node.color]]}>
+              <Icon name={node.icon} size="sm" />
+            </span>
+            <span class="text-sm font-bold text-foreground">{node.title}</span>
+            <span class="text-xs text-foreground-muted leading-snug">{node.description}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div
+      class="mt-16 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border pt-10 sm:grid-cols-4"
+      data-reveal
+      data-reveal-delay="3"
+    >
+      {stats.map((stat) => (
+        <div class="flex items-center gap-3">
+          <span class="be-stat-icon">
+            <Icon name={stat.icon} size="md" />
+          </span>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-foreground leading-tight">{stat.title}</p>
+            <p class="text-xs text-foreground-muted leading-tight">{stat.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .be-section {
+    isolation: isolate;
+  }
+
+  /* Feature list icons: small brand-tinted chips, matching the site's
+     established icon-chip treatment (Process stepper, ecosystem nodes). */
+  .be-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex: none;
+    border-radius: var(--radius-lg, 0.75rem);
+    background: color-mix(in oklch, var(--color-brand-500) 12%, transparent);
+    color: var(--color-brand-500);
+  }
+
+  .be-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: none;
+    border-radius: 9999px;
+    background: color-mix(in oklch, var(--color-brand-500) 10%, transparent);
+    color: var(--color-brand-500);
+  }
+
+  /* ── Radial diagram ──────────────────────────────────────────────────── */
+  .be-diagram {
+    isolation: isolate;
+  }
+
+  .be-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .be-line {
+    stroke: color-mix(in oklch, var(--color-foreground) 16%, transparent);
+    stroke-width: 0.4;
+    stroke-dasharray: 1.4 1.6;
+    vector-effect: non-scaling-stroke;
+  }
+  .be-flow-dot {
+    fill: var(--color-brand-400);
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .be-flow-dot {
+      opacity: 0.95;
+    }
+  }
+
+  /* Hub: centred, largest, most saturated element — the diagram's anchor. */
+  .be-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    width: 9.5rem;
+    height: 9.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.125rem;
+    border-radius: 9999px;
+    transform: translate(-50%, -50%);
+    background: var(--color-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px -8px color-mix(in oklch, var(--color-brand-500) 35%, transparent);
+    text-align: center;
+    padding: 0.75rem;
+  }
+  .be-hub-ping {
+    position: absolute;
+    inset: -0.5rem;
+    border-radius: 9999px;
+    border: 2px solid color-mix(in oklch, var(--color-brand-400) 55%, transparent);
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .be-hub-ping {
+      opacity: 1;
+      animation: be-hub-ping-pulse 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  }
+  @keyframes be-hub-ping-pulse {
+    0% { transform: scale(0.92); opacity: 0.6; }
+    75%, 100% { transform: scale(1.28); opacity: 0; }
+  }
+  .be-hub-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.25rem;
+    background: linear-gradient(135deg, var(--color-brand-500), var(--color-brand-600));
+    color: var(--color-brand-50);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+  }
+  .be-hub-label {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.9375rem;
+    letter-spacing: 0.02em;
+    color: var(--color-foreground);
+  }
+  .be-hub-sub {
+    font-size: 0.625rem;
+    color: var(--color-foreground-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* Spoke nodes: positioned via inline left/top (%, computed in frontmatter),
+     centred on their point with a translate. */
+  .be-nodes {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .be-node {
+    position: absolute;
+    display: flex;
+    width: 7.25rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    transform: translate(-50%, -50%);
+    padding: 0.6rem 0.5rem;
+    border-radius: var(--radius-lg, 0.75rem);
+    background: var(--color-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 14px -6px color-mix(in oklch, var(--color-foreground) 18%, transparent);
+    text-align: center;
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  }
+  .be-node:hover {
+    transform: translate(-50%, -50%) translateY(-2px);
+    border-color: color-mix(in oklch, var(--color-brand-500) 40%, transparent);
+    box-shadow: 0 10px 22px -8px color-mix(in oklch, var(--color-brand-500) 30%, transparent);
+  }
+  .be-node-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    flex: none;
+  }
+  .be-node-title {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-foreground);
+  }
+  .be-node-desc {
+    font-size: 0.625rem;
+    line-height: 1.25;
+    color: var(--color-foreground-muted);
+  }
+</style>

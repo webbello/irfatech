@@ -1,0 +1,98 @@
+---
+/**
+ * /preview-hero — side-by-side comparison of hero variants, for deciding
+ * which one (if any) replaces the current homepage hero. Not linked from
+ * nav, noindexed. Safe to delete once a decision is made — nothing else
+ * depends on this route.
+ */
+import LandingLayout from '@/layouts/LandingLayout.astro';
+import { Hero, HeroPhotoFocus, HeroSplit } from '@/components/hero';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import networkPhoto from '@/assets/landing/hero-timor-leste.webp';
+import { tData, defaultLocale, localizedPath } from '@/i18n';
+
+const locale = defaultLocale;
+const hero = tData<{
+  badge: string;
+  titleLine1: string;
+  titleLine2: string;
+  titleLine3: string;
+  description: string;
+  descriptionMobile: string;
+  primary: string;
+  getStarted: string;
+}>('pages.home.hero', locale)!;
+
+const contactUrl = localizedPath('/contact', locale);
+const servicesUrl = localizedPath('/services', locale);
+---
+
+<LandingLayout title="Hero preview" noindex={true}>
+  <div class="bg-background-secondary py-4 text-center">
+    <p class="font-display text-sm font-bold text-foreground">
+      Current hero (live)
+    </p>
+  </div>
+  <Hero layout="centered" size="xl" class="hero-dark-gradient" fullHeight bgImage={networkPhoto}>
+    <Badge slot="badge" variant="brand" pill pulse class="dark:text-brand-200">{hero.badge}</Badge>
+    <h1 slot="title" class="!text-[clamp(2rem,12.6vw,3rem)] sm:!text-5xl md:!text-6xl lg:!text-7xl">
+      <span class="text-foreground [-webkit-text-fill-color:currentColor] whitespace-nowrap">{hero.titleLine1}</span><br />
+      <span class="text-brand-200 [-webkit-text-fill-color:currentColor]">{hero.titleLine2}</span><br class="md:hidden" /><span class="text-brand-200 [-webkit-text-fill-color:currentColor]">{' '}{hero.titleLine3}</span>
+    </h1>
+    <p slot="description" class="!text-balance">
+      <span class="sm:hidden">{hero.descriptionMobile}</span>
+      <span class="hidden sm:inline">{hero.description}</span>
+    </p>
+    <Fragment slot="actions">
+      <Button size="lg" href={contactUrl}>
+        {hero.primary}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+      <Button size="lg" variant="outline" href={servicesUrl}>
+        <Icon name="rocket" size="sm" />
+        {hero.getStarted}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+    </Fragment>
+  </Hero>
+
+  <div class="bg-background-secondary py-4 text-center">
+    <p class="font-display text-sm font-bold text-foreground">
+      Variant: Photo Focus — structural reference smart-agri.id (full-bleed photo, two-tone headline, secondary row)
+    </p>
+  </div>
+  <HeroPhotoFocus
+    eyebrow={hero.badge}
+    titleLine1={hero.titleLine1}
+    titleAccent={`${hero.titleLine2} ${hero.titleLine3}`}
+    description={hero.description}
+    primaryLabel={hero.primary}
+    primaryHref={contactUrl}
+    bgImage={networkPhoto}
+    secondaryText="We replace scattered spreadsheets and manual paperwork with ERP, automation, and software built around how your business runs."
+    tags={['ERP', 'CRM', 'Automation', 'WhatsApp']}
+  />
+
+  <div class="bg-background-secondary py-4 text-center">
+    <p class="font-display text-sm font-bold text-foreground">
+      Variant: Split — structural + technique reference Ashaz Autoz (masked photo bleeding in from the right, gradient-clipped accent line)
+    </p>
+  </div>
+  <HeroSplit
+    badge={hero.badge}
+    titleLine1={hero.titleLine1}
+    titleAccent={`${hero.titleLine2} ${hero.titleLine3}`}
+    description={hero.description}
+    primaryLabel={hero.primary}
+    primaryHref={contactUrl}
+    secondaryLabel={hero.getStarted}
+    secondaryHref={servicesUrl}
+    bgImage={networkPhoto}
+  />
+
+  <div class="bg-background-secondary py-16 text-center">
+    <p class="text-sm text-foreground-muted">— end of preview —</p>
+  </div>
+</LandingLayout>

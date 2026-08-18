@@ -1,0 +1,297 @@
+---
+/**
+ * BusinessProblem — "your tools are scattered; we connect them".
+ *
+ * The first content beat under the hero. The hero says what IRFAtech does; this
+ * section names the visitor's pain out loud so they think "yes, that's exactly
+ * what I'm dealing with" before we say anything about ourselves. The page's
+ * story then runs problem → transformation → capabilities → process → proof →
+ * founder → CTA.
+ *
+ * The visual is a deliberate two-layer stack rather than another
+ * badge+heading+card-grid (the shape every section below repeats):
+ *
+ *   1. A row of the visitor's own tools (WhatsApp, spreadsheets, website, CRM,
+ *      accounting, inventory, manual processes) as muted-grey chips with small
+ *      alternating tilts and vertical offsets — scattered on purpose, but tidy
+ *      enough to stay premium. The row ends with a dashed, brand-tinted "build"
+ *      chip ("build the ones that are missing") that stays perfectly straight:
+ *      the list isn't finished, and that empty slot is what we fill. It is the
+ *      first orange on the page's problem half, a hint of the layer below.
+ *   2. A brand-orange "IRFAtech" layer beneath, reached by a single dashed
+ *      connector, carrying the two key claims: "Your tools can work together"
+ *      and the one-line version of what we actually do (connect the tools you
+ *      already use, automate the work between them — and build whatever tools
+ *      you don't have yet: not everyone arrives with a scattered stack, so the
+ *      layer also reads as "what's missing, we build" for a business that
+ *      starts from nothing or just wants its website).
+ *
+ * Two hard rules from the brief:
+ *   - IRFAtech is shown as the LAYER that connects and automates — never as a
+ *     single replacement system. The chips stay on the page and the copy says
+ *     "your tools can work together", not "we replace your stack".
+ *   - The tools are grey, the layer is orange. The page reads grey-problem →
+ *     orange-solution from here on down, and this is the only diagram that
+ *     carries that turn inside one visual.
+ *
+ * Copy lives in `pages.home.businessProblem.*` per locale; nothing brand-specific
+ * is hard-coded here except the fallback wordmark (the site name also comes from
+ * i18n via `layerLabel`, matching how the ecosystem diagram's hub label is
+ * translated).
+ */
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Logo from '@/components/ui/marketing/Logo/Logo.astro';
+
+interface Tool {
+  icon: string;
+  title: string;
+}
+
+interface Props {
+  badge: string;
+  heading: string;
+  lead: string;
+  /** Short label above the chip row, e.g. "Your tools today". */
+  toolsLabel: string;
+  tools: Tool[];
+  /** The empty slot after the tool row — what IRFAtech builds, e.g. "Build the ones that are missing". */
+  buildChip: string;
+  /** The connector-layer brand name, e.g. "IRFAtech". */
+  layerLabel: string;
+  /** The claim the layer makes, e.g. "Your existing tools can work together." */
+  layerMessage: string;
+  /** One-line version of the service, e.g. "We connect the tools you already use…" */
+  layerNote: string;
+}
+
+const { badge, heading, lead, toolsLabel, tools, buildChip, layerLabel, layerMessage, layerNote } = Astro.props;
+---
+
+<section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+  <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
+    <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+      <div class="flex flex-col items-center gap-6">
+        <Badge variant="brand" pill>
+          <Icon name="alert-circle" size="sm" />
+          {badge}
+        </Badge>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+          {heading}
+        </h2>
+      </div>
+      <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+        {lead}
+      </p>
+    </div>
+
+    <div class="bp-diagram">
+      <!-- Your tools, scattered but recognisable — grey on purpose (see the
+           doc comment: grey-problem → orange-solution). -->
+      <div class="bp-tools" data-reveal data-reveal-delay="1">
+        <span class="bp-tools-label">{toolsLabel}</span>
+        <ul class="bp-chips" role="list">
+          {tools.map((tool, i) => (
+            <li class="bp-chip" data-reveal data-reveal-delay={i % 3 || undefined}>
+              <Icon name={tool.icon} size="md" class="bp-chip-icon" />
+              <span>{tool.title}</span>
+            </li>
+          ))}
+          <li class="bp-chip bp-chip-build" data-reveal data-reveal-delay="2">
+            <Icon name="plus" size="md" class="bp-chip-icon" />
+            <span>{buildChip}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- The dashed drop from the tools into the layer — reads as "this is
+           the thing that catches and connects all of it", not a replacement. -->
+      <div class="bp-connector" aria-hidden="true" data-reveal data-reveal-delay="2">
+        <span class="bp-connector-line"></span>
+        <span class="bp-connector-arrow">
+          <Icon name="arrow-down" size="sm" />
+        </span>
+      </div>
+
+      <!-- IRFAtech as the connecting layer beneath the visitor's own tools. -->
+      <div class="bp-layer" data-reveal data-reveal-delay="1">
+        <span class="bp-layer-pill">
+          <Logo size="sm" class="bg-white text-brand-600" />
+          <span class="bp-layer-name">{layerLabel}</span>
+        </span>
+        <p class="bp-layer-message">{layerMessage}</p>
+        <p class="bp-layer-note">{layerNote}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* The tools sit in their own soft field so the diagram reads as one object
+     against the section background rather than chips floating loose. The field
+     deliberately echoes the muted grey language of the chips (background-tertiary
+     on background, no brand tint anywhere). */
+  .bp-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    background: color-mix(in oklch, var(--color-foreground) 2%, var(--color-background));
+    padding: 2rem 1.5rem;
+  }
+
+  .bp-tools-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-foreground-subtle);
+  }
+
+  /* Centred wrapping row of tool chips. */
+  .bp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.875rem;
+    max-width: 52rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bp-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.875rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-background-tertiary);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-foreground-secondary);
+    box-shadow: 0 1px 2px -1px color-mix(in oklch, var(--color-foreground) 12%, transparent);
+    transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  }
+  .bp-chip-icon {
+    color: var(--color-foreground-muted);
+  }
+
+  /* The build chip: the empty slot at the end of the row. Dashed border and
+     brand tint so it reads "not there yet — we fill this", and unlike the real
+     tools it sits perfectly straight (it isn't part of the scatter). First
+     orange on the page's problem half, handing off to the layer below. */
+  .bp-chip-build {
+    border: 1px dashed var(--color-brand-400);
+    background: color-mix(in oklch, var(--color-brand-500) 10%, var(--color-background));
+    color: var(--color-brand-600);
+    box-shadow: none;
+  }
+  .bp-chip-build .bp-chip-icon {
+    color: var(--color-brand-500);
+  }
+  .bp-chip-build:hover {
+    border-color: var(--color-brand-500);
+  }
+
+  /* The scatter: small alternating rotations and vertical offsets so the row
+     reads "disorganised" at a glance without tipping into messy. Hovering
+     straightens the chip and lifts it — the only motion on the diagram. */
+  .bp-chips li:nth-child(1) { transform: translateY(-0.3rem) rotate(-2deg); }
+  .bp-chips li:nth-child(2) { transform: translateY(0.1rem) rotate(1.5deg); }
+  .bp-chips li:nth-child(3) { transform: translateY(-0.1rem) rotate(-1.25deg); }
+  .bp-chips li:nth-child(4) { transform: translateY(0.3rem) rotate(2deg); }
+  .bp-chips li:nth-child(5) { transform: translateY(-0.25rem) rotate(1.5deg); }
+  .bp-chips li:nth-child(6) { transform: translateY(0.15rem) rotate(-2deg); }
+  .bp-chips li:nth-child(7) { transform: translateY(-0.05rem) rotate(0.5deg); }
+  .bp-chips li:hover {
+    transform: translateY(-0.4rem) rotate(0deg);
+    border-color: var(--color-border-strong);
+  }
+
+  /* Single centred connector: a dashed drop and a chevron in a small ring.
+     Brand-tinted (the first orange on the page) so the eye starts leaving grey
+     here, the moment the "solution" half of the diagram begins. */
+  .bp-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 1.25rem 0;
+    color: var(--color-brand-400);
+  }
+  .bp-connector-line {
+    width: 2px;
+    height: 2.25rem;
+    border-radius: 9999px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--color-brand-400) 0 6px,
+      transparent 6px 12px
+    );
+  }
+  .bp-connector-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklch, var(--color-brand-500) 40%, transparent);
+    background: color-mix(in oklch, var(--color-brand-500) 12%, transparent);
+  }
+
+  /* The IRFAtech layer — the largest, most saturated element in the diagram,
+     and the only one with brand orange in it. The monogram + wordmark pill,
+     then the claim and the one-line version of the service. */
+  .bp-layer {
+    max-width: 46rem;
+    margin-inline: auto;
+    padding: 2rem 2.5rem 2.25rem;
+    border-radius: 1.25rem;
+    border: 1px solid color-mix(in oklch, white 22%, transparent);
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-brand-500), var(--color-brand-600));
+    box-shadow: 0 20px 48px -16px color-mix(in oklch, var(--color-brand-600) 55%, transparent);
+  }
+  .bp-layer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.875rem 0.25rem 0.25rem;
+    border-radius: 9999px;
+    background: color-mix(in oklch, white 14%, transparent);
+  }
+  .bp-layer-name {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: white;
+  }
+  .bp-layer-message {
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    line-height: 1.25;
+    font-weight: 700;
+    color: white;
+    text-wrap: balance;
+  }
+  .bp-layer-note {
+    margin-top: 0.625rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: color-mix(in oklch, white 78%, transparent);
+    text-wrap: balance;
+  }
+  @media (min-width: 768px) {
+    .bp-layer-message {
+      font-size: 1.625rem;
+    }
+  }
+</style>

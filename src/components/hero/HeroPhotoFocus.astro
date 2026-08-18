@@ -1,0 +1,180 @@
+---
+/**
+ * HeroPhotoFocus — full-bleed photo hero, centred two-tier content.
+ *
+ * Structural reference: smart-agri.id's homepage hero (full-bleed team
+ * photo with a colour-tint overlay, small eyebrow label, a two-tone
+ * headline, one CTA, and a secondary description + tag-pill row anchored
+ * near the bottom of the same visual block). Colours and copy are
+ * IRFAtech's own — the thing borrowed is the *shape*: one big photo doing
+ * all the atmosphere, content split into a primary centred block and a
+ * quieter bottom row, not a second design system bolted onto this one.
+ *
+ * One of several interchangeable homepage hero variants — see
+ * src/components/hero/index.ts. Swap which one HomeView.astro renders to
+ * try a different hero without touching this file or Hero.astro.
+ */
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+
+interface Props {
+  /** Small label above the headline, e.g. "15+ Years · India & Timor-Leste". */
+  eyebrow: string;
+  /** First part of the headline — rendered in white/near-white. */
+  titleLine1: string;
+  /** Second part of the headline — rendered in the brand accent colour. */
+  titleAccent: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: string;
+  primaryIcon?: string;
+  bgImage: ImageMetadata;
+  /** Bottom-left paragraph — a second, quieter beat under the main content. */
+  secondaryText?: string;
+  /** Bottom-right short tags/pills, e.g. ["ERP", "CRM", "Automation"]. */
+  tags?: string[];
+}
+
+const {
+  eyebrow,
+  titleLine1,
+  titleAccent,
+  description,
+  primaryLabel,
+  primaryHref,
+  primaryIcon = 'arrow-right',
+  bgImage,
+  secondaryText,
+  tags = [],
+} = Astro.props;
+
+const [photoMobile, photoDesktop] = await Promise.all([
+  getImage({ src: bgImage, width: 1000, format: 'webp', quality: 62 }),
+  getImage({ src: bgImage, width: 2200, format: 'webp', quality: 70 }),
+]);
+---
+
+<section
+  class="hpf-section relative isolate flex min-h-[100svh] flex-col overflow-hidden"
+  style={`--hpf-photo-mobile:url(${photoMobile.src});--hpf-photo-desktop:url(${photoDesktop.src});`}
+>
+  <div class="hpf-bg-photo" aria-hidden="true"></div>
+  <div class="hpf-tint" aria-hidden="true"></div>
+
+  <div class="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pt-[var(--space-page-top-sm)] text-center">
+    <span class="hpf-eyebrow">{eyebrow}</span>
+    <h1 class="hpf-title mt-[var(--space-stack-md)] font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl">
+      <span class="text-white">{titleLine1}</span>{' '}<span class="hpf-accent">{titleAccent}</span>
+    </h1>
+    <p class="mt-[var(--space-stack-md)] max-w-2xl text-lg leading-relaxed text-balance text-white/80">
+      {description}
+    </p>
+    <div class="mt-[var(--space-stack-md)]">
+      <Button size="lg" href={primaryHref}>
+        {primaryLabel}
+        <Icon name={primaryIcon} size="sm" />
+      </Button>
+    </div>
+  </div>
+
+  {(secondaryText || tags.length > 0) && (
+    <div class="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start gap-3 px-6 pt-6 pb-6 sm:flex-row sm:items-end sm:justify-between">
+      {secondaryText && (
+        <p class="max-w-md text-sm leading-relaxed text-white/70">{secondaryText}</p>
+      )}
+      {tags.length > 0 && (
+        <div class="flex flex-wrap items-center gap-2">
+          {tags.map((tag) => (
+            <span class="hpf-tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  )}
+</section>
+
+<style>
+  /* Full-bleed photo — brighter and more saturated than a background
+     texture; this variant leans on the photo actually reading as a photo.
+     Mobile-first: small static image; swapped for the larger one under the
+     desktop parallax query below. Same recipe as Hero.astro's photo
+     treatment. */
+  .hpf-bg-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: var(--hpf-photo-mobile);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: contrast(1.08) saturate(1.1);
+  }
+  @media (min-width: 1024px) and (pointer: fine) {
+    .hpf-bg-photo {
+      background-image: var(--hpf-photo-desktop);
+      background-attachment: fixed;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hpf-bg-photo {
+      background-attachment: scroll;
+    }
+  }
+
+  /* Colour tint — the thing that actually unifies the photo with the
+     brand, the way smart-agri.id's dark-teal wash does for theirs. Fixed
+     to --techlo-primary/--techlo-navy (same anchors as the current hero
+     and CtaBeamBand) rather than the swappable brand colour, so every
+     hero variant shares one dark identity regardless of the active theme. */
+  .hpf-tint {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklch, var(--techlo-primary) 55%, transparent) 0%,
+      color-mix(in oklch, var(--techlo-navy) 78%, transparent) 60%,
+      var(--techlo-navy) 100%
+    );
+  }
+
+  .hpf-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklch, white 30%, transparent);
+    background: color-mix(in oklch, white 10%, transparent);
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: white;
+    backdrop-filter: blur(8px);
+  }
+
+  .hpf-title {
+    text-wrap: balance;
+  }
+
+  /* Accent colour fixed to a light, high-contrast blue rather than the
+     swappable brand token — same reasoning as the hero's own two-tone
+     headline: it has to stay legible over a real photo in every theme,
+     not just whichever brand hue happens to be active. */
+  .hpf-accent {
+    color: var(--brand-300, oklch(77% 0.121 250));
+  }
+
+  .hpf-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklch, white 25%, transparent);
+    background: color-mix(in oklch, white 8%, transparent);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: color-mix(in oklch, white 88%, transparent);
+    backdrop-filter: blur(8px);
+  }
+</style>

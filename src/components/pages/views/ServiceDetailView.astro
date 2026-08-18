@@ -1,0 +1,296 @@
+---
+/**
+ * ServiceDetailView — a single commercial offering page (e.g.
+ * `/services/erp-solutions`). Shared by the default-locale and
+ * locale-prefixed `[slug]` routes.
+ *
+ * The structure mirrors the old irfatech service pages the enquiry pipeline
+ * was built on: problem-first headline, features, industries, process steps,
+ * FAQs, and a WhatsApp-first CTA with a service-specific pre-filled message.
+ * Everything renders straight from the `services` collection schema, so a new
+ * service is a content file, not a new page.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Breadcrumbs from '@/components/seo/Breadcrumbs.astro';
+import BlogCard from '@/components/blog/BlogCard.astro';
+import { Hero } from '@/components/hero';
+import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import { t, defaultLocale, localizedPath } from '@/i18n';
+import {
+  getServiceUrl,
+  getServicesBaseUrl,
+  getRelatedPosts,
+  buildWhatsAppUrl,
+} from '@/lib/services';
+import { getPostUrl } from '@/lib/blog';
+import { createServiceSchema, createFAQSchema, createHowToSchema } from '@/lib/schema';
+import type { Thing, WithContext } from 'schema-dts';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+  locale?: string;
+}
+
+const { service, locale = defaultLocale } = Astro.props;
+const { data } = service;
+const { Content } = await render(service);
+
+const related = await getRelatedPosts(data.relatedPosts, locale);
+
+const pageUrl = new URL(getServiceUrl(service.id, locale), Astro.site).toString();
+const whatsappUrl = buildWhatsAppUrl(data.whatsappMessage);
+const contactUrl = localizedPath('/contact', locale);
+const servicesUrl = getServicesBaseUrl(locale);
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('pages.services.meta.title', locale), href: servicesUrl },
+  { label: data.title, href: getServiceUrl(service.id, locale) },
+];
+
+// Schemas that mirror the sections actually rendered on the page. The
+// Service schema is always present; FAQPage only when faqs exist; HowTo only
+// when the numbered process steps render.
+const extraSchemas: WithContext<Thing>[] = [
+  createServiceSchema({ name: data.title, description: data.description, url: pageUrl, locale }),
+];
+if (data.faqs.length > 0) extraSchemas.push(createFAQSchema(data.faqs));
+if (data.process.length > 0) {
+  extraSchemas.push(createHowToSchema({ name: data.title, description: data.description, steps: data.process }));
+}
+---
+
+<PageLayout
+  title={`${data.title} — ${t('pages.services.meta.title', locale)}`}
+  description={data.description}
+  eagerReveal
+  includeOrgSchema
+  includeProfessionalServiceSchema
+  extraSchemas={extraSchemas}
+>
+  <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
+    <Badge slot="badge" variant="brand" pill>
+      <Icon name={data.icon} size="sm" />
+      {data.badge}
+    </Badge>
+
+    <h1 slot="title">{data.headline}</h1>
+
+    <p slot="description">{data.description}</p>
+
+    <Fragment slot="actions">
+      <Button size="lg" href={whatsappUrl} target="_blank">
+        <Icon name="brand-whatsapp" size="sm" />
+        {data.ctaPrimary}
+      </Button>
+      <Button size="lg" variant="outline" href={contactUrl}>
+        {data.ctaSecondary}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+    </Fragment>
+  </Hero>
+
+  <div class="mx-auto max-w-6xl px-6 pt-8">
+    <Breadcrumbs items={breadcrumbs} />
+  </div>
+
+  {data.features.length > 0 && (
+    <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+          <Badge variant="brand" pill>
+            <Icon name="package" size="sm" />
+            {t('pages.services.detail.featuresBadge', locale)}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            {t('pages.services.detail.featuresHeading', locale, { service: data.title })}
+          </h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {data.features.map((feature, i) => (
+            <Card variant="elevated" padding="lg" class="flex flex-col gap-3" data-reveal data-reveal-delay={i % 3 || undefined}>
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                <Icon name={feature.icon ?? 'check-circle'} size="md" />
+              </div>
+              <h3 class="font-display text-base font-semibold text-foreground">{feature.title}</h3>
+              <p class="text-sm text-foreground-muted leading-relaxed">{feature.description}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {data.industries.length > 0 && (
+    <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+          <Badge variant="brand" pill>
+            <Icon name="building-2" size="sm" />
+            {t('pages.services.detail.industriesBadge', locale)}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            {t('pages.services.detail.industriesHeading', locale)}
+          </h2>
+        </div>
+        <div class="flex flex-wrap justify-center gap-3" data-reveal>
+          {data.industries.map((industry) => (
+            <span class="inline-flex items-center rounded-full border border-border bg-background-secondary px-4 py-2 text-sm font-medium text-foreground">
+              {industry}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {data.process.length > 0 && (
+    <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+          <Badge variant="brand" pill>
+            <Icon name="list-checks" size="sm" />
+            {t('pages.services.detail.processBadge', locale)}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            {t('pages.services.detail.processHeading', locale)}
+          </h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {data.process.map((step, i) => (
+            <ProofTile number={i + 1} title={step.title} data-reveal data-reveal-delay={i || undefined}>
+              {step.description}
+            </ProofTile>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {data.faqs.length > 0 && (
+    <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+      <div class="mx-auto max-w-3xl px-6 flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+          <Badge variant="brand" pill>
+            <Icon name="info" size="sm" />
+            {t('pages.services.detail.faqBadge', locale)}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            {t('pages.services.detail.faqHeading', locale)}
+          </h2>
+        </div>
+        <Card variant="elevated" padding="lg" data-reveal>
+          <div class="w-full">
+            {data.faqs.map((item) => (
+              <details class="border-b border-border last:border-0" name="service-faq">
+                <summary class="flex w-full items-center justify-between gap-4 text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  {item.question}
+                  <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
+                </summary>
+                <div class="pb-4 text-sm text-foreground-muted leading-relaxed">{item.answer}</div>
+              </details>
+            ))}
+          </div>
+        </Card>
+      </div>
+    </section>
+  )}
+
+  {related.length > 0 && (
+    <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+          <Badge variant="brand" pill>
+            <Icon name="book-open" size="sm" />
+            {t('blog.relatedPosts', locale)}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            {t('pages.services.detail.relatedHeading', locale)}
+          </h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((post, i) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              href={getPostUrl(post.id, locale)}
+              publishedAt={post.data.publishedAt}
+              tags={post.data.tags}
+              author={post.data.author}
+              svgSlug={post.data.svgSlug}
+              image={post.data.image}
+              coverType={post.data.coverType}
+              revealDelay={(i % 3) || undefined}
+              class="m-0"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {Boolean(service.body?.trim()) && (
+    <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="prose prose-lg max-w-none">
+          <Content />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
+      <Badge variant="brand" pill class="mb-6">
+        <Icon name="brand-whatsapp" size="sm" />
+        {data.ctaTitle}
+      </Badge>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        {data.ctaSubtitle}
+      </h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={whatsappUrl} target="_blank" class="cta-btn-brand">
+          <Icon name="brand-whatsapp" size="sm" />
+          {data.ctaPrimary}
+        </Button>
+        <Button size="lg" variant="brand-outline" href={contactUrl}>
+          {data.ctaSecondary}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </div>
+
+    <LetterGlitchBand>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        {data.ctaTitle}
+      </h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">
+        {data.ctaSubtitle}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={whatsappUrl} target="_blank" class="hero-btn-brand">
+          <Icon name="brand-whatsapp" size="sm" />
+          {data.ctaPrimary}
+        </Button>
+        <Button size="lg" variant="outline" href={contactUrl}>
+          {data.ctaSecondary}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </LetterGlitchBand>
+  </section>
+</PageLayout>
+
+<style is:global>
+  details[open] > summary .faq-icon {
+    transform: rotate(180deg);
+  }
+</style>

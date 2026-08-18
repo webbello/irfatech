@@ -1,0 +1,23 @@
+---
+import SolutionDetailView from '@/components/pages/views/SolutionDetailView.astro';
+import { assertNoSlugCollisions } from '@/lib/content-validation';
+import { getVisibleSolutions, getSolutionSlug } from '@/lib/solutions';
+import { defaultLocale } from '@/i18n';
+
+export async function getStaticPaths() {
+  // Fail the build early on content-integrity problems: two entries resolving
+  // to the same URL within a locale.
+  await assertNoSlugCollisions();
+
+  const solutions = await getVisibleSolutions(defaultLocale);
+
+  return solutions.map((solution) => ({
+    params: { slug: getSolutionSlug(solution.id, defaultLocale) },
+    props: { solution },
+  }));
+}
+
+const { solution } = Astro.props;
+---
+
+<SolutionDetailView solution={solution} locale={defaultLocale} />

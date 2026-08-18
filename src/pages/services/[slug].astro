@@ -1,0 +1,23 @@
+---
+import ServiceDetailView from '@/components/pages/views/ServiceDetailView.astro';
+import { assertNoSlugCollisions } from '@/lib/content-validation';
+import { getVisibleServices, getServiceSlug } from '@/lib/services';
+import { defaultLocale } from '@/i18n';
+
+export async function getStaticPaths() {
+  // Fail the build early on content-integrity problems: two entries resolving
+  // to the same URL within a locale.
+  await assertNoSlugCollisions();
+
+  const services = await getVisibleServices(defaultLocale);
+
+  return services.map((service) => ({
+    params: { slug: getServiceSlug(service.id, defaultLocale) },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+---
+
+<ServiceDetailView service={service} locale={defaultLocale} />

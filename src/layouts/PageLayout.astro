@@ -1,0 +1,84 @@
+---
+/**
+ * PageLayout
+ * Layout wrapper for standard content pages (non-landing)
+ * Uses Header + Footer with content page configuration
+ */
+import BaseLayout from './BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import type { Thing, WithContext } from 'schema-dts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  showScrollProgress?: boolean;
+  eagerReveal?: boolean;
+  includeOrgSchema?: boolean;
+  includePersonSchema?: boolean;
+  includeProfessionalServiceSchema?: boolean;
+  /** Additional JSON-LD schemas, e.g. per-service Service/FAQPage/HowTo. */
+  extraSchemas?: WithContext<Thing>[];
+  /**
+   * Footer background. Defaults to `techlo` (fixed navy, same on every
+   * page — see .footer-techlo in global.css), which doesn't need to zebra
+   * against the page's last section since it no longer follows the
+   * page's own light/dark background rhythm. `default`/`secondary`/
+   * `invert` remain available for a page that wants the footer to blend
+   * with its own theme instead.
+   */
+  footerBackground?: 'default' | 'secondary' | 'invert' | 'techlo';
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  noindex,
+  nofollow,
+  showScrollProgress = false,
+  eagerReveal = false,
+  footerBackground = 'techlo',
+  includeOrgSchema = false,
+  includePersonSchema = false,
+  includeProfessionalServiceSchema = false,
+  extraSchemas = [],
+} = Astro.props;
+
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  imageAlt={imageAlt}
+  noindex={noindex}
+  nofollow={nofollow}
+  eagerReveal={eagerReveal}
+  includeOrgSchema={includeOrgSchema}
+  includePersonSchema={includePersonSchema}
+  includeProfessionalServiceSchema={includeProfessionalServiceSchema}
+  extraSchemas={extraSchemas}
+>
+  <Header
+    slot="header"
+    position="fixed"
+    shape="bar"
+    variant="solid"
+    size="lg"
+    showActiveState
+    showCta={true}
+    showScrollProgress={showScrollProgress}
+  />
+
+  <main class="min-h-screen pt-16">
+    <slot />
+  </main>
+
+  <Footer slot="footer" layout="columns" background={footerBackground} />
+</BaseLayout>

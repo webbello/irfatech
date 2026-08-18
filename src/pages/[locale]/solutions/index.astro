@@ -1,0 +1,15 @@
+---
+import SolutionsIndexView from '@/components/pages/views/SolutionsIndexView.astro';
+import { getSecondaryLocales } from '@/lib/solutions';
+
+// Locale-prefixed Solutions landing pages (`/<locale>/solutions`). Emits
+// nothing when i18n is off or only one locale is configured, matching the
+// projects/blog routing pattern.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<SolutionsIndexView locale={locale} />

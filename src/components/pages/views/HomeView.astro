@@ -1,0 +1,1047 @@
+---
+/**
+ * HomeView — the landing page body.
+ *
+ * Shared by the default-locale route (`/`) and the locale-prefixed route
+ * (`/<locale>`). All copy is read from `pages.home.*` via `t()` / `tData()`,
+ * and internal links are localized with `localizedPath`. Featured projects and
+ * posts are loaded for the active locale and fall back to the default locale so
+ * the sections are never empty on a locale that hasn't translated its content
+ * yet. Each card links to the URL of the locale the content actually belongs
+ * to, so a fallback (default-locale) item still points at a real page.
+ */
+import LandingLayout from '@/layouts/LandingLayout.astro';
+import { Hero } from '@/components/hero';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import BlogCard from '@/components/blog/BlogCard.astro';
+import CtaBeamBand from '@/components/patterns/CtaBeamBand.astro';
+import StackMarquee from '@/components/landing/StackMarquee.astro';
+import BusinessProblem from '@/components/landing/BusinessProblem.astro';
+import BusinessEcosystem from '@/components/landing/BusinessEcosystem.astro';
+import heroPhoto from '@/assets/landing/hero-office-founder.webp';
+import siteConfig from '@/config/site.config';
+import { getPostUrl, getPublishedPosts } from '@/lib/blog';
+import { getVisibleProjects } from '@/lib/projects';
+import ProjectCard from '@/components/projects/ProjectCard.astro';
+import { t, tData, defaultLocale, localizedPath, getEntryLocale } from '@/i18n';
+import { createSpeakableSchema } from '@/lib/schema';
+
+interface Props {
+  /** Locale whose copy and content this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+interface IconCard {
+  icon: string;
+  title: string;
+  description: string;
+}
+interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+// Featured projects for this locale, falling back to the default locale so the
+// section is never empty on a locale that hasn't translated its projects yet.
+let projectItems = await getVisibleProjects(locale);
+if (projectItems.length === 0 && locale !== defaultLocale) {
+  projectItems = await getVisibleProjects(defaultLocale);
+}
+const featuredProjects = projectItems
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4);
+
+let postItems = await getPublishedPosts(locale);
+if (postItems.length === 0 && locale !== defaultLocale) {
+  postItems = await getPublishedPosts(defaultLocale);
+}
+const posts = [...postItems]
+  .sort((a, b) => {
+    if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+    return b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
+  })
+  .slice(0, 4);
+
+const hero = tData<{
+  badge: string;
+  titleLine1: string;
+  titleLine2: string;
+  titleLine2Accent: string;
+  titleLine3: string;
+  titleLine3Accent: string;
+  description: string;
+  /** Optional shorter variant shown below the `sm` breakpoint; falls back to `description` when blank. */
+  descriptionMobile?: string;
+  primary: string;
+  getStarted: string;
+  highlights: { icon: string; title: string }[];
+  industriesLabel: string;
+  industries: { icon: string; title: string }[];
+}>('pages.home.hero', locale)!;
+const workWithMe = tData<{ badge: string; heading: string; lead: string; cards: IconCard[]; cta: string }>(
+  'pages.home.workWithMe',
+  locale
+)!;
+const businessProblem = tData<{
+  badge: string;
+  heading: string;
+  lead: string;
+  toolsLabel: string;
+  tools: { icon: string; title: string }[];
+  buildChip: string;
+  layerLabel: string;
+  layerMessage: string;
+  layerNote: string;
+}>('pages.home.businessProblem', locale)!;
+const ecosystem = tData<{
+  badge: string;
+  heading: string;
+  headingAccent: string;
+  lead: string;
+  features: { icon: string; title: string; description: string }[];
+  hubLabel: string;
+  hubSubLabel: string;
+  nodes: { icon: string; title: string; description: string; color: 'blue' | 'orange' | 'red' | 'purple' | 'green' }[];
+  stats: { icon: string; title: string; description: string }[];
+}>('pages.home.ecosystem', locale)!;
+
+// Hero marquee — the industries we serve, not the tools we build (that list
+// lives below in BusinessEcosystem). A trust signal ("built for businesses
+// like yours") reads better in the hero than a capability list a first-time
+// visitor has no context for yet.
+const heroIndustryItems = hero.industries.map((industry) => ({
+  name: industry.title,
+  icon: industry.icon,
+}));
+
+const heroDescriptionMobile = hero.descriptionMobile?.trim() ? hero.descriptionMobile : hero.description;
+const servicesSection = tData<{ badge: string; heading: string; lead: string; learnMore: string; cards: IconCard[] }>(
+  'pages.home.services',
+  locale
+)!;
+const sectorsSection = tData<{ label: string; sectors: string[]; cta: string }>('pages.home.sectors', locale)!;
+// Reuses the /services page's process content (single source of truth for
+// "how an engagement runs") rather than duplicating the same four steps
+// under a second i18n key across four locales.
+const processSection = tData<{
+  badge: string;
+  heading: string;
+  lead: string;
+  steps: { title: string; description: string; icon: string; stat: string }[];
+}>('pages.services.process', locale)!;
+// The engagement-steps section reuses the /services page's copy (single source
+// of truth) but keeps its own badge: "How it works" describes the step-by-step
+// engagement flow better than the services page's heading, so the homepage
+// badge comes from its own key rather than the shared one.
+const processBadge = t('pages.home.process.badge', locale);
+const portfolio = tData<{ badge: string; heading: string; lead: string; viewAll: string }>('pages.home.portfolio', locale)!;
+const testimonials = tData<{ badge: string; heading: string; lead: string; items: Testimonial[] }>(
+  'pages.home.testimonials',
+  locale
+)!;
+// Sections from Services down alternate bg-background / bg-background-secondary
+// (picking up the phase the two diagram sections above already set —
+// BusinessProblem is bg-background, BusinessEcosystem bg-background-secondary,
+// so Services restarts the counter at bg-background). Testimonials is
+// conditional (hidden below while pages.home.testimonials.items is empty in
+// every locale), so the alternation is driven by a counter that only advances
+// for sections that actually render — call nextSectionBg() once per section,
+// in render order, and skip the call entirely for a section that's hidden.
+// Hardcoding each section's class independently is what caused this to
+// silently break: with testimonials skipped, same-on-same neighbours
+// (bg-background-secondary right after bg-background-secondary) appeared.
+let sectionBgToggle = 0;
+const nextSectionBg = () => (sectionBgToggle++ % 2 === 0 ? 'bg-background' : 'bg-background-secondary');
+const aboutTeaser = tData<{
+  badge: string;
+  headingLine1: string;
+  headingLine2: string;
+  para2: string;
+  moreAboutMe: string;
+  statsIntro: string;
+  stat1: string;
+  stat2: string;
+  stat3: string;
+  basedIn: string;
+}>('pages.home.aboutTeaser', locale)!;
+const blogSection = tData<{ badge: string; heading: string; viewAll: string }>('pages.home.blog', locale)!;
+const cta = tData<{ badge: string; heading: string; description: string; primary: string; secondary: string }>(
+  'pages.home.cta',
+  locale
+)!;
+
+const servicesUrl = localizedPath('/services', locale);
+const solutionsUrl = localizedPath('/solutions', locale);
+const projectsUrl = localizedPath('/projects', locale);
+const aboutUrl = localizedPath('/about', locale);
+const contactUrl = localizedPath('/contact', locale);
+const blogUrl = localizedPath('/blog', locale);
+
+// About-teaser copy with the configured location woven in (mirrors the original
+// page's conditional). Falls back to a location-free sentence when no city is set.
+const city = siteConfig.address?.city;
+const country = siteConfig.address?.country;
+const location = city ? (country ? `${city}, ${country}` : city) : '';
+const aboutPara1 = location
+  ? t('pages.home.aboutTeaser.para1WithLocation', locale, { location })
+  : t('pages.home.aboutTeaser.para1NoLocation', locale);
+const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
+---
+
+<LandingLayout
+  title={t('pages.home.meta.title', locale)}
+  description={t('pages.home.meta.description', locale)}
+  includeOrgSchema={true}
+  includePersonSchema={true}
+  includeProfessionalServiceSchema={true}
+  extraSchemas={[createSpeakableSchema(['h1', '.hero-description-slot'], `${siteConfig.url}${localizedPath('/', locale)}`)]}
+>
+  <!-- Hero -->
+  <Hero
+    layout="split"
+    size="xl"
+    class="hero-dark-gradient"
+    fullHeight
+    bgImage={heroPhoto}
+    bgImageOpacity={0.94}
+    bgImageFilter="contrast(1.07) saturate(1.12) brightness(1.02)"
+    bgImagePosition="38% center"
+    bgImagePositionMobile="72% 85%"
+    scrimVariant="left"
+  >
+    {/* No `pulse` — a ping animation reads as "live/active status", which
+        doesn't fit a static trust fact like years of experience. Quiet pill,
+        credible rather than attention-grabbing. */}
+    <Badge slot="badge" variant="brand" pill class="dark:text-brand-200">{hero.badge}</Badge>
+
+    {/* 12.6vw fills the mobile column (~95-98% at 320-390px), sized to the
+        English demo strings — translated hero copy is the site owner's to
+        refit. The 3rem cap keeps the size continuous with sm:text-5xl at
+        the 640px boundary. Three fixed lines (plain / plain+accent /
+        plain+accent), each accent word the last on its line — no
+        whitespace-nowrap: the copy is editable and a longer word under
+        nowrap just runs off the edge of a phone screen instead of wrapping. */}
+    <h1 slot="title" class="!text-[clamp(2rem,12.6vw,3rem)] sm:!text-5xl md:!text-5xl lg:!text-6xl">
+      <span class="text-foreground [-webkit-text-fill-color:currentColor]">{hero.titleLine1}</span><br />
+      <span class="text-foreground [-webkit-text-fill-color:currentColor]">{hero.titleLine2}</span>{' '}<span class="text-brand-200 [-webkit-text-fill-color:currentColor]">{hero.titleLine2Accent}</span><br />
+      <span class="text-foreground [-webkit-text-fill-color:currentColor]">{hero.titleLine3}</span>{' '}<span class="text-brand-200 [-webkit-text-fill-color:currentColor]">{hero.titleLine3Accent}</span>
+    </h1>
+
+    <p slot="description" class="!text-balance">
+      <span class="sm:hidden">{heroDescriptionMobile}</span>
+      <span class="hidden sm:inline">{hero.description}</span>
+    </p>
+
+   <Fragment slot="actions">
+      <Button size="lg" class="hp-hero-cta-primary" href={contactUrl}>
+        {hero.primary}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+      <Button size="lg" variant="outline" href={solutionsUrl}>
+        {hero.getStarted}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+    </Fragment>
+
+    <!-- What we deliver, at a glance — a quiet four-up row beneath the CTAs.
+         Icon above label, left-aligned to match the rest of the content
+         column; two columns on phones (four is too tight under ~400px), one
+         non-wrapping row from `lg` up — the split hero's text column is
+         widened (see .hero-dark-gradient .grid.max-w-6xl below) specifically
+         so all four fit without shrinking or dropping "Ongoing Support" to
+         its own line. -->
+    <div class="hp-hero-highlights mt-[var(--space-10)] grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-4 lg:flex-nowrap">
+      {hero.highlights.map((item) => (
+        <div class="flex flex-col items-start gap-2">
+          <Icon name={item.icon} size="md" class="hp-hero-highlight-icon" />
+          <span class="text-sm font-medium whitespace-nowrap text-foreground-muted">{item.title}</span>
+        </div>
+      ))}
+    </div>
+
+    <!-- Industries marquee floored into the hero in place of the scroll indicator:
+         the content stays at the top and the marquee sits low near the bottom, with
+         a roomy gap above it (a guaranteed minimum gap, so it never crowds the
+         CTAs). Constrained to the content width; one decorative row; hidden on
+         phones. cardWidth="auto" lets each card hug its icon + label so they sit
+         close together; StackMarquee repeats the set to fill the row so the loop
+         stays seamless. -->
+    <div slot="bottom" class="mx-auto w-full max-w-6xl px-6">
+      <p class="hp-hero-industries-label" aria-hidden="true">{hero.industriesLabel}</p>
+      <!-- Tablet & up: the animated industries marquee. -->
+      <div class="hp-hero-marquee" aria-hidden="true">
+        <StackMarquee items={heroIndustryItems} rows={1} duration={55} pauseOnHover={false} linked={false} cardWidth="auto" gap="1rem" />
+      </div>
+      <!-- Portrait phone: a static, non-animated row of the first four
+           industries. No marquee machinery — no duplicated track and no
+           infinite animation — so there's zero ongoing compositor/battery
+           cost on mobile. Icon + label (unlike a bare tech-logo row, generic
+           industry icons aren't recognisable alone), non-interactive,
+           with a one-time fade-in to match the marquee's entrance. -->
+      <div class="hp-hero-logos" aria-hidden="true">
+        {heroIndustryItems.slice(0, 4).map((item) => (
+          <span class="hp-hero-logo">
+            <Icon name={item.icon} size="sm" />
+            {item.name}
+          </span>
+        ))}
+      </div>
+    </div>
+  </Hero>
+
+  <!-- Business Problem — the visitor's pain, named out loud, before we say
+       anything about ourselves. The page's story runs problem → solution →
+       capabilities → how → proof → why us → founder → CTA; this is the "we
+       understand what you're dealing with" beat that earns the right to
+       pitch. Sits between the hero (what we do) and the Ecosystem (what
+       "connected" looks like): it dwells on the starting point — the
+       visitor's OWN tools: WhatsApp, spreadsheets, website, CRM, accounting,
+       inventory, manual processes — scattered, with IRFAtech shown beneath
+       them as the layer that connects and automates rather than replacing
+       any of them. The Ecosystem follows directly so grey-problem flows
+       straight into orange-solution; the old always-dark before→after
+       section was removed as a redundant retell of the same beat.
+       Hardcoded bg-background rather than nextSectionBg(): the two diagram
+       sections above Services carry their own deliberate treatment (hero
+       gradient, the ecosystem's secondary surface), and the alternation
+       counter intentionally starts at Services — see nextSectionBg() above. -->
+  <BusinessProblem
+    badge={businessProblem.badge}
+    heading={businessProblem.heading}
+    lead={businessProblem.lead}
+    toolsLabel={businessProblem.toolsLabel}
+    tools={businessProblem.tools}
+    buildChip={businessProblem.buildChip}
+    layerLabel={businessProblem.layerLabel}
+    layerMessage={businessProblem.layerMessage}
+    layerNote={businessProblem.layerNote}
+  />
+
+  <!-- Business Ecosystem: "everything connected" hub-and-spoke visual —
+       headline + feature list on the left, radial diagram of the eight
+       connected modules on the right. Sits directly after the scattered-tools
+       problem above, so the page answers "then what?" with "all of it,
+       connected" in one scroll — the live, animated hub-and-spoke is the
+       reward for naming the problem, not another before/after re-draw. -->
+  <BusinessEcosystem
+    badge={ecosystem.badge}
+    heading={ecosystem.heading}
+    headingAccent={ecosystem.headingAccent}
+    lead={ecosystem.lead}
+    features={ecosystem.features}
+    hubLabel={ecosystem.hubLabel}
+    hubSubLabel={ecosystem.hubSubLabel}
+    nodes={ecosystem.nodes}
+    stats={ecosystem.stats}
+  />
+
+  <!-- Services Section -->
+  <section class={`relative z-10 py-[var(--space-section-md)] ${nextSectionBg()} border-t border-border`}>
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+        <div class="flex flex-col items-center gap-6">
+          <Badge variant="brand" pill>
+            <Icon name="sparkles" size="sm" />
+            {servicesSection.badge}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+            {servicesSection.heading}
+          </h2>
+        </div>
+        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
+          {servicesSection.lead}
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-3">
+        {servicesSection.cards.map((card, i) => (
+          <ProofTile
+            href={servicesUrl}
+            icon={card.icon}
+            title={card.title}
+            data-reveal
+            data-reveal-delay={i || undefined}
+          >
+            {card.description}
+          </ProofTile>
+        ))}
+      </div>
+
+      <!-- Sectors folded into Services as a quiet closing line rather than
+           its own full-width section — secondary information, secondary
+           weight, but no longer a whole extra scroll-stop of its own. -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 text-center pt-2 border-t border-border/60" data-reveal>
+        <span class="text-sm text-foreground-muted">{sectorsSection.label}</span>
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          {sectorsSection.sectors.map((sector) => (
+            <Badge variant="default" pill class="text-xs">{sector}</Badge>
+          ))}
+        </div>
+        <a href={solutionsUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-brand-500 hover:text-brand-400 transition-colors">
+          {sectorsSection.cta}
+          <Icon name="arrow-right" size="sm" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process — the same four steps as the /services page's "How an
+       engagement runs" section (single source of truth: pages.services.process),
+       surfaced here so a visitor doesn't have to leave the homepage to see
+       how working with IRFAtech actually goes. First pass drew these as
+       small icon+number nodes on a thin connecting rail with plain-text
+       steps — it read as flat and inert next to the tile/card sections
+       above and below it. Rebuilt as actual cards, matching the site's
+       established tile recipe (ProofTile / Card: bg-background-tertiary,
+       brand-tinted border, shadow-lg, hover:-translate-y-1 + brighter
+       border + deeper shadow) so hovering a step visibly responds, with a
+       much larger icon node (5rem circle / 2.25rem icon, versus ProofTile's
+       own 2.5rem bare icon) since this step deserves to be the visual
+       anchor of its card.
+
+       Two additions beyond the source content: a one-line "stat" pill under
+       each title (the concrete commitment buried in that step's
+       description — reply time, fixed price, etc.) so the row scans in
+       five seconds even if nobody reads the paragraphs, and a CTA directly
+       under the cards. Once a visitor has just read exactly what happens
+       after they reach out, that's the moment their perceived risk is
+       lowest — closing the section without an action here means sending
+       them on to three more sections before the next chance to act. -->
+  <section class={`relative z-10 py-[var(--space-section-md)] ${nextSectionBg()} border-t border-border`}>
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+        <div class="flex flex-col items-center gap-6">
+          <Badge variant="brand" pill>
+            <Icon name="list-checks" size="sm" />
+            {processBadge}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+            {processSection.heading}
+          </h2>
+        </div>
+        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+          {processSection.lead}
+        </p>
+      </div>
+
+      <ol class="process-steps grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {processSection.steps.map((step, i) => (
+          <li
+            class="process-step-card flex h-full flex-col items-center gap-3 rounded-xl border border-brand-500/40 bg-background-tertiary p-6 text-center shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-brand-500/80 hover:shadow-xl"
+            data-reveal
+            data-reveal-delay={i || undefined}
+          >
+            <span class="process-step-node" aria-hidden="true">
+              <Icon name={step.icon} size="lg" class="process-step-icon" />
+              <span class="process-step-num">{i + 1}</span>
+            </span>
+            <h3 class="process-step-title">{step.title}</h3>
+            <p class="process-step-stat">
+              <Icon name="check" size="xs" />
+              {step.stat}
+            </p>
+            <p class="process-step-desc">{step.description}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="process-cta" data-reveal>
+        <a class="process-cta-link" href={contactUrl}>
+          {hero.primary}
+          <Icon name="arrow-right" size="sm" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="work" class={`relative z-10 py-[var(--space-section-md)] ${nextSectionBg()} border-t border-border`}>
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+        <div class="flex flex-col items-center gap-6">
+          <Badge variant="brand" pill>
+            <Icon name="layers" size="sm" />
+            {portfolio.badge}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+            {portfolio.heading}
+          </h2>
+        </div>
+        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
+          {portfolio.lead}
+        </p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {/* One card component for the homepage, the projects index, the
+            paginated pages and the tag archive. The homepage used to carry
+            its own copy of this markup, so a change to the card reached three
+            of the four places and quietly skipped this one. */}
+        {featuredProjects.map((project, i) => (
+          <ProjectCard project={project} index={i} locale={getEntryLocale(project.id)} />
+        ))}
+      </div>
+
+      <div class="text-center mt-4">
+        <a href={projectsUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-brand-500 hover:text-brand-400 transition-colors">
+          {portfolio.viewAll}
+          <Icon name="arrow-right" size="sm" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work with me — why IRFAtech. Placed after Process and Portfolio so the
+       "what you get when you work with us" pitch follows the steps and the
+       proof instead of front-running them. Carries its own CTA (Book a free
+       consultation); the duplicate full-width banner that used to sit around
+       here was cut — the closing CtaBeamBand makes the same ask once, at the
+       end, where it belongs. -->
+  <section class={`relative z-10 py-[var(--space-section-md)] ${nextSectionBg()} border-t border-border`}>
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+        <div class="flex flex-col items-center gap-6">
+          <Badge variant="brand" pill>
+            <Icon name="handshake" size="sm" />
+            {workWithMe.badge}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            {workWithMe.heading}
+          </h2>
+        </div>
+        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+          {workWithMe.lead}
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {workWithMe.cards.map((card, i) => (
+          <ProofTile icon={card.icon} title={card.title} data-reveal data-reveal-delay={i || undefined}>
+            {card.description}
+          </ProofTile>
+        ))}
+      </div>
+
+      <div class="flex justify-center mt-4" data-reveal>
+        <Button size="lg" href={contactUrl} class="cta-btn-brand">
+          {workWithMe.cta}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials — only renders once real client quotes exist in
+       pages.home.testimonials.items (all 4 locales are currently empty on
+       purpose: earlier placeholder quotes named a fabricated client that
+       also appeared as a fake case study, which is worse for credibility
+       than showing nothing). Add items back in the i18n files once there
+       are real ones to quote. -->
+  {testimonials.items.length > 0 && (
+    <section class={`relative z-10 py-[var(--space-section-md)] ${nextSectionBg()} border-t border-border`}>
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+        <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+          <div class="flex flex-col items-center gap-6">
+            <Badge variant="brand" pill>
+              <Icon name="quote" size="sm" />
+              {testimonials.badge}
+            </Badge>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+              {testimonials.heading}
+            </h2>
+          </div>
+          <p class="text-lg text-foreground-muted">
+            {testimonials.lead}
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          {testimonials.items.map((item, i) => (
+            <Card variant="elevated" padding="lg" hover data-reveal data-reveal-delay={i || undefined}>
+              <div class="flex flex-col h-full gap-4">
+                <div class="flex gap-1 text-brand-500" role="img" aria-label="5 out of 5 stars">
+                  {[...Array(5)].map(() => (
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote class="flex-1 text-foreground-muted leading-relaxed">
+                  {item.quote}
+                </blockquote>
+                <div class="flex items-center gap-3 pt-4 border-t border-border">
+                  <div class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-500/30 to-brand-500/10 flex items-center justify-center text-brand-500 font-bold text-sm shrink-0">
+                    {item.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p class="text-sm font-semibold text-foreground">{item.name}</p>
+                    <p class="text-xs text-foreground-muted">{item.role}</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- About Teaser -->
+  <section class={`relative z-10 py-[var(--space-section-md)] ${nextSectionBg()} border-t border-border`}>
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12">
+        <div class="flex flex-col justify-center sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
+          <div class="flex flex-col gap-6 mb-6 sm:items-center glitch:items-start">
+            <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
+              <Icon name="user" size="sm" />
+              {aboutTeaser.badge}
+            </Badge>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+              {aboutTeaser.headingLine1}<br />
+              <span class="text-brand-500">{aboutTeaser.headingLine2}</span>
+            </h2>
+          </div>
+          <p class="text-lg text-foreground-muted leading-relaxed mb-4 sm:mb-0 sm:max-w-xl glitch:mb-4 glitch:max-w-none">
+           {aboutPara1}
+          </p>
+          <p class="text-lg text-foreground-muted leading-relaxed mb-8 sm:max-w-xl glitch:max-w-none sm:hidden glitch:block">
+           {aboutTeaser.para2}
+          </p>
+           <a href={aboutUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-brand-500 hover:text-brand-400 transition-colors self-start sm:self-center glitch:self-start sm:hidden glitch:inline-flex">
+            {aboutTeaser.moreAboutMe}
+            <Icon name="arrow-right" size="sm" />
+          </a>
+        </div>
+        <Card variant="elevated" padding="lg" class="h-full flex flex-col" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <p class="text-sm font-bold text-brand-500 mb-5 text-center sm:hidden glitch:block">{aboutTeaser.statsIntro}</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 glitch:grid-cols-2 gap-3 flex-1 auto-rows-fr">
+            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
+              <Icon name="history" class="w-10 h-10 text-brand-500" />
+              <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat1}</p>
+            </div>
+            <a href={solutionsUrl} class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 h-full">
+              <svg class="w-10 h-10 text-brand-500" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M815.039 94.6439C824.758 106.709 829.714 122.99 839.626 155.553L1056.17 866.901C976.107 825.368 889.072 795.413 797.281 779.252L656.29 302.798C653.983 295.002 646.822 289.654 638.693 289.654C630.542 289.654 623.368 295.03 621.08 302.853L481.795 779.011C389.579 795.1 302.146 825.109 221.741 866.793L439.347 155.388L439.348 155.388C449.291 122.882 454.262 106.629 463.982 94.5853C472.562 83.9531 483.723 75.6958 496.4 70.6002C510.76 64.8284 527.756 64.8284 561.749 64.8284H717.174C751.212 64.8284 768.23 64.8284 782.603 70.6123C795.292 75.7184 806.459 83.9923 815.039 94.6439Z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M840.951 900.754C805.253 931.279 734.002 952.097 651.929 952.097C551.197 952.097 466.767 920.737 444.363 878.561C436.354 902.732 434.558 930.396 434.558 948.068C434.558 948.068 429.281 1034.84 489.636 1095.2C489.636 1063.86 515.042 1038.46 546.381 1038.46C600.097 1038.46 600.036 1085.32 599.987 1123.34C599.986 1124.48 599.984 1125.61 599.984 1126.73C599.984 1184.44 635.255 1233.91 685.416 1254.77C677.924 1239.36 673.721 1222.05 673.721 1203.77C673.721 1148.73 706.034 1128.23 743.588 1104.41L743.588 1104.41C773.469 1085.46 806.668 1064.41 829.548 1022.17C841.486 1000.13 848.265 974.893 848.265 948.068C848.265 931.573 845.702 915.676 840.951 900.754Z" fill="currentColor"/>
+              </svg>
+              <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat2}</p>
+            </a>
+            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
+              <Icon name="globe" class="w-10 h-10 text-brand-500" />
+              <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat3}</p>
+            </div>
+            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
+              <Icon name="map-pin" class="w-10 h-10 text-brand-500" />
+              <p class="text-sm font-semibold text-foreground">{aboutTeaser.basedIn} <br class="sm:hidden" />{basedInDisplay}</p>
+            </div>
+          </div>
+        </Card>
+        <div class="hidden sm:flex justify-center glitch:hidden" data-reveal data-reveal-delay="2">
+          <a href={aboutUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-brand-500 hover:text-brand-400 transition-colors">
+            {aboutTeaser.moreAboutMe}
+            <Icon name="arrow-right" size="sm" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class={`relative z-10 py-[var(--space-section-md)] ${nextSectionBg()} border-t border-border`}>
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-10">
+      <div class="flex flex-col items-center gap-6 text-center" data-reveal>
+        <Badge variant="brand" pill>
+          <Icon name="book" size="sm" />
+          {blogSection.badge}
+        </Badge>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+          {blogSection.heading}
+        </h2>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post, index) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            href={getPostUrl(post.id, getEntryLocale(post.id))}
+            publishedAt={post.data.publishedAt}
+            tags={post.data.tags}
+            author={post.data.author}
+            image={post.data.image}
+            svgSlug={post.data.svgSlug}
+            coverType={post.data.coverType}
+            body={post.body}
+            revealDelay={index}
+            class={index === 3 ? 'hidden sm:block lg:hidden' : undefined}
+          />
+        ))}
+      </div>
+
+      <div class="flex justify-center">
+        <a href={blogUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-brand-500 hover:text-brand-400 transition-colors">
+          {blogSection.viewAll}
+          <Icon name="arrow-right" size="sm" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+ <!-- CTA — full-bleed navy band (see CtaBeamBand.astro), same on every
+      viewport. Butts directly against the footer below with zero gap —
+      no section padding, no border — so the two read as one continuous
+      dark surface, matching the reference site. -->
+  <CtaBeamBand>
+    <h2 class="text-4xl font-bold mb-4 text-balance">
+      {cta.heading}
+    </h2>
+    <p class="text-lg mb-8 text-balance">
+      {cta.description}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button size="lg" href={contactUrl}>
+        {cta.primary}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+      <Button size="lg" variant="outline" href={aboutUrl}>
+        {cta.secondary}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+    </div>
+  </CtaBeamBand>
+
+<style is:global>
+  /* The hero paragraph is short by design (one sentence, ~28 words) — cap it
+     narrower than Hero.astro's own max-w-xl default (36rem) so it reads as a
+     tight, confident sentence rather than stretching to fill the wider
+     split-layout text column. Scoped via the unique .hero-dark-gradient
+     class so other heroes keep the default measure. */
+  @media (min-width: 768px) {
+    .hero-dark-gradient .hero-title-slot + div {
+      max-width: 30rem;
+    }
+  }
+
+  /* Spacious vertical rhythm pass: badge → headline → paragraph → CTAs each
+     get more room than Hero.astro's shared defaults, so the hero reads as
+     calm and premium rather than a tightly-packed stack. Unlayered, so it
+     beats the `mb-[var(--space-heading-gap)]` etc. Tailwind arbitrary-value
+     utilities already on these elements (Tailwind's generated utilities
+     always live inside `@layer utilities`, which loses to any unlayered
+     rule of the same importance regardless of specificity). */
+  .hero-dark-gradient .hero-badge-slot {
+    margin-bottom: var(--space-7);
+  }
+  .hero-dark-gradient .hero-title-slot {
+    margin-bottom: var(--space-8);
+  }
+  .hero-dark-gradient .hero-description-slot {
+    margin-bottom: var(--space-10);
+  }
+
+  /* Split layout's default is an even 50/50 column split (shared with the
+     /components kitchen-sink demos, which DO put content in the second
+     column) — too narrow here, where the second column is empty (the photo
+     is a background layer, not grid content) and the four-up highlight row
+     needs real room to stay on one line. Scoped to this hero only so the
+     shared default stays untouched everywhere else it's used. */
+  @media (min-width: 1024px) {
+    .hero-dark-gradient .grid.max-w-6xl {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  /* Four-up "what we deliver" row beneath the hero CTAs. Accent-coloured
+     icon, muted label — secondary to the H1/description, same hierarchy
+     the description text uses. */
+  .hp-hero-highlight-icon {
+    color: var(--color-brand-400);
+  }
+
+  /* Primary hero CTA — filled in the brand colour instead of the site's
+     default near-white pill. The default reads fine on a flat dark gradient,
+     but sitting on a photo (much of it already light/warm in tone) it lost
+     contrast and didn't read as "the button to press". Brand-orange fill
+     matches IRFATECH's own on-wall branding in the photo, so it also ties
+     the CTA back into the shot rather than competing with it. This covers
+     dark mode (the site default — no competing override there); the
+     light-mode equivalent lives in global.css's `.hero-dark-gradient
+     .btn-primary` block instead, since author `!important` inside
+     Tailwind's `@layer utilities` beats author `!important` outside any
+     layer regardless of specificity, and that light-mode override is
+     declared inside the layer. */
+  .hero-dark-gradient .hp-hero-cta-primary.btn-primary {
+    background-color: var(--color-brand-500) !important;
+    background-image: none !important;
+    color: white !important;
+    border-color: transparent !important;
+    box-shadow: 0 8px 24px -8px color-mix(in oklch, var(--color-brand-600) 60%, transparent);
+  }
+  .hero-dark-gradient .hp-hero-cta-primary.btn-primary:hover {
+    background-color: var(--color-brand-600) !important;
+  }
+
+  /* Small uppercase trust label sitting above the industries strip — gives the
+     row (now logos of INDUSTRIES we serve, not tools we build) the context a
+     bare row of icons + labels wouldn't carry on its own. Left-aligned (not
+     centred) and given its own top border so it reads as a distinct "trust
+     bar" opening a new beat, consistent with the left-aligned content above
+     it rather than the centred treatment a `layout="centered"` hero would use. */
+  .hp-hero-industries-label {
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    margin-bottom: var(--space-3);
+    max-width: 72rem;
+    border-top: 1px solid color-mix(in oklch, white 12%, transparent);
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-foreground-subtle);
+    opacity: 0.85;
+  }
+  @media (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+    .hp-hero-industries-label { display: none; }
+  }
+
+  /* ── Homepage hero industries marquee ────────────────────────────────────
+     A decorative industries-served strip floored into the hero in place of the
+     scroll indicator. It must stay secondary to the H1 / description / CTAs, so we
+     strip the card "box" (brand border, glow ring, panel surface) and let the
+     brand-coloured logos float on the hero gradient as light accents. The logos
+     keep their brand colour and soft chip; only the surrounding chrome is removed. */
+  .hp-hero-marquee .stack-marquee-item > * {
+    background: transparent;   /* drop the card panel */
+    border-color: transparent; /* drop the brand border */
+    box-shadow: none;          /* drop the brand glow ring */
+    padding-left: var(--space-3);  /* tighter now there's no box, so logos sit closer */
+    padding-right: var(--space-3);
+  }
+  /* Lighter, calmer tool names so the colourful logos lead the eye. */
+  .hp-hero-marquee .stack-marquee-item .font-display {
+    font-weight: 500;
+    color: var(--color-foreground-muted);
+  }
+
+  /* Floored into the hero: the marquee is the section's last flex child, pushed to
+     the floor (mt-auto, in Hero.astro). The CONTENT stays at the top and the
+     leftover hero height opens up BETWEEN the CTAs and the marquee — the roomy
+     "Chrome look". The section's column `gap` (--hero-floor-gap) is a GUARANTEED
+     MINIMUM gap, so on shorter windows the marquee can never crowd the buttons;
+     taller windows simply get more room. padding-bottom is the breathing room
+     beneath it. */
+  section.hero-dark-gradient {
+    --hero-floor-gap: var(--space-16); /* 4rem — minimum gap above the marquee */
+    padding-bottom: var(--space-16); /* 4rem — breathing room below it */
+  }
+  .hp-hero-marquee {
+    pointer-events: none; /* decorative; never intercepts taps */
+  }
+
+  /* Entrance: the marquee sits outside the content stagger container, so it fades
+     in on its own once the hero has settled (a vertical slide would fight the
+     logos' horizontal scroll). */
+  @media (prefers-reduced-motion: no-preference) {
+    .hp-hero-marquee {
+      animation: hp-hero-marquee-fade 0.6s ease-out 1.2s backwards;
+    }
+  }
+  @keyframes hp-hero-marquee-fade {
+    from { opacity: 0.01; }
+    to   { opacity: 1; }
+  }
+
+  /* Hidden on phones — portrait (width) and landscape (short + coarse pointer),
+     matching the tech-stack section's behaviour. Shown from tablet up. */
+  @media (max-width: 767px) {
+    .hp-hero-marquee { display: none; }
+  }
+  @media (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+    .hp-hero-marquee { display: none; }
+  }
+
+  /* Portrait-phone static industry pills — the lightweight counterpart to the
+     marquee. Hidden by default and shown only on portrait phones, exactly where
+     the marquee is hidden. A centered, non-interactive, wrapping row: no links
+     and no animation loop, so it costs nothing after paint. Wraps to two rows
+     rather than a single row of bare logo circles — industry labels
+     ("Retail & Wholesale") don't fit four across on a phone the way four
+     short tool names did. */
+  .hp-hero-logos {
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    pointer-events: none;
+  }
+  @media (max-width: 767px) and (orientation: portrait) {
+    .hp-hero-logos { display: flex; padding-bottom: 2rem; }
+  }
+
+  .hp-hero-logo {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 9999px;
+    color: var(--color-brand-500);
+    background: color-mix(in oklch, var(--color-brand-500) 12%, transparent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* One-time fade-in only (reuses the marquee's keyframe); nothing loops. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hp-hero-logos {
+      animation: hp-hero-marquee-fade 0.6s ease-out 1.2s backwards;
+    }
+  }
+
+  /* ── Process steps (cards) ─────────────────────────────────────────────────
+     The homepage's four engagement steps as hoverable cards — same visual
+     recipe as ProofTile/Card elsewhere on the site (bg-background-tertiary,
+     brand-tinted border, shadow-lg, hover:-translate-y-1 + brighter border +
+     deeper shadow — those utility classes are on the <li> itself in the
+     markup), so a step visibly responds to the cursor instead of sitting
+     inert on the page. */
+  .process-steps {
+    /* width:100% — this <ol> is a direct child of a `flex flex-col`
+       container (the section's inner wrapper div), and a flex item with
+       `margin-inline: auto` but no explicit width shrinks to fit its own
+       content instead of stretching to the container's cross-axis size
+       (same bug fixed in Hero.astro's content grid). It currently renders
+       full-width only because the step copy is long enough to reach the
+       container edge on its own — shorter i18n copy would collapse and
+       centre it instead of filling the row. */
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+  }
+  /* Icon node: 5rem, noticeably larger than ProofTile's own bare 2.5rem
+     icon, since this is the visual anchor of a 4-card row rather than one
+     of many small tile icons. The icon carries the step's MEANING (a
+     message bubble reads as "get in touch" faster than the numeral "1"
+     does); the sequence number moves to a small corner badge instead. */
+  .process-step-node {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    flex: none;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, var(--color-brand-500), var(--color-brand-600));
+    box-shadow: 0 10px 28px -6px color-mix(in oklch, var(--color-brand-500) 60%, transparent);
+    transition: transform 200ms ease;
+  }
+  .process-step-card:hover .process-step-node {
+    transform: scale(1.06);
+  }
+  .process-step-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: var(--color-brand-50);
+  }
+  .process-step-num {
+    position: absolute;
+    top: -0.125rem;
+    right: -0.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.625rem;
+    height: 1.625rem;
+    border-radius: 9999px;
+    background: var(--color-background-tertiary);
+    box-shadow: 0 0 0 3px var(--color-background-tertiary);
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-brand-500);
+  }
+  .process-step-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-foreground);
+  }
+  /* The one concrete commitment from each step's paragraph, pulled up front
+     as its own filled pill — reply time, fixed price, etc. — so the row
+     scans in five seconds even for a visitor who never reads the
+     paragraphs below. A pill (not plain coloured text) so it reads as a
+     small badge of proof, not another line of body copy. */
+  .process-step-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 9999px;
+    background: color-mix(in oklch, var(--color-brand-500) 15%, transparent);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-brand-300);
+  }
+  .process-step-stat svg {
+    flex: none;
+    color: var(--color-brand-400);
+  }
+  /* Foreground-secondary (brighter than the site's default muted-body tier)
+     — this card sits on bg-background-tertiary, one step lighter than the
+     surrounding section, and the standard muted grey read as low-contrast
+     against it. */
+  .process-step-desc {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-foreground-secondary);
+  }
+
+  /* CTA directly under the last step: the moment a visitor finishes reading
+     exactly what happens after they reach out is the moment their perceived
+     risk is lowest, so the next action is offered right here rather than
+     three sections later. Quieter than the primary hero CTA (text link, not
+     a filled button) — this page has one filled-button CTA band already
+     coming up; repeating that treatment here would just be visual noise. */
+  .process-cta {
+    display: flex;
+    justify-content: center;
+  }
+  .process-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    border-bottom: 1px solid color-mix(in oklch, var(--color-brand-500) 50%, transparent);
+    padding-bottom: 0.125rem;
+    transition: color 150ms ease, border-color 150ms ease;
+  }
+  .process-cta-link svg {
+    color: var(--color-brand-500);
+    transition: transform 150ms ease;
+  }
+  .process-cta-link:hover {
+    color: var(--color-brand-500);
+    border-color: var(--color-brand-500);
+  }
+  .process-cta-link:hover svg {
+    transform: translateX(3px);
+  }
+</style>
+
+</LandingLayout>

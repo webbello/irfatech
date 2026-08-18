@@ -1,0 +1,93 @@
+---
+/**
+ * LandingLayout
+ * Layout wrapper for landing-style pages (marketing, demo, showcase)
+ * Uses Header + Footer with landing-specific configuration
+ *
+ * This layout is part of the "demo" layer - it can be optionally installed
+ * via CLI for users who want the full landing page experience.
+ */
+import BaseLayout from './BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import type { Thing, WithContext } from 'schema-dts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  includeOrgSchema?: boolean;
+  includePersonSchema?: boolean;
+  includeProfessionalServiceSchema?: boolean;
+  extraSchemas?: WithContext<Thing>[];
+}
+
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  noindex = false,
+  nofollow = false,
+  includeOrgSchema = false,
+  includePersonSchema = false,
+  includeProfessionalServiceSchema = false,
+  extraSchemas = [],
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  imageAlt={imageAlt}
+  noindex={noindex}
+  nofollow={nofollow}
+  includeOrgSchema={includeOrgSchema}
+  includePersonSchema={includePersonSchema}
+  includeProfessionalServiceSchema={includeProfessionalServiceSchema}
+  extraSchemas={extraSchemas}
+>
+  <Header
+    slot="header"
+    position="fixed"
+    shape="floating"
+    variant="transparent"
+    colorScheme="default"
+    size="lg"
+    showCta={true}
+    autoHide={false}
+    scrollProgressPosition="top"
+    invertOnReturn={false}
+  />
+
+  <slot />
+
+  <!-- Footer is `background` so it alternates with the `secondary` CTA section above it. -->
+  <Footer slot="footer" layout="columns" background="techlo-seamless" />
+</BaseLayout>
+
+<script>
+  import { localeForTimezone } from '@/lib/geo-locale';
+
+  // First-time-visit default: someone whose device is set up for
+  // Timor-Leste lands on the Tetum homepage instead of English. Scoped to
+  // "/" specifically (not every default-locale page) and skipped once
+  // `locale_pref` is set — either this already ran once, or the visitor
+  // picked a language explicitly via LanguageSwitcher, which sets the same
+  // cookie — so nobody who deliberately chooses English keeps getting
+  // bounced back to Tetum. See src/lib/geo-locale.ts for why this uses the
+  // browser's time zone rather than real IP geolocation.
+  if (location.pathname === '/' && !document.cookie.includes('locale_pref=')) {
+    const locale = localeForTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone);
+    if (locale) {
+      const oneYear = 60 * 60 * 24 * 365;
+      document.cookie = `locale_pref=${locale}; path=/; max-age=${oneYear}; samesite=lax`;
+      location.replace(`/${locale}`);
+    }
+  }
+</script>
+

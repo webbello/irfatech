@@ -1,0 +1,946 @@
+{
+  "nav": {
+    "skipToContent": "Lewati ke konten",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu",
+    "selectLanguage": "Pilih bahasa",
+    "currentLanguage": "Bahasa saat ini",
+    "mainNav": "Navigasi utama",
+    "mobileNav": "Navigasi seluler",
+    "toggleMenu": "Alihkan menu",
+    "sectionNavigate": "Navigasi",
+    "searchSite": "Cari di situs ini",
+    "sectionTheme": "Tema",
+    "sectionLanguage": "Bahasa",
+    "sectionConnect": "Terhubung",
+    "items": {
+      "home": "Beranda",
+      "services": "Layanan",
+      "solutions": "Industri",
+      "projects": "Proyek",
+      "blog": "Blog",
+      "about": "Tentang",
+      "contact": "Kontak"
+    },
+    "ctaLabel": "Mulai proyek"
+  },
+  "common": {
+    "readMore": "Baca selengkapnya",
+    "loading": "Memuat…",
+    "backToTop": "Kembali ke atas",
+    "search": "Cari",
+    "submit": "Kirim",
+    "cancel": "Batal",
+    "next": "Berikutnya",
+    "previous": "Sebelumnya",
+    "home": "Beranda"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Artikel dan pembaruan terbaru",
+    "readingTime": "{minutes} menit baca",
+    "publishedOn": "Diterbitkan pada {date}",
+    "updatedOn": "Diperbarui pada {date}",
+    "writtenBy": "Ditulis oleh {author}",
+    "tagsLabel": "Tag",
+    "featured": "Unggulan",
+    "draft": "Draf",
+    "noPostsFound": "Tidak ada artikel ditemukan.",
+    "tableOfContents": "Daftar isi",
+    "shareThisPost": "Bagikan artikel ini",
+    "relatedPosts": "Artikel Terkait",
+    "share": "Bagikan:",
+    "shareOn": "Bagikan di {platform}",
+    "copyLink": "Salin tautan",
+    "metaTitle": "Blog",
+    "metaDescription": "Blog IRFAtech: panduan praktis tentang ERP, otomasi AI, otomasi WhatsApp, dan membangun infrastruktur digital untuk bisnis yang berkembang.",
+    "heroBadge": "Semua artikel",
+    "heroDescription": "Catatan tentang otomasi, ERP, dan membangun sistem yang tumbuh bersama bisnis Anda.",
+    "allPosts": "Semua artikel",
+    "noPosts": "Tidak ada artikel ditemukan",
+    "pageMetaTitle": "Blog — Halaman {page}",
+    "pageMetaDescription": "Halaman {page} dari {total} — panduan praktis tentang ERP, otomasi, dan infrastruktur digital dari IRFAtech.",
+    "pageBadge": "Halaman {page} dari {total}",
+    "newestPosts": "Artikel terbaru",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Artikel dengan tag \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "{count} artikel dengan tag \"{tag}\".",
+    "tagCountOther": "{count} artikel dengan tag \"{tag}\".",
+    "tagEmpty": "Tidak ada artikel untuk tag ini.",
+    "tagBackToAll": "Kembali ke semua artikel",
+    "onThisPage": "Di halaman ini",
+    "tocShow": "Tampilkan",
+    "tocHide": "Sembunyikan",
+    "backToBlog": "Kembali ke Blog",
+    "updated": "Diperbarui",
+    "rssFeed": "Feed RSS",
+    "cta": {
+      "heading": "Siap mengotomasi bisnis Anda?",
+      "description": "Ceritakan apa yang menghambat bisnis Anda — kami tunjukkan apa yang akan kami bangun untuk mengatasinya.",
+      "button": "Hubungi kami"
+    }
+  },
+  "comments": {
+    "title": "Komentar",
+    "loadError": "Komentar gagal dimuat. Muat ulang halaman dan coba lagi.",
+    "requiresJs": "Komentar memerlukan JavaScript untuk dimuat."
+  },
+  "projects": {
+    "title": "Proyek",
+    "description": "Sistem yang telah kami bangun",
+    "viewProject": "Lihat proyek",
+    "viewSource": "Lihat sumber",
+    "noProjectsFound": "Tidak ada proyek ditemukan.",
+    "metaTitle": "Proyek",
+    "metaDescription": "Karya pilihan — implementasi ERP, proyek otomasi, dan platform yang dikembangkan IRFAtech untuk bisnis yang berkembang.",
+    "heroBadge": "Karya pilihan",
+    "heroDescription": "Sistem yang kami banggakan.",
+    "allProjects": "Semua proyek",
+    "pageMetaTitle": "Proyek — Halaman {page}",
+    "pageMetaDescription": "Halaman {page} dari {total} — karya pilihan dan studi kasus dari IRFAtech.",
+    "pageBadge": "Halaman {page} dari {total}",
+    "tagMetaTitle": "#{tag} — Proyek",
+    "tagMetaDescription": "Proyek dengan tag \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "{count} proyek dengan tag \"{tag}\".",
+    "tagCountOther": "{count} proyek dengan tag \"{tag}\".",
+    "tagEmpty": "Tidak ada proyek untuk tag ini.",
+    "tagBackToAll": "Kembali ke semua proyek",
+    "backToProjects": "Kembali ke Proyek",
+    "moreProjects": "Proyek lainnya",
+    "ctaBadge": "Mari bicara",
+    "ctaHeading": "Mari bicarakan kebutuhan Anda",
+    "ctaLead": "Setiap kerja sama dimulai dari proses bisnis Anda, bukan templat. Ceritakan apa yang sedang Anda hadapi.",
+    "ctaPrimary": "Kirim pesan",
+    "ctaSecondary": "Lebih lanjut tentang kami",
+    "closingHeading": "Punya rencana sistem?",
+    "closingLead": "Baik itu implementasi ERP, proyek otomasi, atau sesuatu yang perlu perspektif baru — kami ingin mendengarnya."
+  },
+  "solutions": {
+    "title": "Solusi",
+    "metaTitle": "Solusi per Sektor",
+    "metaDescription": "Solusi transformasi digital untuk bisnis kecil, perusahaan, pemerintah, LSM, kesehatan, pendidikan, dan pertanian — dari IRFAtech.",
+    "heroBadge": "Solusi",
+    "heroDescription": "Setiap organisasi punya masalah yang berbeda. Temukan yang sesuai dengan situasi Anda.",
+    "sectorCount": "{count} solusi",
+    "challengeLabel": "Tantangan",
+    "approachLabel": "Pendekatan kami",
+    "outcomesLabel": "Yang Anda dapatkan",
+    "relatedLabel": "Solusi terkait",
+    "ctaBadge": "Mari bicara",
+    "ctaHeading": "Tidak menemukan masalah Anda di daftar?",
+    "ctaLead": "Ini hanya contoh, bukan daftar lengkap. Ceritakan apa yang Anda hadapi dan kami akan jujur soal apakah kami bisa membantu.",
+    "ctaPrimary": "Kirim pesan",
+    "ctaSecondary": "Lebih lanjut tentang kami",
+    "detailCtaHeading": "Siap membicarakan {title}?"
+  },
+  "pagination": {
+    "page": "Halaman {current} dari {total}",
+    "label": "Navigasi halaman",
+    "previousPage": "Halaman sebelumnya",
+    "nextPage": "Halaman berikutnya"
+  },
+  "errors": {
+    "pageNotFound": "Halaman tidak ditemukan",
+    "pageNotFoundMessage": "Halaman yang Anda cari tidak ada atau telah dipindahkan.",
+    "goHome": "Ke beranda",
+    "metaTitle": "Halaman tidak ditemukan",
+    "metaDescription": "Halaman ini telah dipindahkan, dihapus, atau memang tidak pernah ada.",
+    "badge": "404 — halaman tidak ditemukan",
+    "titleLead": "Halaman tidak",
+    "titleHighlight": "ditemukan.",
+    "description": "Halaman ini telah dipindahkan, dihapus, atau memang tidak pernah ada. Mari kembali ke jalur yang benar.",
+    "backHome": "Kembali ke beranda",
+    "browseBlog": "Jelajahi blog",
+    "tryInstead": "Coba salah satu ini",
+    "projectsDesc": "Karya pilihan dan studi kasus.",
+    "blogDesc": "Catatan tentang otomasi, ERP, dan infrastruktur digital.",
+    "contactTitle": "Kontak",
+    "contactDesc": "Mulai percakapan tentang bisnis Anda."
+  },
+  "newsletter": {
+    "heading": "Berlangganan newsletter",
+    "description": "Dapatkan artikel terbaru langsung di kotak masuk Anda.",
+    "emailPlaceholder": "Masukkan email Anda",
+    "subscribe": "Berlangganan",
+    "subscribing": "Memproses…",
+    "success": "Terima kasih telah berlangganan!",
+    "genericError": "Terjadi kesalahan",
+    "notConfigured": "Belum dikonfigurasi — atur RESEND_API_KEY dan RESEND_AUDIENCE_ID untuk mengaktifkan ini. Hanya Anda yang dapat melihat baris ini.",
+    "unavailable": "Pendaftaran belum tersedia saat ini.",
+    "error": "Gagal berlangganan. Silakan coba lagi."
+  },
+  "contact": {
+    "heading": "Hubungi kami",
+    "name": "Nama",
+    "email": "Email",
+    "service": "Layanan",
+    "servicePlaceholder": "Apa yang Anda butuhkan?",
+    "serviceBusinessSystems": "ERP, CRM & Sistem Bisnis",
+    "serviceAutomation": "Otomatisasi & AI",
+    "servicePresence": "Website, Aplikasi & Dukungan",
+    "serviceOther": "Belum yakin / Lainnya",
+    "message": "Pesan",
+    "send": "Kirim pesan",
+    "sendWhatsapp": "Lanjutkan di WhatsApp",
+    "sending": "Mengirim…",
+    "success": "Pesan berhasil dikirim!",
+    "whatsappOpening": "Membuka WhatsApp — tekan kirim di sana untuk menyelesaikan.",
+    "genericError": "Terjadi kesalahan",
+    "notConfigured": "Belum dikonfigurasi — atur RESEND_API_KEY untuk mengaktifkan ini. Hanya Anda yang dapat melihat baris ini.",
+    "unavailable": "Formulir ini belum tersedia saat ini.",
+    "error": "Gagal mengirim pesan. Silakan coba lagi."
+  },
+  "theme": {
+    "selectColourTheme": "Pilih tema warna",
+    "colourTheme": "Tema warna",
+    "colourMode": "Mode warna",
+    "modeTrigger": "Tema: {mode}. Klik untuk mengubah.",
+    "system": "Sistem",
+    "light": "Terang",
+    "dark": "Gelap",
+    "currentlyLight": "Saat ini terang",
+    "currentlyDark": "Saat ini gelap",
+    "swatchLabel": "Tema {name}"
+  },
+  "search": {
+    "placeholder": "Cari artikel, proyek, dan halaman…",
+    "inputLabel": "Kata kunci pencarian",
+    "resultsLabel": "Hasil pencarian",
+    "hint": "Mulai mengetik untuk mencari di situs ini.",
+    "noResults": "Tidak ada hasil untuk “{query}”",
+    "unavailable": "Indeks pencarian dibuat saat build dan tidak tersedia di <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Jalankan <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> untuk mencobanya secara lokal."
+  },
+  "video": {
+    "playLabel": "Putar video: {title}",
+    "watchOn": "Tonton di YouTube"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName}",
+    "builtWith": "Dibangun dengan Astro Rocket",
+    "groups": {
+      "site": "Situs",
+      "topics": "Topik",
+      "projects": "Proyek",
+      "questions": "Ada pertanyaan?"
+    },
+    "followOn": "Ikuti kami di {platform}"
+  },
+  "pages": {
+    "about": {
+      "meta": {
+        "title": "Tentang — Otomasi Bisnis & Infrastruktur Digital",
+        "description": "IRFAtech (Integrated Resources For Automation & Technology) membantu bisnis yang berkembang di India dan Timor-Leste mengotomasi operasional dengan ERP, alur kerja AI, dan perangkat lunak khusus."
+      },
+      "hero": {
+        "badge": "Tentang",
+        "titleLead": "IRFAtech —",
+        "typingWords": [
+          "Solusi ERP",
+          "Otomasi AI",
+          "Perangkat Lunak Khusus",
+          "Otomasi WhatsApp",
+          "Sistem CRM",
+          "Pengumpulan Data Lapangan",
+          "Website Bisnis"
+        ],
+        "typingWordsMobile": [
+          "Solusi ERP",
+          "Otomasi AI",
+          "Otomasi WhatsApp",
+          "Pengumpulan Data Lapangan",
+          "Website Bisnis"
+        ],
+        "description": "Mitra teknologi B2B yang membantu bisnis yang berkembang untuk mengotomasi, mensistematisasi, dan tumbuh."
+      },
+      "whatYouGet": {
+        "badge": "Apa yang kami lakukan",
+        "heading": "Semua yang dibutuhkan bisnis yang berkembang",
+        "lead": "Delapan layanan, satu mitra: sistem, otomasi, dan dukungan yang membawa bisnis dari spreadsheet menuju infrastruktur digital.",
+        "items": [
+          {
+            "icon": "database",
+            "title": "Solusi ERP",
+            "description": "Sistem berbasis Odoo untuk inventaris, penagihan, operasional, dan akuntansi — satu sistem, bukan lima spreadsheet."
+          },
+          {
+            "icon": "workflow",
+            "title": "Otomasi AI & Alur Kerja",
+            "description": "Pekerjaan berulang ditangani secara otomatis, sehingga tim Anda fokus pada hal yang benar-benar memerlukan orang."
+          },
+          {
+            "icon": "code",
+            "title": "Pengembangan Perangkat Lunak Khusus",
+            "description": "Sistem Laravel + Vue.js yang dibangun untuk proses yang tidak bisa ditangani perangkat lunak siap pakai."
+          },
+          {
+            "icon": "message-circle",
+            "title": "Otomasi WhatsApp",
+            "description": "Pembaruan pesanan, pengingat, dan balasan pelanggan ditangani di tempat pelanggan Anda sudah berada."
+          },
+          {
+            "icon": "users",
+            "title": "CRM & Otomasi Penjualan",
+            "description": "Pelacakan prospek dan tindak lanjut yang mengubah lebih banyak peluang menjadi bisnis yang berhasil."
+          },
+          {
+            "icon": "globe",
+            "title": "Website Bisnis",
+            "description": "Website cepat dan kredibel yang dibangun untuk menghasilkan prospek, bukan sekadar hadir di internet."
+          },
+          {
+            "icon": "smartphone",
+            "title": "Pengembangan Aplikasi Mobile",
+            "description": "Aplikasi iOS dan Android untuk tim lapangan, pengiriman, dan operasional yang berhadapan langsung dengan pelanggan."
+          },
+          {
+            "icon": "life-buoy",
+            "title": "Pemeliharaan & Dukungan",
+            "description": "Pembaruan dan pemantauan didukung SLA, sehingga yang kami bangun terus berjalan setelah diluncurkan."
+          },
+          {
+            "icon": "handshake",
+            "title": "Konsultasi pertama gratis",
+            "description": "Tanpa kewajiban, tanpa biaya per jam — satu proposal jelas dengan harga tetap dan jadwal waktu."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "Cara Kami Bekerja",
+        "heading": "Dibangun dengan tujuan yang jelas",
+        "lead": "Setiap kerja sama di IRFAtech berjalan atas tiga prinsip yang sama.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "Otomasi Lebih Dulu",
+            "description": "Kami mencari pekerjaan manual dan berulang terlebih dahulu — di situlah biasanya hasil tercepat didapat."
+          },
+          {
+            "icon": "award",
+            "title": "Disiplin Rekayasa",
+            "description": "Laravel, Vue.js, dan Odoo, dibangun rapi dan terdokumentasi — mudah dipelihara bertahun-tahun setelah peluncuran, bukan hanya saat serah terima."
+          },
+          {
+            "icon": "rocket",
+            "title": "Sesuai Skala UKM",
+            "description": "Sistem yang disesuaikan dengan anggaran dan tahap pertumbuhan Anda, bukan perangkat lunak korporasi yang baru akan Anda manfaatkan nanti."
+          }
+        ]
+      },
+      "stack": {
+        "badge": "Alat & Teknologi",
+        "title": "Teknologi Kami",
+        "description": "Teknologi di balik hasil kerja IRFAtech — dipilih karena keandalan, kemudahan pemeliharaan jangka panjang, dan ekosistem dukungan yang kuat."
+      },
+      "faq": {
+        "badge": "Perlu diketahui",
+        "heading": "Pertanyaan yang sering diajukan",
+        "lead": "Semua yang ingin Anda ketahui sebelum menghubungi kami.",
+        "cards": [
+          {
+            "icon": "building-2",
+            "title": "Tentang IRFAtech",
+            "items": [
+              {
+                "question": "Apa arti IRFAtech?",
+                "answer": "IRFAtech adalah singkatan dari Integrated Resources For Automation & Technology. Kami adalah mitra transformasi digital, didirikan oleh Mohammed Irfan, yang membantu bisnis, pemerintah, dan LSM mengganti proses manual dengan sistem digital yang saling terhubung."
+              },
+              {
+                "question": "Siapa saja klien Anda?",
+                "answer": "Bisnis kecil dan menengah di sektor ritel, kesehatan, pendidikan, dan distribusi — juga pemerintah, LSM, dan organisasi internasional untuk pengumpulan data lapangan. Terutama di India dan Timor-Leste, dengan klien yang berkembang secara global."
+              },
+              {
+                "question": "Apa itu Landflix?",
+                "answer": "Landflix adalah platform SaaS unggulan kami untuk teknologi properti dan manajemen properti digital — sekaligus produk tersendiri dan bukti kemampuan teknologi yang kami bangun."
+              },
+              {
+                "question": "Apakah IRFAtech perusahaan terdaftar atau pekerja lepas?",
+                "answer": "IRFAtech adalah konsultan teknologi yang dipimpin langsung oleh pendirinya. Anda bekerja langsung dengan tim yang membangun sistem Anda, bukan melalui lapisan penjualan."
+              },
+              {
+                "question": "Di mana lokasi Anda?",
+                "answer": "Kami beroperasi dari Kolkata, India dan Dili, Timor-Leste, serta bekerja dengan klien secara jarak jauh di seluruh dunia."
+              }
+            ]
+          },
+          {
+            "icon": "handshake",
+            "title": "Bekerja sama dengan kami",
+            "items": [
+              {
+                "question": "Bagaimana cara memulai?",
+                "answer": "Kirim pesan melalui formulir kontak atau WhatsApp. Kami membalas dalam satu hari kerja dan mengatur panggilan gratis tanpa kewajiban untuk memahami kebutuhan Anda."
+              },
+              {
+                "question": "Apakah Anda hanya membangun sistem ERP?",
+                "answer": "Tidak — ERP hanyalah satu dari delapan layanan kami. Kami juga membangun otomasi AI/alur kerja, perangkat lunak khusus, otomasi WhatsApp, sistem CRM, website bisnis, aplikasi mobile, dan menyediakan pemeliharaan berkelanjutan."
+              },
+              {
+                "question": "Apakah otomasi WhatsApp Anda sesuai kebijakan WhatsApp?",
+                "answer": "Ya. Kami membangun di atas WhatsApp Business Platform resmi (Cloud API), sehingga pesan tetap mematuhi kebijakan pesan bisnis Meta, bukan cara-cara tidak resmi."
+              },
+              {
+                "question": "Apakah kami memiliki kode dan data kami sendiri?",
+                "answer": "Ya. Sistem khusus yang kami bangun sepenuhnya milik Anda — kode, basis data, dan sistem yang menjalankannya. Kami transparan soal ini dalam proposal sebelum pekerjaan dimulai."
+              },
+              {
+                "question": "Bagaimana penetapan harga proyek?",
+                "answer": "Konsultasi gratis, lalu satu proposal tertulis dengan harga tetap dan jadwal waktu. Tanpa biaya per jam dan tanpa tagihan yang mengejutkan."
+              }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Sumber Terbuka",
+        "heading": "Dibangun secara terbuka",
+        "description": "Kode sumber situs ini sendiri bersifat publik di GitHub — disiplin rekayasa yang sama yang kami terapkan pada setiap proyek klien, kami terapkan juga pada milik kami sendiri.",
+        "button": "Lihat sumber di GitHub",
+        "cards": [
+          {
+            "title": "Rekayasa yang dipimpin pendiri",
+            "text": "Setiap proyek berjalan melalui Mohammed Irfan dan tim inti — 15+ tahun pengalaman pengembangan perangkat lunak langsung, bukan lapisan penjualan antara Anda dan pekerjaan yang dilakukan."
+          },
+          {
+            "title": "Website dengan sumber terbuka",
+            "text": "Situs ini bersifat publik di <a href=\"https://github.com/webbello/irfatech\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub</a> — contoh nyata standar kualitas yang kami terapkan pada sistem klien."
+          },
+          {
+            "title": "Dipelihara secara aktif",
+            "text": "Baik situs ini maupun sistem yang kami kirim untuk klien terus diperbarui, dipantau, dan ditingkatkan di bawah paket dukungan berkelanjutan."
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Mulai sekarang",
+        "heading": "Siap mengotomasi bisnis Anda?",
+        "description": "Konsultasi pertama gratis dan tidak formal — melalui telepon, video, atau WhatsApp. Anda mendapatkan jawaban jujur, dan setelahnya satu proposal jelas dengan harga tetap dan jadwal waktu.",
+        "button": "Hubungi kami"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Layanan — ERP, Otomasi, Perangkat Lunak & Dukungan",
+        "description": "Solusi ERP, otomasi AI & alur kerja, perangkat lunak khusus, otomasi WhatsApp, CRM, website, aplikasi mobile, dan dukungan — satu mitra, delapan layanan."
+      },
+      "includedLabel": "Yang termasuk",
+      "hero": {
+        "badge": "Layanan",
+        "titleLead": "Sistem, otomasi,",
+        "titleHighlight": "dan semuanya setelah peluncuran",
+        "description": "Delapan layanan dibangun dengan satu tujuan: menggantikan pekerjaan manual yang terpisah-pisah dengan infrastruktur digital yang tumbuh bersama bisnis Anda.",
+        "jumpLabels": [
+          "Sistem bisnis",
+          "Otomasi & AI",
+          "Kehadiran & dukungan"
+        ]
+      },
+      "design": {
+        "badge": "Sistem",
+        "heading": "Sistem bisnis",
+        "paragraphs": [
+          "Sistem bisnis adalah fondasinya: ERP, CRM, dan perangkat lunak khusus yang menggantikan spreadsheet yang terpisah-pisah dan pencatatan manual dengan satu sumber data yang saling terhubung.",
+          "Kami membangun ERP di atas Odoo — inventaris, penagihan, akuntansi, dan operasional dalam satu platform — serta Laravel dan Vue.js untuk kebutuhan khusus yang tidak bisa ditangani perangkat lunak siap pakai. Setiap sistem dibentuk sesuai cara bisnis Anda benar-benar berjalan, bukan templat umum yang harus Anda sesuaikan."
+        ],
+        "included": [
+          {
+            "lead": "ERP yang sesuai cara kerja Anda",
+            "text": "inventaris, penagihan, akuntansi, dan operasional berbasis Odoo, dalam satu sistem."
+          },
+          {
+            "lead": "CRM & otomasi penjualan",
+            "text": "pelacakan prospek dan tindak lanjut yang mengubah lebih banyak peluang menjadi bisnis."
+          },
+          {
+            "lead": "Perangkat lunak khusus sesuai kebutuhan",
+            "text": "sistem Laravel dan Vue.js untuk proses yang tidak ditangani perangkat lunak siap pakai."
+          },
+          {
+            "lead": "Satu sistem, bukan lima spreadsheet",
+            "text": "inventaris, penagihan, dan data pelanggan Anda akhirnya saling terhubung."
+          },
+          {
+            "lead": "Dukungan yang menjaganya tetap berjalan",
+            "text": "pembaruan, perbaikan, dan pemantauan di bawah SLA, bukan serah terima sekali jadi."
+          }
+        ],
+        "ctaLabel": "Bahas sistem Anda"
+      },
+      "development": {
+        "badge": "Otomasi",
+        "heading": "Otomasi & AI",
+        "paragraphs": [
+          "Otomasi biasanya menjadi tempat hasil tercepat: pekerjaan manual dan berulang yang dilakukan tim Anda setiap hari, yang sebenarnya bisa ditangani alur kerja otomatis.",
+          "Kami membangun otomasi WhatsApp Business untuk pembaruan pesanan, pengingat, dan balasan pelanggan, lalu menghubungkannya dengan alat alur kerja dan AI yang memindahkan data antara ERP, CRM, dan website Anda tanpa entri ulang manual. AI digunakan di tempat yang tepat — untuk meringkas, menyortir, dan mengarahkan — bukan ditambahkan tanpa alasan jelas."
+        ],
+        "included": [
+          {
+            "lead": "Lebih sedikit jam kerja manual",
+            "text": "tugas berulang ditangani otomatis, sehingga tim Anda fokus pada yang memerlukan orang."
+          },
+          {
+            "lead": "Otomasi WhatsApp Business",
+            "text": "pembaruan pesanan, pengingat, dan balasan pelanggan, ditangani di tempat pelanggan Anda berada."
+          },
+          {
+            "lead": "Alur kerja yang menghubungkan alat Anda",
+            "text": "data berpindah antara ERP, CRM, dan website tanpa entri ulang manual."
+          },
+          {
+            "lead": "AI di tempat yang tepat",
+            "text": "digunakan untuk meringkas, menyortir, dan mengarahkan — bukan sekadar tambahan."
+          },
+          {
+            "lead": "Dibangun sesuai proses Anda",
+            "text": "otomasi dibentuk sesuai cara bisnis Anda benar-benar berjalan, bukan templat umum."
+          }
+        ],
+        "ctaLabel": "Lihat otomasi beraksi"
+      },
+      "performance": {
+        "badge": "Kehadiran",
+        "heading": "Kehadiran digital & dukungan",
+        "paragraphs": [
+          "Kehadiran digital adalah bagaimana pelanggan menemukan dan menghubungi Anda: website yang menghasilkan prospek, aplikasi mobile untuk operasional lapangan atau yang berhadapan langsung dengan pelanggan, dan dukungan berkelanjutan yang menjaga semuanya tetap berjalan.",
+          "Kami membangun website dan aplikasi agar mudah ditemukan — oleh mesin pencari maupun asisten AI — bukan sekadar terlihat bagus. Dan tidak ada yang kami kirim berupa serah terima sekali jadi: setiap hasil kerja dilengkapi pemeliharaan dan dukungan di bawah SLA, sehingga tetap berjalan jauh setelah peluncuran."
+        ],
+        "included": [
+          {
+            "lead": "Website yang menghasilkan prospek",
+            "text": "cepat, kredibel, dan dibangun untuk mengubah pengunjung menjadi calon pelanggan."
+          },
+          {
+            "lead": "Aplikasi mobile sesuai cara Anda beroperasi",
+            "text": "aplikasi iOS dan Android untuk tim lapangan, pengiriman, atau penggunaan langsung dengan pelanggan."
+          },
+          {
+            "lead": "Ditemukan oleh Google dan AI",
+            "text": "SEO dan data terstruktur dibangun sejak baris pertama, bukan ditambahkan belakangan."
+          },
+          {
+            "lead": "Pemeliharaan & dukungan",
+            "text": "pembaruan, pemantauan didukung SLA, dan tim yang merespons saat ada yang perlu ditangani."
+          },
+          {
+            "lead": "Ruang untuk berkembang",
+            "text": "setiap hasil kerja memiliki ruang untuk fitur baru seiring pertumbuhan bisnis Anda."
+          }
+        ],
+        "ctaLabel": "Mulai proyek"
+      },
+      "process": {
+        "badge": "Cara kerjanya",
+        "heading": "Bagaimana kerja sama berjalan",
+        "lead": "Dari pesan pertama Anda hingga sistem yang aktif dan didukung.",
+        "steps": [
+          {
+            "title": "Kontak pertama",
+            "description": "Anda mengirim pesan melalui formulir kontak atau WhatsApp. Kami membalas dalam satu hari kerja dan mengatur panggilan informasi gratis tentang kebutuhan Anda. Tanpa kewajiban.",
+            "icon": "message-circle",
+            "stat": "Balasan dalam 1 hari kerja"
+          },
+          {
+            "title": "Proposal",
+            "description": "Setelah panggilan, Anda mendapatkan satu dokumen jelas: apa yang akan kami bangun, kapan selesai, dan harga tetapnya. Anda memutuskan dengan semua informasi di tangan.",
+            "icon": "file-text",
+            "stat": "Harga tetap, tanpa kejutan"
+          },
+          {
+            "title": "Pengembangan",
+            "description": "Kami bekerja dalam siklus singkat. Anda memantau progres melalui tautan staging dan melihat sistem terbentuk sebelum diluncurkan.",
+            "icon": "code-2",
+            "stat": "Progres mingguan yang bisa dipantau"
+          },
+          {
+            "title": "Peluncuran & dukungan",
+            "description": "Sistem Anda diluncurkan, dengan data dan nama Anda di dalamnya. Setelahnya kami tetap dapat dihubungi, dan tersedia paket dukungan berbasis SLA untuk pembaruan berkelanjutan.",
+            "icon": "rocket",
+            "stat": "Dukungan bergaransi SLA"
+          }
+        ]
+      },
+      "faq": {
+        "badge": "Pertanyaan",
+        "heading": "Tanya jawab",
+        "lead": "Hal-hal yang biasa ditanyakan klien sebelum kami memulai.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Sebelum kami mulai",
+            "items": [
+              {
+                "question": "Berapa biaya sebuah proyek?",
+                "answer": "Setiap kerja sama mendapatkan satu harga tetap, disepakati sebelum kami mulai. Tanpa biaya per jam, tanpa kejutan di kemudian hari. Konsultasi gratis memberi tahu kami apa yang dibutuhkan proyek Anda, dan Anda mendapatkan harga dalam satu proposal jelas."
+              },
+              {
+                "question": "Berapa lama sebuah proyek berlangsung?",
+                "answer": "Tergantung cakupannya — proyek otomasi WhatsApp selesai lebih cepat dibanding implementasi ERP penuh. Proposal mencantumkan jadwal waktu bersama harga, sehingga Anda tahu keduanya sebelum kami mulai."
+              },
+              {
+                "question": "Bagaimana dengan sistem dan spreadsheet kami yang sekarang?",
+                "answer": "Tetap digunakan sampai sistem baru siap dan data Anda telah dipindahkan. Kami meninjau apa yang sedang Anda gunakan sebelum panggilan pertama, sehingga Anda mendapatkan jawaban jelas sejak awal."
+              },
+              {
+                "question": "Apakah Anda meng-hosting dan memelihara sistem untuk kami?",
+                "answer": "Ya, jika Anda menginginkannya — atau kami bisa menyiapkannya di infrastruktur yang Anda kendalikan sendiri. Ini tercakup dalam proposal sebelum pekerjaan dimulai."
+              },
+              {
+                "question": "Apakah kita perlu bertemu langsung?",
+                "answer": "Tidak perlu. Sebagian besar kerja sama berjalan sepenuhnya melalui telepon, video, dan WhatsApp. Kami bekerja dengan klien di India, Timor-Leste, dan seluruh dunia, dan perbedaan zona waktu jarang menjadi masalah."
+              }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Bekerja sama dengan IRFAtech",
+            "items": [
+              {
+                "question": "Apakah Anda perusahaan atau pekerja lepas?",
+                "answer": "IRFAtech adalah konsultan teknologi yang dipimpin langsung oleh pendirinya — Anda bekerja langsung dengan tim yang mengerjakan proyek, dari panggilan pertama hingga sistem selesai. Tanpa lapisan penjualan, tanpa manajer akun, tanpa serah terima berlapis."
+              },
+              {
+                "question": "Bisakah kami mengubah sistem sendiri setelah peluncuran?",
+                "answer": "Tergantung sistemnya, bisa — sampaikan di panggilan pertama dan kami akan menyiapkannya untuk itu. Jika tidak, kirimkan perubahan yang Anda inginkan dan paket dukungan akan menanganinya."
+              },
+              {
+                "question": "Apakah Anda membangun toko online berskala besar?",
+                "answer": "Platform e-commerce berskala besar bukan fokus kami — tetapi ERP dengan inventaris dan penagihan, website bisnis, dan semua yang ada di daftar layanan kami, kami bangun. Ceritakan rencana Anda dan kami akan jujur soal kecocokannya."
+              },
+              {
+                "question": "Apakah sistem itu benar-benar milik kami?",
+                "answer": "Ya. Untuk sistem khusus, kode, data, dan sistem yang menjalankannya adalah milik Anda sejak hari pertama. Anda tidak pernah terikat pada IRFAtech untuk menjaganya tetap berjalan."
+              },
+              {
+                "question": "Apa yang terjadi jika ada masalah setelah peluncuran?",
+                "answer": "Kami tetap dapat dihubungi setelah peluncuran, dan paket dukungan berbasis SLA mencakup pemantauan, perbaikan, dan pembaruan — sehingga masalah tertangani sebelum menghabiskan waktu Anda."
+              }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Mari bicara",
+        "heading": "Mari bicarakan kebutuhan Anda",
+        "description": "Konsultasi pertama gratis dan tidak formal, tanpa kewajiban — melalui telepon, video, atau WhatsApp. Anda mendapatkan jawaban jujur, dan setelah panggilan satu proposal jelas dengan jadwal waktu dan harga tetap.",
+        "primary": "Kirim pesan",
+        "secondary": "Lebih lanjut tentang kami"
+      },
+      "grid": {
+        "badge": "Layanan kami",
+        "heading": "Delapan layanan, satu mitra",
+        "lead": "Pilih satu bidang, baca detailnya, dan mulai percakapannya.",
+        "readMore": "Lihat layanan"
+      },
+      "detail": {
+        "featuresBadge": "Yang Anda dapatkan",
+        "featuresHeading": "Cakupan {service}",
+        "industriesBadge": "Untuk siapa",
+        "industriesHeading": "Dibuat untuk industri seperti Anda",
+        "processBadge": "Cara kerjanya",
+        "processHeading": "Dari pertanyaan hingga go-live",
+        "faqBadge": "Pertanyaan umum",
+        "faqHeading": "Jawaban langsung, tanpa jargon",
+        "relatedHeading": "Bacaan terkait"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Hubungi Kami",
+        "description": "Memulai proyek ERP, otomasi, atau perangkat lunak? Ceritakan tentang bisnis Anda dan kami akan membalas dalam 1 hari kerja."
+      },
+      "hero": {
+        "badge": "Mulai proyek",
+        "titleLead": "Ceritakan tentang",
+        "titleHighlight": "bisnis Anda",
+        "description": "Kami ingin mendengar apa yang menghambat bisnis Anda. Kirim pesan melalui formulir di bawah, atau hubungi kami melalui saluran lain."
+      },
+      "formTitle": "Ceritakan kebutuhan Anda",
+      "channelsTitle": "Saluran lain",
+      "channelsSubtitle": "Lebih suka saluran langsung? Pilih yang paling sesuai — termasuk WhatsApp.",
+      "emailLabel": "Email",
+      "emailNote": "Kirimkan pesan singkat",
+      "whatsappLabel": "WhatsApp",
+      "whatsappNote": "Chat langsung dengan kami",
+      "socialNote": "Ikuti kami",
+      "basedIn": "Berlokasi di {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Infrastruktur Digital untuk Bisnis yang Berkembang",
+        "description": "ERP, otomasi alur kerja AI, perangkat lunak khusus, otomasi WhatsApp, CRM, website, dan aplikasi mobile — dibangun untuk UKM yang berkembang di India dan Timor-Leste."
+      },
+      "hero": {
+        "badge": "15+ Tahun Pengalaman · India & Timor-Leste",
+        "titleLine1": "Membuat Bisnis",
+        "titleLine2": "Bekerja",
+        "titleLine2Accent": "Lebih Cerdas",
+        "titleLine3": "Melalui",
+        "titleLine3Accent": "Software",
+        "description": "Ceritakan apa yang paling menyita waktu di bisnis Anda. Kami membangun software dan solusi digital yang menyederhanakan pekerjaan Anda, menghemat waktu, dan membantu bisnis Anda berkembang.",
+        "descriptionMobile": "Ceritakan apa yang paling menyita waktu di bisnis Anda. Kami membangun software dan solusi digital yang menyederhanakan pekerjaan Anda, menghemat waktu, dan membantu bisnis Anda berkembang.",
+        "primary": "Ceritakan Tantangan Bisnis Anda",
+        "getStarted": "Jelajahi Solusi Kami",
+        "highlights": [
+          { "icon": "code", "title": "Software Kustom" },
+          { "icon": "settings", "title": "Otomatisasi Bisnis" },
+          { "icon": "bar-chart-3", "title": "Data & Wawasan" },
+          { "icon": "headset", "title": "Dukungan Berkelanjutan" }
+        ],
+        "industriesLabel": "Dibangun untuk bisnis di berbagai industri",
+        "industries": [
+          { "icon": "shopping-cart", "title": "Ritel & Grosir" },
+          { "icon": "building-2", "title": "Properti" },
+          { "icon": "truck", "title": "Logistik" },
+          { "icon": "graduation-cap", "title": "Pendidikan" },
+          { "icon": "heart-pulse", "title": "Kesehatan" }
+        ]
+      },
+      "ecosystem": {
+        "badge": "Ekosistem Bisnis",
+        "heading": "Semua Saling Terhubung.",
+        "headingAccent": "Tidak Ada yang Terpisah.",
+        "lead": "Kami menghubungkan website, CRM, inventaris, keuangan, WhatsApp, dan alat bisnis lainnya—lalu mengotomatiskan alur kerja di antaranya.",
+        "features": [
+          {
+            "icon": "link-2",
+            "title": "Semua Terhubung",
+            "description": "ERP, CRM, website, WhatsApp, pembayaran, dan lainnya — semua bekerja bersama."
+          },
+          {
+            "icon": "settings",
+            "title": "Alur Kerja Berjalan Otomatis",
+            "description": "Otomatiskan tugas berulang dan kurangi pekerjaan manual."
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Wawasan Real-Time",
+            "description": "Satu sumber kebenaran untuk keputusan yang lebih baik dan kontrol yang lebih kuat."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Dibangun di Sekitar Anda",
+            "description": "Perangkat lunak dan integrasi khusus yang dirancang sesuai cara bisnis Anda berjalan."
+          }
+        ],
+        "hubLabel": "IRFATECH",
+        "hubSubLabel": "Bisnis Anda. Terhubung.",
+        "nodes": [
+          {
+            "icon": "users",
+            "title": "CRM",
+            "description": "Prospek, Pelanggan, Tindak Lanjut",
+            "color": "blue"
+          },
+          {
+            "icon": "package",
+            "title": "Inventaris",
+            "description": "Stok, Produk, Gudang",
+            "color": "orange"
+          },
+          {
+            "icon": "file-text",
+            "title": "Akuntansi & Keuangan",
+            "description": "Faktur, Pembayaran, Laporan",
+            "color": "blue"
+          },
+          {
+            "icon": "users-round",
+            "title": "SDM & Tim",
+            "description": "Karyawan, Kehadiran, Kinerja",
+            "color": "red"
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Laporan & BI",
+            "description": "Dasbor, KPI, Wawasan Bisnis",
+            "color": "orange"
+          },
+          {
+            "icon": "bot",
+            "title": "Otomatisasi Alur Kerja",
+            "description": "Persetujuan, Pengingat, Otomatisasi Tugas",
+            "color": "purple"
+          },
+          {
+            "icon": "message-circle",
+            "title": "Otomatisasi WhatsApp",
+            "description": "Notifikasi, Pembaruan, Pemberitahuan",
+            "color": "green"
+          },
+          {
+            "icon": "shopping-cart",
+            "title": "Website / E-commerce",
+            "description": "Pesanan, Pertanyaan, Toko Online",
+            "color": "green"
+          }
+        ],
+        "stats": [
+          {
+            "icon": "target",
+            "title": "Lebih Sedikit Kerja Manual",
+            "description": "Hemat waktu dan kurangi kesalahan"
+          },
+          {
+            "icon": "trending-up",
+            "title": "Produktivitas Lebih Tinggi",
+            "description": "Fokus pada hal yang mengembangkan bisnis Anda"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Kontrol Lebih Baik",
+            "description": "Tetap terkendali, selalu"
+          },
+          {
+            "icon": "rocket",
+            "title": "Siap Berkembang",
+            "description": "Tumbuh tanpa harus mengganti sistem Anda"
+          }
+        ]
+      },
+      "businessProblem": {
+        "badge": "Masalahnya",
+        "heading": "Bisnis Anda tidak seharusnya berjalan dengan alat yang tersebar.",
+        "lead": "WhatsApp, spreadsheet, dokumen kertas, software terpisah, dan proses manual membuat sulit untuk tetap teratur dan berkembang. Kami membantu menyatukan bagian-bagian yang penting.",
+        "toolsLabel": "Alat Anda saat ini",
+        "buildChip": "Buat yang belum ada",
+        "tools": [
+          {
+            "icon": "brand-whatsapp",
+            "title": "WhatsApp"
+          },
+          {
+            "icon": "file-spreadsheet",
+            "title": "Excel / spreadsheet"
+          },
+          {
+            "icon": "globe",
+            "title": "Situs web"
+          },
+          {
+            "icon": "users",
+            "title": "CRM"
+          },
+          {
+            "icon": "calculator",
+            "title": "Akuntansi"
+          },
+          {
+            "icon": "package",
+            "title": "Persediaan"
+          },
+          {
+            "icon": "clipboard-list",
+            "title": "Proses manual"
+          }
+        ],
+        "layerLabel": "IRFAtech",
+        "layerMessage": "Alat Anda bisa bekerja sama. Yang belum ada, kami bangun.",
+        "layerNote": "Kami menghubungkan alat yang sudah Anda pakai dan mengotomatiskan pekerjaan di antara alat-alat itu — atau membangun yang belum Anda miliki, dari sekadar website bisnis hingga sistem lengkap."
+      },
+      "services": {
+        "badge": "Apa yang kami lakukan",
+        "heading": "Sistem, otomasi, pertumbuhan",
+        "lead": "Delapan layanan, semuanya dibangun dengan satu tujuan: lebih sedikit pekerjaan manual, lebih banyak ruang untuk berkembang.",
+        "learnMore": "Pelajari lebih lanjut",
+        "cards": [
+          {
+            "icon": "database",
+            "title": "Sistem Bisnis",
+            "description": "ERP, CRM, dan perangkat lunak khusus yang menghubungkan alat-alat yang sudah Anda miliki menjadi satu alur kerja yang mulus — jadi data cukup dimasukkan sekali, tidak diketik ulang."
+          },
+          {
+            "icon": "workflow",
+            "title": "Otomasi & AI",
+            "description": "Otomasi WhatsApp dan alat alur kerja yang memindahkan data serta pesan tanpa entri ulang manual."
+          },
+          {
+            "icon": "globe",
+            "title": "Kehadiran & Dukungan",
+            "description": "Website, aplikasi mobile, dan pemeliharaan berbasis SLA yang tetap berjalan jauh setelah peluncuran."
+          }
+        ]
+      },
+      "sectors": {
+        "label": "Juga melayani",
+        "sectors": [
+          "Pemerintah",
+          "LSM",
+          "Kesehatan",
+          "Pendidikan",
+          "Pertanian"
+        ],
+        "cta": "Jelajahi semua solusi"
+      },
+      "workWithMe": {
+        "badge": "Bekerja sama dengan IRFAtech",
+        "heading": "Mari bangun sistem Anda",
+        "lead": "Apa yang Anda dapatkan saat bekerja sama dengan kami.",
+        "cards": [
+          {
+            "icon": "handshake",
+            "title": "Dipimpin langsung oleh pendiri",
+            "description": "Akses langsung ke tim yang membangun sistem Anda — tanpa lapisan penjualan, tanpa serah terima berlapis."
+          },
+          {
+            "icon": "zap",
+            "title": "Hasil otomasi yang cepat terlihat",
+            "description": "Kami mulai dari pekerjaan manual yang paling menyita waktu Anda, sehingga hasilnya terlihat lebih awal."
+          },
+          {
+            "icon": "search",
+            "title": "Anda tetap memegang kendali",
+            "description": "Sistem Anda diluncurkan dengan data dan nama bisnis Anda — menghubungkan alat yang sudah Anda pakai, bukan menggantinya dengan satu sistem baru yang kaku."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Dukungan yang tidak menghilang",
+            "description": "Pemeliharaan berbasis SLA setelah peluncuran, sehingga Anda tidak sendirian saat ada yang perlu ditangani."
+          }
+        ],
+        "cta": "Pesan konsultasi gratis"
+      },
+      "portfolio": {
+        "badge": "Karya pilihan",
+        "heading": "Sistem yang telah kami bangun",
+        "lead": "Sejumlah kerja sama terbaru.",
+        "viewAll": "Lihat semua proyek"
+      },
+      "process": {
+        "badge": "Cara kerjanya"
+      },
+      "testimonials": {
+        "badge": "Testimoni",
+        "heading": "Kata klien kami",
+        "lead": "Kata-kata nyata dari kerja sama yang telah selesai.",
+        "items": []
+      },
+      "aboutTeaser": {
+        "badge": "Tentang kami",
+        "headingLine1": "Dipimpin pendiri,",
+        "headingLine2": "mengutamakan rekayasa.",
+        "para1WithLocation": "15+ tahun pengalaman pengembangan perangkat lunak langsung, berlokasi di {location} dan bekerja dengan klien di India, Timor-Leste, dan seluruh dunia. Kami membangun dengan Odoo, Laravel, dan Vue.js karena selaras dengan cara kami memandang sistem bisnis: saling terhubung, mudah dipelihara, dan dibangun untuk bertahan lama.",
+        "para1NoLocation": "15+ tahun pengalaman pengembangan perangkat lunak langsung, bekerja dengan klien di India, Timor-Leste, dan seluruh dunia. Kami membangun dengan Odoo, Laravel, dan Vue.js karena selaras dengan cara kami memandang sistem bisnis: saling terhubung, mudah dipelihara, dan dibangun untuk bertahan lama.",
+        "para2": "Di blog, kami membagikan pemikiran di balik sistem yang kami bangun.",
+        "moreAboutMe": "Lebih lanjut tentang kami",
+        "statsIntro": "Beberapa hal tentang IRFAtech.",
+        "stat1": "15+ Tahun Pengalaman",
+        "stat2": "Odoo · Laravel · Vue.js",
+        "stat3": "India & Timor-Leste",
+        "basedIn": "Berlokasi di"
+      },
+      "blog": {
+        "badge": "Dari blog",
+        "heading": "Unggulan",
+        "viewAll": "Lihat semua artikel"
+      },
+      "cta": {
+        "badge": "Mari bicara",
+        "heading": "Mari bicarakan kebutuhan Anda",
+        "description": "Konsultasi pertama gratis dan tidak formal, tanpa kewajiban. Dari percakapan pertama hingga sistem selesai, Anda bekerja dengan tim yang sama.",
+        "primary": "Pesan konsultasi gratis",
+        "secondary": "Lebih lanjut tentang kami"
+      }
+    }
+  }
+}

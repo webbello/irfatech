@@ -1,0 +1,33 @@
+---
+import ServiceDetailView from '@/components/pages/views/ServiceDetailView.astro';
+import { getCollection } from 'astro:content';
+import { getServiceSlug, getSecondaryLocales, getVisibleServices } from '@/lib/services';
+
+// Locale-prefixed service detail pages (`/<locale>/services/<slug>`). The
+// default-locale services are served by `src/pages/services/[slug].astro`,
+// which also runs the build-time content-integrity guard across every
+// locale, so it is not repeated here.
+export async function getStaticPaths() {
+  const paths: {
+    params: { locale: string; slug: string };
+    props: { service: Awaited<ReturnType<typeof getCollection<'services'>>>[number] };
+  }[] = [];
+
+  for (const locale of getSecondaryLocales()) {
+    const services = await getVisibleServices(locale);
+    for (const service of services) {
+      paths.push({
+        params: { locale, slug: getServiceSlug(service.id, locale) },
+        props: { service },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { service } = Astro.props;
+const { locale } = Astro.params;
+---
+
+<ServiceDetailView service={service} locale={locale} />

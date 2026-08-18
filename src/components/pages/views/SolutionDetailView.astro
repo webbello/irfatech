@@ -1,0 +1,209 @@
+---
+/**
+ * SolutionDetailView — a single sector/problem landing page (e.g.
+ * `/solutions/school-inspection`). Shared by the default-locale and
+ * locale-prefixed `[slug]` routes.
+ *
+ * Structured, not freeform: challenge/approach/outcomes come straight from
+ * the `solutions` collection schema so every solution page reads the same
+ * way regardless of sector. An MDX body is still supported below the
+ * structured sections for anything that needs more than the schema gives it
+ * (e.g. the field-data-collection workflow diagram).
+ */
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Breadcrumbs from '@/components/seo/Breadcrumbs.astro';
+import { Hero } from '@/components/hero';
+import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import { t, defaultLocale, localizedPath } from '@/i18n';
+import { getSolutionUrl, getSolutionsBaseUrl, getRelatedSolutions } from '@/lib/solutions';
+import { createServiceSchema } from '@/lib/schema';
+import type { Thing, WithContext } from 'schema-dts';
+
+interface Props {
+  solution: CollectionEntry<'solutions'>;
+  locale?: string;
+}
+
+const { solution, locale = defaultLocale } = Astro.props;
+const { data } = solution;
+const { Content } = await render(solution);
+
+const related = await getRelatedSolutions(data.related, locale);
+
+const contactUrl = localizedPath('/contact', locale);
+const solutionsUrl = getSolutionsBaseUrl(locale);
+
+// A solution page is a sector-specific service offering — same shape as
+// ServiceDetailView's own Service schema — so it gets one too instead of
+// only ever appearing as a bare Offer line item in the site-wide catalog.
+const pageUrl = new URL(getSolutionUrl(solution.id, locale), Astro.site).toString();
+const extraSchemas: WithContext<Thing>[] = [
+  createServiceSchema({ name: data.title, description: data.description, url: pageUrl, locale }),
+];
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: t('solutions.title', locale), href: solutionsUrl },
+  { label: data.title, href: getSolutionUrl(solution.id, locale) },
+];
+---
+
+<PageLayout
+  title={`${data.title} — ${t('solutions.title', locale)}`}
+  description={data.description}
+  eagerReveal
+  includeOrgSchema
+  includeProfessionalServiceSchema
+  extraSchemas={extraSchemas}
+>
+  <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
+    <Badge slot="badge" variant="brand" pill>
+      <Icon name={data.icon} size="sm" />
+      {data.sector}
+    </Badge>
+
+    <h1 slot="title">{data.headline}</h1>
+
+    <p slot="description">
+      {data.description}
+    </p>
+  </Hero>
+
+  <div class="mx-auto max-w-6xl px-6 pt-8">
+    <Breadcrumbs items={breadcrumbs} />
+  </div>
+
+  <!-- Challenge + Approach -->
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12 glitch:items-start">
+        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
+          <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
+            <Icon name="alert-circle" size="sm" />
+            {t('solutions.challengeLabel', locale)}
+          </Badge>
+          {data.challenge.map((paragraph) => (
+            <p class="text-lg text-foreground-muted leading-relaxed sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <div class="sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <Card variant="elevated" padding="lg" class="h-full flex flex-col justify-center">
+            <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border sm:justify-center glitch:justify-start">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                <Icon name="check-check" size="md" />
+              </div>
+              <h3 class="font-display text-base font-semibold text-foreground">{t('solutions.approachLabel', locale)}</h3>
+            </div>
+            <ul class="flex flex-col gap-3">
+              {data.approach.map((item) => (
+                <li class="flex items-start gap-3">
+                  <Icon name="check" size="sm" class="text-brand-500 shrink-0 mt-1" />
+                  <p class="text-sm text-foreground-muted leading-relaxed">
+                    <span class="font-semibold text-foreground">{item.lead}</span> — {item.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+        <Badge variant="brand" pill>
+          <Icon name="trending-up" size="sm" />
+          {t('solutions.outcomesLabel', locale)}
+        </Badge>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {data.outcomes.map((outcome, i) => (
+          <ProofTile icon={outcome.icon ?? 'check-circle'} title={outcome.title} data-reveal data-reveal-delay={i % 3 || undefined}>
+            {outcome.description}
+          </ProofTile>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Optional MDX body — most solution pages have none; the field-platform
+      page uses it for the workflow diagram. Checked against the raw source
+      rather than rendering and hiding, so an empty body costs nothing. */}
+  {Boolean(solution.body?.trim()) && (
+    <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="prose prose-lg max-w-none">
+          <Content />
+        </div>
+      </div>
+    </section>
+  )}
+
+  {related.length > 0 && (
+    <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-2 text-center" data-reveal>
+          <h2 class="font-display text-2xl font-bold text-foreground">{t('solutions.relatedLabel', locale)}</h2>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {related.map((r, i) => (
+            <a href={getSolutionUrl(r.id, locale)} class="group">
+              <Card variant="elevated" hover padding="lg" class="h-full flex flex-col gap-2" data-reveal data-reveal-delay={i % 3 || undefined}>
+                <Icon name={r.data.icon} size="md" class="text-brand-500" />
+                <h3 class="font-display text-base font-bold text-foreground group-hover:text-brand-500 transition-colors">
+                  {r.data.title}
+                </h3>
+                <p class="text-sm text-foreground-muted leading-relaxed">{r.data.description}</p>
+              </Card>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <div class="glitch:hidden mx-auto max-w-2xl px-6 text-center" data-reveal>
+      <Badge variant="brand" pill class="mb-6">
+        <Icon name="message-circle" size="sm" />
+        {t('solutions.ctaBadge', locale)}
+      </Badge>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        {t('solutions.detailCtaHeading', locale, { title: data.title })}
+      </h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">
+        {t('solutions.ctaLead', locale)}
+      </p>
+      <Button size="lg" href={contactUrl} class="cta-btn-brand">
+        {t('solutions.ctaPrimary', locale)}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+    </div>
+
+    <LetterGlitchBand>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
+        {t('solutions.detailCtaHeading', locale, { title: data.title })}
+      </h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">
+        {t('solutions.ctaLead', locale)}
+      </p>
+      <Button size="lg" href={contactUrl} class="hero-btn-brand">
+        {t('solutions.ctaPrimary', locale)}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+    </LetterGlitchBand>
+  </section>
+</PageLayout>

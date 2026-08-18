@@ -1,0 +1,174 @@
+---
+/**
+ * CtaBeamBand
+ *
+ * Full-bleed dark-navy CTA band with four converging light-beam gradients
+ * from the top-left and bottom-right corners, plus a dot texture — ported
+ * directly from the Techlo Lite Astro theme's real source
+ * (/Users/apple/Sites/Astro/techlo-lite-astro), not reverse-engineered
+ * from computed styles:
+ *   src/layouts/components/sections/CallToAction.astro (dark-appearance
+ *   branch) and the .cta-section-background / .cta-section-dot-pattern
+ *   rules in src/styles/components.css. Same structure, same gradient
+ *   color-mix percentages and position/size math, same dot-cluster
+ *   custom-property recipe — with their --color-primary/--color-theme-dark
+ *   swapped for our --techlo-primary/--techlo-navy tokens
+ *   (tokens/primitives.css) and their 1320px --breakpoint-xl inlined as a
+ *   literal, since we don't share their container system.
+ *
+ * Deliberately full-bleed and edge-to-edge — no card, no rounded corners,
+ * no inset padding around it — so on the homepage it butts directly
+ * against the (also full-bleed navy) footer with zero seam.
+ *
+ * Deliberately a fixed palette + font, independent of the site's 12
+ * switchable --brand-* themes — same "always dark, always this exact
+ * look" contract as .hero-dark-gradient.
+ */
+---
+
+<div class="cta-beam-band relative isolate overflow-hidden" data-reveal>
+  <div class="cta-beam-bg relative overflow-hidden py-20 text-center md:py-24 xl:py-32">
+    <span aria-hidden="true" class="cta-beam-dots cta-beam-dots-start"></span>
+    <span aria-hidden="true" class="cta-beam-dots cta-beam-dots-end"></span>
+    <div class="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .cta-beam-band {
+    font-family: var(--font-sora);
+  }
+
+  /* Base + four corner beams, ported 1:1 from .cta-section-background:
+     three graduated linear-gradient layers from the top-left (90deg),
+     mirrored as three more from the bottom-right (270deg). Techlo anchors
+     these to the edge of its 1320px max-width container rather than the
+     literal section edge on very wide viewports — 660px below is that
+     container's half-width, inlined since we don't share their
+     --breakpoint-xl container system. */
+  .cta-beam-bg {
+    --cta-edge: calc(50% - min(50%, 660px));
+    --cta-strong: color-mix(in srgb, var(--techlo-primary) 95%, transparent);
+    --cta-default: color-mix(in srgb, var(--techlo-primary) 62%, transparent);
+    --cta-medium: color-mix(in srgb, var(--techlo-primary) 50%, transparent);
+    --cta-soft: color-mix(in srgb, var(--techlo-primary) 35%, transparent);
+    isolation: isolate;
+    background:
+      linear-gradient(90deg, var(--cta-strong), var(--cta-default) 38%, transparent 100%)
+        left 0 top 0 / calc(var(--cta-edge) + min(39rem, 42vw)) 12rem no-repeat,
+      linear-gradient(90deg, var(--cta-strong), var(--cta-medium) 42%, transparent 100%)
+        left 0 top 6rem / calc(var(--cta-edge) + min(28rem, 32vw)) 6rem no-repeat,
+      linear-gradient(90deg, var(--cta-default), var(--cta-soft) 44%, transparent 100%)
+        left 0 top 12rem / calc(var(--cta-edge) + min(16rem, 22vw)) 7rem no-repeat,
+      linear-gradient(270deg, var(--cta-strong), var(--cta-default) 38%, transparent 100%)
+        right 0 bottom 0 / calc(var(--cta-edge) + min(39rem, 42vw)) 12rem no-repeat,
+      linear-gradient(270deg, var(--cta-strong), var(--cta-medium) 42%, transparent 100%)
+        right 0 bottom 6rem / calc(var(--cta-edge) + min(28rem, 32vw)) 6rem no-repeat,
+      linear-gradient(270deg, var(--cta-default), var(--cta-soft) 44%, transparent 100%)
+        right 0 bottom 12rem / calc(var(--cta-edge) + min(16rem, 22vw)) 7rem no-repeat,
+      var(--techlo-navy);
+  }
+
+  /* Dot clusters, ported 1:1 from .cta-section-dot-pattern: each span is
+     a small 2x2-dot repeating tile (four stacked radial-gradients) plus a
+     second, differently-sized overlapping tile via ::before — giving each
+     corner an organic two-density cluster instead of one uniform grid.
+     Desktop only (>=1024px), matching the reference. */
+  .cta-beam-dots {
+    --dot-gap: 1px;
+    --dot-tile: calc(var(--dot-gap) * 2);
+    --dot-offset: 2px;
+    --dot-size: 0.5px;
+    --dot-opacity: 44%;
+    --dot-before-opacity: 36%;
+    --dot-color: color-mix(in srgb, var(--techlo-primary) var(--dot-opacity), transparent);
+    position: absolute;
+    z-index: 0;
+    display: none;
+    inline-size: var(--dot-inline-size, 12.5rem);
+    block-size: var(--dot-block-size, 8.25rem);
+    pointer-events: none;
+  }
+  .cta-beam-dots,
+  .cta-beam-dots::before {
+    background-image:
+      radial-gradient(circle at var(--dot-offset) var(--dot-offset), var(--dot-color) var(--dot-size), transparent calc(var(--dot-size) + 0.025rem)),
+      radial-gradient(circle at calc(var(--dot-gap) + var(--dot-offset)) var(--dot-offset), var(--dot-color) var(--dot-size), transparent calc(var(--dot-size) + 0.025rem)),
+      radial-gradient(circle at var(--dot-offset) calc(var(--dot-gap) + var(--dot-offset)), var(--dot-color) var(--dot-size), transparent calc(var(--dot-size) + 0.025rem)),
+      radial-gradient(circle at calc(var(--dot-gap) + var(--dot-offset)) calc(var(--dot-gap) + var(--dot-offset)), var(--dot-color) var(--dot-size), transparent calc(var(--dot-size) + 0.025rem));
+    background-size: var(--dot-tile) var(--dot-tile);
+  }
+  .cta-beam-dots::before {
+    --dot-color: color-mix(in srgb, var(--techlo-primary) var(--dot-before-opacity), transparent);
+    position: absolute;
+    display: block;
+    inset-block-start: var(--dot-before-block-start, 0);
+    inset-inline-start: var(--dot-before-inline-start, 0);
+    inline-size: var(--dot-before-inline-size, 11rem);
+    block-size: var(--dot-before-block-size, 7rem);
+    content: '';
+  }
+
+  @media (min-width: 1024px) {
+    .cta-beam-dots {
+      display: block;
+    }
+    .cta-beam-dots-start {
+      --dot-inline-size: 12.5rem;
+      --dot-block-size: 6.75rem;
+      --dot-opacity: 34%;
+      --dot-before-inline-size: 8.75rem;
+      --dot-before-block-size: 9.25rem;
+      --dot-before-block-start: -4.25rem;
+      --dot-before-inline-start: 6.25rem;
+      --dot-before-opacity: 46%;
+      inset-block-end: 0;
+      inset-inline-start: calc(50% - 25rem);
+    }
+    .cta-beam-dots-end {
+      --dot-inline-size: 6.75rem;
+      --dot-block-size: 10.25rem;
+      --dot-opacity: 42%;
+      --dot-before-inline-size: 13rem;
+      --dot-before-block-size: 5.75rem;
+      --dot-before-block-start: 5.25rem;
+      --dot-before-inline-start: -8.25rem;
+      --dot-before-opacity: 28%;
+      inset-block-start: -0.25rem;
+      inset-inline-start: calc(50% + 30rem);
+    }
+  }
+
+  /* Content colours + type scale, matching the reference's dark-appearance
+     branch (text-display-6/5/4, leading-body, text-white/-light). */
+  .cta-beam-band :global(h2) {
+    color: white;
+    font-size: clamp(2rem, 1.6rem + 2vw, 3.25rem);
+    line-height: 1.1;
+  }
+  .cta-beam-band :global(p) {
+    color: var(--techlo-light);
+    line-height: 1.8;
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+  .cta-beam-band :global(.btn-primary) {
+    background-color: var(--techlo-primary) !important;
+    background-image: none !important;
+    color: white !important;
+    border-color: transparent !important;
+  }
+  .cta-beam-band :global(.btn-primary:hover) {
+    background-color: color-mix(in srgb, var(--techlo-primary) 88%, white) !important;
+  }
+  .cta-beam-band :global(a[class*='border-foreground']) {
+    color: white !important;
+    border-color: color-mix(in srgb, white 30%, transparent) !important;
+  }
+  .cta-beam-band :global(a[class*='border-foreground']:hover) {
+    border-color: color-mix(in srgb, white 50%, transparent) !important;
+    background-color: color-mix(in srgb, white 8%, transparent) !important;
+  }
+</style>

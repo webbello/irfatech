@@ -1,0 +1,224 @@
+---
+/**
+ * HeroSplit — split hero, plain-text-on-left / photo-bleeding-in-from-right.
+ *
+ * Structural + technique reference: Ashaz Autoz's homepage hero (the exact
+ * source was provided — /Users/apple/Sites/Astro/ashaz-autoz/src/components/Hero.astro).
+ * The layout isn't a text column plus a separate cutout image; it's ONE
+ * photo with a directional mask fading it out on the text side, sitting in
+ * a two-column grid where only the first column has real content — the
+ * "second column" is just where the unmasked part of the photo happens to
+ * land. Simpler than it looks, and reused here as-is. The other borrowed
+ * detail is the accent line: a gradient fill clipped to the text
+ * (`background-clip: text`), not a flat colour — Ashaz's is orange-to-
+ * amber, this one's brand blue.
+ *
+ * Colours, copy, and the photo (the existing Timor-Leste shot) are
+ * IRFAtech's own.
+ *
+ * One of several interchangeable homepage hero variants — see
+ * src/components/hero/index.ts.
+ */
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+
+interface Props {
+  badge: string;
+  /** First line — plain white. */
+  titleLine1: string;
+  /** Second line — brand-gradient text fill. */
+  titleAccent: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: string;
+  primaryIcon?: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+  bgImage: ImageMetadata;
+}
+
+const {
+  badge,
+  titleLine1,
+  titleAccent,
+  description,
+  primaryLabel,
+  primaryHref,
+  primaryIcon = 'arrow-right',
+  secondaryLabel,
+  secondaryHref,
+  bgImage,
+} = Astro.props;
+
+const photo = await getImage({ src: bgImage, width: 2200, format: 'webp', quality: 72 });
+---
+
+<section class="hs-section relative isolate flex min-h-[100svh] items-center overflow-hidden">
+  <div class="hs-bg-photo" aria-hidden="true" style={`background-image:url(${photo.src});`}></div>
+
+  <div class="relative z-20 mx-auto w-full max-w-7xl px-6 py-32 lg:py-40">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="max-w-2xl" data-reveal data-reveal-eager>
+        <div class="hs-badge">
+          <span class="hs-badge-dot" aria-hidden="true"></span>
+          {badge}
+        </div>
+
+        <h1 class="mt-[var(--space-stack-lg)] font-display text-5xl leading-[0.95] font-black tracking-tight text-white text-balance sm:text-6xl lg:text-7xl">
+          {titleLine1}
+          <br />
+          <span class="hs-accent">{titleAccent}</span>
+        </h1>
+
+        <p class="mt-[var(--space-stack-lg)] max-w-xl text-lg leading-relaxed text-white/70 sm:text-xl">
+          {description}
+        </p>
+
+        <div class="mt-[var(--space-stack-lg)] flex flex-wrap gap-4">
+          <Button size="lg" href={primaryHref}>
+            {primaryLabel}
+            <Icon name={primaryIcon} size="sm" />
+          </Button>
+          <Button size="lg" variant="outline" class="hs-secondary-btn" href={secondaryHref}>
+            {secondaryLabel}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hs-bottom-fade" aria-hidden="true"></div>
+
+  <div class="hs-scroll-indicator" aria-hidden="true">
+    <Icon name="chevron-down" size="lg" />
+  </div>
+</section>
+
+<style>
+  .hs-section {
+    isolation: isolate;
+    background: linear-gradient(180deg, var(--techlo-primary) 0%, var(--techlo-navy) 100%);
+  }
+
+  /* One photo, masked instead of cropped into a separate element: opaque
+     from ~50% of the width onward (where it's free to bleed into the empty
+     second grid column), fully transparent before that (where the text
+     sits), so the dark gradient above shows through behind the copy
+     without a second background layer. scale-105 hides the very edge of
+     the mask transition from clipping into visible pixels. */
+  .hs-bg-photo {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.05);
+    /* Below `lg` the grid collapses to one column, so the text block spans
+       the full width instead of sitting beside the photo's visible half.
+       Ashaz's source photo is a dim indoor garage — dark enough everywhere
+       that text sits fine over it even at full width, unmasked. This
+       photo (a bright dusk cityscape) doesn't have that property, so the
+       mask itself has to reveal less on narrow screens: mostly hidden
+       behind the text, showing only in a sliver at the right/bottom edge.
+       The `lg` query below widens it back out once the two columns split
+       and the photo has its own half again. */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 68%, black 96%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, transparent 68%, black 96%, black 100%);
+  }
+  @media (min-width: 1024px) {
+    .hs-bg-photo {
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 45%, black 85%, black 100%);
+      mask-image: linear-gradient(to right, transparent 0%, transparent 45%, black 85%, black 100%);
+    }
+  }
+
+  .hs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in oklch, var(--brand-400) 40%, transparent);
+    background: color-mix(in oklch, var(--brand-400) 14%, transparent);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--brand-200, oklch(87.1% 0.066 249));
+  }
+  .hs-badge-dot {
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 9999px;
+    background: var(--brand-300, oklch(77.2% 0.121 250));
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hs-badge-dot {
+      animation: hs-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+  }
+  @keyframes hs-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Gradient-filled text, not a flat colour — the one detail that most
+     makes this read as "a different hero" rather than a recolour of the
+     other two. Fixed to the brand token scale (not --techlo-primary/navy)
+     since it needs to read as an accent, not the panel's own base colour. */
+  .hs-accent {
+    background: linear-gradient(90deg, var(--brand-300, oklch(77.2% 0.121 250)), var(--brand-500));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* The outline CTA sits directly on the photo/gradient here (unlike
+     Button's usual contexts), so it needs the same white-on-dark treatment
+     the primary hero's light-mode override gives its own outline button —
+     applied directly rather than conditionally, since this panel is always
+     dark regardless of site colour mode. */
+  :global(.hs-secondary-btn) {
+    border-color: color-mix(in oklch, white 30%, transparent) !important;
+    color: white !important;
+  }
+  :global(.hs-secondary-btn:hover) {
+    background-color: color-mix(in oklch, white 12%, transparent) !important;
+    border-color: color-mix(in oklch, white 45%, transparent) !important;
+  }
+
+  .hs-bottom-fade {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 10;
+    height: 8rem;
+    pointer-events: none;
+    background: linear-gradient(to top, var(--color-background), transparent);
+  }
+
+  .hs-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    z-index: 20;
+    transform: translateX(-50%);
+    color: color-mix(in oklch, white 55%, transparent);
+    display: none;
+  }
+  @media (min-width: 1024px) and (min-height: 500px) {
+    .hs-scroll-indicator {
+      display: block;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hs-scroll-indicator {
+      animation: hs-bounce 1.6s ease-in-out infinite;
+    }
+  }
+  @keyframes hs-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+  }
+</style>

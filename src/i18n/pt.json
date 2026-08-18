@@ -1,0 +1,946 @@
+{
+  "nav": {
+    "skipToContent": "Ir para o conteúdo",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "selectLanguage": "Selecionar idioma",
+    "currentLanguage": "Idioma atual",
+    "mainNav": "Navegação principal",
+    "mobileNav": "Navegação móvel",
+    "toggleMenu": "Alternar menu",
+    "sectionNavigate": "Navegar",
+    "searchSite": "Pesquisar neste site",
+    "sectionTheme": "Tema",
+    "sectionLanguage": "Idioma",
+    "sectionConnect": "Conectar",
+    "items": {
+      "home": "Início",
+      "services": "Serviços",
+      "solutions": "Indústrias",
+      "projects": "Projetos",
+      "blog": "Blog",
+      "about": "Sobre",
+      "contact": "Contacto"
+    },
+    "ctaLabel": "Começar um projeto"
+  },
+  "common": {
+    "readMore": "Ler mais",
+    "loading": "A carregar…",
+    "backToTop": "Voltar ao topo",
+    "search": "Pesquisar",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "next": "Seguinte",
+    "previous": "Anterior",
+    "home": "Início"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Artigos e novidades recentes",
+    "readingTime": "{minutes} min de leitura",
+    "publishedOn": "Publicado em {date}",
+    "updatedOn": "Atualizado em {date}",
+    "writtenBy": "Escrito por {author}",
+    "tagsLabel": "Etiquetas",
+    "featured": "Destaque",
+    "draft": "Rascunho",
+    "noPostsFound": "Nenhum artigo encontrado.",
+    "tableOfContents": "Índice",
+    "shareThisPost": "Partilhar este artigo",
+    "relatedPosts": "Artigos Relacionados",
+    "share": "Partilhar:",
+    "shareOn": "Partilhar em {platform}",
+    "copyLink": "Copiar link",
+    "metaTitle": "Blog",
+    "metaDescription": "O blog da IRFAtech: guias práticos sobre ERP, automação com IA, automação de WhatsApp e construção de infraestrutura digital para negócios em crescimento.",
+    "heroBadge": "Todos os artigos",
+    "heroDescription": "Notas sobre automação, ERP e a construção de sistemas que crescem com o seu negócio.",
+    "allPosts": "Todos os artigos",
+    "noPosts": "Nenhum artigo encontrado",
+    "pageMetaTitle": "Blog — Página {page}",
+    "pageMetaDescription": "Página {page} de {total} — guias práticos sobre ERP, automação e infraestrutura digital da IRFAtech.",
+    "pageBadge": "Página {page} de {total}",
+    "newestPosts": "Artigos mais recentes",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Artigos com a etiqueta \"{tag}\".",
+    "tagBadge": "Etiqueta",
+    "tagCountOne": "{count} artigo com a etiqueta \"{tag}\".",
+    "tagCountOther": "{count} artigos com a etiqueta \"{tag}\".",
+    "tagEmpty": "Nenhum artigo encontrado para esta etiqueta.",
+    "tagBackToAll": "Voltar a todos os artigos",
+    "onThisPage": "Nesta página",
+    "tocShow": "Mostrar",
+    "tocHide": "Ocultar",
+    "backToBlog": "Voltar ao Blog",
+    "updated": "Atualizado",
+    "rssFeed": "Feed RSS",
+    "cta": {
+      "heading": "Pronto para automatizar o seu negócio?",
+      "description": "Conte-nos o que está a atrasar o seu negócio — mostramos-lhe o que construiríamos para resolver isso.",
+      "button": "Fale connosco"
+    }
+  },
+  "comments": {
+    "title": "Comentários",
+    "loadError": "Falha ao carregar os comentários. Atualize a página e tente novamente.",
+    "requiresJs": "Os comentários requerem JavaScript para carregar."
+  },
+  "projects": {
+    "title": "Projetos",
+    "description": "Sistemas que construímos",
+    "viewProject": "Ver projeto",
+    "viewSource": "Ver código-fonte",
+    "noProjectsFound": "Nenhum projeto encontrado.",
+    "metaTitle": "Projetos",
+    "metaDescription": "Trabalhos selecionados — implementações de ERP, projetos de automação e plataformas entregues pela IRFAtech para negócios em crescimento.",
+    "heroBadge": "Trabalhos selecionados",
+    "heroDescription": "Sistemas de que nos orgulhamos.",
+    "allProjects": "Todos os projetos",
+    "pageMetaTitle": "Projetos — Página {page}",
+    "pageMetaDescription": "Página {page} de {total} — trabalhos selecionados e casos de estudo da IRFAtech.",
+    "pageBadge": "Página {page} de {total}",
+    "tagMetaTitle": "#{tag} — Projetos",
+    "tagMetaDescription": "Projetos com a etiqueta \"{tag}\".",
+    "tagBadge": "Etiqueta",
+    "tagCountOne": "{count} projeto com a etiqueta \"{tag}\".",
+    "tagCountOther": "{count} projetos com a etiqueta \"{tag}\".",
+    "tagEmpty": "Nenhum projeto encontrado para esta etiqueta.",
+    "tagBackToAll": "Voltar a todos os projetos",
+    "backToProjects": "Voltar a Projetos",
+    "moreProjects": "Mais projetos",
+    "ctaBadge": "Vamos conversar",
+    "ctaHeading": "Vamos falar sobre o que precisa",
+    "ctaLead": "Cada parceria parte do seu processo, não de um modelo. Conte-nos com o que está a trabalhar.",
+    "ctaPrimary": "Enviar mensagem",
+    "ctaSecondary": "Saiba mais sobre nós",
+    "closingHeading": "Tem um sistema em mente?",
+    "closingLead": "Seja uma implementação de ERP, um projeto de automação, ou algo que precise de uma nova perspetiva — adorávamos ouvir sobre isso."
+  },
+  "solutions": {
+    "title": "Soluções",
+    "metaTitle": "Soluções por Setor",
+    "metaDescription": "Soluções de transformação digital para pequenas empresas, empresas, governos, ONGs, saúde, educação e agricultura — da IRFAtech.",
+    "heroBadge": "Soluções",
+    "heroDescription": "Cada organização tem um problema diferente. Encontre o que corresponde ao seu.",
+    "sectorCount": "{count} soluções",
+    "challengeLabel": "O desafio",
+    "approachLabel": "A nossa abordagem",
+    "outcomesLabel": "O que recebe",
+    "relatedLabel": "Soluções relacionadas",
+    "ctaBadge": "Vamos conversar",
+    "ctaHeading": "Não encontra o seu problema na lista?",
+    "ctaLead": "Estes são exemplos, não a lista completa. Diga-nos o que está a enfrentar e seremos honestos sobre se podemos ajudar.",
+    "ctaPrimary": "Enviar mensagem",
+    "ctaSecondary": "Saiba mais sobre nós",
+    "detailCtaHeading": "Pronto para falar sobre {title}?"
+  },
+  "pagination": {
+    "page": "Página {current} de {total}",
+    "label": "Paginação",
+    "previousPage": "Página anterior",
+    "nextPage": "Página seguinte"
+  },
+  "errors": {
+    "pageNotFound": "Página não encontrada",
+    "pageNotFoundMessage": "A página que procura não existe ou foi movida.",
+    "goHome": "Ir para a página inicial",
+    "metaTitle": "Página não encontrada",
+    "metaDescription": "Esta página foi movida, removida, ou nunca existiu.",
+    "badge": "404 — página não encontrada",
+    "titleLead": "Página não",
+    "titleHighlight": "encontrada.",
+    "description": "Esta página foi movida, removida, ou nunca existiu. Vamos ajudá-lo a voltar ao caminho certo.",
+    "backHome": "Voltar ao início",
+    "browseBlog": "Explorar o blog",
+    "tryInstead": "Experimente uma destas opções",
+    "projectsDesc": "Trabalhos selecionados e casos de estudo.",
+    "blogDesc": "Notas sobre automação, ERP e infraestrutura digital.",
+    "contactTitle": "Contacto",
+    "contactDesc": "Inicie uma conversa sobre o seu negócio."
+  },
+  "newsletter": {
+    "heading": "Subscrever a newsletter",
+    "description": "Receba os últimos artigos na sua caixa de entrada.",
+    "emailPlaceholder": "Introduza o seu email",
+    "subscribe": "Subscrever",
+    "subscribing": "A subscrever…",
+    "success": "Obrigado por subscrever!",
+    "genericError": "Algo correu mal",
+    "notConfigured": "Ainda não configurado — defina RESEND_API_KEY e RESEND_AUDIENCE_ID para ativar isto. Só você consegue ver esta linha.",
+    "unavailable": "As subscrições não estão disponíveis neste momento.",
+    "error": "Falha na subscrição. Tente novamente."
+  },
+  "contact": {
+    "heading": "Entre em contacto",
+    "name": "Nome",
+    "email": "Email",
+    "service": "Serviço",
+    "servicePlaceholder": "Com o que você precisa de ajuda?",
+    "serviceBusinessSystems": "ERP, CRM e Sistemas Empresariais",
+    "serviceAutomation": "Automação e IA",
+    "servicePresence": "Website, Aplicativo e Suporte",
+    "serviceOther": "Ainda não sei / Outro",
+    "message": "Mensagem",
+    "send": "Enviar mensagem",
+    "sendWhatsapp": "Continuar no WhatsApp",
+    "sending": "A enviar…",
+    "success": "Mensagem enviada com sucesso!",
+    "whatsappOpening": "A abrir o WhatsApp — prima enviar lá para concluir.",
+    "genericError": "Algo correu mal",
+    "notConfigured": "Ainda não configurado — defina RESEND_API_KEY para ativar isto. Só você consegue ver esta linha.",
+    "unavailable": "Este formulário não está disponível neste momento.",
+    "error": "Falha ao enviar a mensagem. Tente novamente."
+  },
+  "theme": {
+    "selectColourTheme": "Selecionar tema de cor",
+    "colourTheme": "Tema de cor",
+    "colourMode": "Modo de cor",
+    "modeTrigger": "Tema: {mode}. Clique para alterar.",
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "currentlyLight": "Atualmente claro",
+    "currentlyDark": "Atualmente escuro",
+    "swatchLabel": "Tema {name}"
+  },
+  "search": {
+    "placeholder": "Pesquisar artigos, projetos e páginas…",
+    "inputLabel": "Termo de pesquisa",
+    "resultsLabel": "Resultados da pesquisa",
+    "hint": "Comece a escrever para pesquisar no site.",
+    "noResults": "Sem resultados para “{query}”",
+    "unavailable": "O índice de pesquisa é gerado durante o build e não está disponível em <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Execute <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> para experimentar localmente."
+  },
+  "video": {
+    "playLabel": "Reproduzir vídeo: {title}",
+    "watchOn": "Ver no YouTube"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName}",
+    "builtWith": "Construído com Astro Rocket",
+    "groups": {
+      "site": "Site",
+      "topics": "Tópicos",
+      "projects": "Projetos",
+      "questions": "Tem perguntas?"
+    },
+    "followOn": "Siga-nos em {platform}"
+  },
+  "pages": {
+    "about": {
+      "meta": {
+        "title": "Sobre — Automação de Negócios e Infraestrutura Digital",
+        "description": "A IRFAtech (Integrated Resources For Automation & Technology) ajuda negócios em crescimento na Índia e em Timor-Leste a automatizar operações com ERP, fluxos de trabalho com IA e software personalizado."
+      },
+      "hero": {
+        "badge": "Sobre",
+        "titleLead": "IRFAtech —",
+        "typingWords": [
+          "Soluções de ERP",
+          "Automação com IA",
+          "Software Personalizado",
+          "Automação de WhatsApp",
+          "Sistemas de CRM",
+          "Recolha de Dados no Terreno",
+          "Sites para Negócios"
+        ],
+        "typingWordsMobile": [
+          "Soluções de ERP",
+          "Automação com IA",
+          "Automação de WhatsApp",
+          "Recolha de Dados no Terreno",
+          "Sites para Negócios"
+        ],
+        "description": "Um parceiro tecnológico B2B que ajuda negócios em crescimento a automatizar, sistematizar e escalar."
+      },
+      "whatYouGet": {
+        "badge": "O que fazemos",
+        "heading": "Tudo o que um negócio em crescimento precisa",
+        "lead": "Oito serviços, um único parceiro: os sistemas, a automação e o suporte que levam um negócio de folhas de cálculo a infraestrutura digital.",
+        "items": [
+          {
+            "icon": "database",
+            "title": "Soluções de ERP",
+            "description": "Sistemas baseados em Odoo para inventário, faturação, operações e contabilidade — um único sistema em vez de cinco folhas de cálculo."
+          },
+          {
+            "icon": "workflow",
+            "title": "Automação com IA e Fluxos de Trabalho",
+            "description": "Trabalho repetitivo tratado automaticamente, para que a sua equipa dedique tempo ao que realmente precisa de uma pessoa."
+          },
+          {
+            "icon": "code",
+            "title": "Desenvolvimento de Software Personalizado",
+            "description": "Sistemas em Laravel e Vue.js construídos para os processos que o software pronto a usar nunca foi feito para cobrir."
+          },
+          {
+            "icon": "message-circle",
+            "title": "Automação de WhatsApp",
+            "description": "Atualizações de encomendas, lembretes e respostas a clientes tratadas onde os seus clientes já estão."
+          },
+          {
+            "icon": "users",
+            "title": "CRM e Automação de Vendas",
+            "description": "Acompanhamento de leads e follow-ups que transformam mais oportunidades em negócio fechado."
+          },
+          {
+            "icon": "globe",
+            "title": "Sites para Negócios",
+            "description": "Sites rápidos e credíveis, construídos para gerar contactos, não apenas para existir online."
+          },
+          {
+            "icon": "smartphone",
+            "title": "Desenvolvimento de Aplicações Móveis",
+            "description": "Aplicações iOS e Android para equipas de terreno, entregas e operações voltadas para o cliente."
+          },
+          {
+            "icon": "life-buoy",
+            "title": "Manutenção e Suporte",
+            "description": "Atualizações e monitorização com garantia de SLA, para que o que construímos continue a funcionar depois do lançamento."
+          },
+          {
+            "icon": "handshake",
+            "title": "Primeira consulta gratuita",
+            "description": "Sem compromissos, sem faturação por hora — uma proposta clara com preço fixo e prazo definido."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "Como Trabalhamos",
+        "heading": "Construído com intenção",
+        "lead": "Cada parceria na IRFAtech assenta nos mesmos três princípios.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "Automação em Primeiro Lugar",
+            "description": "Procuramos primeiro o trabalho manual e repetitivo — é normalmente aí que o retorno é mais rápido."
+          },
+          {
+            "icon": "award",
+            "title": "Disciplina de Engenharia",
+            "description": "Laravel, Vue.js e Odoo, construídos de forma limpa e documentada — fáceis de manter anos após o lançamento, não apenas na entrega."
+          },
+          {
+            "icon": "rocket",
+            "title": "À Medida das PME",
+            "description": "Sistemas dimensionados ao seu orçamento e fase de crescimento, não software empresarial que só virá a aproveitar mais tarde."
+          }
+        ]
+      },
+      "stack": {
+        "badge": "Ferramentas e Tecnologia",
+        "title": "A Nossa Stack",
+        "description": "A tecnologia por trás do trabalho da IRFAtech — escolhida pela fiabilidade, facilidade de manutenção a longo prazo e um ecossistema de suporte sólido."
+      },
+      "faq": {
+        "badge": "É bom saber",
+        "heading": "Perguntas frequentes",
+        "lead": "Tudo o que gostaria de saber antes de nos contactar.",
+        "cards": [
+          {
+            "icon": "building-2",
+            "title": "Sobre a IRFAtech",
+            "items": [
+              {
+                "question": "O que significa IRFAtech?",
+                "answer": "IRFAtech significa Integrated Resources For Automation & Technology. Somos um parceiro de transformação digital, fundado por Mohammed Irfan, que ajuda empresas, governos e ONGs a substituir processos manuais por sistemas digitais interligados."
+              },
+              {
+                "question": "Com quem trabalham?",
+                "answer": "Pequenas e médias empresas nos setores de retalho, saúde, educação e distribuição — além de governos, ONGs e organizações internacionais para recolha de dados no terreno. Principalmente na Índia e em Timor-Leste, com clientes a expandir globalmente."
+              },
+              {
+                "question": "O que é a Landflix?",
+                "answer": "A Landflix é a nossa plataforma SaaS de referência para tecnologia imobiliária e gestão digital de propriedades — simultaneamente um produto próprio e prova do que a nossa stack consegue construir."
+              },
+              {
+                "question": "A IRFAtech é uma empresa registada ou um freelancer?",
+                "answer": "A IRFAtech é uma consultora tecnológica liderada pelo fundador. Trabalha diretamente com a equipa que constrói o seu sistema, sem camada de vendas pelo meio."
+              },
+              {
+                "question": "Onde estão sediados?",
+                "answer": "Operamos a partir de Kolkata, na Índia, e de Díli, em Timor-Leste, e trabalhamos com clientes remotamente em todo o mundo."
+              }
+            ]
+          },
+          {
+            "icon": "handshake",
+            "title": "Trabalhar connosco",
+            "items": [
+              {
+                "question": "Como começamos?",
+                "answer": "Envie uma mensagem através do formulário de contacto ou do WhatsApp. Respondemos num dia útil e agendamos uma chamada gratuita e sem compromisso para perceber o que precisa."
+              },
+              {
+                "question": "Só constroem sistemas de ERP?",
+                "answer": "Não — o ERP é um de oito serviços. Também construímos automação com IA/fluxos de trabalho, software personalizado, automação de WhatsApp, sistemas de CRM, sites para negócios, aplicações móveis, e prestamos manutenção contínua."
+              },
+              {
+                "question": "A vossa automação de WhatsApp cumpre as políticas do WhatsApp?",
+                "answer": "Sim. Construímos sobre a WhatsApp Business Platform oficial (Cloud API), pelo que a mensagem se mantém dentro das políticas de mensagens de negócio da Meta, em vez de soluções não oficiais."
+              },
+              {
+                "question": "Ficamos com o código e os dados?",
+                "answer": "Sim. Os sistemas personalizados são seus — o código, a base de dados e os sistemas onde correm. Somos transparentes sobre isto na proposta, antes de o trabalho começar."
+              },
+              {
+                "question": "Como é definido o preço de um projeto?",
+                "answer": "Uma consulta gratuita, seguida de uma proposta escrita com preço fixo e prazo definido. Sem faturação por hora e sem faturas-surpresa."
+              }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Código Aberto",
+        "heading": "Construído em aberto",
+        "description": "O código-fonte deste site é público no GitHub — a mesma disciplina de engenharia que aplicamos a cada projeto de cliente, aplicada também ao nosso próprio.",
+        "button": "Ver o código-fonte no GitHub",
+        "cards": [
+          {
+            "title": "Engenharia liderada pelo fundador",
+            "text": "Cada projeto passa por Mohammed Irfan e pela equipa principal — mais de 15 anos de experiência prática em desenvolvimento de software, sem camada de vendas entre si e o trabalho."
+          },
+          {
+            "title": "Site com código disponível",
+            "text": "Este site é público no <a href=\"https://github.com/webbello/irfatech\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub</a> — um exemplo real do padrão de qualidade que aplicamos aos sistemas dos clientes."
+          },
+          {
+            "title": "Mantido ativamente",
+            "text": "Tanto este site como os sistemas que entregamos aos clientes são mantidos atualizados, monitorizados e melhorados através de um plano de suporte contínuo."
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Comece já",
+        "heading": "Pronto para automatizar o seu negócio?",
+        "description": "A primeira consulta é gratuita e informal — por telefone, vídeo ou WhatsApp. Recebe respostas honestas e, depois, uma proposta clara com preço fixo e prazo definido.",
+        "button": "Fale connosco"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Serviços — ERP, Automação, Software e Suporte",
+        "description": "Soluções de ERP, automação com IA e fluxos de trabalho, software personalizado, automação de WhatsApp, CRM, sites, aplicações móveis e suporte — um parceiro, oito serviços."
+      },
+      "includedLabel": "O que está incluído",
+      "hero": {
+        "badge": "Serviços",
+        "titleLead": "Sistemas, automação,",
+        "titleHighlight": "e tudo depois do lançamento",
+        "description": "Oito serviços construídos com um único objetivo: substituir trabalho manual e disperso por infraestrutura digital que cresce com o seu negócio.",
+        "jumpLabels": [
+          "Sistemas de negócio",
+          "Automação e IA",
+          "Presença e suporte"
+        ]
+      },
+      "design": {
+        "badge": "Sistemas",
+        "heading": "Sistemas de negócio",
+        "paragraphs": [
+          "Os sistemas de negócio são a base: o ERP, o CRM e o software personalizado que substituem folhas de cálculo dispersas e registos manuais por uma única fonte de verdade interligada.",
+          "Construímos sobre o Odoo para ERP — inventário, faturação, contabilidade e operações numa só plataforma — e sobre Laravel e Vue.js para tudo o que é personalizado e que o software pronto a usar não cobre. Cada sistema é moldado à forma como o seu negócio realmente funciona, não a um modelo genérico ao qual tem de se adaptar."
+        ],
+        "included": [
+          {
+            "lead": "Um ERP à medida da sua forma de trabalhar",
+            "text": "inventário, faturação, contabilidade e operações baseados em Odoo, num único sistema."
+          },
+          {
+            "lead": "CRM e automação de vendas",
+            "text": "acompanhamento de leads e follow-ups que transformam mais oportunidades em negócio fechado."
+          },
+          {
+            "lead": "Software personalizado, feito à medida",
+            "text": "sistemas em Laravel e Vue.js para os processos que o software pronto a usar não cobre."
+          },
+          {
+            "lead": "Um sistema, não cinco folhas de cálculo",
+            "text": "o seu inventário, faturação e dados de clientes finalmente a comunicar entre si."
+          },
+          {
+            "lead": "Suporte que o mantém a funcionar",
+            "text": "atualizações, correções e monitorização sob um SLA, não uma entrega única."
+          }
+        ],
+        "ctaLabel": "Fale sobre os seus sistemas"
+      },
+      "development": {
+        "badge": "Automação",
+        "heading": "Automação e IA",
+        "paragraphs": [
+          "A automação é normalmente onde está o retorno mais rápido: o trabalho manual e repetitivo que a sua equipa faz todos os dias e que um fluxo de trabalho pode tratar.",
+          "Construímos automação do WhatsApp Business para atualizações de encomendas, lembretes e respostas a clientes, e ligamo-la a ferramentas de automação e IA que movem dados entre o seu ERP, CRM e site sem ninguém ter de os voltar a introduzir. A IA é usada onde faz sentido — para resumir, organizar e encaminhar — não acrescentada só por acrescentar."
+        ],
+        "included": [
+          {
+            "lead": "Menos horas de trabalho manual",
+            "text": "tarefas repetitivas tratadas automaticamente, para a sua equipa se dedicar ao que precisa de uma pessoa."
+          },
+          {
+            "lead": "Automação do WhatsApp Business",
+            "text": "atualizações de encomendas, lembretes e respostas a clientes, tratadas onde os seus clientes já estão."
+          },
+          {
+            "lead": "Fluxos de trabalho que ligam as suas ferramentas",
+            "text": "os dados movem-se entre o ERP, CRM e site sem reintrodução manual."
+          },
+          {
+            "lead": "IA onde faz sentido",
+            "text": "usada para resumir, organizar e encaminhar — não acrescentada só por acrescentar."
+          },
+          {
+            "lead": "Construída à volta do seu processo",
+            "text": "automação moldada à forma como o seu negócio realmente funciona, não a um modelo genérico."
+          }
+        ],
+        "ctaLabel": "Veja a automação em ação"
+      },
+      "performance": {
+        "badge": "Presença",
+        "heading": "Presença digital e suporte",
+        "paragraphs": [
+          "A presença digital é a forma como os clientes o encontram e contactam: um site que gera contactos, uma aplicação móvel para operações de terreno ou voltadas para o cliente, e o suporte contínuo que mantém tudo isto a funcionar.",
+          "Construímos sites e aplicações para serem encontrados — por motores de pesquisa e por assistentes de IA — não apenas para terem bom aspeto. E nada do que entregamos é uma entrega única: cada projeto vem com manutenção e suporte sob um SLA, para continuar a funcionar muito depois do lançamento."
+        ],
+        "included": [
+          {
+            "lead": "Um site que gera contactos",
+            "text": "rápido, credível e construído para transformar visitantes em pedidos de contacto."
+          },
+          {
+            "lead": "Aplicações móveis à medida da sua operação",
+            "text": "aplicações iOS e Android para equipas de terreno, entregas ou uso voltado para o cliente."
+          },
+          {
+            "lead": "Encontrado pelo Google e pela IA",
+            "text": "SEO e dados estruturados construídos desde a primeira linha, não acrescentados depois."
+          },
+          {
+            "lead": "Manutenção e suporte",
+            "text": "atualizações com garantia de SLA, monitorização e uma equipa que responde quando algo precisa de atenção."
+          },
+          {
+            "lead": "Espaço para crescer",
+            "text": "cada projeto tem espaço para novas funcionalidades à medida que o seu negócio cresce."
+          }
+        ],
+        "ctaLabel": "Comece um projeto"
+      },
+      "process": {
+        "badge": "Como funciona",
+        "heading": "Como decorre uma parceria",
+        "lead": "Da sua primeira mensagem a um sistema em funcionamento e com suporte.",
+        "steps": [
+          {
+            "title": "Primeiro contacto",
+            "description": "Envia uma mensagem através do formulário de contacto ou do WhatsApp. Respondemos num dia útil e agendamos uma chamada informativa e gratuita sobre o que precisa. Sem compromissos.",
+            "icon": "message-circle",
+            "stat": "Resposta em 1 dia útil"
+          },
+          {
+            "title": "Proposta",
+            "description": "Depois da chamada, recebe um documento claro: o que vamos construir, quando estará pronto e o preço fixo. Decide com tudo em cima da mesa.",
+            "icon": "file-text",
+            "stat": "Preço fixo, sem surpresas"
+          },
+          {
+            "title": "Construção",
+            "description": "Trabalhamos em ciclos curtos. Acompanha o progresso através de um link de staging e vê o sistema a tomar forma antes do lançamento.",
+            "icon": "code-2",
+            "stat": "Progresso semanal que acompanha"
+          },
+          {
+            "title": "Lançamento e suporte",
+            "description": "O seu sistema entra em produção, com os seus dados e o seu nome. Depois disso, continuamos contactáveis, e há um plano de suporte com garantia de SLA para atualizações contínuas.",
+            "icon": "rocket",
+            "stat": "Suporte com garantia de SLA"
+          }
+        ]
+      },
+      "faq": {
+        "badge": "Perguntas",
+        "heading": "Perguntas e respostas",
+        "lead": "As perguntas que os clientes fazem antes de começarmos.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Antes de começarmos",
+            "items": [
+              {
+                "question": "Quanto custa um projeto?",
+                "answer": "Cada parceria tem um preço fixo, acordado antes de começarmos. Sem faturação por hora, sem surpresas depois. A consulta gratuita diz-nos do que o seu projeto precisa, e recebe o preço numa proposta clara."
+              },
+              {
+                "question": "Quanto tempo demora um projeto?",
+                "answer": "Depende do âmbito — um projeto de automação de WhatsApp é entregue mais depressa do que uma implementação completa de ERP. A proposta indica o prazo junto com o preço, por isso sabe ambos antes de começarmos."
+              },
+              {
+                "question": "O que acontece aos nossos sistemas e folhas de cálculo atuais?",
+                "answer": "Mantêm-se em uso até o novo sistema estar pronto e os seus dados migrados. Analisamos o que utiliza atualmente antes da primeira chamada, para receber respostas claras desde o início."
+              },
+              {
+                "question": "Fazem o alojamento e a manutenção do sistema por nós?",
+                "answer": "Sim, se quiser — ou podemos configurá-lo em infraestrutura que controla diretamente. De qualquer forma, isso fica definido na proposta antes de o trabalho começar."
+              },
+              {
+                "question": "Precisamos de nos encontrar pessoalmente?",
+                "answer": "Não é necessário. A maioria das parcerias decorre inteiramente por telefone, vídeo e WhatsApp. Trabalhamos com clientes na Índia, em Timor-Leste e em todo o mundo, e os fusos horários raramente são um problema."
+              }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Trabalhar com a IRFAtech",
+            "items": [
+              {
+                "question": "São uma empresa ou um freelancer?",
+                "answer": "A IRFAtech é uma consultora tecnológica liderada pelo fundador — trabalha diretamente com a equipa que faz o trabalho, da primeira chamada ao sistema concluído. Sem camada de vendas, sem gestores de conta, sem transições intermédias."
+              },
+              {
+                "question": "Podemos fazer alterações nós próprios depois do lançamento?",
+                "answer": "Dependendo do sistema, sim — diga-o na primeira chamada e preparamos o sistema para isso. Caso contrário, envie-nos as alterações e o plano de suporte trata delas."
+              },
+              {
+                "question": "Constroem lojas online de grande escala?",
+                "answer": "Plataformas de e-commerce de grande escala não são o nosso foco — mas ERP com inventário e faturação, sites para negócios e tudo o resto na nossa lista de serviços, construímos. Diga-nos o que tem em mente e seremos honestos sobre se somos a escolha certa."
+              },
+              {
+                "question": "O sistema é mesmo nosso?",
+                "answer": "Sim. Nos projetos personalizados, o código, os dados e os sistemas onde correm são seus desde o primeiro dia. Nunca fica preso à IRFAtech para o manter a funcionar."
+              },
+              {
+                "question": "O que acontece se algo falhar depois do lançamento?",
+                "answer": "Continuamos contactáveis depois do lançamento, e o plano de suporte com garantia de SLA cobre monitorização, correções e atualizações — para os problemas serem detetados antes de custarem tempo."
+              }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Vamos conversar",
+        "heading": "Vamos falar sobre o que precisa",
+        "description": "A primeira consulta é gratuita e informal, sem compromissos — por telefone, vídeo ou WhatsApp. Recebe respostas honestas e, depois da chamada, uma proposta clara com prazo e preço fixo.",
+        "primary": "Enviar mensagem",
+        "secondary": "Saiba mais sobre nós"
+      },
+      "grid": {
+        "badge": "Os nossos serviços",
+        "heading": "Oito serviços, um parceiro",
+        "lead": "Escolha uma área, veja o que envolve e comece a conversa.",
+        "readMore": "Ver serviço"
+      },
+      "detail": {
+        "featuresBadge": "O que recebe",
+        "featuresHeading": "O que {service} inclui",
+        "industriesBadge": "Para quem é",
+        "industriesHeading": "Feito para indústrias como a sua",
+        "processBadge": "Como funciona",
+        "processHeading": "Do primeiro contacto ao lançamento",
+        "faqBadge": "Perguntas frequentes",
+        "faqHeading": "Respostas diretas, sem jargão",
+        "relatedHeading": "Leitura relacionada"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Contacto",
+        "description": "A começar um projeto de ERP, automação ou software? Conte-nos sobre o seu negócio e respondemos em 1 dia útil."
+      },
+      "hero": {
+        "badge": "Comece um projeto",
+        "titleLead": "Conte-nos sobre o seu",
+        "titleHighlight": "negócio",
+        "description": "Gostávamos de saber o que está a atrasar o seu negócio. Envie uma mensagem através do formulário abaixo, ou contacte-nos por outro canal."
+      },
+      "formTitle": "Conte-nos o que você precisa",
+      "channelsTitle": "Outros canais",
+      "channelsSubtitle": "Prefere um canal direto? Escolha o que lhe for mais conveniente — incluindo WhatsApp.",
+      "emailLabel": "Email",
+      "emailNote": "Envie-nos uma mensagem",
+      "whatsappLabel": "WhatsApp",
+      "whatsappNote": "Converse connosco diretamente",
+      "socialNote": "Siga-nos",
+      "basedIn": "Sediados em {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Infraestrutura Digital para Negócios em Crescimento",
+        "description": "ERP, automação de fluxos de trabalho com IA, software personalizado, automação de WhatsApp, CRM, sites e aplicações móveis — construídos para PME em crescimento na Índia e em Timor-Leste."
+      },
+      "hero": {
+        "badge": "15+ Anos de Experiência · Índia e Timor-Leste",
+        "titleLine1": "Tornar o Negócio",
+        "titleLine2": "Mais",
+        "titleLine2Accent": "Inteligente",
+        "titleLine3": "Através do",
+        "titleLine3Accent": "Software",
+        "description": "Diga-nos o que consome demasiado tempo no seu negócio. Desenvolvemos software e soluções digitais que simplificam o seu trabalho, poupam tempo e ajudam o seu negócio a crescer.",
+        "descriptionMobile": "Diga-nos o que consome demasiado tempo no seu negócio. Desenvolvemos software e soluções digitais que simplificam o seu trabalho, poupam tempo e ajudam o seu negócio a crescer.",
+        "primary": "Conte-nos o Seu Desafio",
+        "getStarted": "Explorar as Nossas Soluções",
+        "highlights": [
+          { "icon": "code", "title": "Software Personalizado" },
+          { "icon": "settings", "title": "Automação de Negócios" },
+          { "icon": "bar-chart-3", "title": "Dados e Insights" },
+          { "icon": "headset", "title": "Suporte Contínuo" }
+        ],
+        "industriesLabel": "Construído para empresas em diversos setores",
+        "industries": [
+          { "icon": "shopping-cart", "title": "Retalho e Grossista" },
+          { "icon": "building-2", "title": "Imobiliário" },
+          { "icon": "truck", "title": "Logística" },
+          { "icon": "graduation-cap", "title": "Educação" },
+          { "icon": "heart-pulse", "title": "Saúde" }
+        ]
+      },
+      "ecosystem": {
+        "badge": "O Ecossistema",
+        "heading": "Tudo Conectado.",
+        "headingAccent": "Nada Disperso.",
+        "lead": "Ligamos o seu website, CRM, inventário, finanças, WhatsApp e outras ferramentas do negócio — e depois automatizamos os fluxos de trabalho entre eles.",
+        "features": [
+          {
+            "icon": "link-2",
+            "title": "Tudo Conectado",
+            "description": "ERP, CRM, website, WhatsApp, pagamentos e muito mais — tudo a funcionar em conjunto."
+          },
+          {
+            "icon": "settings",
+            "title": "Fluxos de Trabalho Automáticos",
+            "description": "Automatize tarefas repetitivas e reduza o trabalho manual."
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Informação em Tempo Real",
+            "description": "Uma única fonte de verdade para melhores decisões e mais controlo."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Construído à Sua Medida",
+            "description": "Software e integrações personalizadas, desenhadas para como o seu negócio funciona."
+          }
+        ],
+        "hubLabel": "IRFATECH",
+        "hubSubLabel": "O Seu Negócio. Conectado.",
+        "nodes": [
+          {
+            "icon": "users",
+            "title": "CRM",
+            "description": "Leads, Clientes, Acompanhamento",
+            "color": "blue"
+          },
+          {
+            "icon": "package",
+            "title": "Inventário",
+            "description": "Stock, Produtos, Armazéns",
+            "color": "orange"
+          },
+          {
+            "icon": "file-text",
+            "title": "Contabilidade & Finanças",
+            "description": "Faturas, Pagamentos, Relatórios",
+            "color": "blue"
+          },
+          {
+            "icon": "users-round",
+            "title": "RH & Equipa",
+            "description": "Colaboradores, Assiduidade, Desempenho",
+            "color": "red"
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Relatórios & BI",
+            "description": "Painéis, KPIs, Informação de Negócio",
+            "color": "orange"
+          },
+          {
+            "icon": "bot",
+            "title": "Automação de Fluxos",
+            "description": "Aprovações, Lembretes, Automação de Tarefas",
+            "color": "purple"
+          },
+          {
+            "icon": "message-circle",
+            "title": "Automação WhatsApp",
+            "description": "Alertas, Atualizações, Notificações",
+            "color": "green"
+          },
+          {
+            "icon": "shopping-cart",
+            "title": "Website / E-commerce",
+            "description": "Encomendas, Pedidos, Loja Online",
+            "color": "green"
+          }
+        ],
+        "stats": [
+          {
+            "icon": "target",
+            "title": "Menos Trabalho Manual",
+            "description": "Poupe tempo e reduza erros"
+          },
+          {
+            "icon": "trending-up",
+            "title": "Mais Produtividade",
+            "description": "Foco no que faz o seu negócio crescer"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Melhor Controlo",
+            "description": "Sempre no controlo"
+          },
+          {
+            "icon": "rocket",
+            "title": "Pronto para Crescer",
+            "description": "Cresça sem ultrapassar o seu sistema"
+          }
+        ]
+      },
+      "businessProblem": {
+        "badge": "O problema",
+        "heading": "O seu negócio não devia funcionar com ferramentas dispersas.",
+        "lead": "WhatsApp, folhas de cálculo, papelada, software separados e processos manuais dificultam manter-se organizado e crescer. Nós ajudamos a reunir as partes importantes.",
+        "toolsLabel": "As suas ferramentas atuais",
+        "buildChip": "Construímos o que faltar",
+        "tools": [
+          {
+            "icon": "brand-whatsapp",
+            "title": "WhatsApp"
+          },
+          {
+            "icon": "file-spreadsheet",
+            "title": "Excel / folhas de cálculo"
+          },
+          {
+            "icon": "globe",
+            "title": "Website"
+          },
+          {
+            "icon": "users",
+            "title": "CRM"
+          },
+          {
+            "icon": "calculator",
+            "title": "Contabilidade"
+          },
+          {
+            "icon": "package",
+            "title": "Inventário"
+          },
+          {
+            "icon": "clipboard-list",
+            "title": "Processos manuais"
+          }
+        ],
+        "layerLabel": "IRFAtech",
+        "layerMessage": "As suas ferramentas podem trabalhar em conjunto. O que faltar, nós construímos.",
+        "layerNote": "Ligamos as ferramentas que já usa e automatizamos o trabalho entre elas — ou construímos o que ainda não tem, de um simples site para o negócio a um sistema completo."
+      },
+      "services": {
+        "badge": "O que fazemos",
+        "heading": "Sistemas, automação, crescimento",
+        "lead": "Oito serviços, todos construídos com um único objetivo: menos trabalho manual, mais espaço para crescer.",
+        "learnMore": "Saber mais",
+        "cards": [
+          {
+            "icon": "database",
+            "title": "Sistemas de Negócio",
+            "description": "ERP, CRM e software à medida que ligam as suas ferramentas atuais num único fluxo — para os dados serem introduzidos uma vez, não recopiados à mão."
+          },
+          {
+            "icon": "workflow",
+            "title": "Automação e IA",
+            "description": "Automação de WhatsApp e ferramentas de fluxo de trabalho que movem dados e mensagens sem reintrodução manual."
+          },
+          {
+            "icon": "globe",
+            "title": "Presença e Suporte",
+            "description": "Sites, aplicações móveis e manutenção com garantia de SLA que continuam a funcionar muito depois do lançamento."
+          }
+        ]
+      },
+      "sectors": {
+        "label": "Também servimos",
+        "sectors": [
+          "Governo",
+          "ONGs",
+          "Saúde",
+          "Educação",
+          "Agricultura"
+        ],
+        "cta": "Explorar todas as soluções"
+      },
+      "workWithMe": {
+        "badge": "Trabalhe com a IRFAtech",
+        "heading": "Vamos construir os seus sistemas",
+        "lead": "O que recebe ao trabalhar connosco.",
+        "cards": [
+          {
+            "icon": "handshake",
+            "title": "Liderado pelo fundador",
+            "description": "Acesso direto à equipa que constrói o seu sistema — sem camada de vendas, sem transições intermédias."
+          },
+          {
+            "icon": "zap",
+            "title": "Retorno rápido da automação",
+            "description": "Começamos pelo trabalho manual que mais lhe custa em horas, para o retorno aparecer mais cedo."
+          },
+          {
+            "icon": "search",
+            "title": "Mantém o controlo",
+            "description": "O seu sistema é lançado com os seus dados e o seu nome — ligando as ferramentas que já utiliza, em vez de as substituir por um único sistema rígido."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Suporte que não desaparece",
+            "description": "Manutenção com garantia de SLA depois do lançamento, para nunca ficar sozinho quando algo precisa de atenção."
+          }
+        ],
+        "cta": "Marcar consulta gratuita"
+      },
+      "portfolio": {
+        "badge": "Trabalhos selecionados",
+        "heading": "Sistemas que construímos",
+        "lead": "Uma seleção de parcerias recentes.",
+        "viewAll": "Ver todos os projetos"
+      },
+      "process": {
+        "badge": "Como funciona"
+      },
+      "testimonials": {
+        "badge": "Testemunhos",
+        "heading": "O que dizem os clientes",
+        "lead": "Palavras reais de parcerias concluídas.",
+        "items": []
+      },
+      "aboutTeaser": {
+        "badge": "Sobre nós",
+        "headingLine1": "Liderados pelo fundador,",
+        "headingLine2": "focados em engenharia.",
+        "para1WithLocation": "Mais de 15 anos de experiência prática em desenvolvimento de software, sediados em {location} e a trabalhar com clientes na Índia, em Timor-Leste e em todo o mundo. Construímos com Odoo, Laravel e Vue.js porque se alinham com a nossa forma de pensar os sistemas de negócio: interligados, fáceis de manter e feitos para durar.",
+        "para1NoLocation": "Mais de 15 anos de experiência prática em desenvolvimento de software, a trabalhar com clientes na Índia, em Timor-Leste e em todo o mundo. Construímos com Odoo, Laravel e Vue.js porque se alinham com a nossa forma de pensar os sistemas de negócio: interligados, fáceis de manter e feitos para durar.",
+        "para2": "No blog, partilhamos o raciocínio por trás dos sistemas que construímos.",
+        "moreAboutMe": "Saiba mais sobre nós",
+        "statsIntro": "Alguns factos sobre a IRFAtech.",
+        "stat1": "Mais de 15 Anos de Experiência",
+        "stat2": "Odoo · Laravel · Vue.js",
+        "stat3": "Índia e Timor-Leste",
+        "basedIn": "Sediados em"
+      },
+      "blog": {
+        "badge": "Do blog",
+        "heading": "Destaques",
+        "viewAll": "Ver todos os artigos"
+      },
+      "cta": {
+        "badge": "Vamos conversar",
+        "heading": "Vamos falar sobre o que precisa",
+        "description": "A primeira consulta é gratuita e informal, sem compromissos. Da primeira conversa ao sistema concluído, trabalha sempre com a mesma equipa.",
+        "primary": "Marcar consulta gratuita",
+        "secondary": "Saiba mais sobre nós"
+      }
+    }
+  }
+}

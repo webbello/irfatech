@@ -1,0 +1,946 @@
+{
+  "nav": {
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "selectLanguage": "Select language",
+    "currentLanguage": "Current language",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "toggleMenu": "Toggle menu",
+    "sectionNavigate": "Navigate",
+    "searchSite": "Search this site",
+    "sectionTheme": "Theme",
+    "sectionLanguage": "Language",
+    "sectionConnect": "Connect",
+    "items": {
+      "home": "Home",
+      "services": "Services",
+      "solutions": "Industries",
+      "projects": "Projects",
+      "blog": "Blog",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "ctaLabel": "Start a project"
+  },
+  "common": {
+    "readMore": "Read more",
+    "loading": "Loading…",
+    "backToTop": "Back to top",
+    "search": "Search",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "next": "Next",
+    "previous": "Previous",
+    "home": "Home"
+  },
+  "blog": {
+    "title": "Business Tech, Explained Simply",
+    "description": "Latest articles and updates",
+    "readingTime": "{minutes} min read",
+    "publishedOn": "Published on {date}",
+    "updatedOn": "Updated on {date}",
+    "writtenBy": "Written by {author}",
+    "tagsLabel": "Tags",
+    "featured": "Featured",
+    "draft": "Draft",
+    "noPostsFound": "No posts found.",
+    "tableOfContents": "Table of contents",
+    "shareThisPost": "Share this post",
+    "relatedPosts": "Related Posts",
+    "share": "Share:",
+    "shareOn": "Share on {platform}",
+    "copyLink": "Copy link",
+    "metaTitle": "Blog",
+    "metaDescription": "The IRFAtech blog: practical guides on ERP, AI automation, WhatsApp automation, and building digital infrastructure for growing businesses.",
+    "heroBadge": "All posts",
+    "heroDescription": "Practical guides on automation, ERP, CRM, and digital growth — written for business owners, not developers.",
+    "allPosts": "All posts",
+    "noPosts": "No posts found",
+    "pageMetaTitle": "Blog — Page {page}",
+    "pageMetaDescription": "Page {page} of {total} — practical guides on ERP, automation, and digital infrastructure from IRFAtech.",
+    "pageBadge": "Page {page} of {total}",
+    "newestPosts": "Newest posts",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Posts tagged \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "{count} post tagged \"{tag}\".",
+    "tagCountOther": "{count} posts tagged \"{tag}\".",
+    "tagEmpty": "No posts found for this tag.",
+    "tagBackToAll": "Back to all posts",
+    "onThisPage": "On this page",
+    "tocShow": "Show",
+    "tocHide": "Hide",
+    "backToBlog": "Back to Blog",
+    "updated": "Updated",
+    "rssFeed": "RSS Feed",
+    "cta": {
+      "heading": "Ready to automate your business?",
+      "description": "Tell us what's slowing you down — we'll show you what we'd build to fix it.",
+      "button": "Talk to us"
+    }
+  },
+  "comments": {
+    "title": "Comments",
+    "loadError": "Comments failed to load. Please refresh and try again.",
+    "requiresJs": "Comments require JavaScript to load."
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Systems we've built",
+    "viewProject": "View project",
+    "viewSource": "View source",
+    "noProjectsFound": "No projects found.",
+    "metaTitle": "Projects",
+    "metaDescription": "Selected work — ERP rollouts, automation builds, and platforms delivered by IRFAtech for growing businesses.",
+    "heroBadge": "Selected work",
+    "heroDescription": "Not just projects — real businesses that we helped digitize, automate, and scale. Each one a problem solved.",
+    "allProjects": "All projects",
+    "pageMetaTitle": "Projects — Page {page}",
+    "pageMetaDescription": "Page {page} of {total} — selected work and case studies from IRFAtech.",
+    "pageBadge": "Page {page} of {total}",
+    "tagMetaTitle": "#{tag} — Projects",
+    "tagMetaDescription": "Projects tagged \"{tag}\".",
+    "tagBadge": "Tag",
+    "tagCountOne": "{count} project tagged \"{tag}\".",
+    "tagCountOther": "{count} projects tagged \"{tag}\".",
+    "tagEmpty": "No projects found for this tag.",
+    "tagBackToAll": "Back to all projects",
+    "backToProjects": "Back to Projects",
+    "moreProjects": "More projects",
+    "ctaBadge": "Let's talk",
+    "ctaHeading": "Let's talk about what you need",
+    "ctaLead": "Every engagement starts with your process, not a template. Tell us what you're working with.",
+    "ctaPrimary": "Send a message",
+    "ctaSecondary": "More about us",
+    "closingHeading": "Have a system in mind?",
+    "closingLead": "Whether it's an ERP rollout, an automation build, or something that needs a fresh look — we'd love to hear about it."
+  },
+  "solutions": {
+    "title": "Solutions",
+    "metaTitle": "Solutions by Sector",
+    "metaDescription": "Digital transformation solutions for small businesses, enterprises, governments, NGOs, healthcare, education, and agriculture — from IRFAtech.",
+    "heroBadge": "Solutions",
+    "heroDescription": "Every organisation's problem is different. Find the one that matches yours.",
+    "sectorCount": "{count} solutions",
+    "challengeLabel": "The challenge",
+    "approachLabel": "Our approach",
+    "outcomesLabel": "What you get",
+    "relatedLabel": "Related solutions",
+    "ctaBadge": "Let's talk",
+    "ctaHeading": "Don't see your problem listed?",
+    "ctaLead": "These are examples, not the full list. Tell us what you're dealing with and we'll tell you honestly whether we can help.",
+    "ctaPrimary": "Send a message",
+    "ctaSecondary": "More about us",
+    "detailCtaHeading": "Ready to talk about {title}?"
+  },
+  "pagination": {
+    "page": "Page {current} of {total}",
+    "label": "Pagination",
+    "previousPage": "Previous page",
+    "nextPage": "Next page"
+  },
+  "errors": {
+    "pageNotFound": "Page not found",
+    "pageNotFoundMessage": "The page you're looking for doesn't exist or has moved.",
+    "goHome": "Go to homepage",
+    "metaTitle": "Page not found",
+    "metaDescription": "This page has moved, been removed, or never existed in the first place.",
+    "badge": "404 — page not found",
+    "titleLead": "Page not",
+    "titleHighlight": "found.",
+    "description": "This page has moved, been removed, or never existed in the first place. Let's get you back on track.",
+    "backHome": "Back to home",
+    "browseBlog": "Browse the blog",
+    "tryInstead": "Try one of these instead",
+    "projectsDesc": "Selected work and case studies.",
+    "blogDesc": "Notes on automation, ERP, and digital infrastructure.",
+    "contactTitle": "Contact",
+    "contactDesc": "Start a conversation about your business."
+  },
+  "newsletter": {
+    "heading": "Subscribe to the newsletter",
+    "description": "Get the latest posts in your inbox.",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing…",
+    "success": "Thanks for subscribing!",
+    "genericError": "Something went wrong",
+    "notConfigured": "Not configured yet — set RESEND_API_KEY and RESEND_AUDIENCE_ID to switch this on. Only you can see this line.",
+    "unavailable": "Signups are not available right now.",
+    "error": "Subscription failed. Please try again."
+  },
+  "contact": {
+    "heading": "Get in touch",
+    "name": "Name",
+    "email": "Email",
+    "service": "Service",
+    "servicePlaceholder": "What do you need help with?",
+    "serviceBusinessSystems": "ERP, CRM & Business Systems",
+    "serviceAutomation": "Automation & AI",
+    "servicePresence": "Website, App & Support",
+    "serviceOther": "Not sure yet / Something else",
+    "message": "Message",
+    "send": "Send message",
+    "sendWhatsapp": "Continue on WhatsApp",
+    "sending": "Sending…",
+    "success": "Message sent successfully!",
+    "whatsappOpening": "Opening WhatsApp — press send there to finish.",
+    "genericError": "Something went wrong",
+    "notConfigured": "Not configured yet — set RESEND_API_KEY to switch this on. Only you can see this line.",
+    "unavailable": "This form is not available right now.",
+    "error": "Failed to send message. Please try again."
+  },
+  "theme": {
+    "selectColourTheme": "Select colour theme",
+    "colourTheme": "Colour theme",
+    "colourMode": "Colour mode",
+    "modeTrigger": "Theme: {mode}. Click to change.",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark",
+    "currentlyLight": "Currently light",
+    "currentlyDark": "Currently dark",
+    "swatchLabel": "{name} theme"
+  },
+  "search": {
+    "placeholder": "Search articles, projects, and pages…",
+    "inputLabel": "Search query",
+    "resultsLabel": "Search results",
+    "hint": "Start typing to search the site.",
+    "noResults": "No results for “{query}”",
+    "unavailable": "The search index is generated at build time and isn’t available in <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Run <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> to try it locally."
+  },
+  "video": {
+    "playLabel": "Play video: {title}",
+    "watchOn": "Watch on YouTube"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName}",
+    "builtWith": "Built with Astro Rocket",
+    "groups": {
+      "site": "Site",
+      "topics": "Topics",
+      "projects": "Projects",
+      "questions": "Got questions?"
+    },
+    "followOn": "Follow us on {platform}"
+  },
+  "pages": {
+    "about": {
+      "meta": {
+        "title": "About — Business Automation & Digital Infrastructure",
+        "description": "IRFAtech (Integrated Resources For Automation & Technology) helps growing businesses in India and Timor-Leste automate operations with ERP, AI workflows, and custom software."
+      },
+      "hero": {
+        "badge": "About",
+        "titleLead": "IRFAtech —",
+        "typingWords": [
+          "ERP Solutions",
+          "AI Automation",
+          "Custom Software",
+          "WhatsApp Automation",
+          "CRM Systems",
+          "Field Data Collection",
+          "Business Websites"
+        ],
+        "typingWordsMobile": [
+          "ERP Solutions",
+          "AI Automation",
+          "WhatsApp Automation",
+          "Field Data Collection",
+          "Business Websites"
+        ],
+        "description": "A B2B technology partner helping growing businesses automate, systemise, and scale."
+      },
+      "whatYouGet": {
+        "badge": "What we do",
+        "heading": "Everything a growing business needs",
+        "lead": "Eight services, one partner: the systems, automation, and support that take a business from spreadsheets to infrastructure.",
+        "items": [
+          {
+            "icon": "database",
+            "title": "ERP Solutions",
+            "description": "Odoo-based systems for inventory, billing, operations, and accounting — one system instead of five spreadsheets."
+          },
+          {
+            "icon": "workflow",
+            "title": "AI & Workflow Automation",
+            "description": "Repetitive work handled automatically, so your team spends its time on what actually needs a person."
+          },
+          {
+            "icon": "code",
+            "title": "Custom Software Development",
+            "description": "Laravel + Vue.js systems built for the processes off-the-shelf tools were never designed to handle."
+          },
+          {
+            "icon": "message-circle",
+            "title": "WhatsApp Automation",
+            "description": "Order updates, reminders, and customer replies handled where your customers already are."
+          },
+          {
+            "icon": "users",
+            "title": "CRM & Sales Automation",
+            "description": "Lead tracking and follow-ups that turn more of what comes in into closed business."
+          },
+          {
+            "icon": "globe",
+            "title": "Business Websites",
+            "description": "Fast, credible websites built for lead generation, not just to exist online."
+          },
+          {
+            "icon": "smartphone",
+            "title": "Mobile App Development",
+            "description": "iOS and Android apps for field teams, deliveries, and customer-facing operations."
+          },
+          {
+            "icon": "life-buoy",
+            "title": "Maintenance & Support",
+            "description": "SLA-backed updates and monitoring, so what we build keeps working after launch."
+          },
+          {
+            "icon": "handshake",
+            "title": "A free first consultation",
+            "description": "No obligations, no hourly billing — one clear proposal with a fixed price and timeline."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "How We Work",
+        "heading": "Built with intention",
+        "lead": "Every engagement at IRFAtech runs on the same three principles.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "Automation First",
+            "description": "We look for the manual, repeated work first — that's usually where the fastest return is."
+          },
+          {
+            "icon": "award",
+            "title": "Engineering Discipline",
+            "description": "Laravel, Vue.js, and Odoo, built clean and documented — maintainable years after launch, not just at handover."
+          },
+          {
+            "icon": "rocket",
+            "title": "Right-Sized for SMBs",
+            "description": "Systems scaled to your budget and stage of growth, not enterprise software you'll grow into eventually."
+          }
+        ]
+      },
+      "stack": {
+        "badge": "Tools & Tech",
+        "title": "The Stack",
+        "description": "The technology behind IRFAtech's builds — chosen for reliability, long-term maintainability, and a healthy ecosystem of support."
+      },
+      "faq": {
+        "badge": "Good to know",
+        "heading": "Frequently asked questions",
+        "lead": "Everything you'd want to know before reaching out.",
+        "cards": [
+          {
+            "icon": "building-2",
+            "title": "About IRFAtech",
+            "items": [
+              {
+                "question": "What does IRFAtech mean?",
+                "answer": "IRFAtech stands for Integrated Resources For Automation & Technology. We're a digital transformation partner founded by Mohammed Irfan, helping businesses, governments, and NGOs replace manual processes with connected digital systems."
+              },
+              {
+                "question": "Who do you work with?",
+                "answer": "Small and mid-sized businesses across retail, healthcare, education, and distribution — plus governments, NGOs, and international organisations for field data collection. Mainly in India and Timor-Leste, with clients scaling globally."
+              },
+              {
+                "question": "What's Landflix?",
+                "answer": "Landflix is our flagship SaaS platform for real estate technology and digital property management — both a product in its own right and proof of what our stack can build."
+              },
+              {
+                "question": "Is IRFAtech a registered company or a freelancer?",
+                "answer": "IRFAtech is a founder-led technology consultancy. You work directly with the team building your system, not a sales layer between you and the engineers."
+              },
+              {
+                "question": "Where are you based?",
+                "answer": "We operate out of Kolkata, India and Dili, Timor-Leste, and work with clients remotely worldwide."
+              }
+            ]
+          },
+          {
+            "icon": "handshake",
+            "title": "Working with us",
+            "items": [
+              {
+                "question": "How do we get started?",
+                "answer": "Send a message through the contact form or WhatsApp. We reply within a working day and set up a free, no-obligation call to understand what you need."
+              },
+              {
+                "question": "Do you only build ERP systems?",
+                "answer": "No — ERP is one of eight services. We also build AI/workflow automation, custom software, WhatsApp automation, CRM systems, business websites, mobile apps, and provide ongoing maintenance."
+              },
+              {
+                "question": "Is WhatsApp automation compliant with WhatsApp's policies?",
+                "answer": "Yes. We build on the official WhatsApp Business Platform (Cloud API), so messaging stays within Meta's business messaging policies rather than unofficial workarounds."
+              },
+              {
+                "question": "Can I own the code and data?",
+                "answer": "Yes. Custom builds are yours — the code, the database, and the systems it runs on. We're transparent about this in the proposal before work starts."
+              },
+              {
+                "question": "How do you price a project?",
+                "answer": "A free consultation, then one written proposal with a fixed price and timeline. No hourly billing and no surprise invoices."
+              }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Open Source",
+        "heading": "Built in the open",
+        "description": "This website's own source code is public on GitHub — the same engineering discipline we bring to every client build, applied to our own.",
+        "button": "View the source on GitHub",
+        "cards": [
+          {
+            "title": "Founder-led engineering",
+            "text": "Every project runs through Mohammed Irfan and the core team — 15+ years of hands-on software development, not a sales layer between you and the work."
+          },
+          {
+            "title": "Source-available website",
+            "text": "This site is public on <a href=\"https://github.com/webbello/irfatech\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline underline-offset-2 decoration-brand-500 hover:text-brand-400 transition-colors\">GitHub</a> — a working example of the quality we hold client systems to."
+          },
+          {
+            "title": "Actively maintained",
+            "text": "Both this site and the systems we ship for clients are kept up to date, monitored, and improved under an ongoing support plan."
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Get started",
+        "heading": "Ready to automate your business?",
+        "description": "The first consultation is free and informal — by phone, video, or WhatsApp. You get honest answers, and afterwards one clear proposal with a fixed price and timeline.",
+        "button": "Talk to us"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Services — ERP, Automation, Software & Support",
+        "description": "ERP solutions, AI & workflow automation, custom software, WhatsApp automation, CRM, websites, mobile apps, and support — one partner, eight services."
+      },
+      "includedLabel": "What's included",
+      "hero": {
+        "badge": "Services",
+        "titleLead": "Everything You Need to",
+        "titleHighlight": "Digitize Your Business",
+        "description": "From a professional website to a complete business automation system — we build, integrate and replace manual processes, and support it all.",
+        "jumpLabels": [
+          "Business systems",
+          "Automation & AI",
+          "Presence & support"
+        ]
+      },
+      "design": {
+        "badge": "Systems",
+        "heading": "Business systems",
+        "paragraphs": [
+          "Business systems are the foundation: the ERP, CRM, and custom software that replace scattered spreadsheets and manual record-keeping with one connected source of truth.",
+          "We build on Odoo for ERP — inventory, billing, accounting, and operations in a single platform — and on Laravel and Vue.js for anything custom that off-the-shelf software can't cover. Every system is shaped around how your business actually runs, not a generic template you have to adapt to."
+        ],
+        "included": [
+          {
+            "lead": "ERP that fits how you work",
+            "text": "Odoo-based inventory, billing, accounting, and operations, in one system."
+          },
+          {
+            "lead": "CRM & sales automation",
+            "text": "lead tracking, follow-ups, and a pipeline that closes more of what comes in."
+          },
+          {
+            "lead": "Custom software, built to spec",
+            "text": "Laravel and Vue.js systems for the processes off-the-shelf tools don't cover."
+          },
+          {
+            "lead": "One system, not five spreadsheets",
+            "text": "your inventory, billing, and customer data finally talking to each other."
+          },
+          {
+            "lead": "Support that keeps it running",
+            "text": "updates, fixes, and monitoring under an SLA, not a one-off handoff."
+          }
+        ],
+        "ctaLabel": "Discuss your systems"
+      },
+      "development": {
+        "badge": "Automation",
+        "heading": "Automation & AI",
+        "paragraphs": [
+          "Automation is where the fastest return usually lives: the repetitive, manual work your team does every day that a workflow can handle instead.",
+          "We build WhatsApp Business automation for order updates, reminders, and customer replies, and connect it to workflow and AI tooling that moves data between your ERP, CRM, and website without anyone retyping it. AI is used where it earns its place — to summarise, sort, and route — not bolted on for its own sake."
+        ],
+        "included": [
+          {
+            "lead": "Fewer manual hours",
+            "text": "repetitive tasks handled automatically, so your team works on what needs a person."
+          },
+          {
+            "lead": "WhatsApp Business automation",
+            "text": "order updates, reminders, and customer replies, handled where your customers already are."
+          },
+          {
+            "lead": "Workflows that connect your tools",
+            "text": "data moves between your ERP, CRM, and website without manual re-entry."
+          },
+          {
+            "lead": "AI where it earns its place",
+            "text": "used to summarise, sort, and route — not bolted on for the sake of it."
+          },
+          {
+            "lead": "Built around your process",
+            "text": "automation shaped around how your business actually runs, not a generic template."
+          }
+        ],
+        "ctaLabel": "See automation in action"
+      },
+      "performance": {
+        "badge": "Presence",
+        "heading": "Digital presence & support",
+        "paragraphs": [
+          "Digital presence is how customers find and reach you: a website that generates leads, a mobile app for field or customer-facing operations, and the ongoing support that keeps all of it running.",
+          "We build websites and apps to be found — by search engines and by AI assistants — not just to look good. And nothing we ship is a one-off handoff: every build comes with maintenance and support under an SLA, so it keeps working long after launch."
+        ],
+        "included": [
+          {
+            "lead": "A website that generates leads",
+            "text": "fast, credible, and built to turn visitors into enquiries."
+          },
+          {
+            "lead": "Mobile apps for how you operate",
+            "text": "iOS and Android apps for field teams, deliveries, or customer-facing use."
+          },
+          {
+            "lead": "Found by Google and AI",
+            "text": "SEO and structured data built in from the first line, not bolted on later."
+          },
+          {
+            "lead": "Maintenance & support",
+            "text": "SLA-backed updates, monitoring, and a team that answers when something needs attention."
+          },
+          {
+            "lead": "Room to grow",
+            "text": "every build has space for new features as your business scales."
+          }
+        ],
+        "ctaLabel": "Start a project"
+      },
+      "process": {
+        "badge": "How it works",
+        "heading": "How an engagement runs",
+        "lead": "From your first message to a system that's live and supported.",
+        "steps": [
+          {
+            "title": "First contact",
+            "description": "You send a message through the contact form or WhatsApp. We reply within a working day and set up a free, informational call about what you need. No obligations.",
+            "icon": "message-circle",
+            "stat": "Reply within 1 working day"
+          },
+          {
+            "title": "Proposal",
+            "description": "After the call you get one clear document: what we'll build, when it's ready, and the fixed price. You decide with everything on the table.",
+            "icon": "file-text",
+            "stat": "Fixed price, no surprises"
+          },
+          {
+            "title": "Build",
+            "description": "We work in short cycles. You follow progress on a staging link and see the system take shape before launch.",
+            "icon": "code-2",
+            "stat": "Weekly progress you can follow"
+          },
+          {
+            "title": "Launch & support",
+            "description": "Your system goes live, with your data and your name on it. Afterwards we stay reachable, and there's an SLA-backed support plan for ongoing updates.",
+            "icon": "rocket",
+            "stat": "SLA-backed support after launch"
+          }
+        ]
+      },
+      "faq": {
+        "badge": "Questions",
+        "heading": "Questions and answers",
+        "lead": "The things clients ask before we start.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Before we start",
+            "items": [
+              {
+                "question": "What does a project cost?",
+                "answer": "Every engagement gets one fixed price, agreed before we start. No hourly billing, no surprises afterwards. The free consultation tells us what your project needs, and you get the price in one clear proposal."
+              },
+              {
+                "question": "How long does a project take?",
+                "answer": "That depends on scope — a WhatsApp automation build ships faster than a full ERP rollout. The proposal names the timeline together with the price, so you know both before we start."
+              },
+              {
+                "question": "What happens with our current systems and spreadsheets?",
+                "answer": "They stay in use until the new system is ready and your data has been migrated. We review what you're running today before the first call, so you get clear answers from the start."
+              },
+              {
+                "question": "Do you host and maintain the system for us?",
+                "answer": "Yes, if you want that — or we can set it up on infrastructure you control. Either way, it's covered in the proposal before work starts."
+              },
+              {
+                "question": "Do we need to meet in person?",
+                "answer": "It's not needed. Most engagements run entirely by phone, video, and WhatsApp. We work with clients across India, Timor-Leste, and worldwide, and time zones are rarely a problem."
+              }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Working with IRFAtech",
+            "items": [
+              {
+                "question": "Are you a company or a freelancer?",
+                "answer": "IRFAtech is a founder-led technology consultancy — you work directly with the team doing the work, from the first call to the finished system. No sales layer, no account managers, no handoffs."
+              },
+              {
+                "question": "Can we make changes ourselves after launch?",
+                "answer": "Depending on the system, yes — say so in the first call and we'll set it up for it. Otherwise, send us your changes and the support plan covers them."
+              },
+              {
+                "question": "Do you build large online shops?",
+                "answer": "Large-scale e-commerce platforms aren't our focus — but ERP-backed inventory and billing, business websites, and everything else on our services list, we build. Tell us what you have in mind and we'll be honest about fit."
+              },
+              {
+                "question": "Is the system really ours?",
+                "answer": "Yes. For custom builds, the code, the data, and the systems it runs on are yours from day one. You're never locked into IRFAtech to keep it running."
+              },
+              {
+                "question": "What happens if something breaks after launch?",
+                "answer": "We stay reachable after launch, and the SLA-backed support plan covers monitoring, fixes, and updates — so issues get caught before they cost you time."
+              }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Let's talk",
+        "heading": "Let's talk about what you need",
+        "description": "The first consultation is free and informal, with no obligations — by phone, video, or WhatsApp. You get honest answers, and after the call one clear proposal with a timeline and a fixed price.",
+        "primary": "Send a message",
+        "secondary": "More about us"
+      },
+      "grid": {
+        "badge": "Our services",
+        "heading": "Eight services, one partner",
+        "lead": "Pick an area, read what's involved, and start the conversation.",
+        "readMore": "View service"
+      },
+      "detail": {
+        "featuresBadge": "What you get",
+        "featuresHeading": "{service} covers",
+        "industriesBadge": "Who it's for",
+        "industriesHeading": "Built for industries like yours",
+        "processBadge": "How it works",
+        "processHeading": "From enquiry to go-live",
+        "faqBadge": "Common questions",
+        "faqHeading": "Straight answers, no jargon",
+        "relatedHeading": "Related reading"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Contact",
+        "description": "Starting an ERP, automation, or software project? Tell us about your business and we'll get back to you within 1 business day."
+      },
+      "hero": {
+        "badge": "Start a project",
+        "titleLead": "Tell us about your",
+        "titleHighlight": "business",
+        "description": "We'd love to hear what's slowing your business down. Send a message with the form below, or reach out on one of the other channels."
+      },
+      "formTitle": "Tell us what you need",
+      "channelsTitle": "Other channels",
+      "channelsSubtitle": "Prefer a direct channel? Pick whichever works best — including WhatsApp.",
+      "emailLabel": "Email",
+      "emailNote": "Drop us a line",
+      "whatsappLabel": "WhatsApp",
+      "whatsappNote": "Chat with us directly",
+      "socialNote": "Follow along",
+      "basedIn": "Based in {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Digital Infrastructure for Growing Businesses",
+        "description": "ERP, AI workflow automation, custom software, WhatsApp automation, CRM, websites, and mobile apps — built for growing SMBs in India and Timor-Leste."
+      },
+      "hero": {
+        "badge": "15+ Years Experience · India & Timor-Leste",
+        "titleLine1": "Making Business",
+        "titleLine2": "Work",
+        "titleLine2Accent": "Smarter",
+        "titleLine3": "Through",
+        "titleLine3Accent": "Software",
+        "description": "Tell us what takes too much time in your business. We build software and digital solutions that simplify your work, save time, and help your business grow.",
+        "descriptionMobile": "Tell us what takes too much time in your business. We build software and digital solutions that simplify your work, save time, and help your business grow.",
+        "primary": "Tell Us Your Business Challenge",
+        "getStarted": "Explore Our Solutions",
+        "highlights": [
+          { "icon": "code", "title": "Custom Software" },
+          { "icon": "settings", "title": "Business Automation" },
+          { "icon": "bar-chart-3", "title": "Data & Insights" },
+          { "icon": "headset", "title": "Ongoing Support" }
+        ],
+        "industriesLabel": "Built for businesses across industries",
+        "industries": [
+          { "icon": "shopping-cart", "title": "Retail & Wholesale" },
+          { "icon": "building-2", "title": "Real Estate" },
+          { "icon": "truck", "title": "Logistics" },
+          { "icon": "graduation-cap", "title": "Education" },
+          { "icon": "heart-pulse", "title": "Healthcare" }
+        ]
+      },
+      "ecosystem": {
+        "badge": "The Ecosystem",
+        "heading": "Everything Connected.",
+        "headingAccent": "Nothing Scattered.",
+        "lead": "We connect your website, CRM, inventory, finance, WhatsApp and other business tools—then automate the workflows between them.",
+        "features": [
+          {
+            "icon": "link-2",
+            "title": "Everything Connected",
+            "description": "ERP, CRM, website, WhatsApp, payments, and more — all working together."
+          },
+          {
+            "icon": "settings",
+            "title": "Workflows That Run Automatically",
+            "description": "Automate repetitive tasks and reduce manual work."
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Real-Time Insights",
+            "description": "One source of truth for better decisions and stronger control."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Built Around You",
+            "description": "Custom software and integrations designed for how your business runs."
+          }
+        ],
+        "hubLabel": "IRFATECH",
+        "hubSubLabel": "Your Business. Connected.",
+        "nodes": [
+          {
+            "icon": "users",
+            "title": "CRM",
+            "description": "Leads, Customers, Follow-ups",
+            "color": "blue"
+          },
+          {
+            "icon": "package",
+            "title": "Inventory",
+            "description": "Stock, Products, Warehouses",
+            "color": "orange"
+          },
+          {
+            "icon": "file-text",
+            "title": "Accounting & Finance",
+            "description": "Invoices, Payments, Reports",
+            "color": "blue"
+          },
+          {
+            "icon": "users-round",
+            "title": "HR & Team",
+            "description": "Employees, Attendance, Performance",
+            "color": "red"
+          },
+          {
+            "icon": "bar-chart-3",
+            "title": "Reports & BI",
+            "description": "Dashboards, KPIs, Business Insights",
+            "color": "orange"
+          },
+          {
+            "icon": "bot",
+            "title": "Workflow Automation",
+            "description": "Approvals, Reminders, Task Automation",
+            "color": "purple"
+          },
+          {
+            "icon": "message-circle",
+            "title": "WhatsApp Automation",
+            "description": "Alerts, Updates, Notifications",
+            "color": "green"
+          },
+          {
+            "icon": "shopping-cart",
+            "title": "Website / Ecommerce",
+            "description": "Orders, Inquiries, Online Store",
+            "color": "green"
+          }
+        ],
+        "stats": [
+          {
+            "icon": "target",
+            "title": "Less Manual Work",
+            "description": "Save time and reduce errors"
+          },
+          {
+            "icon": "trending-up",
+            "title": "More Productivity",
+            "description": "Focus on what grows your business"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Better Control",
+            "description": "Stay in control, always"
+          },
+          {
+            "icon": "rocket",
+            "title": "Built to Scale",
+            "description": "Grow without outgrowing your system"
+          }
+        ]
+      },
+      "businessProblem": {
+        "badge": "The problem",
+        "heading": "Your business shouldn't run on scattered tools.",
+        "lead": "WhatsApp, spreadsheets, paperwork, separate software and manual processes make it harder to stay organized and grow. We help bring the important parts together.",
+        "toolsLabel": "Your tools today",
+        "buildChip": "Build the ones that are missing",
+        "tools": [
+          {
+            "icon": "brand-whatsapp",
+            "title": "WhatsApp"
+          },
+          {
+            "icon": "file-spreadsheet",
+            "title": "Excel / spreadsheets"
+          },
+          {
+            "icon": "globe",
+            "title": "Website"
+          },
+          {
+            "icon": "users",
+            "title": "CRM"
+          },
+          {
+            "icon": "calculator",
+            "title": "Accounting"
+          },
+          {
+            "icon": "package",
+            "title": "Inventory"
+          },
+          {
+            "icon": "clipboard-list",
+            "title": "Manual processes"
+          }
+        ],
+        "layerLabel": "IRFAtech",
+        "layerMessage": "Your tools can work together. What's missing, we build.",
+        "layerNote": "We connect the tools you already use and automate the work between them — or build the ones you don't have yet, from a business website to a whole operation."
+      },
+      "services": {
+        "badge": "What we do",
+        "heading": "Systems, automation, growth",
+        "lead": "Eight services, all built around one goal: less manual work, more room to grow.",
+        "learnMore": "Learn more",
+        "cards": [
+          {
+            "icon": "database",
+            "title": "Business Systems",
+            "description": "ERP, CRM, and custom software that connect your existing tools into one smooth flow — so data moves once instead of being re-keyed."
+          },
+          {
+            "icon": "workflow",
+            "title": "Automation & AI",
+            "description": "WhatsApp automation and workflow tooling that move data and messages without manual re-entry."
+          },
+          {
+            "icon": "globe",
+            "title": "Presence & Support",
+            "description": "Websites, mobile apps, and SLA-backed maintenance that keep working long after launch."
+          }
+        ]
+      },
+      "sectors": {
+        "label": "Also serving",
+        "sectors": [
+          "Government",
+          "NGOs",
+          "Healthcare",
+          "Education",
+          "Agriculture"
+        ],
+        "cta": "Explore all solutions"
+      },
+      "workWithMe": {
+        "badge": "Work with IRFAtech",
+        "heading": "Let's build your systems",
+        "lead": "What you get when you work with us.",
+        "cards": [
+          {
+            "icon": "handshake",
+            "title": "Founder-led delivery",
+            "description": "Direct access to the team building your system — no sales layer, no handoffs."
+          },
+          {
+            "icon": "zap",
+            "title": "Fast automation ROI",
+            "description": "We start with the manual work costing you the most hours, so the return shows up early."
+          },
+          {
+            "icon": "search",
+            "title": "You stay in control",
+            "description": "Your system ships with your data and your name on it — connecting the tools you already use, not replacing them with one rigid system."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Support that doesn't disappear",
+            "description": "SLA-backed maintenance after launch, so you're not on your own when something needs attention."
+          }
+        ],
+        "cta": "Book a free consultation"
+      },
+      "portfolio": {
+        "badge": "Selected work",
+        "heading": "Systems we've built",
+        "lead": "A selection of recent engagements.",
+        "viewAll": "View all projects"
+      },
+      "process": {
+        "badge": "How it works"
+      },
+      "testimonials": {
+        "badge": "Testimonials",
+        "heading": "What clients say",
+        "lead": "Real words from finished engagements.",
+        "items": []
+      },
+      "aboutTeaser": {
+        "badge": "About us",
+        "headingLine1": "Founder-led,",
+        "headingLine2": "engineering-first.",
+        "para1WithLocation": "15+ years of hands-on software development experience, based in {location} and working with clients across India, Timor-Leste, and worldwide. We build with Odoo, Laravel, and Vue.js because they align with how we think about business systems: connected, maintainable, and built to last.",
+        "para1NoLocation": "15+ years of hands-on software development experience, working with clients across India, Timor-Leste, and worldwide. We build with Odoo, Laravel, and Vue.js because they align with how we think about business systems: connected, maintainable, and built to last.",
+        "para2": "On the blog, we share the thinking behind the systems we build.",
+        "moreAboutMe": "More about us",
+        "statsIntro": "A few things about IRFAtech.",
+        "stat1": "15+ Years Experience",
+        "stat2": "Odoo · Laravel · Vue.js",
+        "stat3": "India & Timor-Leste",
+        "basedIn": "Based in"
+      },
+      "blog": {
+        "badge": "From the blog",
+        "heading": "Featured",
+        "viewAll": "View all posts"
+      },
+      "cta": {
+        "badge": "Let's talk",
+        "heading": "Let's talk about what you need",
+        "description": "The first consultation is free and informal, with no obligations. From the first conversation to the finished system, you work with the same team.",
+        "primary": "Book a free consultation",
+        "secondary": "More about us"
+      }
+    }
+  }
+}

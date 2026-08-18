@@ -1,207 +1,109 @@
-# IRFAtech — Business Automation & Digital Infrastructure Platform
+<p align="center">
+  <strong>IRFAtech</strong> — Digital Infrastructure for Growing Businesses
+</p>
 
-### *Integrated Resources For Automation*
-
-A modern, performance-optimized business consultancy and software solutions platform focused on helping businesses automate operations, streamline workflows, and scale digitally through custom software, ERP systems, CRM solutions, AI automation, and digital infrastructure services.
-
----
-
-## Identity
-
-| Field | Value |
-|-------|-------|
-| **Name** | IRFATECH |
-| **Full form** | Integrated Resources For Automation |
-| **Type** | B2B Business Technology & Automation Company |
-| **Founder** | Muhammad Irfan |
-| **Experience** | 15+ years software development |
-| **Market** | SMBs — India primary, scalable globally |
-| **Website** | https://irfatech.in |
-| **Tagline** | *Digital Infrastructure for Growing Businesses* |
+<p align="center">
+  <a href="https://astro.build"><img src="https://img.shields.io/badge/Astro-7.0-bc52ee?logo=astro&logoColor=white" alt="Astro" /></a>
+  <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/Tailwind-4.0-38bdf8?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" /></a>
+  <a href="https://www.typescriptlang.org"><img src="https://img.shields.io/badge/TypeScript-5.7-3178c6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-22c55e" alt="License" /></a>
+</p>
 
 ---
 
-## Mission & Vision
+## Overview
 
-**Mission:** Empower businesses with smart, scalable, and affordable digital systems that simplify operations, improve productivity, and enable sustainable growth through automation and technology.
+This repository is the source for **[irfatech.in](https://irfatech.in)** — IRFAtech's website. IRFAtech (Integrated Resources For Automation & Technology) is a B2B business technology and automation company, founded by Mohammed Irfan, helping growing SMBs in India and Timor-Leste replace manual processes with ERP systems, AI workflow automation, custom software, WhatsApp automation, CRM systems, business websites, mobile apps, and ongoing support.
 
-**Vision:** Build a future where businesses of every size can access powerful digital infrastructure, automation systems, and intelligent business tools — without complexity or unnecessary cost.
+The site is built on **[Astro Rocket](https://github.com/hansmartensdev/Astro-Rocket)**, a free, open-source Astro 7 + Tailwind CSS v4 starter theme — MIT licensed, no attribution required. Full credit to Hans Martens for the theme this site is built on; the copy, content, blog, and case studies here are IRFAtech's own.
 
----
+## Quick Start
 
-## Services (ordered by strategic priority)
+### Prerequisites
 
-| # | Service | Slug | Core Value |
-|---|---------|------|------------|
-| 1 | ERP Solutions | `/services/erp` | Odoo-based ERP — inventory, billing, ops, accounting |
-| 2 | AI & Workflow Automation | `/services/ai-automation` | Reduce manual work, intelligent business processes |
-| 3 | Custom Software Development | `/services/custom-software` | Laravel + Vue.js tailored systems |
-| 4 | WhatsApp Automation | `/services/whatsapp-automation` | Business communication automation (India-critical) |
-| 5 | CRM & Sales Automation | `/services/crm` | Lead tracking, follow-up automation, conversion |
-| 6 | Business Websites | `/services/websites` | Lead gen, credibility, entry-point service |
-| 7 | Mobile App Development | `/services/mobile-apps` | iOS/Android business operations apps |
-| 8 | Maintenance & Support | `/services/maintenance` | Ongoing support, updates, SLA-based |
+- **Node.js 22.12.0+**
+- **pnpm 9.x** (recommended) or npm/yarn
 
----
-
-## Tech Stack (what IRFATECH BUILDS with)
-
-- **Backend:** Laravel (PHP)
-- **Frontend:** Vue.js, Tailwind CSS
-- **ERP Platform:** Odoo
-- **APIs:** REST API integrations
-- **Mobile:** Cross-platform (web-based mobile, TBD native)
-- **Automation:** AI-driven workflows, WhatsApp Business API
-- **Database:** MySQL / PostgreSQL
-
----
-
-## Flagship Product: Landflix
-
-IRFATECH's own SaaS venture — a modern real estate technology platform:
-- Property discovery, management, and digital real estate operations
-- Demonstrates IRFATECH's ability to build full-scale vertical SaaS
-- Used as a portfolio/credibility piece on the many website
-
----
-
-## Industries Served
-
-1. Real Estate (Landflix synergy)
-2. Retail Shops (POS, inventory)
-3. Distributors & Wholesalers (supply chain, billing)
-4. Clinics & Healthcare (patient records, appointments)
-5. Restaurants & Hospitality (orders, menu management)
-6. Coaching Centers / Educational (enrollment, payments)
-7. SMB Enterprises (end-to-end digital infrastructure)
-
----
-
-## Core Values
-
-- **Innovation** — Smarter ways to solve business problems
-- **Reliability** — Systems businesses can trust
-- **Simplicity** — Making technology practical and accessible
-- **Growth** — Helping businesses scale through digital transformation
-- **Partnership** — Long-term client relationships, not one-off projects
-
----
-
-# 🌟 Features
-
-- **Modern Tech Stack**: Built with Nuxt 4, Vue 3 Composition API, and Tailwind CSS 4
-- **Performance Optimized**: Fast loading, optimized assets, and efficient code splitting
-- **SEO Optimized**: Structured data, metadata optimization, Open Graph support, and search-engine-friendly architecture
-- **Responsive Design**: Mobile-first UI with premium dark/light theme support
-- **Business-Focused UX**: Clear messaging optimized for consultancy conversion and trust-building
-- **AI & Automation Showcase**: Interactive sections for ERP, CRM, AI workflows, and automation systems
-- **Content Management**: Blog and insights powered by Markdown via Nuxt Content
-- **Portfolio & Case Studies**: Showcase client projects, business transformations, and products like Landflix
-- **Lead Generation Ready**: Consultation forms, WhatsApp integration, and CTA-focused UI
-
----
-
-# 🚀 Tech Stack
-
-- **Framework**: Nuxt 4
-- **Frontend**: Vue 3 Composition API
-- **Styling**: Tailwind CSS 4
-- **Icons**: Iconify / Lucide Icons
-- **Content Management**: Nuxt Content
-- **Image Optimization**: Nuxt Image
-- **Utilities**: VueUse
-- **Animations**: Motion & smooth UI transitions
-
----
-
-# 📁 Project Structure
+### Installation
 
 ```bash
-├── assets/
-│   └── css/
-│       └── main.css
-├── components/
-├── content/
-├── layouts/
-├── pages/
-├── app.vue
-├── nuxt.config.ts
-└── tailwind.config.js
-```
-
----
-
-# 💼 Core Services
-
-## Custom Software Development
-Scalable business software tailored to unique operational needs.
-
-## ERP Solutions
-Business management systems for inventory, billing, CRM, and workflow automation.
-
-## CRM & Sales Automation
-Lead management, customer tracking, and automated follow-up systems.
-
-## AI & Workflow Automation
-Smart automation systems designed to reduce manual tasks and improve operational efficiency.
-
-## Web & Mobile Applications
-Modern scalable platforms built for business growth.
-
-## Consulting & Support
-Long-term technology partnership and digital transformation consulting.
-
----
-
-# 🏢 Industries Served
-
-- Real Estate
-- Retail Businesses
-- Healthcare
-- Educational Institutions
-- Small Enterprises
-- Distributors
-- Service Businesses
-- Hospitality
-
----
-
-# 🚀 Getting Started
-
-## Installation
-
-```bash
-git clone <repository-url>
+git clone https://github.com/webbello/irfatech.git
 cd irfatech
-
-npm install
-npm run dev
+pnpm install
+cp .env.example .env
+pnpm dev
 ```
 
----
+Visit `http://localhost:4321` to see the site.
 
-# 🌐 Deployment
+## Commands
 
-Optimized for:
-- Vercel
-- Netlify
-- AWS
-- Cloudflare Pages
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start the development server with hot reload |
+| `pnpm build` | Build for production (also runs `astro check`, content validation, and link checks) |
+| `pnpm preview` | Preview the production build locally |
+| `pnpm check` | Run the Astro/TypeScript type checker |
+| `pnpm lint` / `pnpm lint:fix` | ESLint, with autofix |
+| `pnpm format` / `pnpm format:check` | Prettier |
+| `pnpm test` | Vitest unit tests |
+| `pnpm test:e2e` | Playwright end-to-end tests |
 
----
+`pnpm build` is the real test before shipping a change — it catches problems the dev server won't.
 
-# 🤝 Business Philosophy
+## Where things live
 
-IRFAtech believes technology should:
-- simplify operations
-- improve efficiency
-- support business growth
-- create scalable systems
-- reduce operational friction
+| Content | Location |
+|---|---|
+| Site identity, contact details, branding | `src/config/site.config.ts`, `src/config/branding.ts` |
+| Navigation (header/footer menus) | `src/config/nav.config.ts` |
+| Languages | `src/config/i18n.config.ts` — currently English (default), Bahasa Indonesia, Português, and Tetun |
+| All interface text | `src/i18n/en.json` (and the other locale files) |
+| Blog posts | `src/content/blog/en/*.mdx` |
+| Case studies / portfolio | `src/content/projects/en/*.mdx` |
+| Colour themes | `src/styles/themes/*.css` |
 
----
+See [AGENTS.md](AGENTS.md) for a fuller map of the codebase and its conventions.
 
-# IRFAtech
-### *Integrated Resources For Automation*
+## Environment variables
 
-> Building smarter systems for growing businesses.
+Copy `.env.example` to `.env` and fill in what you need:
+
+```bash
+SITE_URL=https://irfatech.in
+
+# Optional — contact form and newsletter (server-side only)
+RESEND_API_KEY=your-resend-api-key
+RESEND_AUDIENCE_ID=your-audience-id
+
+# Optional — analytics and search-console verification
+PUBLIC_GA_MEASUREMENT_ID=
+PUBLIC_UMAMI_WEBSITE_ID=
+GOOGLE_SITE_VERIFICATION=
+BING_SITE_VERIFICATION=
+```
+
+`SITE_URL` matters everywhere — canonical tags, `og:url`, RSS, and the sitemap are all built from it, and it needs to be set on the hosting platform too, not just locally.
+
+## Deployment
+
+Adapter configs are included for Vercel (default), Netlify, and Cloudflare Workers:
+
+```bash
+# Vercel
+vercel
+
+# Netlify
+netlify deploy --prod
+
+# Cloudflare
+DEPLOY_TARGET=cloudflare pnpm build && npx wrangler deploy
+```
+
+## Theme documentation
+
+For the full technical reference — the component library, design tokens, i18n internals, animation system, and SEO toolkit this site is built on — see the [Astro Rocket documentation](https://github.com/hansmartensdev/Astro-Rocket).
+
+## License
+
+MIT — see [LICENSE](LICENSE).
