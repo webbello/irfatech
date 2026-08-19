@@ -1,15 +1,37 @@
 ---
 /**
  * Project listing card. Extracted so the projects index, paginated pages,
- * and tag archives render identical cards from one source of truth.
+ * tag archives, the homepage, and the "more projects" rail on a project's
+ * own page all render identical cards from one source of truth.
+ *
+ * Layout: on `lg:` and up, the card is a text panel over a full-bleed cover
+ * photo that peeks in from the right edge — hovering the whole card slides
+ * the text out and the photo in to fill the frame. Modelled directly on
+ * thelonelypixel.co.uk's project rows (`.featured-work__list__item`), whose
+ * mechanism is: a card with `overflow: hidden`, a text column in normal
+ * flow, and a cover image absolutely positioned against the *whole card*
+ * (not just a column) so it can grow to fill it. At rest the image is
+ * shifted right and clipped by the card edge; on hover both the text
+ * (`translateX(-120%)`) and the image (`translateX(0) scale(1.15)`) animate
+ * on the same `.6s` cubic-bezier, so the swap reads as one continuous motion
+ * rather than two independent hovers.
+ *
+ * Below `lg:` there's no hover to design for, so the card is a plain stacked
+ * layout instead: full-width cover photo on top, text below, no absolute
+ * positioning or peeking — the same simplification the reference site makes
+ * below its own desktop breakpoint.
  *
  * Placeholder projects render as a non-interactive card (no link), matching
  * how the listing treats projects that don't have their own detail page.
+ * Projects without a cover photo (`data.image` unset) get an icon on a
+ * tinted surface in its place, so a card can never render with an empty
+ * media pane.
  */
+import { Image } from 'astro:assets';
 import Card from '@/components/ui/data-display/Card/Card.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import type { CollectionEntry } from 'astro:content';
-import { defaultLocale } from '@/i18n';
+import { t, defaultLocale } from '@/i18n';
 import { getProjectUrl } from '@/lib/projects';
 
 interface Props {
@@ -35,27 +57,45 @@ const { data } = project;
 
 <Card
   variant="elevated"
-  hover
   padding="none"
   href={data.placeholder ? undefined : getProjectUrl(project.id, locale)}
-  class="group flex flex-col"
+  class="pc group relative isolate flex flex-col overflow-hidden lg:h-[300px] lg:block"
   data-reveal={reveal || undefined}
   data-reveal-delay={reveal ? index % 2 || undefined : undefined}
 >
   <!--
-    Bottom padding is larger than the rest on purpose. Above the icon sits the
-    padding plus the year row and its margin — 54px from the border to the top
-    of the icon — while below the tags there is only the padding. 53px puts the
-    same 54px under the tags, so the card reads as evenly weighted.
-
-    It is a measured value rather than a scale step, because it mirrors the
-    year row, whose height comes from its font size. If that row changes, this
-    wants re-measuring: border to top of icon, and bottom of the tag pills to
-    border.
+    Media. `lg:absolute lg:inset-0` takes it out of flow at desktop size so
+    it can be positioned against the whole card, not just a column — that's
+    what lets it grow to fill the card on hover instead of being capped at a
+    fixed slice of it. Below `lg:` it stays a normal, static, full-width
+    block: no peeking, no absolute positioning, nothing that depends on a
+    hover no touch device can send.
   -->
-  <div class="flex flex-1 flex-col p-6 pb-[53px]">
-    <!-- The year and the arrow square off the top corners, leaving the middle
-         of the card to the project itself. -->
+  <div class="pc-media relative h-48 w-full shrink-0 overflow-hidden lg:absolute lg:inset-0 lg:h-full">
+    {data.image ? (
+      <Image
+        src={data.image}
+        alt={data.imageAlt || data.title}
+        widths={[400, 640, 960, 1280]}
+        sizes="(min-width: 1024px) 60vw, 100vw"
+        class="pc-media-img h-full w-full object-cover"
+      />
+    ) : (
+      <div class="pc-media-img flex h-full w-full items-center justify-center bg-background-secondary">
+        <Icon name={data.icon ?? 'layers'} class="h-16 w-16 text-brand-500/70" />
+      </div>
+    )}
+  </div>
+
+  <!--
+    Text panel. Stays in normal document flow and in front of the media
+    layer (z-index + its own opaque background), so it reads cleanly over
+    whatever the image is doing at any point mid-transition. Capped to 42%
+    width at `lg:` — narrow enough that the cover photo has real room to
+    peek in on its right, wide enough that the copy doesn't wrap awkwardly
+    in the tightest (3-up) grid this card appears in.
+  -->
+  <div class="pc-body relative z-10 flex flex-1 flex-col p-6 lg:h-full lg:w-[42%] lg:bg-card lg:justify-between">
     <div class="mb-3 flex items-start justify-between gap-4">
       {data.year ? (
         <span class="text-xs text-foreground-muted">{data.year}</span>
@@ -65,30 +105,112 @@ const { data } = project;
       <Icon name="arrow-up-right" size="sm" class="text-foreground-muted group-hover:text-brand-500 transition-colors shrink-0" />
     </div>
 
-    <!--
-      The project's own icon, from its frontmatter, falling back to `layers`.
-      One repeated icon across every card makes them read as placeholders, so
-      each project carries its own.
-
-      A plain 40px icon rather than one inside a gradient tile, matching every
-      other card in the theme. The size only works centred: left-aligned in a
-      corner it has nothing to balance against and towers over the title.
-    -->
-    <div class="mb-3 flex flex-col items-center gap-2 text-center">
-      <Icon name={data.icon ?? 'layers'} class="w-10 h-10 text-brand-500 shrink-0" />
-      <h3 class="font-display text-lg font-bold text-foreground">{data.title}</h3>
+    <div class="flex-1">
+      <h3 class="font-display text-lg font-bold text-foreground mb-2">{data.title}</h3>
+      <p class="text-sm text-foreground-muted leading-relaxed">{data.description}</p>
     </div>
 
-    <p class="text-sm text-foreground-muted leading-relaxed mb-4 flex-1 text-center">{data.description}</p>
+    <div class="mt-4 flex flex-col gap-3">
+      {data.tags && data.tags.length > 0 && (
+        <div class="flex flex-wrap gap-1.5">
+          {data.tags.map((tag) => (
+            <span class="inline-flex items-center rounded-full bg-transparent px-2.5 py-0.5 text-xs font-medium text-brand-700 dark:text-brand-400 ring-1 ring-inset ring-brand-500/40 transition-colors group-hover:ring-brand-500/80">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
 
-    {data.tags && data.tags.length > 0 && (
-      <div class="flex flex-wrap justify-center gap-1.5">
-        {data.tags.map((tag) => (
-          <span class="inline-flex items-center rounded-full bg-transparent px-2.5 py-0.5 text-xs font-medium text-brand-700 dark:text-brand-400 ring-1 ring-inset ring-brand-500/40 transition-colors group-hover:ring-brand-500/80">
-            #{tag}
-          </span>
-        ))}
-      </div>
-    )}
+      {!data.placeholder && (
+        <span class="pc-cta inline-flex items-center gap-1.5 text-sm font-semibold text-brand-500">
+          {t('projects.viewProject', locale)}
+          <Icon name="arrow-right" size="sm" class="pc-cta-arrow" />
+        </span>
+      )}
+    </div>
   </div>
 </Card>
+
+<style>
+  /*
+   * `:global(.pc)` — not `.pc` — because `.pc` lives on the <a> that
+   * Card.astro renders, not on an element this component's own template
+   * emits. Astro's scoped-style compiler appends its scope attribute to
+   * EVERY simple selector in a compound chain, ancestor included, so a bare
+   * `.pc:hover .pc-body` compiles to
+   * `.pc[data-astro-cid-x]:hover .pc-body[data-astro-cid-x]` — a selector no
+   * element can ever match, since Card.astro's <a> never receives this
+   * component's scope attribute. It fails silently: no build warning, no
+   * console error, just a hover that visibly does nothing. `:global()`
+   * around the ancestor half of the selector is Astro's documented escape
+   * hatch for exactly this "the class I need lives on another component's
+   * element" case.
+   *
+   * The reveal itself, in three declarations:
+   *   1. .pc-media-img sits shifted right and slightly oversized, so its
+   *      visible sliver at the card's right edge is a deliberate "peek",
+   *      not an accident of cropping.
+   *   2. On hover (or keyboard focus), it slides to cover the card and
+   *      grows further — a swap, not just a zoom.
+   *   3. .pc-body exits left on the same clock, so the two motions read as
+   *      one continuous reveal instead of two unrelated hovers.
+   *
+   * `cubic-bezier(.645,.045,.355,1)` (easeInOutCubic) and the `.6s` duration
+   * are the reference site's own values, kept exactly rather than swapped
+   * for this theme's default `--ease-default` — the brief was to match its
+   * feel, and that curve's hard snap in and out is a specific, recognisable
+   * part of it.
+   */
+  .pc-media-img {
+    transition:
+      transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1),
+      opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .pc-body {
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  @media (min-width: 1024px) {
+    .pc-media-img {
+      transform: translateX(38%) scale(1.06);
+    }
+
+    :global(.pc):hover .pc-media-img,
+    :global(.pc):focus-visible .pc-media-img {
+      transform: translateX(0) scale(1.15);
+    }
+
+    :global(.pc):hover .pc-body,
+    :global(.pc):focus-visible .pc-body {
+      transform: translateX(-120%);
+    }
+
+    /* The arrow nudges toward the label's reading direction — a small,
+       ordinary hover cue on the one piece of the panel still guaranteed to
+       be visible up to the instant it slides away. */
+    .pc-cta-arrow {
+      transition: transform 0.3s var(--ease-out, ease);
+    }
+
+    :global(.pc):hover .pc-cta-arrow,
+    :global(.pc):focus-visible .pc-cta-arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  /* No peeking, no swap, no motion — the card just shows the full photo
+     and the full text, always, exactly like the sub-`lg:` layout above. */
+  @media (prefers-reduced-motion: reduce) {
+    .pc-media-img,
+    .pc-body {
+      transition: none;
+    }
+
+    @media (min-width: 1024px) {
+      .pc-media-img {
+        transform: none;
+      }
+    }
+  }
+</style>
