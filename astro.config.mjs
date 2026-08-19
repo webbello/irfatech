@@ -1,5 +1,6 @@
 import { join, dirname } from 'node:path';
 import { writeFile, mkdir, readdir, readFile } from 'node:fs/promises';
+import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, envField } from 'astro/config';
 import mdx from '@astrojs/mdx';
@@ -366,6 +367,113 @@ function verifySiteUrl() {
 }
 
 /**
+ * Locales that actually have entries in a content collection.
+ *
+ * A locale with no blog posts still builds `/id/blog/`, `/id/blog/tag/...`
+ * and so on, because the index route exists for every locale. Those pages
+ * render an empty state, which is right for a visitor who switched language
+ * — but submitting them in the sitemap asks Google to index a page with no
+ * content, and it answers "Crawled – currently not indexed", which is noise
+ * in a report you want to read for real problems.
+ *
+ * Derived from the filesystem rather than hardcoded, so it self-heals: drop
+ * one Indonesian post into `src/content/blog/id/` and `/id/blog/` is back in
+ * the sitemap on the next build with no config change. The pages themselves
+ * are untouched and stay reachable and linked throughout.
+ */
+const populatedLocales = (collection) => {
+  const base = join(process.cwd(), 'src', 'content', collection);
+  const populated = new Set();
+  let localeDirs;
+  try {
+    localeDirs = readdirSync(base, { withFileTypes: true });
+  } catch {
+    return populated;
+  }
+  for (const dir of localeDirs) {
+    if (!dir.isDirectory()) continue;
+    const hasEntries = readdirSync(join(base, dir.name)).some((f) => /\.mdx?$/.test(f));
+    if (hasEntries) populated.add(dir.name);
+  }
+  return populated;
+};
+
+/** True when this URL is a listing page for a locale that has nothing to list. */
+function isEmptyListing(pathname) {
+  for (const collection of ['blog', 'projects']) {
+    const populated = populatedLocales(collection);
+    for (const locale of i18nConfig.locales) {
+      if (populated.has(locale)) continue;
+      const prefix = locale === i18nConfig.defaultLocale ? '' : `/${locale}`;
+      if (new RegExp(`^${prefix}/${collection}(/(tag|page)/[^/]+)?/?$`).test(pathname)) return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Map of URL path → ISO date, built from content frontmatter.
+ *
+ * Read with `fs` and a regex rather than through `astro:content`, because
+ * this file is evaluated as plain Node before any Astro runtime exists —
+ * the same constraint that keeps `site.config.ts` out of here. Only the two
+ * collections that actually carry dates are scanned; everything else is
+ * absent from the map and simply gets no `lastmod`.
+ *
+ * Computed once and cached: `serialize` runs per URL, and re-reading the
+ * blog directory 160 times would be pointless work.
+ */
+let lastmodCache;
+function contentLastmod() {
+  if (lastmodCache) return lastmodCache;
+  lastmodCache = new Map();
+
+  const read = (file) => {
+    try {
+      return readFileSync(file, 'utf8');
+    } catch {
+      return '';
+    }
+  };
+  // Frontmatter only — a date-looking string in the body must not win.
+  const frontmatter = (text) => text.split(/^---\s*$/m)[1] ?? '';
+  const field = (fm, name) => {
+    const match = fm.match(new RegExp(`^${name}:\\s*["']?([0-9]{4}-[0-9]{2}-[0-9]{2}[^"'\\s]*)`, 'm'));
+    return match ? match[1] : undefined;
+  };
+
+  const defaultLocale = i18nConfig.defaultLocale;
+
+  for (const collection of ['blog', 'pages']) {
+    const base = join(process.cwd(), 'src', 'content', collection);
+    let localeDirs;
+    try {
+      localeDirs = readdirSync(base, { withFileTypes: true });
+    } catch {
+      continue; // collection has no directory yet
+    }
+
+    for (const localeDir of localeDirs) {
+      if (!localeDir.isDirectory()) continue;
+      const locale = localeDir.name;
+      const prefix = locale === defaultLocale ? '' : `/${locale}`;
+
+      for (const entry of readdirSync(join(base, locale))) {
+        if (!/\.mdx?$/.test(entry)) continue;
+        const fm = frontmatter(read(join(base, locale, entry)));
+        // `updatedAt` wins when present — that is what "last modified" means.
+        const date = field(fm, 'updatedAt') || field(fm, 'publishedAt');
+        if (!date) continue;
+        const slug = entry.replace(/\.mdx?$/, '');
+        lastmodCache.set(`${prefix}/${collection}/${slug}`, new Date(date).toISOString());
+      }
+    }
+  }
+
+  return lastmodCache;
+}
+
+/**
  * Native Astro i18n is only wired up when the user opts in *and* has
  * more than one locale configured. With i18n off (the default) this
  * block is undefined and the build emits the exact same routes as
@@ -436,7 +544,71 @@ export default defineConfig({
       // were shipping in the sitemap and indexable, which spends crawl budget
       // and adds pages with no relationship to anything the entity graph
       // describes. Both also carry `noindex`.
-      filter: (page) => !/\/(components|preview-hero)\/?$/.test(new URL(page).pathname),
+      filter: (page) => {
+        const { pathname } = new URL(page);
+        return !/\/(components|preview-hero)\/?$/.test(pathname) && !isEmptyListing(pathname);
+      },
+
+      /**
+       * hreflang annotations, emitted as `xhtml:link` alternates.
+       *
+       * The pages already carry `<link rel="alternate" hreflang>` in their
+       * head, so this is deliberate redundancy: the sitemap states the whole
+       * language graph in one small file the crawler fetches once, instead of
+       * requiring it to fetch and parse all 162 pages to assemble the same
+       * picture. For a site whose alternates matter commercially — Timor-Leste
+       * is served in Portuguese and Tetum — the cheaper channel is worth having.
+       *
+       * Read from `i18n.config.ts` rather than restated here, so the sitemap
+       * cannot drift from the locales the site actually builds. The default
+       * locale maps to itself and lives at the root; the rest are path
+       * prefixes. `tet` has no ISO 639-1 code, so the 639-3 code is correct
+       * and is what the HTML tags already use.
+       */
+      i18n: {
+        defaultLocale: i18nConfig.defaultLocale,
+        locales: Object.fromEntries(i18nConfig.locales.map((locale) => [locale, locale])),
+      },
+
+      /**
+       * `lastmod`, from real content dates only.
+       *
+       * Deliberately partial. Google treats lastmod as a scheduling signal
+       * only while it stays accurate, so inventing a date is worse than
+       * omitting one: a sitemap that claims every page changed at build time
+       * teaches the crawler to ignore the field. Blog posts carry
+       * `publishedAt`/`updatedAt` in frontmatter and get a real date; services,
+       * solutions and projects have no date field, so they get none.
+       *
+       * Note this cannot come from git. `actions/checkout@v4` in the deploy
+       * workflows runs at its default shallow depth, so `git log` for a file
+       * is empty in CI and every page would land on the same commit date.
+       *
+       * To widen coverage later, add an optional `updatedAt` to the services
+       * and solutions schemas and extend `contentLastmod()` to read it.
+       */
+      serialize: (item) => {
+        let next = item;
+
+        // `x-default` — the version served to a language we don't publish.
+        //
+        // The `i18n` option above emits one alternate per configured locale
+        // but no x-default, while SEO.astro already writes one into every
+        // page's head. Google asks that the HTML and sitemap channels agree
+        // when a site uses both; leaving the sitemap short of a tag the HTML
+        // declares is the kind of small disagreement that makes it discount
+        // the annotations wholesale. Points at the default-locale URL, which
+        // is what the head tag points at.
+        if (next.links?.length) {
+          const fallback = next.links.find((link) => link.lang === i18nConfig.defaultLocale);
+          if (fallback && !next.links.some((link) => link.lang === 'x-default')) {
+            next = { ...next, links: [...next.links, { lang: 'x-default', url: fallback.url }] };
+          }
+        }
+
+        const lastmod = contentLastmod().get(new URL(next.url).pathname.replace(/\/$/, ''));
+        return lastmod ? { ...next, lastmod } : next;
+      },
     }),
     icon(),
     siteUrlCheck(),

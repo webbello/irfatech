@@ -49,16 +49,44 @@ export function getSecondaryLocales(): string[] {
 export async function getVisibleSolutions(
   locale: string = defaultLocale
 ): Promise<CollectionEntry<'solutions'>[]> {
-  const all = await getCollection('solutions', (entry) => {
-    return getEntryLocale(entry.id) === locale && (import.meta.env.PROD ? entry.data.draft !== true : true);
+  const published = (entry: CollectionEntry<'solutions'>) =>
+    import.meta.env.PROD ? entry.data.draft !== true : true;
+
+  const localized = await getCollection('solutions', (entry) => {
+    return getEntryLocale(entry.id) === locale && published(entry);
   });
-  if (all.length > 0 || locale === defaultLocale) {
-    return all.sort((a, b) => a.data.order - b.data.order);
+
+  if (locale === defaultLocale) {
+    return localized.sort((a, b) => a.data.order - b.data.order);
   }
-  const fallback = await getCollection('solutions', (entry) => {
-    return getEntryLocale(entry.id) === defaultLocale && (import.meta.env.PROD ? entry.data.draft !== true : true);
+
+  const source = await getCollection('solutions', (entry) => {
+    return getEntryLocale(entry.id) === defaultLocale && published(entry);
   });
-  return fallback.sort((a, b) => a.data.order - b.data.order);
+
+  // Fall back PER ENTRY, not per locale.
+  //
+  // This used to be all-or-nothing: if the locale had even one translated
+  // file, `localized` was returned whole and the English catalogue was
+  // dropped. That made partial translation impossible — adding a single
+  // `pt` file deleted the other seven `/pt/services/*` URLs from the build,
+  // because they were no longer in the list the routes are generated from.
+  // Translating a catalogue one page at a time is the normal way this work
+  // actually happens, so the fallback has to survive it.
+  //
+  // The English set is the catalogue of record: every entry keeps its URL in
+  // every locale, showing the translation where one exists and English where
+  // it does not. Nothing 404s mid-translation, and each new file swaps itself
+  // in on the next build.
+  const translated = new Map(localized.map((entry) => [getSolutionSlug(entry.id), entry]));
+  const merged = source.map((entry) => translated.get(getSolutionSlug(entry.id)) ?? entry);
+
+  // An entry that exists only in this locale has no English counterpart to
+  // merge over, so it would vanish from the map above. Keep it.
+  const sourceSlugs = new Set(source.map((entry) => getSolutionSlug(entry.id)));
+  const localeOnly = localized.filter((entry) => !sourceSlugs.has(getSolutionSlug(entry.id)));
+
+  return [...merged, ...localeOnly].sort((a, b) => a.data.order - b.data.order);
 }
 
 /** Resolve related-solution slugs to their entries, for the current locale (with default-locale fallback). */
