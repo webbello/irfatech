@@ -232,8 +232,8 @@
   "pages": {
     "about": {
       "meta": {
-        "title": "Kona-ba — Automasaun Negósiu no Infraestrutura Digital",
-        "description": "IRFAtech (Integrated Resources For Automation & Technology) ajuda negósiu sira ne'ebé kresse iha Índia no Timor-Leste atu automatiza operasaun liuhusi ERP, workflow ho IA, no software personalizadu."
+        "title": "Kona-ba — Kompañia Software no Automatizasaun ba Timor-Leste no Índia",
+        "description": "IRFATECH (Integrated Resources For Automation & Technology) mak kompañia software no automatizasaun ne'ebé serve Índia no Timor-Leste — ERP, fluxu servisu ho IA, software personalizadu, no rekolla dadus iha kampu."
       },
       "hero": {
         "badge": "Kona-ba",
@@ -423,8 +423,9 @@
     },
     "services": {
       "meta": {
-        "title": "Servisu — ERP, Automasaun, Software no Suporta",
-        "description": "Solusaun ERP, automasaun IA no workflow, software personalizadu, automasaun WhatsApp, CRM, site, aplikasaun móvel, no suporta — parseiru ida, servisu ualu."
+        "title": "Servisu",
+        "titleFull": "Servisu Dezenvolvimentu Software iha Timor-Leste no Índia",
+        "description": "ERP, software personalizadu, website negósiu, aplikasaun móvel, automatizasaun WhatsApp no fluxu servisu, CRM no apoiu — ba negósiu iha Timor-Leste no Índia."
       },
       "includedLabel": "Saida mak inklui",
       "hero": {
@@ -648,8 +649,8 @@
     },
     "contact": {
       "meta": {
-        "title": "Kontaktu",
-        "description": "Hahú projetu ERP, automasaun, ka software? Konta mai ami kona-ba ita-nia negósiu no ami sei responde iha loron servisu 1."
+        "title": "Kontaktu — Kompañia Software iha Timor-Leste no Índia",
+        "description": "Hahú projetu ERP, automatizasaun, website, ka software iha Timor-Leste ka Índia? Konta mai ami kona-ba ita-nia negósiu no ami sei responde iha loron servisu 1."
       },
       "hero": {
         "badge": "Hahú projetu",
@@ -669,8 +670,8 @@
     },
     "home": {
       "meta": {
-        "title": "Halo Negósiu Serbisu Matenek Liu Husi Software",
-        "description": "Konta ba ami saida mak konsume tempu barak liu iha ita-nia negósiu. Ami harii software personalizadu, automasaun, ERP no CRM ba PME sira ne'ebé kresse iha Índia no Timor-Leste."
+        "title": "Kompañia Software — Timor-Leste no Índia",
+        "description": "IRFATECH mak kompañia dezenvolvimentu software ba negósiu iha Timor-Leste (Dili) no Índia — ERP, website negósiu, aplikasaun móvel, no automatizasaun WhatsApp no fluxu servisu."
       },
       "hero": {
         "badge": "Liu Tinan 15 Esperiénsia · Índia & Timor-Leste",

@@ -232,8 +232,8 @@
   "pages": {
     "about": {
       "meta": {
-        "title": "Sobre — Automação de Negócios e Infraestrutura Digital",
-        "description": "A IRFAtech (Integrated Resources For Automation & Technology) ajuda negócios em crescimento na Índia e em Timor-Leste a automatizar operações com ERP, fluxos de trabalho com IA e software personalizado."
+        "title": "Sobre — Empresa de Software e Automação para Timor-Leste e Índia",
+        "description": "A IRFATECH (Integrated Resources For Automation & Technology) é uma empresa de software e automação que serve a Índia e Timor-Leste — ERP, fluxos de trabalho com IA, software à medida e recolha de dados no terreno."
       },
       "hero": {
         "badge": "Sobre",
@@ -423,8 +423,9 @@
     },
     "services": {
       "meta": {
-        "title": "Serviços — ERP, Automação, Software e Suporte",
-        "description": "Soluções de ERP, automação com IA e fluxos de trabalho, software personalizado, automação de WhatsApp, CRM, sites, aplicações móveis e suporte — um parceiro, oito serviços."
+        "title": "Serviços",
+        "titleFull": "Serviços de Desenvolvimento de Software em Timor-Leste e Índia",
+        "description": "ERP, software à medida, sites, aplicações móveis, automação de WhatsApp e de processos, CRM e suporte — para negócios em Timor-Leste e na Índia."
       },
       "includedLabel": "O que está incluído",
       "hero": {
@@ -648,8 +649,8 @@
     },
     "contact": {
       "meta": {
-        "title": "Contacto",
-        "description": "A começar um projeto de ERP, automação ou software? Conte-nos sobre o seu negócio e respondemos em 1 dia útil."
+        "title": "Contacto — Empresa de Software em Timor-Leste e Índia",
+        "description": "A começar um projeto de ERP, automação, site ou software em Timor-Leste ou na Índia? Conte-nos sobre o seu negócio e respondemos em 1 dia útil."
       },
       "hero": {
         "badge": "Comece um projeto",
@@ -669,8 +670,8 @@
     },
     "home": {
       "meta": {
-        "title": "Tornar o Negócio Mais Inteligente Através do Software",
-        "description": "Diga-nos o que consome demasiado tempo no seu negócio. Desenvolvemos software personalizado, automação, ERP e CRM para PME em crescimento na Índia e em Timor-Leste."
+        "title": "Empresa de Software — Timor-Leste e Índia",
+        "description": "A IRFATECH é uma empresa de desenvolvimento de software para negócios em Timor-Leste (Díli) e na Índia — ERP, sites, aplicações móveis e automação de WhatsApp e de processos."
       },
       "hero": {
         "badge": "15+ Anos de Experiência · Índia e Timor-Leste",

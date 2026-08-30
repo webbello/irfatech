@@ -232,8 +232,8 @@
   "pages": {
     "about": {
       "meta": {
-        "title": "About — Business Automation & Digital Infrastructure",
-        "description": "IRFAtech (Integrated Resources For Automation & Technology) helps growing businesses in India and Timor-Leste automate operations with ERP, AI workflows, and custom software."
+        "title": "About — Software & Automation Company for Timor-Leste & India",
+        "description": "IRFATECH (Integrated Resources For Automation & Technology) is a software and automation company serving India and Timor-Leste — ERP, AI workflows, custom software, and field data collection."
       },
       "hero": {
         "badge": "About",
@@ -423,8 +423,9 @@
     },
     "services": {
       "meta": {
-        "title": "Services — ERP, Automation, Software & Support",
-        "description": "ERP solutions, AI & workflow automation, custom software, WhatsApp automation, CRM, websites, mobile apps, and support — one partner, eight services."
+        "title": "Services",
+        "titleFull": "Software Development Services in Timor-Leste & India",
+        "description": "ERP, custom software, business websites, mobile apps, WhatsApp and workflow automation, CRM and support — for businesses in Timor-Leste and India."
       },
       "includedLabel": "What's included",
       "hero": {
@@ -648,8 +649,8 @@
     },
     "contact": {
       "meta": {
-        "title": "Contact",
-        "description": "Starting an ERP, automation, or software project? Tell us about your business and we'll get back to you within 1 business day."
+        "title": "Contact — Software Company in Timor-Leste & India",
+        "description": "Starting an ERP, automation, website, or software project in Timor-Leste or India? Tell us about your business and we'll get back to you within 1 business day."
       },
       "hero": {
         "badge": "Start a project",
@@ -669,8 +670,8 @@
     },
     "home": {
       "meta": {
-        "title": "Making Business Work Smarter Through Software",
-        "description": "Tell us what takes too much time in your business. We build custom software, automation, ERP and CRM for growing companies in India and Timor-Leste."
+        "title": "Software Company — Timor-Leste & India",
+        "description": "IRFATECH is a software development company for businesses in Timor-Leste (Dili) and India — ERP, business websites, mobile apps, and WhatsApp & workflow automation."
       },
       "hero": {
         "badge": "15+ Years Experience · India & Timor-Leste",

@@ -447,8 +447,8 @@ function isUntranslatedLocaleDetail(pathname) {
       });
       if (!exists) return true;
     }
-    // Legal pages: /<locale>/privacy/ and /<locale>/terms/
-    const legal = pathname.match(new RegExp(`^/${locale}/(privacy|terms)/?$`));
+    // Root content pages: /<locale>/privacy/, /<locale>/terms/, /<locale>/timor-leste/
+    const legal = pathname.match(new RegExp(`^/${locale}/(privacy|terms|timor-leste)/?$`));
     if (legal) {
       const exists = ['md', 'mdx'].some((ext) => {
         try {
@@ -572,8 +572,11 @@ const legacyRedirects = {
   '/portfolio': '/projects/',
   '/industries': '/solutions/',
   '/landflix': '/projects/landflix/',
-  // Old blog posts folded into the rewritten set
-  '/blog/odoo-erp-india-sme': '/blog/erp-for-growing-smbs/',
+  // Old blog posts folded into the rewritten set. `odoo-erp-india-sme` was the
+  // single highest-impression URL on the old site ("odoo erp company india"
+  // and similar), so it points at the commercial ERP page rather than the
+  // think-piece — the query behind those impressions is a buying one.
+  '/blog/odoo-erp-india-sme': '/services/erp-solutions/',
   '/blog/why-retail-shops-need-erp': '/blog/erp-for-growing-smbs/',
   '/blog/best-crm-for-small-businesses': '/blog/crm-sales-automation/',
   '/blog/whatsapp-business-automation-guide': '/blog/whatsapp-business-automation-india/',

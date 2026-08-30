@@ -101,7 +101,8 @@ export const footerNavItems: NavItem[] = [
   { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
   { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
   { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
-  { label: 'GitHub', href: 'https://github.com/webbello/irfatech', order: 7, external: true },
+  { label: 'Timor-Leste', href: '/timor-leste', order: 7 },
+  { label: 'GitHub', href: 'https://github.com/webbello/irfatech', order: 8, external: true },
 ];
 
 export const legalLinks: LegalLink[] = [

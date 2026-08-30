@@ -1,0 +1,22 @@
+---
+import LegalView from '@/components/pages/views/LegalView.astro';
+import { getLegalPage, getLegalAlternates, getSecondaryLocales } from '@/lib/legal';
+
+// Locale-prefixed Timor-Leste market page (`/<locale>/timor-leste`). Falls back
+// to the English copy, marked noindex, until a translated file exists at
+// `src/content/pages/<locale>/timor-leste.mdx`.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const { entry, isFallback } = await getLegalPage('timor-leste', locale);
+const localeAlternates = await getLegalAlternates('timor-leste');
+---
+
+<LegalView
+  page={entry}
+  locale={locale}
+  isFallback={isFallback}
+  localeAlternates={localeAlternates}
+/>

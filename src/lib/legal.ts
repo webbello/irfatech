@@ -15,7 +15,12 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { defaultLocale, localizedPath, getLocales, isEnabled } from '@/i18n';
 
-export type LegalSlug = 'privacy' | 'terms';
+/**
+ * Standalone pages that live in the `pages` collection and are served at the
+ * site root — the legal pages plus the Timor-Leste market page. All share the
+ * same per-locale fallback behaviour, so they go through the helpers below.
+ */
+export type LegalSlug = 'privacy' | 'terms' | 'timor-leste';
 
 /** Strip the `<locale>/` folder segment and the extension from a `pages` id. */
 export function getPageSlug(id: string): string {
