@@ -20,7 +20,9 @@
       "projects": "Proyek",
       "blog": "Blog",
       "about": "Tentang",
-      "contact": "Kontak"
+      "contact": "Kontak",
+      "privacy": "Kebijakan Privasi",
+      "terms": "Ketentuan Layanan"
     },
     "ctaLabel": "Mulai proyek"
   },

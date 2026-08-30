@@ -20,7 +20,9 @@
       "projects": "Projetos",
       "blog": "Blog",
       "about": "Sobre",
-      "contact": "Contacto"
+      "contact": "Contacto",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Serviço"
     },
     "ctaLabel": "Começar um projeto"
   },

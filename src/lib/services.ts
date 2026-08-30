@@ -94,6 +94,36 @@ export async function getVisibleServices(
 }
 
 /**
+ * True when `id` is the default-locale entry being rendered under a non-default
+ * locale — the English copy standing in until a translation exists. The route
+ * still builds the page (so the language switcher never 404s), but it must be
+ * `noindex` and kept out of the sitemap.
+ */
+export function isFallbackEntry(id: string, locale: string): boolean {
+  return locale !== defaultLocale && getEntryLocale(id) !== locale;
+}
+
+/**
+ * Verified `{ locale, url }` alternates for a service slug — only the locales
+ * that actually have a translated file, so `hreflang` never points at a page
+ * that is really the English fallback. Mirrors `getPostTranslations`.
+ */
+export async function getServiceTranslations(
+  slug: string
+): Promise<{ locale: string; url: string }[]> {
+  if (!isEnabled()) return [];
+  const have = new Set(
+    (await getCollection('services')).map((entry) => {
+      const loc = getEntryLocale(entry.id);
+      return `${loc}/${getServiceSlug(entry.id, loc)}`;
+    })
+  );
+  return getLocales()
+    .filter((loc) => have.has(`${loc}/${slug}`))
+    .map((loc) => ({ locale: loc, url: localizedPath(`/services/${slug}`, loc) }));
+}
+
+/**
  * Resolve related-post slugs to their blog entries for a locale (with the
  * usual default-locale fallback for the post itself). Slugs that don't match
  * a published post are silently dropped — a content-editor typo shouldn't

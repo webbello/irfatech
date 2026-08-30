@@ -89,6 +89,36 @@ export async function getVisibleSolutions(
   return [...merged, ...localeOnly].sort((a, b) => a.data.order - b.data.order);
 }
 
+/**
+ * True when `id` is the default-locale entry being rendered under a non-default
+ * locale — i.e. the English copy standing in until a translation exists. The
+ * route still builds the page (so the language switcher never 404s), but it
+ * must be `noindex` and kept out of the sitemap.
+ */
+export function isFallbackEntry(id: string, locale: string): boolean {
+  return locale !== defaultLocale && getEntryLocale(id) !== locale;
+}
+
+/**
+ * Verified `{ locale, url }` alternates for a solution slug — only the locales
+ * that actually have a translated file, so `hreflang` never points at a page
+ * that is really the English fallback. Mirrors `getPostTranslations`.
+ */
+export async function getSolutionTranslations(
+  slug: string
+): Promise<{ locale: string; url: string }[]> {
+  if (!isEnabled()) return [];
+  const have = new Set(
+    (await getCollection('solutions')).map((entry) => {
+      const loc = getEntryLocale(entry.id);
+      return `${loc}/${getSolutionSlug(entry.id, loc)}`;
+    })
+  );
+  return getLocales()
+    .filter((loc) => have.has(`${loc}/${slug}`))
+    .map((loc) => ({ locale: loc, url: localizedPath(`/solutions/${slug}`, loc) }));
+}
+
 /** Resolve related-solution slugs to their entries, for the current locale (with default-locale fallback). */
 export async function getRelatedSolutions(
   slugs: string[],

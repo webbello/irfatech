@@ -88,10 +88,26 @@ const ogImageType = getImageType(ogImage);
 // per-locale URLs); otherwise fall back to swapping the locale segment of the
 // current path, which is correct for pages that share a slug across locales.
 const i18nOn = i18nIsEnabled();
-const resolvedAlternates =
+
+// Every other URL channel — the canonical tag above, `@astrojs/sitemap`, and
+// Astro's own `build.format: 'directory'` output — states these URLs with a
+// trailing slash. hreflang has to match exactly: Google discards an hreflang
+// cluster wholesale when the annotated URL and the page's own canonical
+// disagree, even by a slash, and `swapLocaleInPath` returns the slashless
+// form (`/id`, `/id/about`). Normalise here so the three channels agree.
+const withTrailingSlash = (path: string): string => {
+  const [pathname, ...rest] = path.split(/(?=[?#])/);
+  if (/\.[a-z0-9]+$/i.test(pathname)) return path; // a file, e.g. /rss.xml
+  const normalised = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  return [normalised, ...rest].join('');
+};
+
+const resolvedAlternates = (
   localeAlternates && localeAlternates.length > 0
     ? localeAlternates
-    : getLocales().map((loc) => ({ locale: loc, url: swapLocaleInPath(Astro.url.pathname, loc) }));
+    : getLocales().map((loc) => ({ locale: loc, url: swapLocaleInPath(Astro.url.pathname, loc) }))
+).map((alt) => ({ locale: alt.locale, url: withTrailingSlash(alt.url) }));
+
 const hreflangAlternates = i18nOn
   ? resolvedAlternates.map((alt) => ({
       hreflang: alt.locale,
@@ -101,7 +117,7 @@ const hreflangAlternates = i18nOn
 const xDefaultUrl =
   resolvedAlternates.find((alt) => alt.locale === defaultLocale)?.url ??
   resolvedAlternates[0]?.url ??
-  swapLocaleInPath(Astro.url.pathname, defaultLocale);
+  withTrailingSlash(swapLocaleInPath(Astro.url.pathname, defaultLocale));
 const xDefaultHref = i18nOn ? new URL(xDefaultUrl, Astro.site).toString() : null;
 ---
 

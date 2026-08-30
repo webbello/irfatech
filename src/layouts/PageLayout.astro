@@ -32,6 +32,8 @@ interface Props {
   speakableSelectors?: string[];
   /** Extra graph nodes: Service, BlogPosting, ItemList … */
   extraSchemas?: SchemaNode[];
+  /** Verified locale alternates for this page, forwarded to SEO for hreflang. */
+  localeAlternates?: { locale: string; url: string }[];
   /**
    * Footer background. Defaults to `techlo` (fixed navy, same on every
    * page — see .footer-techlo in global.css), which doesn't need to zebra
@@ -60,6 +62,7 @@ const {
   mainEntityId,
   speakableSelectors,
   extraSchemas = [],
+  localeAlternates,
 } = Astro.props;
 
 ---
@@ -79,6 +82,7 @@ const {
   mainEntityId={mainEntityId}
   speakableSelectors={speakableSelectors}
   extraSchemas={extraSchemas}
+  localeAlternates={localeAlternates}
 >
   <Header
     slot="header"

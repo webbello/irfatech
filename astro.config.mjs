@@ -412,6 +412,59 @@ function isEmptyListing(pathname) {
 }
 
 /**
+ * True when a URL is a locale-prefixed detail page whose content has not been
+ * translated for that locale — the route still builds it (serving the English
+ * copy so the language switcher never 404s), but the page carries `noindex`
+ * and must stay out of the sitemap.
+ *
+ * `services` and `solutions` fall back per entry, so `/id/services/websites/`
+ * exists as English until `src/content/services/id/websites.mdx` does. `pages`
+ * (the legal pages) behaves the same way. Checked against the filesystem so it
+ * self-heals: drop the translated file in and the URL rejoins the sitemap on
+ * the next build.
+ */
+function isUntranslatedLocaleDetail(pathname) {
+  const collections = {
+    services: 'services',
+    solutions: 'solutions',
+    projects: 'projects',
+    blog: 'blog',
+  };
+  for (const locale of i18nConfig.locales) {
+    if (locale === i18nConfig.defaultLocale) continue;
+    // Content collections: /<locale>/<collection>/<slug>/
+    const m = pathname.match(new RegExp(`^/${locale}/([^/]+)/([^/]+)/?$`));
+    if (m && collections[m[1]]) {
+      const dir = join(process.cwd(), 'src', 'content', collections[m[1]], locale);
+      const slug = m[2];
+      const exists = ['md', 'mdx'].some((ext) => {
+        try {
+          readFileSync(join(dir, `${slug}.${ext}`));
+          return true;
+        } catch {
+          return false;
+        }
+      });
+      if (!exists) return true;
+    }
+    // Legal pages: /<locale>/privacy/ and /<locale>/terms/
+    const legal = pathname.match(new RegExp(`^/${locale}/(privacy|terms)/?$`));
+    if (legal) {
+      const exists = ['md', 'mdx'].some((ext) => {
+        try {
+          readFileSync(join(process.cwd(), 'src', 'content', 'pages', locale, `${legal[1]}.${ext}`));
+          return true;
+        } catch {
+          return false;
+        }
+      });
+      if (!exists) return true;
+    }
+  }
+  return false;
+}
+
+/**
  * Map of URL path → ISO date, built from content frontmatter.
  *
  * Read with `fs` and a regex rather than through `astro:content`, because
@@ -491,10 +544,51 @@ const astroI18nOptions = i18nEnabled
     }
   : undefined;
 
+/**
+ * 301s from the previous Nuxt site's URLs to their Astro equivalents.
+ *
+ * The Nuxt → Astro rebuild (Aug 2026) changed both the routing and several
+ * slugs, so every URL Google had indexed for the old site started returning
+ * 404 — 32 "Not found" and 41 "Page with redirect" in Search Console, and the
+ * rankings that rode on those URLs went with them. There is no server on
+ * GitHub Pages to issue a real 301, so `output: 'static'` renders each of
+ * these as an HTML page carrying `<meta http-equiv="refresh">` plus a
+ * `<link rel="canonical">` at the destination — which Google treats as a
+ * permanent redirect and which passes the old page's signals forward.
+ *
+ * `build.format: 'directory'` (the default) writes each key to
+ * `<path>/index.html`, so `/services/erp` also answers `/services/erp/`.
+ *
+ * Keep this list in sync with the "Not found (404)" export from Search
+ * Console — anything in that report that maps to a real page today belongs
+ * here.
+ */
+const legacyRedirects = {
+  // Service slugs that were renamed
+  '/services/erp': '/services/erp-solutions/',
+  '/services/crm': '/services/crm-automation/',
+  '/services/ai-automation': '/services/ai-workflows/',
+  // Sections that were renamed
+  '/portfolio': '/projects/',
+  '/industries': '/solutions/',
+  '/landflix': '/projects/landflix/',
+  // Old blog posts folded into the rewritten set
+  '/blog/odoo-erp-india-sme': '/blog/erp-for-growing-smbs/',
+  '/blog/why-retail-shops-need-erp': '/blog/erp-for-growing-smbs/',
+  '/blog/best-crm-for-small-businesses': '/blog/crm-sales-automation/',
+  '/blog/whatsapp-business-automation-guide': '/blog/whatsapp-business-automation-india/',
+  '/blog/business-website-cost-guide': '/blog/business-websites-that-generate-leads/',
+  '/blog/ai-workflows-local-businesses': '/blog/ai-workflow-automation/',
+  '/blog/how-small-businesses-can-automate-operations': '/blog/ai-workflow-automation/',
+  '/blog/digital-transformation-real-estate': '/blog/inside-landflix/',
+};
+
 export default defineConfig({
   output: 'static',
   adapter: resolveAdapter(),
   site: process.env.SITE_URL || SITE_URL_FALLBACK,
+  trailingSlash: 'ignore',
+  redirects: legacyRedirects,
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
 
   // Astro 7 changed the default to 'jsx', which strips whitespace between
@@ -546,7 +640,11 @@ export default defineConfig({
       // describes. Both also carry `noindex`.
       filter: (page) => {
         const { pathname } = new URL(page);
-        return !/\/(components|preview-hero)\/?$/.test(pathname) && !isEmptyListing(pathname);
+        return (
+          !/\/(components|preview-hero)\/?$/.test(pathname) &&
+          !isEmptyListing(pathname) &&
+          !isUntranslatedLocaleDetail(pathname)
+        );
       },
 
       /**

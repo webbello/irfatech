@@ -104,7 +104,10 @@ export const footerNavItems: NavItem[] = [
   { label: 'GitHub', href: 'https://github.com/webbello/irfatech', order: 7, external: true },
 ];
 
-export const legalLinks: LegalLink[] = [];
+export const legalLinks: LegalLink[] = [
+  { label: 'Privacy Policy', href: '/privacy', labelKey: 'nav.items.privacy' },
+  { label: 'Terms of Service', href: '/terms', labelKey: 'nav.items.terms' },
+];
 
 /**
  * Extra columns for the footer's `columns` layout.

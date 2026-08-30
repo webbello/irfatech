@@ -28,6 +28,9 @@ import {
   getServicesBaseUrl,
   getRelatedPosts,
   buildWhatsAppUrl,
+  getServiceSlug,
+  isFallbackEntry,
+  getServiceTranslations,
 } from '@/lib/services';
 import { getPostUrl } from '@/lib/blog';
 import { getVisibleSolutions, getSolutionUrl } from '@/lib/solutions';
@@ -43,6 +46,12 @@ const { data } = service;
 const { Content } = await render(service);
 
 const related = await getRelatedPosts(data.relatedPosts, locale);
+
+// English copy standing in for a not-yet-translated locale: keep the page
+// reachable but out of the index and the sitemap, and point hreflang only at
+// locales that genuinely have this service translated.
+const isFallback = isFallbackEntry(service.id, locale);
+const localeAlternates = await getServiceTranslations(getServiceSlug(service.id, locale));
 
 const pageUrl = new URL(getServiceUrl(service.id, locale), Astro.site).toString();
 const whatsappUrl = buildWhatsAppUrl(data.whatsappMessage);
@@ -103,6 +112,8 @@ if (data.process.length > 0) {
   faqs={data.faqs}
   aboutId={serviceId(pageUrl)}
   extraSchemas={extraSchemas}
+  noindex={isFallback}
+  localeAlternates={localeAlternates}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>
