@@ -1,0 +1,50 @@
+---
+/**
+ * LegalView — a single legal page (`/privacy`, `/terms`). Shared by the
+ * default-locale and locale-prefixed routes. Content comes from the `pages`
+ * collection; the prose body is rendered as-is.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+import Breadcrumbs from '@/components/seo/Breadcrumbs.astro';
+import { t, defaultLocale, localizedPath } from '@/i18n';
+
+interface Props {
+  page: CollectionEntry<'pages'>;
+  locale?: string;
+  /** True when the English page is being served under a non-English URL. */
+  isFallback?: boolean;
+  localeAlternates?: { locale: string; url: string }[];
+}
+
+const { page, locale = defaultLocale, isFallback = false, localeAlternates } = Astro.props;
+const { data } = page;
+const { Content } = await render(page);
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: localizedPath('/', locale) },
+  { label: data.title },
+];
+---
+
+<PageLayout
+  title={data.title}
+  description={data.description}
+  pageType="WebPage"
+  noindex={isFallback}
+  localeAlternates={localeAlternates}
+  breadcrumbs={breadcrumbs}
+>
+  <section class="py-[var(--space-section-md)]">
+    <div class="mx-auto max-w-3xl px-6">
+      <Breadcrumbs items={breadcrumbs} />
+      <h1 class="font-display text-4xl font-bold text-foreground mt-6 mb-8 text-balance">
+        {data.title}
+      </h1>
+      <div class="prose prose-lg max-w-none">
+        <Content />
+      </div>
+    </div>
+  </section>
+</PageLayout>

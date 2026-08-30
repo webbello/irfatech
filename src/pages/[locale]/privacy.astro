@@ -1,0 +1,22 @@
+---
+import LegalView from '@/components/pages/views/LegalView.astro';
+import { getLegalPage, getLegalAlternates, getSecondaryLocales } from '@/lib/legal';
+
+// Locale-prefixed privacy policy (`/<locale>/privacy`). Falls back to the
+// English copy, marked noindex, until a translated file exists at
+// `src/content/pages/<locale>/privacy.mdx`.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const { entry, isFallback } = await getLegalPage('privacy', locale);
+const localeAlternates = await getLegalAlternates('privacy');
+---
+
+<LegalView
+  page={entry}
+  locale={locale}
+  isFallback={isFallback}
+  localeAlternates={localeAlternates}
+/>

@@ -1,0 +1,12 @@
+---
+import LegalView from '@/components/pages/views/LegalView.astro';
+import { getLegalPage, getLegalAlternates } from '@/lib/legal';
+import { defaultLocale } from '@/i18n';
+
+// Default-locale terms of service (`/terms`). Other locales are served by
+// `src/pages/[locale]/terms.astro`.
+const { entry } = await getLegalPage('terms', defaultLocale);
+const localeAlternates = await getLegalAlternates('terms');
+---
+
+<LegalView page={entry} locale={defaultLocale} localeAlternates={localeAlternates} />

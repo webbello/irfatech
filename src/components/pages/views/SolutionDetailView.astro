@@ -22,7 +22,14 @@ import Breadcrumbs from '@/components/seo/Breadcrumbs.astro';
 import { Hero } from '@/components/hero';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 import { t, defaultLocale, localizedPath } from '@/i18n';
-import { getSolutionUrl, getSolutionsBaseUrl, getRelatedSolutions } from '@/lib/solutions';
+import {
+  getSolutionUrl,
+  getSolutionsBaseUrl,
+  getRelatedSolutions,
+  getSolutionSlug,
+  isFallbackEntry,
+  getSolutionTranslations,
+} from '@/lib/solutions';
 import { getVisibleServices, getServiceUrl } from '@/lib/services';
 import { createServiceNode, serviceId, type SchemaNode } from '@/lib/schema';
 
@@ -36,6 +43,14 @@ const { data } = solution;
 const { Content } = await render(solution);
 
 const related = await getRelatedSolutions(data.related, locale);
+
+// When this locale has no translation of the solution yet, the route serves
+// the English copy so the language switcher never 404s — but it must not be
+// indexed as a distinct localized page, and its hreflang set names only the
+// locales that really do have a translation.
+const slug = getSolutionSlug(solution.id, locale);
+const isFallback = isFallbackEntry(solution.id, locale);
+const localeAlternates = await getSolutionTranslations(slug);
 
 const contactUrl = localizedPath('/contact', locale);
 const solutionsUrl = getSolutionsBaseUrl(locale);
@@ -78,6 +93,8 @@ const breadcrumbs = [
   breadcrumbs={breadcrumbs}
   aboutId={serviceId(pageUrl)}
   extraSchemas={extraSchemas}
+  noindex={isFallback}
+  localeAlternates={localeAlternates}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

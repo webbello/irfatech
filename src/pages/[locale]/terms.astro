@@ -1,0 +1,22 @@
+---
+import LegalView from '@/components/pages/views/LegalView.astro';
+import { getLegalPage, getLegalAlternates, getSecondaryLocales } from '@/lib/legal';
+
+// Locale-prefixed terms of service (`/<locale>/terms`). Falls back to the
+// English copy, marked noindex, until a translated file exists at
+// `src/content/pages/<locale>/terms.mdx`.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const { entry, isFallback } = await getLegalPage('terms', locale);
+const localeAlternates = await getLegalAlternates('terms');
+---
+
+<LegalView
+  page={entry}
+  locale={locale}
+  isFallback={isFallback}
+  localeAlternates={localeAlternates}
+/>

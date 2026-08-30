@@ -1,0 +1,12 @@
+---
+import LegalView from '@/components/pages/views/LegalView.astro';
+import { getLegalPage, getLegalAlternates } from '@/lib/legal';
+import { defaultLocale } from '@/i18n';
+
+// Default-locale privacy policy (`/privacy`). Other locales are served by
+// `src/pages/[locale]/privacy.astro`.
+const { entry } = await getLegalPage('privacy', defaultLocale);
+const localeAlternates = await getLegalAlternates('privacy');
+---
+
+<LegalView page={entry} locale={defaultLocale} localeAlternates={localeAlternates} />
