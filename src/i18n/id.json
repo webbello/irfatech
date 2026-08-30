@@ -232,8 +232,8 @@
   "pages": {
     "about": {
       "meta": {
-        "title": "Tentang — Otomasi Bisnis & Infrastruktur Digital",
-        "description": "IRFAtech (Integrated Resources For Automation & Technology) membantu bisnis yang berkembang di India dan Timor-Leste mengotomasi operasional dengan ERP, alur kerja AI, dan perangkat lunak khusus."
+        "title": "Tentang — Perusahaan Software & Otomatisasi untuk Timor-Leste & India",
+        "description": "IRFATECH (Integrated Resources For Automation & Technology) adalah perusahaan software dan otomatisasi yang melayani India dan Timor-Leste — ERP, alur kerja AI, perangkat lunak khusus, dan pengumpulan data lapangan."
       },
       "hero": {
         "badge": "Tentang",
@@ -423,8 +423,9 @@
     },
     "services": {
       "meta": {
-        "title": "Layanan — ERP, Otomasi, Perangkat Lunak & Dukungan",
-        "description": "Solusi ERP, otomasi AI & alur kerja, perangkat lunak khusus, otomasi WhatsApp, CRM, website, aplikasi mobile, dan dukungan — satu mitra, delapan layanan."
+        "title": "Layanan",
+        "titleFull": "Layanan Pengembangan Software di Timor-Leste & India",
+        "description": "ERP, perangkat lunak khusus, situs bisnis, aplikasi seluler, otomasi WhatsApp dan alur kerja, CRM, dan dukungan — untuk bisnis di Timor-Leste dan India."
       },
       "includedLabel": "Yang termasuk",
       "hero": {
@@ -648,8 +649,8 @@
     },
     "contact": {
       "meta": {
-        "title": "Hubungi Kami",
-        "description": "Memulai proyek ERP, otomasi, atau perangkat lunak? Ceritakan tentang bisnis Anda dan kami akan membalas dalam 1 hari kerja."
+        "title": "Hubungi Kami — Perusahaan Software di Timor-Leste & India",
+        "description": "Memulai proyek ERP, otomasi, situs web, atau perangkat lunak di Timor-Leste atau India? Ceritakan tentang bisnis Anda dan kami akan membalas dalam 1 hari kerja."
       },
       "hero": {
         "badge": "Mulai proyek",
@@ -669,8 +670,8 @@
     },
     "home": {
       "meta": {
-        "title": "Membuat Bisnis Bekerja Lebih Cerdas Melalui Software",
-        "description": "Ceritakan apa yang paling menyita waktu di bisnis Anda. Kami membangun perangkat lunak khusus, otomasi, ERP, dan CRM untuk UKM yang berkembang di India dan Timor-Leste."
+        "title": "Perusahaan Software — Timor-Leste & India",
+        "description": "IRFATECH adalah perusahaan pengembang perangkat lunak untuk bisnis di Timor-Leste (Dili) dan India — ERP, situs bisnis, aplikasi seluler, serta otomatisasi WhatsApp dan alur kerja."
       },
       "hero": {
         "badge": "15+ Tahun Pengalaman · India & Timor-Leste",

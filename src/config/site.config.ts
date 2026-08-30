@@ -360,7 +360,7 @@ const siteConfig: SiteConfig = {
   email: 'irfatech.in@gmail.com',
   phone: '+91 88648 12200',
   foundingYear: '2009',
-  languages: ['English', 'Hindi', 'Urdu'],
+  languages: ['English', 'Portuguese', 'Tetum', 'Indonesian', 'Hindi'],
   // `name` above is the wordmark's casing. These are the other spellings the
   // business is referred to in its own copy and by other people; without them
   // the two are unrelated strings to a machine.

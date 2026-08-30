@@ -1,0 +1,12 @@
+---
+import LegalView from '@/components/pages/views/LegalView.astro';
+import { getLegalPage, getLegalAlternates } from '@/lib/legal';
+import { defaultLocale } from '@/i18n';
+
+// Default-locale Timor-Leste market page (`/timor-leste`). Other locales are
+// served by `src/pages/[locale]/timor-leste.astro`.
+const { entry } = await getLegalPage('timor-leste', defaultLocale);
+const localeAlternates = await getLegalAlternates('timor-leste');
+---
+
+<LegalView page={entry} locale={defaultLocale} localeAlternates={localeAlternates} />
